@@ -755,8 +755,12 @@ class Assert
             return 'false';
         }
 
+        if (is_array($value)) {
+            return 'array';
+        }
+
         if (is_object($value)) {
-            return 'instance of '.get_class($value);
+            return get_class($value);
         }
 
         if (is_resource($value)) {

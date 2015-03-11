@@ -340,4 +340,36 @@ class AssertTest extends PHPUnit_Framework_TestCase
 
         call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
     }
+
+    public function getStringConversions()
+    {
+        return array(
+            array('integer', array('foobar'), 'Expected an integer. Got: string'),
+            array('string', array(1), 'Expected a string. Got: integer'),
+            array('string', array(true), 'Expected a string. Got: boolean'),
+            array('string', array(null), 'Expected a string. Got: NULL'),
+            array('string', array(array()), 'Expected a string. Got: array'),
+            array('string', array(new stdClass()), 'Expected a string. Got: stdClass'),
+            array('string', array(self::getResource()), 'Expected a string. Got: resource'),
+
+            array('eq', array('1', '2'), 'Expected a value equal to "2". Got: "1"'),
+            array('eq', array(1, 2), 'Expected a value equal to 2. Got: 1'),
+            array('eq', array(true, false), 'Expected a value equal to false. Got: true'),
+            array('eq', array(true, null), 'Expected a value equal to null. Got: true'),
+            array('eq', array(null, true), 'Expected a value equal to true. Got: null'),
+            array('eq', array(array(1), array(2)), 'Expected a value equal to array. Got: array'),
+            array('eq', array(new ArrayIterator(array()), new stdClass()), 'Expected a value equal to stdClass. Got: ArrayIterator'),
+            array('eq', array(1, self::getResource()), 'Expected a value equal to resource. Got: 1'),
+        );
+    }
+
+    /**
+     * @dataProvider getStringConversions
+     */
+    public function testConvertValuesToStrings($method, $args, $exceptionMessage)
+    {
+        $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
+
+        call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+    }
 }
