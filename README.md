@@ -30,7 +30,7 @@ class Employee
     public function __construct($id)
     {
         Assert::integer($id, 'The employee ID must be an integer. Got: %s');
-        Assert::greaterThan(0, 'The employee ID must be a positive integer. Got: %s');
+        Assert::greaterThan($id, 0, 'The employee ID must be a positive integer. Got: %s');
     }
 }
 ```
