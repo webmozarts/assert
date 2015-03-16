@@ -712,6 +712,26 @@ class Assert
         }
     }
 
+    public static function keyExists($array, $key, $message = '')
+    {
+        if (!array_key_exists($key, $array)) {
+            throw new InvalidArgumentException(sprintf(
+                $message ?: 'Expected the key %s to exist.',
+                self::valueToString($key)
+            ));
+        }
+    }
+
+    public static function keyNotExists($array, $key, $message = '')
+    {
+        if (array_key_exists($key, $array)) {
+            throw new InvalidArgumentException(sprintf(
+                $message ?: 'Expected the key %s to not exist.',
+                self::valueToString($key)
+            ));
+        }
+    }
+
     public static function __callStatic($name, $arguments)
     {
         if ('nullOr' === substr($name, 0, 6)) {

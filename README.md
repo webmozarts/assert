@@ -132,6 +132,13 @@ Method                                               | Description
 `subclassOf($value, $class, $message = '')`          | Check that a class is a subclass of another
 `implementsInterface($value, $class, $message = '')` | Check that a class implements an interface
 
+### Array Assertions
+
+Method                                      | Description
+------------------------------------------- | --------------------------------------------------
+`keyExists($array, $key, $message = '')`    | Check that a key exists in an array
+`keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an array
+
 ### Collection Assertions
 
 All of the above assertions can be prefixed with `all*()` to test the contents

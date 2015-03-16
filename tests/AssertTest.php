@@ -241,6 +241,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('subclassOf', array(__CLASS__, 'stdClass'), false),
             array('implementsInterface', array('ArrayIterator', 'Traversable'), true),
             array('implementsInterface', array(__CLASS__, 'Traversable'), false),
+            array('keyExists', array(array('key' => 0), 'key'), true),
+            array('keyExists', array(array('key' => null), 'key'), true),
+            array('keyExists', array(array('key' => null), 'foo'), false),
+            array('keyNotExists', array(array('key' => 0), 'key'), false),
+            array('keyNotExists', array(array('key' => null), 'key'), false),
+            array('keyNotExists', array(array('key' => null), 'foo'), true),
         );
     }
 
