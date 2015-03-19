@@ -1,6 +1,6 @@
 Changelog
 =========
 
-* 1.0.0-next (@release_date@)
+* 1.0.0-beta (2015-03-19)
 
- * first alpha release
+ * first beta release
