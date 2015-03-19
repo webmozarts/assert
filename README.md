@@ -1,13 +1,13 @@
 Webmozart Assert
 ================
 
-[![Build Status](https://travis-ci.org/webmozart/assert.svg?branch=master)](https://travis-ci.org/webmozart/assert)
+[![Build Status](https://travis-ci.org/webmozart/assert.svg?branch=1.0.0-beta)](https://travis-ci.org/webmozart/assert)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/689b709c-117b-4076-82e5-000862e8a211/mini.png)](https://insight.sensiolabs.com/projects/689b709c-117b-4076-82e5-000862e8a211)
 [![Latest Stable Version](https://poser.pugx.org/webmozart/assert/v/stable.svg)](https://packagist.org/packages/webmozart/assert)
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
 [![Dependency Status](https://www.versioneye.com/php/webmozart:assert/1.0.0/badge.svg)](https://www.versioneye.com/php/webmozart:assert/1.0.0)
 
-Latest release: none
+Latest release: [1.0.0-beta](https://packagist.org/packages/webmozart/assert#1.0.0-beta)
 
 PHP >= 5.3.9
 
@@ -17,6 +17,15 @@ needed to write a safe implementation.
 
 All assertions in the [`Assert`] class throw an `\InvalidArgumentException` if 
 they fail. 
+
+Installation
+------------
+
+Use [Composer] to install the package:
+
+```
+$ composer require webmozart/assert:~1.0@beta
+```
 
 Example
 -------
@@ -170,15 +179,6 @@ Authors
 
 * [Bernhard Schussek] a.k.a. [@webmozart]
 * [The Community Contributors]
-
-Installation
-------------
-
-Use [Composer] to install the package:
-
-```
-$ composer require webmozart/assert@dev
-```
 
 Contribute
 ----------
