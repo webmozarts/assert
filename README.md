@@ -16,7 +16,32 @@ your methods. With these assertions, you can greatly reduce the amount of coding
 needed to write a safe implementation.
 
 All assertions in the [`Assert`] class throw an `\InvalidArgumentException` if 
-they fail. 
+they fail.
+
+FAQ
+---
+
+**What's the difference to [beberlei/assert]?**
+
+This library is heavily inspired by Benjamin Eberlei's wonderful [assert package],
+but fixes a usability issue with error messages that can't be fixed there without
+breaking backwards compatibility.
+
+Compared to [beberlei/assert], this package features usable error messages by
+default. You can also easily write usable custom error messages:
+
+```
+Assert::string($path, 'The path is expected to be a string. Got: %s');
+```
+
+The following placeholders are available:
+
+* `%s`: The tested value as string, e.g. `"/foo/bar"`.
+* `%2$s`, `%3$s`, ...: Additional assertion-specific values, e.g. the
+  minimum/maximum length, allowed values, etc.
+  
+Check the source code of the assertions to find out details about the additional
+available parameters.
 
 Installation
 ------------
@@ -165,15 +190,6 @@ assertion only if it the value is not `null`:
 Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
 ```
 
-Credits
--------
-
-This package is heavily inspired by [beberlei/assert]. Compared to that, this
-package has tweaked exception messages that provide a nice output by default
-and can be easily customized. Changing the structure of the exception messages
-in [beberlei/assert] would have broken backwards compatibility with all
-libraries that currently use that package.
-
 Authors
 -------
 
@@ -200,6 +216,7 @@ License
 All contents of this package are licensed under the [MIT license].
 
 [beberlei/assert]: https://github.com/beberlei/assert
+[assert package]: https://github.com/beberlei/assert
 [Composer]: https://getcomposer.org
 [Bernhard Schussek]: http://webmozarts.com
 [The Community Contributors]: https://github.com/webmozart/assert/graphs/contributors
