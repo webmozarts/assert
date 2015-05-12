@@ -1,6 +1,6 @@
 {
     "name": "webmozart/assert",
-    "description": "Efficient assertions to validate the input/output of your methods.",
+    "description": "Assertions to validate method input/output with nice error messages.",
     "keywords": ["assert", "check", "validate"],
     "license": "MIT",
     "authors": [
