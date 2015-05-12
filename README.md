@@ -27,21 +27,23 @@ This library is heavily inspired by Benjamin Eberlei's wonderful [assert package
 but fixes a usability issue with error messages that can't be fixed there without
 breaking backwards compatibility.
 
-Compared to [beberlei/assert], this package features usable error messages by
-default. You can also easily write usable custom error messages:
+This package features usable error messages by default. However, you can also 
+easily write custom error messages:
 
 ```
 Assert::string($path, 'The path is expected to be a string. Got: %s');
 ```
 
-The following placeholders are available:
+In [beberlei/assert], the ordering of the `%s` placeholders is different for 
+every assertion. This package, on the contrary, provides consistent placeholder 
+ordering for all assertions:
 
 * `%s`: The tested value as string, e.g. `"/foo/bar"`.
 * `%2$s`, `%3$s`, ...: Additional assertion-specific values, e.g. the
   minimum/maximum length, allowed values, etc.
   
 Check the source code of the assertions to find out details about the additional
-available parameters.
+available placeholders.
 
 Installation
 ------------
