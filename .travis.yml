@@ -1,25 +1,29 @@
 language: php
 
-matrix:
-    include:
-        - php: hhvm
-        - php: 5.3
-        - php: 5.4
-        - php: 5.5
-        - php: 5.6
-        - php: nightly
-    allow_failures:
-        - php: hhvm
-        - php: nightly
-    fast_finish: true
-
 sudo: false
 
 cache:
   directories:
     - $HOME/.composer/cache
 
-install: composer install -n
+matrix:
+  include:
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+    - php: 5.6
+      env: COMPOSER_FLAGS='--prefer-lowest --prefer-stable' 
+    - php: hhvm
+    - php: nightly
+  allow_failures:
+    - php: hhvm
+    - php: nightly
+  fast_finish: true
+
+install:
+  - composer self-update -q
+  - composer update $COMPOSER_FLAGS -n
 
 script: vendor/bin/phpunit -v --coverage-clover=coverage.clover
 
