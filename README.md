@@ -1,7 +1,7 @@
 Webmozart Assert
 ================
 
-[![Build Status](https://travis-ci.org/webmozart/assert.svg?branch=master)](https://travis-ci.org/webmozart/assert)
+[![Build Status](https://travis-ci.org/webmozart/assert.svg?branch=1.0.2)](https://travis-ci.org/webmozart/assert)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/689b709c-117b-4076-82e5-000862e8a211/mini.png)](https://insight.sensiolabs.com/projects/689b709c-117b-4076-82e5-000862e8a211)
 [![Latest Stable Version](https://poser.pugx.org/webmozart/assert/v/stable.svg)](https://packagist.org/packages/webmozart/assert)
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
