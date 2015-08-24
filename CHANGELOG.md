@@ -1,6 +1,11 @@
 Changelog
 =========
 
+* 1.0.2 (2015-08-24)
+
+ * integrated Style CI
+ * add tests for minimum package dependencies on Travis CI
+
 * 1.0.1 (2015-05-12)
 
  * added support for PHP 5.3.3
