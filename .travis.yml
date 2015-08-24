@@ -21,9 +21,7 @@ matrix:
     - php: nightly
   fast_finish: true
 
-install:
-  - composer self-update -q
-  - composer update $COMPOSER_FLAGS -n
+install: composer update $COMPOSER_FLAGS -n
 
 script: vendor/bin/phpunit -v --coverage-clover=coverage.clover
 
