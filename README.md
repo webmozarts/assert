@@ -1,5 +1,5 @@
 The Webmozart Assert API Documentation
-===============================================
+======================================
 
 This repository contains the API documentation of the [Webmozart Assert]. 
 The documentation is rendered at https://webmozart.github.io/assert/api 
