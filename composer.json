@@ -1,0 +1,18 @@
+{
+    "license": "MIT",
+    "description": "The Webmozart Assert API documentation",
+    "homepage": "https://webmozart.github.io/assert/api",
+    "authors": [
+        {
+            "name": "Bernhard Schussek",
+            "email": "bschussek@gmail.com"
+        }
+    ],
+    "require": {
+        "webmozart/assert": "~1.0@dev",
+        "apigen/apigen": "~4.1@dev"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

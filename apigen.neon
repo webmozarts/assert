@@ -1,0 +1,6 @@
+source:
+    - vendor/webmozart/assert/src
+
+title: Webmozart Assert API
+
+baseUrl: https://webmozart.github.io/assert/api/latest

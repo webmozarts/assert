@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://webmozart.github.io/assert/api/latest/sitemap.xml
