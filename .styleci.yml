@@ -2,6 +2,7 @@ preset: symfony
 
 enabled:
     - ordered_use
+    - psr4
 
 disabled:
     - empty_return
