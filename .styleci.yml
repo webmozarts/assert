@@ -2,11 +2,6 @@ preset: symfony
 
 enabled:
     - ordered_use
-    - psr4
 
 disabled:
     - empty_return
-
-    # Unusable at the moment
-    # https://github.com/StyleCI/StyleCI/issues/471
-    - psr0
