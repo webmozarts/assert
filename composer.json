@@ -12,6 +12,10 @@
     "require": {
         "php": ">=5.3.3"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^4.6",
+        "sebastian/version": "^1.0.1"
+    },
     "autoload": {
         "psr-4": {
             "Webmozart\\Assert\\": "src/"
@@ -26,8 +30,5 @@
         "branch-alias": {
             "dev-master": "1.0-dev"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.6"
     }
 }
