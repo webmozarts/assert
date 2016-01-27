@@ -99,6 +99,7 @@ Method                                          | Description
 `numeric($value, $message = '')`                | Check that a value is numeric
 `boolean($value, $message = '')`                | Check that a value is a boolean
 `scalar($value, $message = '')`                 | Check that a value is a scalar
+`object($value, $message = '')`                 | Check that a value is an object
 `resource($value, $type = null, $message = '')` | Check that a value is a resource
 `isCallable($value, $message = '')`             | Check that a value is a callable
 `isArray($value, $message = '')`                | Check that a value is an array
@@ -159,13 +160,17 @@ Method                              | Description
 `readable($value, $message = '')`   | Check that a value is a readable path
 `writable($value, $message = '')`   | Check that a value is a writable path
 
-### Class Assertions
+### Object Assertions
 
-Method                                               | Description
----------------------------------------------------- | --------------------------------------------------
-`classExists($value, $message = '')`                 | Check that a value is an existing class name
-`subclassOf($value, $class, $message = '')`          | Check that a class is a subclass of another
-`implementsInterface($value, $class, $message = '')` | Check that a class implements an interface
+Method                                                | Description
+----------------------------------------------------- | --------------------------------------------------
+`classExists($value, $message = '')`                  | Check that a value is an existing class name
+`subclassOf($value, $class, $message = '')`           | Check that a class is a subclass of another
+`implementsInterface($value, $class, $message = '')`  | Check that a class implements an interface
+`propertyExists($value, $property, $message = '')`    | Check that a property exists in a class/object
+`propertyNotExists($value, $property, $message = '')` | Check that a property does not exist in a class/object
+`methodExists($value, $method, $message = '')`        | Check that a method exists in a class/object
+`methodNotExists($value, $method, $message = '')`     | Check that a method does not exist in a class/object
 
 ### Array Assertions
 

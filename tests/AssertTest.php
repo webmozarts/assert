@@ -14,6 +14,7 @@ namespace Webmozart\Assert\Tests;
 use ArrayIterator;
 use Exception;
 use PHPUnit_Framework_TestCase;
+use RuntimeException;
 use stdClass;
 use Webmozart\Assert\Assert;
 
@@ -78,6 +79,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('scalar', array(null), false),
             array('scalar', array(array()), false),
             array('scalar', array(new stdClass()), false),
+            array('object', array(new stdClass()), true),
+            array('object', array(new RuntimeException()), true),
+            array('object', array(null), false),
+            array('object', array(true), false),
+            array('object', array(1), false),
+            array('object', array(array()), false),
             array('resource', array($resource), true),
             array('resource', array($resource, 'stream'), true),
             array('resource', array($resource, 'other'), false),
@@ -242,6 +249,26 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('subclassOf', array(__CLASS__, 'stdClass'), false),
             array('implementsInterface', array('ArrayIterator', 'Traversable'), true),
             array('implementsInterface', array(__CLASS__, 'Traversable'), false),
+            array('propertyExists', array((object) array('property' => 0), 'property'), true),
+            array('propertyExists', array((object) array('property' => null), 'property'), true),
+            array('propertyExists', array((object) array('property' => null), 'foo'), false),
+            array('propertyNotExists', array((object) array('property' => 0), 'property'), false),
+            array('propertyNotExists', array((object) array('property' => null), 'property'), false),
+            array('propertyNotExists', array((object) array('property' => null), 'foo'), true),
+            array('methodExists', array('RuntimeException', 'getMessage'), true),
+            array('methodExists', array(new RuntimeException(), 'getMessage'), true),
+            array('methodExists', array('stdClass', 'getMessage'), false),
+            array('methodExists', array(new stdClass(), 'getMessage'), false),
+            array('methodExists', array(null, 'getMessage'), false),
+            array('methodExists', array(true, 'getMessage'), false),
+            array('methodExists', array(1, 'getMessage'), false),
+            array('methodNotExists', array('RuntimeException', 'getMessage'), false),
+            array('methodNotExists', array(new RuntimeException(), 'getMessage'), false),
+            array('methodNotExists', array('stdClass', 'getMessage'), true),
+            array('methodNotExists', array(new stdClass(), 'getMessage'), true),
+            array('methodNotExists', array(null, 'getMessage'), true),
+            array('methodNotExists', array(true, 'getMessage'), true),
+            array('methodNotExists', array(1, 'getMessage'), true),
             array('keyExists', array(array('key' => 0), 'key'), true),
             array('keyExists', array(array('key' => null), 'key'), true),
             array('keyExists', array(array('key' => null), 'foo'), false),
