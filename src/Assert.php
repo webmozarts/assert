@@ -75,6 +75,7 @@ use Traversable;
  * @method static void nullOrMethodNotExists($value, $method, $message = '')
  * @method static void nullOrKeyExists($value, $key, $message = '')
  * @method static void nullOrKeyNotExists($value, $key, $message = '')
+ * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
  * @method static void allInteger($values, $message = '')
@@ -134,6 +135,7 @@ use Traversable;
  * @method static void allMethodNotExists($values, $method, $message = '')
  * @method static void allKeyExists($values, $key, $message = '')
  * @method static void allKeyNotExists($values, $key, $message = '')
+ * @method static void allUuid($values, $message = '')
  *
  * @since  1.0
  *
@@ -793,6 +795,24 @@ class Assert
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the key %s to not exist.',
                 self::valueToString($key)
+            ));
+        }
+    }
+
+    public static function uuid($value, $message = '')
+    {
+        $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
+
+        // The nil UUID is special form of UUID that is specified to have all
+        // 128 bits set to zero.
+        if ('00000000-0000-0000-0000-000000000000' === $value) {
+            return;
+        }
+
+        if (!preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/', $value)) {
+            throw new InvalidArgumentException(sprintf(
+                $message ?: 'Value "%s" is not a valid UUID.',
+                self::valueToString($value)
             ));
         }
     }

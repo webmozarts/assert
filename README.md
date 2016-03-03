@@ -149,6 +149,7 @@ Method                                              | Description
 `minLength($value, $min, $message = '')`            | Check that a string has at least a certain number of characters
 `maxLength($value, $max, $message = '')`            | Check that a string has at most a certain number of characters
 `lengthBetween($value, $min, $max, $message = '')`  | Check that a string has a length in the given range
+`uuid($value, $message = '')`                       | Check that a string is a valid UUID
 
 ### File Assertions
 

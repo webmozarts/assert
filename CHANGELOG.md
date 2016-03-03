@@ -8,6 +8,7 @@ Changelog
  * added `Assert::propertyNotExists()`
  * added `Assert::methodExists()`
  * added `Assert::methodNotExists()`
+ * added `Assert::uuid()`
 
 * 1.0.2 (2015-08-24)
 
