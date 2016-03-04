@@ -275,6 +275,19 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('keyNotExists', array(array('key' => 0), 'key'), false),
             array('keyNotExists', array(array('key' => null), 'key'), false),
             array('keyNotExists', array(array('key' => null), 'foo'), true),
+            array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
+            array('uuid', array('ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
+            array('uuid', array('ff6f8cb0-c57d-11e1-9b21-0800200c9a66'), true),
+            array('uuid', array('ff6f8cb0-c57d-31e1-9b21-0800200c9a66'), true),
+            array('uuid', array('ff6f8cb0-c57d-41e1-9b21-0800200c9a66'), true),
+            array('uuid', array('ff6f8cb0-c57d-51e1-9b21-0800200c9a66'), true),
+            array('uuid', array('FF6F8CB0-C57D-11E1-9B21-0800200C9A66'), true),
+            array('uuid', array('zf6f8cb0-c57d-11e1-9b21-0800200c9a66'), false),
+            array('uuid', array('af6f8cb0c57d11e19b210800200c9a66'), false),
+            array('uuid', array('ff6f8cb0-c57da-51e1-9b21-0800200c9a66'), false),
+            array('uuid', array('af6f8cb-c57d-11e1-9b21-0800200c9a66'), false),
+            array('uuid', array('3f6f8cb0-c57d-11e1-9b21-0800200c9a6'), false),
+
         );
     }
 
