@@ -148,15 +148,15 @@ class Assert
         if (!is_string($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a string. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
 
     public static function stringNotEmpty($value, $message = '')
     {
-        self::string($value, $message);
-        self::notEmpty($value, $message);
+        static::string($value, $message);
+        static::notEmpty($value, $message);
     }
 
     public static function integer($value, $message = '')
@@ -164,7 +164,7 @@ class Assert
         if (!is_int($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an integer. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -174,7 +174,7 @@ class Assert
         if (!is_numeric($value) || $value != (int) $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an integerish value. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -184,7 +184,7 @@ class Assert
         if (!is_float($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a float. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -194,7 +194,7 @@ class Assert
         if (!is_numeric($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a numeric. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -204,7 +204,7 @@ class Assert
         if (!is_bool($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a boolean. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -214,7 +214,7 @@ class Assert
         if (!is_scalar($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a scalar. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -224,7 +224,7 @@ class Assert
         if (!is_object($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an object. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -234,14 +234,14 @@ class Assert
         if (!is_resource($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a resource. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
 
         if ($type && $type !== get_resource_type($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a resource of type %2$s. Got: %s',
-                self::typeToString($value),
+                static::typeToString($value),
                 $type
             ));
         }
@@ -252,7 +252,7 @@ class Assert
         if (!is_callable($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a callable. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -262,7 +262,7 @@ class Assert
         if (!is_array($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an array. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -272,7 +272,7 @@ class Assert
         if (!is_array($value) && !($value instanceof Traversable)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a traversable. Got: %s',
-                self::typeToString($value)
+                static::typeToString($value)
             ));
         }
     }
@@ -282,7 +282,7 @@ class Assert
         if (!($value instanceof $class)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an instance of %2$s. Got: %s',
-                self::typeToString($value),
+                static::typeToString($value),
                 $class
             ));
         }
@@ -293,7 +293,7 @@ class Assert
         if ($value instanceof $class) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an instance other than %2$s. Got: %s',
-                self::typeToString($value),
+                static::typeToString($value),
                 $class
             ));
         }
@@ -304,7 +304,7 @@ class Assert
         if (!empty($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an empty value. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -314,7 +314,7 @@ class Assert
         if (empty($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a non-empty value. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -324,7 +324,7 @@ class Assert
         if (null !== $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected null. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -343,7 +343,7 @@ class Assert
         if (true !== $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to be true. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -353,7 +353,7 @@ class Assert
         if (false !== $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to be false. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -363,8 +363,8 @@ class Assert
         if ($value2 != $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value equal to %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($value2)
+                static::valueToString($value),
+                static::valueToString($value2)
             ));
         }
     }
@@ -374,7 +374,7 @@ class Assert
         if ($value2 == $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a different value than %s.',
-                self::valueToString($value2)
+                static::valueToString($value2)
             ));
         }
     }
@@ -384,8 +384,8 @@ class Assert
         if ($value2 !== $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value identical to %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($value2)
+                static::valueToString($value),
+                static::valueToString($value2)
             ));
         }
     }
@@ -395,7 +395,7 @@ class Assert
         if ($value2 === $value) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value not identical to %s.',
-                self::valueToString($value2)
+                static::valueToString($value2)
             ));
         }
     }
@@ -405,8 +405,8 @@ class Assert
         if ($value <= $limit) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value greater than %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($limit)
+                static::valueToString($value),
+                static::valueToString($limit)
             ));
         }
     }
@@ -416,8 +416,8 @@ class Assert
         if ($value < $limit) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value greater than or equal to %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($limit)
+                static::valueToString($value),
+                static::valueToString($limit)
             ));
         }
     }
@@ -427,8 +427,8 @@ class Assert
         if ($value >= $limit) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value less than %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($limit)
+                static::valueToString($value),
+                static::valueToString($limit)
             ));
         }
     }
@@ -438,8 +438,8 @@ class Assert
         if ($value > $limit) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value less than or equal to %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($limit)
+                static::valueToString($value),
+                static::valueToString($limit)
             ));
         }
     }
@@ -449,9 +449,9 @@ class Assert
         if ($value < $min || $value > $max) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value between %2$s and %3$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($min),
-                self::valueToString($max)
+                static::valueToString($value),
+                static::valueToString($min),
+                static::valueToString($max)
             ));
         }
     }
@@ -461,8 +461,8 @@ class Assert
         if (!in_array($value, $values, true)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected one of: %2$s. Got: %s',
-                self::valueToString($value),
-                implode(', ', array_map(array(__CLASS__, 'valueToString'), $values))
+                static::valueToString($value),
+                implode(', ', array_map(array('static', 'valueToString'), $values))
             ));
         }
     }
@@ -472,8 +472,8 @@ class Assert
         if (false === strpos($value, $subString)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($subString)
+                static::valueToString($value),
+                static::valueToString($subString)
             ));
         }
     }
@@ -483,8 +483,8 @@ class Assert
         if (0 !== strpos($value, $prefix)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to start with %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($prefix)
+                static::valueToString($value),
+                static::valueToString($prefix)
             ));
         }
     }
@@ -503,18 +503,18 @@ class Assert
         if (!$valid) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to start with a letter. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
 
     public static function endsWith($value, $suffix, $message = '')
     {
-        if ($suffix !== substr($value, -self::strlen($suffix))) {
+        if ($suffix !== substr($value, -static::strlen($suffix))) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($suffix)
+                static::valueToString($value),
+                static::valueToString($suffix)
             ));
         }
     }
@@ -524,7 +524,7 @@ class Assert
         if (!preg_match($pattern, $value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'The value %s does not match the expected pattern.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -539,7 +539,7 @@ class Assert
         if ($valid) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain only letters. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -554,7 +554,7 @@ class Assert
         if ($valid) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain digits only. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -569,7 +569,7 @@ class Assert
         if ($valid) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain letters and digits only. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -584,7 +584,7 @@ class Assert
         if ($valid) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain lowercase characters only. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -599,17 +599,17 @@ class Assert
         if ($valid) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain uppercase characters only. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
 
     public static function length($value, $length, $message = '')
     {
-        if ($length !== self::strlen($value)) {
+        if ($length !== static::strlen($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain %2$s characters. Got: %s',
-                self::valueToString($value),
+                static::valueToString($value),
                 $length
             ));
         }
@@ -617,10 +617,10 @@ class Assert
 
     public static function minLength($value, $min, $message = '')
     {
-        if (self::strlen($value) < $min) {
+        if (static::strlen($value) < $min) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain at least %2$s characters. Got: %s',
-                self::valueToString($value),
+                static::valueToString($value),
                 $min
             ));
         }
@@ -628,10 +628,10 @@ class Assert
 
     public static function maxLength($value, $max, $message = '')
     {
-        if (self::strlen($value) > $max) {
+        if (static::strlen($value) > $max) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain at most %2$s characters. Got: %s',
-                self::valueToString($value),
+                static::valueToString($value),
                 $max
             ));
         }
@@ -639,12 +639,12 @@ class Assert
 
     public static function lengthBetween($value, $min, $max, $message = '')
     {
-        $length = self::strlen($value);
+        $length = static::strlen($value);
 
         if ($length < $min || $length > $max) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a value to contain between %2$s and %3$s characters. Got: %s',
-                self::valueToString($value),
+                static::valueToString($value),
                 $min,
                 $max
             ));
@@ -653,36 +653,36 @@ class Assert
 
     public static function fileExists($value, $message = '')
     {
-        self::string($value);
+        static::string($value);
 
         if (!file_exists($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'The file %s does not exist.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
 
     public static function file($value, $message = '')
     {
-        self::fileExists($value, $message);
+        static::fileExists($value, $message);
 
         if (!is_file($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'The path %s is not a file.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
 
     public static function directory($value, $message = '')
     {
-        self::fileExists($value, $message);
+        static::fileExists($value, $message);
 
         if (!is_dir($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'The path %s is no directory.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -692,7 +692,7 @@ class Assert
         if (!is_readable($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'The path %s is not readable.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -702,7 +702,7 @@ class Assert
         if (!is_writable($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'The path %s is not writable.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -712,7 +712,7 @@ class Assert
         if (!class_exists($value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an existing class name. Got: %s',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -722,8 +722,8 @@ class Assert
         if (!is_subclass_of($value, $class)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected a sub-class of %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($class)
+                static::valueToString($value),
+                static::valueToString($class)
             ));
         }
     }
@@ -733,8 +733,8 @@ class Assert
         if (!in_array($interface, class_implements($value))) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected an implementation of %2$s. Got: %s',
-                self::valueToString($value),
-                self::valueToString($interface)
+                static::valueToString($value),
+                static::valueToString($interface)
             ));
         }
     }
@@ -744,7 +744,7 @@ class Assert
         if (!property_exists($classOrObject, $property)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the property %s to exist.',
-                self::valueToString($property)
+                static::valueToString($property)
             ));
         }
     }
@@ -754,7 +754,7 @@ class Assert
         if (property_exists($classOrObject, $property)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the property %s to not exist.',
-                self::valueToString($property)
+                static::valueToString($property)
             ));
         }
     }
@@ -764,7 +764,7 @@ class Assert
         if (!method_exists($classOrObject, $method)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the method %s to exist.',
-                self::valueToString($method)
+                static::valueToString($method)
             ));
         }
     }
@@ -774,7 +774,7 @@ class Assert
         if (method_exists($classOrObject, $method)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the method %s to not exist.',
-                self::valueToString($method)
+                static::valueToString($method)
             ));
         }
     }
@@ -784,7 +784,7 @@ class Assert
         if (!array_key_exists($key, $array)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the key %s to exist.',
-                self::valueToString($key)
+                static::valueToString($key)
             ));
         }
     }
@@ -794,7 +794,7 @@ class Assert
         if (array_key_exists($key, $array)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Expected the key %s to not exist.',
-                self::valueToString($key)
+                static::valueToString($key)
             ));
         }
     }
@@ -812,7 +812,7 @@ class Assert
         if (!preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/', $value)) {
             throw new InvalidArgumentException(sprintf(
                 $message ?: 'Value "%s" is not a valid UUID.',
-                self::valueToString($value)
+                static::valueToString($value)
             ));
         }
     }
@@ -829,7 +829,7 @@ class Assert
         }
 
         if ('all' === substr($name, 0, 3)) {
-            self::isTraversable($arguments[0]);
+            static::isTraversable($arguments[0]);
 
             $method = lcfirst(substr($name, 3));
             $args = $arguments;
