@@ -186,7 +186,7 @@ All of the above assertions can be prefixed with `all*()` to test the contents
 of an array or a `\Traversable`:
 
 ```php
-Assert::allIsInstanceOf('Acme\Employee', $employees);
+Assert::allIsInstanceOf($employees, 'Acme\Employee');
 ```
 
 ### Nullable Assertions
