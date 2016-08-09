@@ -1,7 +1,7 @@
 Changelog
 =========
 
-* 1.1.0 (@release_date@)
+* 1.1.0 (2016-08-09)
 
  * added `Assert::object()`
  * added `Assert::propertyExists()`
