@@ -426,6 +426,7 @@ td.attributes {
 
 .class .methods .name > div > code span, .function .value > code {
 	white-space: nowrap;
+	display: inline-block;
 }
 
 .class .methods td.name > div, .class td.value > div {
