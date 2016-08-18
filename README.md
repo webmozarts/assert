@@ -5,9 +5,9 @@ Webmozart Assert
 [![Build status](https://ci.appveyor.com/api/projects/status/lyg83bcsisrr94se/branch/master?svg=true)](https://ci.appveyor.com/project/webmozart/assert/branch/master)
 [![Latest Stable Version](https://poser.pugx.org/webmozart/assert/v/stable.svg)](https://packagist.org/packages/webmozart/assert)
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
-[![Dependency Status](https://www.versioneye.com/php/webmozart:assert/1.0.2/badge.svg)](https://www.versioneye.com/php/webmozart:assert/1.0.2)
+[![Dependency Status](https://www.versioneye.com/php/webmozart:assert/1.1.0/badge.svg)](https://www.versioneye.com/php/webmozart:assert/1.1.0)
 
-Latest release: [1.0.2](https://packagist.org/packages/webmozart/assert#1.0.2)
+Latest release: [1.1.0](https://packagist.org/packages/webmozart/assert#1.1.0)
 
 PHP >= 5.3.9
 
@@ -51,7 +51,7 @@ Installation
 Use [Composer] to install the package:
 
 ```
-$ composer require webmozart/assert:~1.0
+$ composer require webmozart/assert
 ```
 
 Example
@@ -186,7 +186,7 @@ All of the above assertions can be prefixed with `all*()` to test the contents
 of an array or a `\Traversable`:
 
 ```php
-Assert::allIsInstanceOf('Acme\Employee', $employees);
+Assert::allIsInstanceOf($employees, 'Acme\Employee');
 ```
 
 ### Nullable Assertions
