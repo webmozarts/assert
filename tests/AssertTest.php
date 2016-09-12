@@ -326,7 +326,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
     public function testNullOr($method, $args, $success, $multibyte = false)
     {
         if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The fucntion mb_strlen() is not available');
+            $this->markTestSkipped('The function mb_strlen() is not available');
 
             return;
         }
