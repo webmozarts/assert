@@ -799,6 +799,15 @@ class Assert
         }
     }
 
+    public static function count($array, $number, $message = '')
+    {
+        static::eq(
+            count($array),
+            $number,
+            $message ?: sprintf('Array should have %d elements, but has %d.', $number, count($array))
+        );
+    }
+
     public static function uuid($value, $message = '')
     {
         $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
