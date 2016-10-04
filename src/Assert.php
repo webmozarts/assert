@@ -14,6 +14,9 @@ namespace Webmozart\Assert;
 use BadMethodCallException;
 use InvalidArgumentException;
 use Traversable;
+use Exception;
+use Throwable;
+use Closure;
 
 /**
  * Efficient assertions to validate the input/output of your methods.
@@ -826,6 +829,32 @@ class Assert
                 static::valueToString($value)
             ));
         }
+    }
+
+    public static function throws(Closure $expression, $class = 'Exception', $message = '')
+    {
+        static::string($class);
+
+        $actual = 'none';
+        try {
+            $expression();
+        } catch (Exception $e) {
+            $actual = get_class($e);
+            if ($e instanceof $class) {
+                return;
+            }
+        } catch (Throwable $e) {
+            $actual = get_class($e);
+            if ($e instanceof $class) {
+                return;
+            }
+        }
+
+        static::reportInvalidArgument($message ?: sprintf(
+            'Expected to throw "%s", got "%s"',
+            $class,
+            $actual
+        ));
     }
 
     public static function __callStatic($name, $arguments)
