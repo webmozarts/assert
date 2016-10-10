@@ -178,8 +178,8 @@ Method                                                | Description
 Method                                      | Description
 ------------------------------------------- | --------------------------------------------------
 `keyExists($array, $key, $message = '')`    | Check that a key exists in an array
-`keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an 
-`count($array, $number, $message = '')`     | Check that an array contains specific number of elements
+`keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an array
+`count($array, $number, $message = '')`     | Check that an array contains a specific number of elements
 
 ### Collection Assertions
 

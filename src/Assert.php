@@ -75,6 +75,7 @@ use Traversable;
  * @method static void nullOrMethodNotExists($value, $method, $message = '')
  * @method static void nullOrKeyExists($value, $key, $message = '')
  * @method static void nullOrKeyNotExists($value, $key, $message = '')
+ * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
@@ -135,6 +136,7 @@ use Traversable;
  * @method static void allMethodNotExists($values, $method, $message = '')
  * @method static void allKeyExists($values, $key, $message = '')
  * @method static void allKeyNotExists($values, $key, $message = '')
+ * @method static void allCount($values, $key, $message = '')
  * @method static void allUuid($values, $message = '')
  *
  * @since  1.0
@@ -804,7 +806,7 @@ class Assert
         static::eq(
             count($array),
             $number,
-            $message ?: sprintf('Array should have %d elements, but has %d.', $number, count($array))
+            $message ?: sprintf('Expected an array to contain %d elements. Got: %d.', $number, count($array))
         );
     }
 
