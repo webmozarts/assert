@@ -811,7 +811,7 @@ class Assert
 
         if (!preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/', $value)) {
             throw static::createInvalidArgumentException(sprintf(
-                $message ?: 'Value "%s" is not a valid UUID.',
+                $message ?: 'Value %s is not a valid UUID.',
                 static::valueToString($value)
             ));
         }
