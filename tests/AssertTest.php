@@ -275,6 +275,8 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('keyNotExists', array(array('key' => 0), 'key'), false),
             array('keyNotExists', array(array('key' => null), 'key'), false),
             array('keyNotExists', array(array('key' => null), 'foo'), true),
+            array('count', array(array(0, 1, 2), 3), true),
+            array('count', array(array(0, 1, 2), 2), false),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
             array('uuid', array('ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
             array('uuid', array('ff6f8cb0-c57d-11e1-9b21-0800200c9a66'), true),
