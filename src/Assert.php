@@ -274,9 +274,27 @@ class Assert
 
     public static function isTraversable($value, $message = '')
     {
+        @trigger_error(
+            sprintf(
+                'The "%s" assertion is deprecated. You should stop using it, as it will soon be removed in 2.0 version. Use "isIterable" or "isInstanceOf" instead.',
+                __METHOD__
+            ),
+            E_USER_DEPRECATED
+        );
+
         if (!is_array($value) && !($value instanceof Traversable)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a traversable. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
+    public static function isIterable($value, $message = '')
+    {
+        if (!is_array($value) && !($value instanceof Traversable)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an iterable. Got: %s',
                 static::typeToString($value)
             ));
         }
@@ -869,7 +887,7 @@ class Assert
         }
 
         if ('all' === substr($name, 0, 3)) {
-            static::isTraversable($arguments[0]);
+            static::isIterable($arguments[0]);
 
             $method = lcfirst(substr($name, 3));
             $args = $arguments;
