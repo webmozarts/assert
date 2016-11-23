@@ -148,6 +148,12 @@ use Closure;
  */
 class Assert
 {
+    public static function nullOrString($value, $message = '')
+    {
+        static::string($value, $message);
+        static::null($value, $message);    
+    }
+
     public static function string($value, $message = '')
     {
         if (!is_string($value)) {
