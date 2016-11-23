@@ -1,6 +1,12 @@
 Changelog
 =========
 
+* 1.2.0 (2016-11-23)
+
+ * added `Assert::throws()`
+ * added `Assert::count()`
+ * added extension point `Assert::reportInvalidArgument()` for custom subclasses
+
 * 1.1.0 (2016-08-09)
 
  * added `Assert::object()`

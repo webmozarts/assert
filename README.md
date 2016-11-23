@@ -181,6 +181,12 @@ Method                                      | Description
 `keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an array
 `count($array, $number, $message = '')`     | Check that an array contains a specific number of elements
 
+### Function Assertions
+
+Method                                      | Description
+------------------------------------------- | -----------------------------------------------------------------------------------------------------
+`throws($closure, $class, $message = '')`   | Check that a function throws a certain exception. Subclasses of the exception class will be accepted.
+
 ### Collection Assertions
 
 All of the above assertions can be prefixed with `all*()` to test the contents
