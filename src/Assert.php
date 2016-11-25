@@ -79,6 +79,7 @@ use Closure;
  * @method static void nullOrKeyExists($value, $key, $message = '')
  * @method static void nullOrKeyNotExists($value, $key, $message = '')
  * @method static void nullOrCount($value, $key, $message = '')
+ * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
@@ -140,6 +141,7 @@ use Closure;
  * @method static void allKeyExists($values, $key, $message = '')
  * @method static void allKeyNotExists($values, $key, $message = '')
  * @method static void allCount($values, $key, $message = '')
+ * @method static void allMinCount($values, $min, $message = '')
  * @method static void allUuid($values, $message = '')
  *
  * @since  1.0
@@ -811,6 +813,17 @@ class Assert
             $number,
             $message ?: sprintf('Expected an array to contain %d elements. Got: %d.', $number, count($array))
         );
+    }
+
+    public static function minCount($array, $min, $message = '')
+    {
+        if (count($array) < $min) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
+                count($array),
+                $min
+            ));
+        }
     }
 
     public static function uuid($value, $message = '')
