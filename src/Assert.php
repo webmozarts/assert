@@ -81,6 +81,7 @@ use Closure;
  * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
+ * @method static void nullCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
@@ -144,6 +145,7 @@ use Closure;
  * @method static void allCount($values, $key, $message = '')
  * @method static void allMinCount($values, $min, $message = '')
  * @method static void allMaxCount($values, $max, $message = '')
+ * @method static void allCountBetween($values, $min, $max, $message = '')
  * @method static void allUuid($values, $message = '')
  *
  * @since  1.0
@@ -834,6 +836,20 @@ class Assert
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
                 count($array),
+                $max
+            ));
+        }
+    }
+
+    public static function countBetween($array, $min, $max, $message = '')
+    {
+        $count = count($array);
+
+        if ($count < $min || $count > $max) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array to contain between %2$d and %3$d elements. Got: %d',
+                $count,
+                $min,
                 $max
             ));
         }
