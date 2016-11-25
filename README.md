@@ -104,6 +104,7 @@ Method                                          | Description
 `isCallable($value, $message = '')`             | Check that a value is a callable
 `isArray($value, $message = '')`                | Check that a value is an array
 `isTraversable($value, $message = '')`          | Check that a value is an array or a `\Traversable`
+`isCountable($value, $message = '')`            | Check that a value is an array or a `\Countable`
 `isInstanceOf($value, $class, $message = '')`   | Check that a value is an `instanceof` a class
 `notInstanceOf($value, $class, $message = '')`  | Check that a value is not an `instanceof` a class
 
