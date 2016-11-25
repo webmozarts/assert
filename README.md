@@ -181,6 +181,7 @@ Method                                      | Description
 `keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an array
 `count($array, $number, $message = '')`     | Check that an array contains a specific number of elements
 `minCount($array, $min, $message = '')`     | Check that an array contains at least a certain number of elements
+`maxCount($array, $max, $message = '')`     | Check that an array contains at most a certain number of elements
 
 ### Function Assertions
 

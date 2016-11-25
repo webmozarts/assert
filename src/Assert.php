@@ -80,6 +80,7 @@ use Closure;
  * @method static void nullOrKeyNotExists($value, $key, $message = '')
  * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrMinCount($value, $min, $message = '')
+ * @method static void nullOrMaxCount($value, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
@@ -142,6 +143,7 @@ use Closure;
  * @method static void allKeyNotExists($values, $key, $message = '')
  * @method static void allCount($values, $key, $message = '')
  * @method static void allMinCount($values, $min, $message = '')
+ * @method static void allMaxCount($values, $max, $message = '')
  * @method static void allUuid($values, $message = '')
  *
  * @since  1.0
@@ -822,6 +824,17 @@ class Assert
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
                 count($array),
                 $min
+            ));
+        }
+    }
+
+    public static function maxCount($array, $max, $message = '')
+    {
+        if (count($array) > $max) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
+                count($array),
+                $max
             ));
         }
     }
