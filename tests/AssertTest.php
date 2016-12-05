@@ -52,7 +52,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('string', array(''), true),
             array('string', array(1234), false),
             array('stringNotEmpty', array('value'), true),
-            array('stringNotEmpty', array("0"), true),
+            array('stringNotEmpty', array('0'), true),
             array('stringNotEmpty', array(''), false),
             array('stringNotEmpty', array(1234), false),
             array('integer', array(123), true),
