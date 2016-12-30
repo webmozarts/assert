@@ -209,7 +209,7 @@ class Assert
         if (!is_int($value) || $value < 0) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a non-negative integer. Got %s',
-                static::typeToString($value)
+                static::valueToString($value)
             ));
         }
     }
