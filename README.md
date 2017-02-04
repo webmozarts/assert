@@ -150,7 +150,7 @@ Method                                              | Description
 `maxLength($value, $max, $message = '')`            | Check that a string has at most a certain number of characters
 `lengthBetween($value, $min, $max, $message = '')`  | Check that a string has a length in the given range
 `uuid($value, $message = '')`                       | Check that a string is a valid UUID
-`notWhitespace($value, $message = '')`              | Check that a string contains a least one non-whitespace character
+`notWhitespaceOnly($value, $message = '')`          | Check that a string contains a least one non-whitespace character
 
 ### File Assertions
 
