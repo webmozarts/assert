@@ -328,7 +328,7 @@ class AssertTest extends TestCase
         }
 
         if (!$success) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
@@ -351,7 +351,7 @@ class AssertTest extends TestCase
         }
 
         if (!$success && null !== reset($args)) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         call_user_func_array(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), $args);
@@ -382,7 +382,7 @@ class AssertTest extends TestCase
         }
 
         if (!$success) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         $arg = array_shift($args);
@@ -408,7 +408,7 @@ class AssertTest extends TestCase
         }
 
         if (!$success) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         $arg = array_shift($args);
@@ -444,7 +444,8 @@ class AssertTest extends TestCase
      */
     public function testConvertValuesToStrings($method, $args, $exceptionMessage)
     {
-        $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage($exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
     }
