@@ -215,6 +215,16 @@ class Assert
         }
     }
 
+    public static function natural($value, $message = '')
+    {
+        if (!is_int($value) || $value < 0) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a non-negative integer. Got %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
     public static function boolean($value, $message = '')
     {
         if (!is_bool($value)) {
