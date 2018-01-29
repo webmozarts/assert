@@ -12,6 +12,7 @@ Changelog
 * added `Assert::notWhitespaceOnly()`
 * added `Assert::natural()`
 * added `Assert::notContains()`
+* added `Assert::isArrayAccessible()`
 
 ### Fixed
 
