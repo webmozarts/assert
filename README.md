@@ -135,7 +135,7 @@ You should check that a value is a string with `Assert::string()` before making
 any of the following assertions.
 
 Method                                              | Description
---------------------------------------------------- | --------------------------------------------------
+--------------------------------------------------- | -----------------------------------------------------------------
 `contains($value, $subString, $message = '')`       | Check that a string contains a substring
 `startsWith($value, $prefix, $message = '')`        | Check that a string has a prefix
 `startsWithLetter($value, $message = '')`           | Check that a string starts with a letter
@@ -151,6 +151,7 @@ Method                                              | Description
 `maxLength($value, $max, $message = '')`            | Check that a string has at most a certain number of characters
 `lengthBetween($value, $min, $max, $message = '')`  | Check that a string has a length in the given range
 `uuid($value, $message = '')`                       | Check that a string is a valid UUID
+`notWhitespaceOnly($value, $message = '')`          | Check that a string contains a least one non-whitespace character
 
 ### File Assertions
 

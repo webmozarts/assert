@@ -53,6 +53,7 @@ use Traversable;
  * @method static void nullOrRange($value, $min, $max, $message = '')
  * @method static void nullOrOneOf($value, $values, $message = '')
  * @method static void nullOrContains($value, $subString, $message = '')
+ * @method static void nullOrNotWhitespaceOnly($value, $message = '')
  * @method static void nullOrStartsWith($value, $prefix, $message = '')
  * @method static void nullOrStartsWithLetter($value, $message = '')
  * @method static void nullOrEndsWith($value, $suffix, $message = '')
@@ -118,6 +119,7 @@ use Traversable;
  * @method static void allRange($values, $min, $max, $message = '')
  * @method static void allOneOf($values, $values, $message = '')
  * @method static void allContains($values, $subString, $message = '')
+ * @method static void allNotWhitespaceOnly($values, $message = '')
  * @method static void allStartsWith($values, $prefix, $message = '')
  * @method static void allStartsWithLetter($values, $message = '')
  * @method static void allEndsWith($values, $suffix, $message = '')
@@ -516,6 +518,16 @@ class Assert
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($subString)
+            ));
+        }
+    }
+
+    public static function notWhitespaceOnly($value, $message = '')
+    {
+        if (preg_match('/^\s*$/', $value)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a non-whitespace string. Got: %s',
+                static::valueToString($value)
             ));
         }
     }
