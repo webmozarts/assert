@@ -11,6 +11,7 @@
 
 namespace Webmozart\Assert;
 
+use ArrayAccess;
 use BadMethodCallException;
 use Closure;
 use Countable;
@@ -35,9 +36,11 @@ use Traversable;
  * @method static void nullOrIsCallable($value, $message = '')
  * @method static void nullOrIsArray($value, $message = '')
  * @method static void nullOrIsTraversable($value, $message = '')
+ * @method static void nullOrIsArrayAccessible($value, $message = '')
  * @method static void nullOrIsCountable($value, $message = '')
  * @method static void nullOrIsInstanceOf($value, $class, $message = '')
  * @method static void nullOrNotInstanceOf($value, $class, $message = '')
+ * @method static void nullOrIsInstanceOfAny($value, $classes, $message = '')
  * @method static void nullOrIsEmpty($value, $message = '')
  * @method static void nullOrNotEmpty($value, $message = '')
  * @method static void nullOrTrue($value, $message = '')
@@ -100,9 +103,11 @@ use Traversable;
  * @method static void allIsCallable($values, $message = '')
  * @method static void allIsArray($values, $message = '')
  * @method static void allIsTraversable($values, $message = '')
+ * @method static void allIsArrayAccessible($values, $message = '')
  * @method static void allIsCountable($values, $message = '')
  * @method static void allIsInstanceOf($values, $class, $message = '')
  * @method static void allNotInstanceOf($values, $class, $message = '')
+ * @method static void allIsInstanceOfAny($values, $classes, $message = '')
  * @method static void allNull($values, $message = '')
  * @method static void allNotNull($values, $message = '')
  * @method static void allIsEmpty($values, $message = '')
@@ -313,6 +318,16 @@ class Assert
         }
     }
 
+    public static function isArrayAccessible($value, $message = '')
+    {
+        if (!is_array($value) && !($value instanceof ArrayAccess)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array accessible. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
     public static function isCountable($value, $message = '')
     {
         if (!is_array($value) && !($value instanceof Countable)) {
@@ -353,6 +368,21 @@ class Assert
                 $class
             ));
         }
+    }
+
+    public static function isInstanceOfAny($value, array $classes, $message = '')
+    {
+        foreach ($classes as $class) {
+            if ($value instanceof $class) {
+                return;
+            }
+        }
+
+        static::reportInvalidArgument(sprintf(
+            $message ?: 'Expected an instance of any of %2$s. Got: %s',
+            static::typeToString($value),
+            implode(', ', array_map(array('static', 'valueToString'), $classes))
+        ));
     }
 
     public static function isEmpty($value, $message = '')

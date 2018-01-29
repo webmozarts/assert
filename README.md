@@ -244,7 +244,7 @@ All contents of this package are licensed under the [MIT license].
 [Composer]: https://getcomposer.org
 [Bernhard Schussek]: http://webmozarts.com
 [The Community Contributors]: https://github.com/webmozart/assert/graphs/contributors
-[issue tracker]: https://github.com/webmozart/assert
+[issue tracker]: https://github.com/webmozart/assert/issues
 [Git repository]: https://github.com/webmozart/assert
 [@webmozart]: https://twitter.com/webmozart
 [MIT license]: LICENSE
