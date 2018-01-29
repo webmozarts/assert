@@ -12,11 +12,12 @@
 namespace Webmozart\Assert;
 
 use BadMethodCallException;
-use InvalidArgumentException;
-use Traversable;
-use Exception;
-use Throwable;
 use Closure;
+use Countable;
+use Exception;
+use InvalidArgumentException;
+use Throwable;
+use Traversable;
 
 /**
  * Efficient assertions to validate the input/output of your methods.
@@ -34,6 +35,7 @@ use Closure;
  * @method static void nullOrIsCallable($value, $message = '')
  * @method static void nullOrIsArray($value, $message = '')
  * @method static void nullOrIsTraversable($value, $message = '')
+ * @method static void nullOrIsCountable($value, $message = '')
  * @method static void nullOrIsInstanceOf($value, $class, $message = '')
  * @method static void nullOrNotInstanceOf($value, $class, $message = '')
  * @method static void nullOrIsEmpty($value, $message = '')
@@ -51,6 +53,7 @@ use Closure;
  * @method static void nullOrRange($value, $min, $max, $message = '')
  * @method static void nullOrOneOf($value, $values, $message = '')
  * @method static void nullOrContains($value, $subString, $message = '')
+ * @method static void nullOrNotWhitespaceOnly($value, $message = '')
  * @method static void nullOrStartsWith($value, $prefix, $message = '')
  * @method static void nullOrStartsWithLetter($value, $message = '')
  * @method static void nullOrEndsWith($value, $suffix, $message = '')
@@ -79,6 +82,9 @@ use Closure;
  * @method static void nullOrKeyExists($value, $key, $message = '')
  * @method static void nullOrKeyNotExists($value, $key, $message = '')
  * @method static void nullOrCount($value, $key, $message = '')
+ * @method static void nullOrMinCount($value, $min, $message = '')
+ * @method static void nullOrMaxCount($value, $max, $message = '')
+ * @method static void nullCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
@@ -93,6 +99,7 @@ use Closure;
  * @method static void allIsCallable($values, $message = '')
  * @method static void allIsArray($values, $message = '')
  * @method static void allIsTraversable($values, $message = '')
+ * @method static void allIsCountable($values, $message = '')
  * @method static void allIsInstanceOf($values, $class, $message = '')
  * @method static void allNotInstanceOf($values, $class, $message = '')
  * @method static void allNull($values, $message = '')
@@ -112,6 +119,7 @@ use Closure;
  * @method static void allRange($values, $min, $max, $message = '')
  * @method static void allOneOf($values, $values, $message = '')
  * @method static void allContains($values, $subString, $message = '')
+ * @method static void allNotWhitespaceOnly($values, $message = '')
  * @method static void allStartsWith($values, $prefix, $message = '')
  * @method static void allStartsWithLetter($values, $message = '')
  * @method static void allEndsWith($values, $suffix, $message = '')
@@ -140,6 +148,9 @@ use Closure;
  * @method static void allKeyExists($values, $key, $message = '')
  * @method static void allKeyNotExists($values, $key, $message = '')
  * @method static void allCount($values, $key, $message = '')
+ * @method static void allMinCount($values, $min, $message = '')
+ * @method static void allMaxCount($values, $max, $message = '')
+ * @method static void allCountBetween($values, $min, $max, $message = '')
  * @method static void allUuid($values, $message = '')
  *
  * @since  1.0
@@ -161,7 +172,7 @@ class Assert
     public static function stringNotEmpty($value, $message = '')
     {
         static::string($value, $message);
-        static::notEmpty($value, $message);
+        static::notEq($value, '', $message);
     }
 
     public static function integer($value, $message = '')
@@ -284,9 +295,37 @@ class Assert
 
     public static function isTraversable($value, $message = '')
     {
+        @trigger_error(
+            sprintf(
+                'The "%s" assertion is deprecated. You should stop using it, as it will soon be removed in 2.0 version. Use "isIterable" or "isInstanceOf" instead.',
+                __METHOD__
+            ),
+            E_USER_DEPRECATED
+        );
+
         if (!is_array($value) && !($value instanceof Traversable)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a traversable. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
+    public static function isCountable($value, $message = '')
+    {
+        if (!is_array($value) && !($value instanceof Countable)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a countable. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
+    public static function isIterable($value, $message = '')
+    {
+        if (!is_array($value) && !($value instanceof Traversable)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an iterable. Got: %s',
                 static::typeToString($value)
             ));
         }
@@ -489,6 +528,16 @@ class Assert
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($subString)
+            ));
+        }
+    }
+
+    public static function notWhitespaceOnly($value, $message = '')
+    {
+        if (preg_match('/^\s*$/', $value)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a non-whitespace string. Got: %s',
+                static::valueToString($value)
             ));
         }
     }
@@ -823,6 +872,42 @@ class Assert
         );
     }
 
+    public static function minCount($array, $min, $message = '')
+    {
+        if (count($array) < $min) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
+                count($array),
+                $min
+            ));
+        }
+    }
+
+    public static function maxCount($array, $max, $message = '')
+    {
+        if (count($array) > $max) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
+                count($array),
+                $max
+            ));
+        }
+    }
+
+    public static function countBetween($array, $min, $max, $message = '')
+    {
+        $count = count($array);
+
+        if ($count < $min || $count > $max) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array to contain between %2$d and %3$d elements. Got: %d',
+                $count,
+                $min,
+                $max
+            ));
+        }
+    }
+
     public static function uuid($value, $message = '')
     {
         $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
@@ -846,6 +931,7 @@ class Assert
         static::string($class);
 
         $actual = 'none';
+
         try {
             $expression();
         } catch (Exception $e) {
@@ -879,7 +965,7 @@ class Assert
         }
 
         if ('all' === substr($name, 0, 3)) {
-            static::isTraversable($arguments[0]);
+            static::isIterable($arguments[0]);
 
             $method = lcfirst(substr($name, 3));
             $args = $arguments;
