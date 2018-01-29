@@ -12,8 +12,8 @@
 namespace Webmozart\Assert;
 
 use BadMethodCallException;
-use Countable;
 use Closure;
+use Countable;
 use Exception;
 use InvalidArgumentException;
 use Throwable;
@@ -308,7 +308,7 @@ class Assert
             ));
         }
     }
-  
+
     public static function isIterable($value, $message = '')
     {
         if (!is_array($value) && !($value instanceof Traversable)) {
