@@ -10,6 +10,7 @@ Changelog
 * added `Assert::countBetween()`
 * added `Assert::isCountable()`
 * added `Assert::notWhitespaceOnly()`
+* added `Assert::natural()`
 
 ### Fixed
 
