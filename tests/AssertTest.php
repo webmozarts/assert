@@ -112,6 +112,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('isCountable', array(new stdClass()), false),
             array('isCountable', array('abcd'), false),
             array('isCountable', array(123), false),
+            array('isIterable', array(array()), true),
+            array('isIterable', array(array(1, 2, 3)), true),
+            array('isIterable', array(new ArrayIterator(array())), true),
+            array('isIterable', array(123), false),
+            array('isIterable', array(new stdClass()), false),
             array('isInstanceOf', array(new stdClass(), 'stdClass'), true),
             array('isInstanceOf', array(new Exception(), 'stdClass'), false),
             array('isInstanceOf', array(123, 'stdClass'), false),
@@ -338,8 +343,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success) {
@@ -361,8 +364,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success && null !== reset($args)) {
@@ -392,8 +393,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success) {
@@ -418,8 +417,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success) {
