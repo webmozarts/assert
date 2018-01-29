@@ -14,6 +14,7 @@ Changelog
 * added `Assert::notContains()`
 * added `Assert::isArrayAccessible()`
 * added `Assert::isInstanceOfAny()`
+* added `Assert::isIterable()`
 
 ### Fixed
 
