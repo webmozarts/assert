@@ -12,6 +12,7 @@
 namespace Webmozart\Assert\Tests;
 
 use ArrayIterator;
+use ArrayObject;
 use Exception;
 use Error;
 use LogicException;
@@ -52,6 +53,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('string', array(''), true),
             array('string', array(1234), false),
             array('stringNotEmpty', array('value'), true),
+            array('stringNotEmpty', array('0'), true),
             array('stringNotEmpty', array(''), false),
             array('stringNotEmpty', array(1234), false),
             array('integer', array(123), true),
@@ -71,6 +73,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('numeric', array(123), true),
             array('numeric', array('123'), true),
             array('numeric', array('foo'), false),
+            array('natural', array(0), true),
+            array('natural', array(1), true),
+            array('natural', array(-1), false),
+            array('natural', array('1'), false),
+            array('natural', array(1.0), false),
+            array('natural', array(1.23), false),
             array('boolean', array(true), true),
             array('boolean', array(false), true),
             array('boolean', array(1), false),
@@ -106,6 +114,22 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('isTraversable', array(new ArrayIterator(array())), true),
             array('isTraversable', array(123), false),
             array('isTraversable', array(new stdClass()), false),
+            array('isArrayAccessible', array(array()), true),
+            array('isArrayAccessible', array(array(1, 2, 3)), true),
+            array('isArrayAccessible', array(new ArrayObject(array())), true),
+            array('isArrayAccessible', array(123), false),
+            array('isArrayAccessible', array(new stdClass()), false),
+            array('isCountable', array(array()), true),
+            array('isCountable', array(array(1, 2)), true),
+            array('isCountable', array(new ArrayIterator(array())), true),
+            array('isCountable', array(new stdClass()), false),
+            array('isCountable', array('abcd'), false),
+            array('isCountable', array(123), false),
+            array('isIterable', array(array()), true),
+            array('isIterable', array(array(1, 2, 3)), true),
+            array('isIterable', array(new ArrayIterator(array())), true),
+            array('isIterable', array(123), false),
+            array('isIterable', array(new stdClass()), false),
             array('isInstanceOf', array(new stdClass(), 'stdClass'), true),
             array('isInstanceOf', array(new Exception(), 'stdClass'), false),
             array('isInstanceOf', array(123, 'stdClass'), false),
@@ -114,6 +138,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('notInstanceOf', array(new Exception(), 'stdClass'), true),
             array('notInstanceOf', array(123, 'stdClass'), true),
             array('notInstanceOf', array(array(), 'stdClass'), true),
+            array('isInstanceOfAny', array(new ArrayIterator(), array('Iterator', 'ArrayAccess')), true),
+            array('isInstanceOfAny', array(new Exception(), array('Exception', 'Countable')), true),
+            array('isInstanceOfAny', array(new Exception(), array('ArrayAccess', 'Countable')), false),
+            array('isInstanceOfAny', array(123, array('stdClass')), false),
+            array('isInstanceOfAny', array(array(), array('stdClass')), false),
             array('true', array(true), true),
             array('true', array(false), false),
             array('true', array(1), false),
@@ -178,6 +207,21 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('contains', array('abcd', 'cd'), true),
             array('contains', array('abcd', 'de'), false),
             array('contains', array('', 'de'), false),
+            array('notContains', array('abcd', 'ab'), false),
+            array('notContains', array('abcd', 'bc'), false),
+            array('notContains', array('abcd', 'cd'), false),
+            array('notContains', array('abcd', 'de'), true),
+            array('notContains', array('', 'de'), true),
+            array('notWhitespaceOnly', array('abc'), true),
+            array('notWhitespaceOnly', array('123'), true),
+            array('notWhitespaceOnly', array(' abc '), true),
+            array('notWhitespaceOnly', array('a b c'), true),
+            array('notWhitespaceOnly', array(''), false),
+            array('notWhitespaceOnly', array(' '), false),
+            array('notWhitespaceOnly', array("\t"), false),
+            array('notWhitespaceOnly', array("\n"), false),
+            array('notWhitespaceOnly', array("\r"), false),
+            array('notWhitespaceOnly', array("\r\n\t "), false),
             array('startsWith', array('abcd', 'ab'), true),
             array('startsWith', array('abcd', 'bc'), false),
             array('startsWith', array('', 'bc'), false),
@@ -279,6 +323,15 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('keyNotExists', array(array('key' => null), 'foo'), true),
             array('count', array(array(0, 1, 2), 3), true),
             array('count', array(array(0, 1, 2), 2), false),
+            array('minCount', array(array(0), 2), false),
+            array('minCount', array(array(0, 1), 2), true),
+            array('minCount', array(array(0, 1, 2), 2), true),
+            array('maxCount', array(array(0, 1, 2), 2), false),
+            array('maxCount', array(array(0, 1), 2), true),
+            array('maxCount', array(array(0), 2), true),
+            array('countBetween', array(array(0, 1, 2), 4, 5), false),
+            array('countBetween', array(array(0, 1, 2), 1, 2), false),
+            array('countBetween', array(array(0, 1, 2), 2, 5), true),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
             array('uuid', array('ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
             array('uuid', array('ff6f8cb0-c57d-11e1-9b21-0800200c9a66'), true),
@@ -323,8 +376,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success) {
@@ -346,8 +397,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success && null !== reset($args)) {
@@ -377,8 +426,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success) {
@@ -403,8 +450,6 @@ class AssertTest extends PHPUnit_Framework_TestCase
         }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return;
         }
 
         if (!$success) {
