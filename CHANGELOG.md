@@ -1,6 +1,13 @@
 Changelog
 =========
 
+* UNRELEASED
+
+ * added `Assert::minCount()`
+ * added `Assert::maxCount()`
+ * added `Assert::countBetween()`
+ * added `Assert::isCountable()`
+
 * 1.2.0 (2016-11-23)
 
  * added `Assert::throws()`
