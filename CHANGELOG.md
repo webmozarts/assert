@@ -13,6 +13,7 @@ Changelog
 * added `Assert::natural()`
 * added `Assert::notContains()`
 * added `Assert::isArrayAccessible()`
+* added `Assert::isInstanceOfAny()`
 
 ### Fixed
 
