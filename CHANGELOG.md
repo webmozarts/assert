@@ -11,6 +11,7 @@ Changelog
 * added `Assert::isCountable()`
 * added `Assert::notWhitespaceOnly()`
 * added `Assert::natural()`
+* added `Assert::notContains()`
 
 ### Fixed
 
