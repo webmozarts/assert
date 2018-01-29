@@ -1,8 +1,11 @@
 preset: symfony
 
+finder:
+    exclude:
+        - "tests"
+
 enabled:
     - ordered_use
 
 disabled:
-    - empty_return
     - phpdoc_annotation_without_dot # This is still buggy: https://github.com/symfony/symfony/pull/19198
