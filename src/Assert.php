@@ -12,11 +12,11 @@
 namespace Webmozart\Assert;
 
 use BadMethodCallException;
-use InvalidArgumentException;
-use Traversable;
-use Exception;
-use Throwable;
 use Closure;
+use Exception;
+use InvalidArgumentException;
+use Throwable;
+use Traversable;
 
 /**
  * Efficient assertions to validate the input/output of your methods.
@@ -836,6 +836,7 @@ class Assert
         static::string($class);
 
         $actual = 'none';
+
         try {
             $expression();
         } catch (Exception $e) {

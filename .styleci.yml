@@ -1,5 +1,9 @@
 preset: symfony
 
+finder:
+    exclude:
+        - "tests"
+
 enabled:
     - ordered_use
 
