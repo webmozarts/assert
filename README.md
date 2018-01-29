@@ -138,6 +138,7 @@ any of the following assertions.
 Method                                              | Description
 --------------------------------------------------- | -----------------------------------------------------------------
 `contains($value, $subString, $message = '')`       | Check that a string contains a substring
+`notContains($value, $subString, $message = '')`    | Check that a string does not contains a substring
 `startsWith($value, $prefix, $message = '')`        | Check that a string has a prefix
 `startsWithLetter($value, $message = '')`           | Check that a string starts with a letter
 `endsWith($value, $suffix, $message = '')`          | Check that a string has a suffix

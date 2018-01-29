@@ -53,6 +53,7 @@ use Traversable;
  * @method static void nullOrRange($value, $min, $max, $message = '')
  * @method static void nullOrOneOf($value, $values, $message = '')
  * @method static void nullOrContains($value, $subString, $message = '')
+ * @method static void nullOrNotContains($value, $subString, $message = '')
  * @method static void nullOrNotWhitespaceOnly($value, $message = '')
  * @method static void nullOrStartsWith($value, $prefix, $message = '')
  * @method static void nullOrStartsWithLetter($value, $message = '')
@@ -119,6 +120,7 @@ use Traversable;
  * @method static void allRange($values, $min, $max, $message = '')
  * @method static void allOneOf($values, $values, $message = '')
  * @method static void allContains($values, $subString, $message = '')
+ * @method static void allNotContains($values, $subString, $message = '')
  * @method static void allNotWhitespaceOnly($values, $message = '')
  * @method static void allStartsWith($values, $prefix, $message = '')
  * @method static void allStartsWithLetter($values, $message = '')
@@ -526,6 +528,17 @@ class Assert
         if (false === strpos($value, $subString)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
+                static::valueToString($value),
+                static::valueToString($subString)
+            ));
+        }
+    }
+
+    public static function notContains($value, $subString, $message = '')
+    {
+        if (false !== strpos($value, $subString)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: '%2$s was not expected to be contained in a value. Got: %s',
                 static::valueToString($value),
                 static::valueToString($subString)
             ));
