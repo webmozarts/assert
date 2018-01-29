@@ -12,6 +12,7 @@
 namespace Webmozart\Assert\Tests;
 
 use ArrayIterator;
+use ArrayObject;
 use Exception;
 use Error;
 use LogicException;
@@ -113,6 +114,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('isTraversable', array(new ArrayIterator(array())), true),
             array('isTraversable', array(123), false),
             array('isTraversable', array(new stdClass()), false),
+            array('isArrayAccessible', array(array()), true),
+            array('isArrayAccessible', array(array(1, 2, 3)), true),
+            array('isArrayAccessible', array(new ArrayObject(array())), true),
+            array('isArrayAccessible', array(123), false),
+            array('isArrayAccessible', array(new stdClass()), false),
             array('isCountable', array(array()), true),
             array('isCountable', array(array(1, 2)), true),
             array('isCountable', array(new ArrayIterator(array())), true),

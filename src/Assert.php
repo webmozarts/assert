@@ -11,6 +11,7 @@
 
 namespace Webmozart\Assert;
 
+use ArrayAccess;
 use BadMethodCallException;
 use Closure;
 use Countable;
@@ -35,6 +36,7 @@ use Traversable;
  * @method static void nullOrIsCallable($value, $message = '')
  * @method static void nullOrIsArray($value, $message = '')
  * @method static void nullOrIsTraversable($value, $message = '')
+ * @method static void nullOrIsArrayAccessible($value, $message = '')
  * @method static void nullOrIsCountable($value, $message = '')
  * @method static void nullOrIsInstanceOf($value, $class, $message = '')
  * @method static void nullOrNotInstanceOf($value, $class, $message = '')
@@ -100,6 +102,7 @@ use Traversable;
  * @method static void allIsCallable($values, $message = '')
  * @method static void allIsArray($values, $message = '')
  * @method static void allIsTraversable($values, $message = '')
+ * @method static void allIsArrayAccessible($values, $message = '')
  * @method static void allIsCountable($values, $message = '')
  * @method static void allIsInstanceOf($values, $class, $message = '')
  * @method static void allNotInstanceOf($values, $class, $message = '')
@@ -308,6 +311,16 @@ class Assert
         if (!is_array($value) && !($value instanceof Traversable)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a traversable. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
+    public static function isArrayAccessible($value, $message = '')
+    {
+        if (!is_array($value) && !($value instanceof ArrayAccess)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array accessible. Got: %s',
                 static::typeToString($value)
             ));
         }
