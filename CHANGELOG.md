@@ -9,6 +9,7 @@ Changelog
 * added `Assert::maxCount()`
 * added `Assert::countBetween()`
 * added `Assert::isCountable()`
+* added `Assert::notWhitespaceOnly()`
 
 ### Fixed
 
