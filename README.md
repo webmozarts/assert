@@ -97,6 +97,7 @@ Method                                          | Description
 `integerish($value, $message = '')`             | Check that a value casts to an integer
 `float($value, $message = '')`                  | Check that a value is a float
 `numeric($value, $message = '')`                | Check that a value is numeric
+`natural($value, $message= ''')`                | Check that a value is a non-negative integer
 `boolean($value, $message = '')`                | Check that a value is a boolean
 `scalar($value, $message = '')`                 | Check that a value is a scalar
 `object($value, $message = '')`                 | Check that a value is an object
@@ -104,6 +105,7 @@ Method                                          | Description
 `isCallable($value, $message = '')`             | Check that a value is a callable
 `isArray($value, $message = '')`                | Check that a value is an array
 `isTraversable($value, $message = '')`          | Check that a value is an array or a `\Traversable`
+`isCountable($value, $message = '')`            | Check that a value is an array or a `\Countable`
 `isInstanceOf($value, $class, $message = '')`   | Check that a value is an `instanceof` a class
 `notInstanceOf($value, $class, $message = '')`  | Check that a value is not an `instanceof` a class
 
@@ -134,8 +136,9 @@ You should check that a value is a string with `Assert::string()` before making
 any of the following assertions.
 
 Method                                              | Description
---------------------------------------------------- | --------------------------------------------------
+--------------------------------------------------- | -----------------------------------------------------------------
 `contains($value, $subString, $message = '')`       | Check that a string contains a substring
+`notContains($value, $subString, $message = '')`    | Check that a string does not contains a substring
 `startsWith($value, $prefix, $message = '')`        | Check that a string has a prefix
 `startsWithLetter($value, $message = '')`           | Check that a string starts with a letter
 `endsWith($value, $suffix, $message = '')`          | Check that a string has a suffix
@@ -150,6 +153,7 @@ Method                                              | Description
 `maxLength($value, $max, $message = '')`            | Check that a string has at most a certain number of characters
 `lengthBetween($value, $min, $max, $message = '')`  | Check that a string has a length in the given range
 `uuid($value, $message = '')`                       | Check that a string is a valid UUID
+`notWhitespaceOnly($value, $message = '')`          | Check that a string contains a least one non-whitespace character
 
 ### File Assertions
 
@@ -175,11 +179,14 @@ Method                                                | Description
 
 ### Array Assertions
 
-Method                                      | Description
-------------------------------------------- | --------------------------------------------------
-`keyExists($array, $key, $message = '')`    | Check that a key exists in an array
-`keyNotExists($array, $key, $message = '')` | Check that a key does not exist in an array
-`count($array, $number, $message = '')`     | Check that an array contains a specific number of elements
+Method                                             | Description
+-------------------------------------------------- | ------------------------------------------------------------------
+`keyExists($array, $key, $message = '')`           | Check that a key exists in an array
+`keyNotExists($array, $key, $message = '')`        | Check that a key does not exist in an array
+`count($array, $number, $message = '')`            | Check that an array contains a specific number of elements
+`minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
+`maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
+`countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
 
 ### Function Assertions
 
