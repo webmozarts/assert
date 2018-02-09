@@ -642,8 +642,9 @@ class Assert
     {
         if (preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
             static::reportInvalidArgument(sprintf(
-                $message ?: 'The value %s matches the pattern (at offset %d).',
+                $message ?: 'The value %s matches the pattern %s (at offset %d).',
                 static::valueToString($value),
+                static::valueToString($pattern),
                 $matches[0][1]
             ));
         }
