@@ -640,10 +640,11 @@ class Assert
 
     public static function notRegex($value, $pattern, $message = '')
     {
-        if (preg_match($pattern, $value)) {
+        if (preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
             static::reportInvalidArgument(sprintf(
-                $message ?: 'The value %s matches the pattern.',
-                static::valueToString($value)
+                $message ?: 'The value %s matches the pattern (at offset %d).',
+                static::valueToString($value),
+                $matches[0][1]
             ));
         }
     }
