@@ -888,7 +888,7 @@ class Assert
 
     public static function keyExists($array, $key, $message = '')
     {
-        if (!array_key_exists($key, $array)) {
+        if (!(isset($array[$key]) || array_key_exists($key, $array))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected the key %s to exist.',
                 static::valueToString($key)
