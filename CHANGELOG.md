@@ -3,6 +3,12 @@ Changelog
 
 ## UNRELEASED
 
+### Removed
+
+* removed `Assert::isTraversable()`
+
+## 1.3.0 (2018-01-29)
+
 ### Added 
 
 * added `Assert::minCount()`
@@ -19,6 +25,10 @@ Changelog
 ### Fixed
 
 * `stringNotEmpty` will no longer report "0" is an empty string
+
+### Deprecation
+
+* deprecated `Assert::isTraversable()` in favor of `Assert::isIterable()`
 
 ## 1.2.0 (2016-11-23)
 
