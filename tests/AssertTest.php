@@ -474,6 +474,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('string', array(self::getResource()), 'Expected a string. Got: resource'),
 
             array('eq', array('1', '2'), 'Expected a value equal to "2". Got: "1"'),
+            array('eq', array(new ToStringClass("XXX"), new ToStringClass("YYY")), 'Expected a value equal to "YYY". Got: "XXX"'),
             array('eq', array(1, 2), 'Expected a value equal to 2. Got: 1'),
             array('eq', array(true, false), 'Expected a value equal to false. Got: true'),
             array('eq', array(true, null), 'Expected a value equal to null. Got: true'),
@@ -492,5 +493,26 @@ class AssertTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+    }
+}
+
+/**
+ * @ignore
+ */
+class ToStringClass {
+
+    /**
+     * @var string
+     */
+    private $value;
+
+    public function __construct($value)
+    {
+        $this->value = $value;
+    }
+
+    public function __toString()
+    {
+        return $this->value;
     }
 }
