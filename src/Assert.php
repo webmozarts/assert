@@ -1044,6 +1044,10 @@ class Assert
         }
 
         if (is_object($value)) {
+            if (method_exists($value, '__toString')) {
+                return get_class($value).': '.self::valueToString($value->__toString());
+            }
+
             return get_class($value);
         }
 
