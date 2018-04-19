@@ -3,6 +3,11 @@ Changelog
 
 ## UNRELEASED
 
+### Fixed 
+*  Add special case for `__toString()`, fixes #61 (#64) 
+
+## 1.3.0 (2018-01-29)
+
 ### Added 
 
 * added `Assert::minCount()`
@@ -16,7 +21,7 @@ Changelog
 * added `Assert::isInstanceOfAny()`
 * added `Assert::isIterable()`
 
-### Fixed
+### Fixed 
 
 * `stringNotEmpty` will no longer report "0" is an empty string
 
