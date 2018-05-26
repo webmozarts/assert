@@ -62,6 +62,7 @@ use Traversable;
  * @method static void nullOrStartsWithLetter($value, $message = '')
  * @method static void nullOrEndsWith($value, $suffix, $message = '')
  * @method static void nullOrRegex($value, $pattern, $message = '')
+ * @method static void nullOrNotRegex($value, $pattern, $message = '')
  * @method static void nullOrAlpha($value, $message = '')
  * @method static void nullOrDigits($value, $message = '')
  * @method static void nullOrAlnum($value, $message = '')
@@ -131,6 +132,7 @@ use Traversable;
  * @method static void allStartsWithLetter($values, $message = '')
  * @method static void allEndsWith($values, $suffix, $message = '')
  * @method static void allRegex($values, $pattern, $message = '')
+ * @method static void allNotRegex($values, $pattern, $message = '')
  * @method static void allAlpha($values, $message = '')
  * @method static void allDigits($values, $message = '')
  * @method static void allAlnum($values, $message = '')
@@ -636,6 +638,18 @@ class Assert
         }
     }
 
+    public static function notRegex($value, $pattern, $message = '')
+    {
+        if (preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'The value %s matches the pattern %s (at offset %d).',
+                static::valueToString($value),
+                static::valueToString($pattern),
+                $matches[0][1]
+            ));
+        }
+    }
+
     public static function alpha($value, $message = '')
     {
         $locale = setlocale(LC_CTYPE, 0);
@@ -888,7 +902,7 @@ class Assert
 
     public static function keyExists($array, $key, $message = '')
     {
-        if (!array_key_exists($key, $array)) {
+        if (!(isset($array[$key]) || array_key_exists($key, $array))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected the key %s to exist.',
                 static::valueToString($key)
@@ -898,7 +912,7 @@ class Assert
 
     public static function keyNotExists($array, $key, $message = '')
     {
-        if (array_key_exists($key, $array)) {
+        if (isset($array[$key]) || array_key_exists($key, $array)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected the key %s to not exist.',
                 static::valueToString($key)
@@ -1044,6 +1058,10 @@ class Assert
         }
 
         if (is_object($value)) {
+            if (method_exists($value, '__toString')) {
+                return get_class($value).': '.self::valueToString($value->__toString());
+            }
+
             return get_class($value);
         }
 
