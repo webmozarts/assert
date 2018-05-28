@@ -458,6 +458,42 @@ class AssertTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider getTests
      */
+    public function testNullOrAll($method, $args, $success, $multibyte = false, $minVersion = null)
+    {
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
+            return;
+        }
+
+        $arg = array_shift($args);
+
+        if ($success === false) {
+            $this->setExpectedException('\InvalidArgumentException');
+        }
+
+        array_unshift($args, array($arg));
+
+        call_user_func_array(array('Webmozart\Assert\Assert', 'nullOrAll'.ucfirst($method)), $args);
+    }
+
+    /**
+     * @param string $method
+     *
+     * @dataProvider getMethods
+     */
+    public function testNullOrAllAcceptsNull($method)
+    {
+        call_user_func(array('Webmozart\Assert\Assert', 'nullOrAll'.ucfirst($method)), null);
+    }
+
+    /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
+     * @dataProvider getTests
+     */
     public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
     {
         if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
@@ -483,6 +519,31 @@ class AssertTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider getTests
      */
+    public function testAllArrayNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
+    {
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
+            return;
+        }
+
+        $arg = array_shift($args);
+
+        if ($success === false && $arg !== null) {
+            $this->setExpectedException('\InvalidArgumentException');
+        }
+
+        array_unshift($args, array($arg, null));
+        call_user_func_array(array('Webmozart\Assert\Assert', 'allNullOr'.ucfirst($method)), $args);
+    }
+
+    /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
+     * @dataProvider getTests
+     */
     public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
     {
         if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
@@ -497,6 +558,32 @@ class AssertTest extends PHPUnit_Framework_TestCase
         array_unshift($args, new ArrayIterator(array($arg)));
 
         call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
+    }
+
+    /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
+     * @dataProvider getTests
+     */
+    public function testAllTraversableOrNull($method, $args, $success, $multibyte = false, $minVersion = null)
+    {
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
+            return;
+        }
+
+        $arg = array_shift($args);
+
+        if ($success === false && $arg !== null) {
+            $this->setExpectedException('\InvalidArgumentException');
+        }
+
+        array_unshift($args, new ArrayIterator(array($arg, null)));
+
+        call_user_func_array(array('Webmozart\Assert\Assert', 'allNullOr'.ucfirst($method)), $args);
     }
 
     /**
