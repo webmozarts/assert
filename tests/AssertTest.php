@@ -34,6 +34,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
     private static $resource;
 
     /**
+     * @var bool
+     */
+    private static $multibyteSupportIsEnabled;
+
+    /**
      * @return null|resource
      */
     public static function getResource()
@@ -45,6 +50,13 @@ class AssertTest extends PHPUnit_Framework_TestCase
         return static::$resource;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public static function setUpBeforeClass()
+    {
+        self::$multibyteSupportIsEnabled = function_exists('mb_strlen') === true;
+    }
 
     /**
      * {@inheritdoc}
@@ -394,16 +406,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAssert($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
             return;
         }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
-        }
 
-        if (!$success) {
+        if ($success === false) {
             $this->setExpectedException('\InvalidArgumentException');
         }
 
@@ -421,16 +428,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
             return;
         }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
-        }
 
-        if (!$success && null !== reset($args)) {
+        if ($success === false && null !== reset($args)) {
             $this->setExpectedException('\InvalidArgumentException');
         }
 
@@ -458,16 +460,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
             return;
         }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
-        }
 
-        if (!$success) {
+        if ($success === false) {
             $this->setExpectedException('\InvalidArgumentException');
         }
 
@@ -488,16 +485,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
             return;
         }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
-        }
 
-        if (!$success) {
+        if ($success === false) {
             $this->setExpectedException('\InvalidArgumentException');
         }
 
@@ -545,6 +537,29 @@ class AssertTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+    }
+
+    /**
+     * @param null|int $minVersion
+     * @param bool $multibyte
+     *
+     * @return bool FALSE if test must be skipped
+     */
+    private function checkIfSkipOrExecuteTest($minVersion = null, $multibyte = false)
+    {
+        if ($minVersion !== null && PHP_VERSION_ID < $minVersion) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
+
+            return false;
+        }
+
+        if ($multibyte === true && self::$multibyteSupportIsEnabled === false) {
+            $this->markTestSkipped('The function mb_strlen() is not available');
+
+            return false;
+        }
+
+        return true;
     }
 }
 
