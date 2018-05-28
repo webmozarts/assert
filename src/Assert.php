@@ -89,7 +89,7 @@ use Traversable;
  * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
- * @method static void nullCountBetween($value, $min, $max, $message = '')
+ * @method static void nullOrCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
