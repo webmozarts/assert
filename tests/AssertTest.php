@@ -28,8 +28,14 @@ use Webmozart\Assert\Assert;
  */
 class AssertTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var null|resource
+     */
     private static $resource;
 
+    /**
+     * @return null|resource
+     */
     public static function getResource()
     {
         if (!static::$resource) {
@@ -39,11 +45,18 @@ class AssertTest extends PHPUnit_Framework_TestCase
         return static::$resource;
     }
 
+
+    /**
+     * {@inheritdoc}
+     */
     public static function tearDownAfterClass()
     {
         @fclose(self::$resource);
     }
 
+    /**
+     * @return array
+     */
     public function getTests()
     {
         $resource = self::getResource();
@@ -356,6 +369,9 @@ class AssertTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @return array
+     */
     public function getMethods()
     {
         $methods = array();
@@ -368,6 +384,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
      * @dataProvider getTests
      */
     public function testAssert($method, $args, $success, $multibyte = false, $minVersion = null)
@@ -389,6 +411,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
      * @dataProvider getTests
      */
     public function testNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
@@ -410,6 +438,8 @@ class AssertTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $method
+     *
      * @dataProvider getMethods
      */
     public function testNullOrAcceptsNull($method)
@@ -418,6 +448,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
      * @dataProvider getTests
      */
     public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
@@ -442,6 +478,12 @@ class AssertTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     * @param bool $success
+     * @param bool $multibyte
+     * @param null|int $minVersion
+     *
      * @dataProvider getTests
      */
     public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
@@ -465,6 +507,9 @@ class AssertTest extends PHPUnit_Framework_TestCase
         call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
     }
 
+    /**
+     * @return array
+     */
     public function getStringConversions()
     {
         return array(
@@ -489,6 +534,10 @@ class AssertTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     * @param string $exceptionMessage
+     *
      * @dataProvider getStringConversions
      */
     public function testConvertValuesToStrings($method, $args, $exceptionMessage)
@@ -509,6 +558,9 @@ class ToStringClass {
      */
     private $value;
 
+    /**
+     * @param string $value
+     */
     public function __construct($value)
     {
         $this->value = $value;
