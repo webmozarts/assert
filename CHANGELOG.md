@@ -5,6 +5,8 @@ Changelog
 
 ### Removed
 
+* don't ship unneeded files in releases
+* performance improvements `Assert::keyExists()` and `Assert::keyNotExists()
 * removed `Assert::isTraversable()`
 
 ## 1.3.0 (2018-01-29)
