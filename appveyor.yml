@@ -32,7 +32,6 @@ install:
   - appveyor DownloadFile https://getcomposer.org/composer.phar
   - cd c:\projects\webmozart\assert
   - mkdir %APPDATA%\Composer
-  - IF %APPVEYOR_REPO_NAME%==webmozart/assert copy /Y .composer-auth.json %APPDATA%\Composer\auth.json
   - composer update --prefer-dist --no-progress --ansi
 
 test_script:
