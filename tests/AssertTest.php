@@ -406,9 +406,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAssert($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         if ($success === false) {
             $this->setExpectedException('\InvalidArgumentException');
@@ -428,9 +426,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         if ($success === false && null !== reset($args)) {
             $this->setExpectedException('\InvalidArgumentException');
@@ -460,9 +456,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testNullOrAll($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         $arg = array_shift($args);
 
@@ -496,9 +490,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         if ($success === false) {
             $this->setExpectedException('\InvalidArgumentException');
@@ -521,9 +513,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAllArrayNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         $arg = array_shift($args);
 
@@ -546,9 +536,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         if ($success === false) {
             $this->setExpectedException('\InvalidArgumentException');
@@ -571,9 +559,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
      */
     public function testAllTraversableOrNull($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($this->checkIfSkipOrExecuteTest($minVersion, $multibyte) === false) {
-            return;
-        }
+        $this->checkIfSkipOrExecuteTest($minVersion, $multibyte);
 
         $arg = array_shift($args);
 
@@ -629,24 +615,16 @@ class AssertTest extends PHPUnit_Framework_TestCase
     /**
      * @param null|int $minVersion
      * @param bool $multibyte
-     *
-     * @return bool FALSE if test must be skipped
      */
     private function checkIfSkipOrExecuteTest($minVersion = null, $multibyte = false)
     {
         if ($minVersion !== null && PHP_VERSION_ID < $minVersion) {
             $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return false;
         }
 
         if ($multibyte === true && self::$multibyteSupportIsEnabled === false) {
             $this->markTestSkipped('The function mb_strlen() is not available');
-
-            return false;
         }
-
-        return true;
     }
 }
 
