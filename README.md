@@ -146,6 +146,7 @@ Method                                              | Description
 `startsWithLetter($value, $message = '')`           | Check that a string starts with a letter
 `endsWith($value, $suffix, $message = '')`          | Check that a string has a suffix
 `regex($value, $pattern, $message = '')`            | Check that a string matches a regular expression
+`notRegex($value, $pattern, $message = '')`         | Check that a string does not match a regular expression
 `alpha($value, $message = '')`                      | Check that a string contains letters only
 `digits($value, $message = '')`                     | Check that a string contains digits only
 `alnum($value, $message = '')`                      | Check that a string contains letters and digits only
