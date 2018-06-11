@@ -598,6 +598,17 @@ class Assert
         }
     }
 
+    public static function startsNotWith($value, $prefix, $message = '')
+    {
+        if (0 === strpos($value, $prefix)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to not start with %2$s.',
+                static::valueToString($value),
+                static::valueToString($prefix)
+            ));
+        }
+    }
+
     public static function startsWithLetter($value, $message = '')
     {
         $valid = isset($value[0]);
@@ -622,6 +633,17 @@ class Assert
         if ($suffix !== substr($value, -static::strlen($suffix))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
+                static::valueToString($value),
+                static::valueToString($suffix)
+            ));
+        }
+    }
+
+    public static function endsNotWith($value, $suffix, $message = '')
+    {
+        if ($suffix === substr($value, -static::strlen($suffix))) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to not end with %2$s.',
                 static::valueToString($value),
                 static::valueToString($suffix)
             ));
