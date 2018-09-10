@@ -7,7 +7,7 @@ Webmozart Assert
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
 [![Dependency Status](https://www.versioneye.com/php/webmozart:assert/1.2.0/badge.svg)](https://www.versioneye.com/php/webmozart:assert/1.2.0)
 
-Latest release: [1.2.0](https://packagist.org/packages/webmozart/assert#1.2.0)
+Latest release: [1.3.0](https://packagist.org/packages/webmozart/assert#1.3.0)
 
 PHP >= 5.3.9
 
