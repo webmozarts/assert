@@ -231,6 +231,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('endsWith', array('abcd', 'cd'), true),
             array('endsWith', array('abcd', 'bc'), false),
             array('endsWith', array('', 'bc'), false),
+            array('endsWith', array('dcbä', 'ä'), true),
             array('regex', array('abcd', '~^ab~'), true),
             array('regex', array('abcd', '~^bc~'), false),
             array('regex', array('', '~^bc~'), false),
