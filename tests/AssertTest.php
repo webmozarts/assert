@@ -260,6 +260,7 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('length', array('äbcd', 4), true, true),
             array('length', array('äbc', 4), false, true),
             array('length', array('äbcde', 4), false, true),
+            array('length', array('あ', 1), true, true), // 'HIRAGANA LETTER A' (U+3042)
             array('minLength', array('abcd', 4), true),
             array('minLength', array('abcde', 4), true),
             array('minLength', array('abc', 4), false),
