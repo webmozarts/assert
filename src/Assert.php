@@ -168,6 +168,14 @@ use Traversable;
  */
 class Assert
 {
+    /**
+     * String.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function string($value, $message = '')
     {
         if (!is_string($value)) {
@@ -178,12 +186,28 @@ class Assert
         }
     }
 
+    /**
+     * String not empty.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function stringNotEmpty($value, $message = '')
     {
         static::string($value, $message);
         static::notEq($value, '', $message);
     }
 
+    /**
+     * Integer.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function integer($value, $message = '')
     {
         if (!is_int($value)) {
@@ -194,6 +218,14 @@ class Assert
         }
     }
 
+    /**
+     * Integerish.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function integerish($value, $message = '')
     {
         if (!is_numeric($value) || $value != (int) $value) {
@@ -204,6 +236,14 @@ class Assert
         }
     }
 
+    /**
+     * Float.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function float($value, $message = '')
     {
         if (!is_float($value)) {
@@ -214,6 +254,14 @@ class Assert
         }
     }
 
+    /**
+     * Numeric.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function numeric($value, $message = '')
     {
         if (!is_numeric($value)) {
@@ -224,6 +272,14 @@ class Assert
         }
     }
 
+    /**
+     * Natural.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function natural($value, $message = '')
     {
         if (!is_int($value) || $value < 0) {
@@ -234,6 +290,14 @@ class Assert
         }
     }
 
+    /**
+     * Boolean.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function boolean($value, $message = '')
     {
         if (!is_bool($value)) {
@@ -244,6 +308,14 @@ class Assert
         }
     }
 
+    /**
+     * Scalar.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function scalar($value, $message = '')
     {
         if (!is_scalar($value)) {
@@ -254,6 +326,14 @@ class Assert
         }
     }
 
+    /**
+     * Object.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function object($value, $message = '')
     {
         if (!is_object($value)) {
@@ -264,6 +344,15 @@ class Assert
         }
     }
 
+    /**
+     * Resource.
+     *
+     * @param        $value
+     * @param null   $type
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function resource($value, $type = null, $message = '')
     {
         if (!is_resource($value)) {
@@ -282,6 +371,14 @@ class Assert
         }
     }
 
+    /**
+     * Is callable.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isCallable($value, $message = '')
     {
         if (!is_callable($value)) {
@@ -292,6 +389,14 @@ class Assert
         }
     }
 
+    /**
+     * Is array.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isArray($value, $message = '')
     {
         if (!is_array($value)) {
@@ -302,6 +407,14 @@ class Assert
         }
     }
 
+    /**
+     * Is traversable.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isTraversable($value, $message = '')
     {
         @trigger_error(
@@ -320,6 +433,14 @@ class Assert
         }
     }
 
+    /**
+     * Is array accessible.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isArrayAccessible($value, $message = '')
     {
         if (!is_array($value) && !($value instanceof ArrayAccess)) {
@@ -330,6 +451,14 @@ class Assert
         }
     }
 
+    /**
+     * Is countable.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isCountable($value, $message = '')
     {
         if (!is_array($value) && !($value instanceof Countable)) {
@@ -340,6 +469,14 @@ class Assert
         }
     }
 
+    /**
+     * Is iterable.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isIterable($value, $message = '')
     {
         if (!is_array($value) && !($value instanceof Traversable)) {
@@ -350,6 +487,15 @@ class Assert
         }
     }
 
+    /**
+     * Is instance of.
+     *
+     * @param        $value
+     * @param        $class
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isInstanceOf($value, $class, $message = '')
     {
         if (!($value instanceof $class)) {
@@ -361,6 +507,15 @@ class Assert
         }
     }
 
+    /**
+     * Not instance of.
+     *
+     * @param        $value
+     * @param        $class
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notInstanceOf($value, $class, $message = '')
     {
         if ($value instanceof $class) {
@@ -372,6 +527,15 @@ class Assert
         }
     }
 
+    /**
+     * Is instance of any.
+     *
+     * @param        $value
+     * @param array  $classes
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isInstanceOfAny($value, array $classes, $message = '')
     {
         foreach ($classes as $class) {
@@ -387,6 +551,14 @@ class Assert
         ));
     }
 
+    /**
+     * Is empty.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function isEmpty($value, $message = '')
     {
         if (!empty($value)) {
@@ -397,6 +569,14 @@ class Assert
         }
     }
 
+    /**
+     * Not empty.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notEmpty($value, $message = '')
     {
         if (empty($value)) {
@@ -407,6 +587,14 @@ class Assert
         }
     }
 
+    /**
+     * Null.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function null($value, $message = '')
     {
         if (null !== $value) {
@@ -417,6 +605,14 @@ class Assert
         }
     }
 
+    /**
+     * Not null.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notNull($value, $message = '')
     {
         if (null === $value) {
@@ -426,6 +622,14 @@ class Assert
         }
     }
 
+    /**
+     * True.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function true($value, $message = '')
     {
         if (true !== $value) {
@@ -436,6 +640,14 @@ class Assert
         }
     }
 
+    /**
+     * False.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function false($value, $message = '')
     {
         if (false !== $value) {
@@ -446,6 +658,15 @@ class Assert
         }
     }
 
+    /**
+     * Eq.
+     *
+     * @param        $value
+     * @param        $value2
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function eq($value, $value2, $message = '')
     {
         if ($value2 != $value) {
@@ -457,6 +678,15 @@ class Assert
         }
     }
 
+    /**
+     * Not eq.
+     *
+     * @param        $value
+     * @param        $value2
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notEq($value, $value2, $message = '')
     {
         if ($value2 == $value) {
@@ -467,6 +697,15 @@ class Assert
         }
     }
 
+    /**
+     * Same.
+     *
+     * @param        $value
+     * @param        $value2
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function same($value, $value2, $message = '')
     {
         if ($value2 !== $value) {
@@ -478,6 +717,15 @@ class Assert
         }
     }
 
+    /**
+     * Not same.
+     *
+     * @param        $value
+     * @param        $value2
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notSame($value, $value2, $message = '')
     {
         if ($value2 === $value) {
@@ -488,6 +736,15 @@ class Assert
         }
     }
 
+    /**
+     * Greater than.
+     *
+     * @param        $value
+     * @param        $limit
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function greaterThan($value, $limit, $message = '')
     {
         if ($value <= $limit) {
@@ -499,6 +756,15 @@ class Assert
         }
     }
 
+    /**
+     * Greater than eq.
+     *
+     * @param        $value
+     * @param        $limit
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function greaterThanEq($value, $limit, $message = '')
     {
         if ($value < $limit) {
@@ -510,6 +776,15 @@ class Assert
         }
     }
 
+    /**
+     * Less than.
+     *
+     * @param        $value
+     * @param        $limit
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function lessThan($value, $limit, $message = '')
     {
         if ($value >= $limit) {
@@ -521,6 +796,15 @@ class Assert
         }
     }
 
+    /**
+     * Less than eq.
+     *
+     * @param        $value
+     * @param        $limit
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function lessThanEq($value, $limit, $message = '')
     {
         if ($value > $limit) {
@@ -532,6 +816,16 @@ class Assert
         }
     }
 
+    /**
+     * Range.
+     *
+     * @param        $value
+     * @param        $min
+     * @param        $max
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function range($value, $min, $max, $message = '')
     {
         if ($value < $min || $value > $max) {
@@ -544,6 +838,15 @@ class Assert
         }
     }
 
+    /**
+     * One of.
+     *
+     * @param        $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function oneOf($value, array $values, $message = '')
     {
         if (!in_array($value, $values, true)) {
@@ -555,6 +858,15 @@ class Assert
         }
     }
 
+    /**
+     * Contains.
+     *
+     * @param        $value
+     * @param        $subString
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function contains($value, $subString, $message = '')
     {
         if (false === strpos($value, $subString)) {
@@ -566,6 +878,15 @@ class Assert
         }
     }
 
+    /**
+     * Not contains.
+     *
+     * @param        $value
+     * @param        $subString
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notContains($value, $subString, $message = '')
     {
         if (false !== strpos($value, $subString)) {
@@ -577,6 +898,14 @@ class Assert
         }
     }
 
+    /**
+     * Not whitespace only.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notWhitespaceOnly($value, $message = '')
     {
         if (preg_match('/^\s*$/', $value)) {
@@ -587,6 +916,15 @@ class Assert
         }
     }
 
+    /**
+     * Starts with.
+     *
+     * @param        $value
+     * @param        $prefix
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function startsWith($value, $prefix, $message = '')
     {
         if (0 !== strpos($value, $prefix)) {
@@ -598,6 +936,14 @@ class Assert
         }
     }
 
+    /**
+     * Starts with letter.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function startsWithLetter($value, $message = '')
     {
         $valid = isset($value[0]);
@@ -617,6 +963,15 @@ class Assert
         }
     }
 
+    /**
+     * Ends with.
+     *
+     * @param        $value
+     * @param        $suffix
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function endsWith($value, $suffix, $message = '')
     {
         if ($suffix !== substr($value, -static::strlen($suffix))) {
@@ -628,6 +983,15 @@ class Assert
         }
     }
 
+    /**
+     * Regex.
+     *
+     * @param        $value
+     * @param        $pattern
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function regex($value, $pattern, $message = '')
     {
         if (!preg_match($pattern, $value)) {
@@ -638,6 +1002,15 @@ class Assert
         }
     }
 
+    /**
+     * Not regex.
+     *
+     * @param        $value
+     * @param        $pattern
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function notRegex($value, $pattern, $message = '')
     {
         if (preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
@@ -650,6 +1023,14 @@ class Assert
         }
     }
 
+    /**
+     * Alpha.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function alpha($value, $message = '')
     {
         $locale = setlocale(LC_CTYPE, 0);
@@ -665,6 +1046,14 @@ class Assert
         }
     }
 
+    /**
+     * Digits.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function digits($value, $message = '')
     {
         $locale = setlocale(LC_CTYPE, 0);
@@ -680,6 +1069,14 @@ class Assert
         }
     }
 
+    /**
+     * Alnum.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function alnum($value, $message = '')
     {
         $locale = setlocale(LC_CTYPE, 0);
@@ -695,6 +1092,14 @@ class Assert
         }
     }
 
+    /**
+     * Lower.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function lower($value, $message = '')
     {
         $locale = setlocale(LC_CTYPE, 0);
@@ -710,6 +1115,14 @@ class Assert
         }
     }
 
+    /**
+     * Upper.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function upper($value, $message = '')
     {
         $locale = setlocale(LC_CTYPE, 0);
@@ -725,6 +1138,15 @@ class Assert
         }
     }
 
+    /**
+     * Length.
+     *
+     * @param        $value
+     * @param        $length
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function length($value, $length, $message = '')
     {
         if ($length !== static::strlen($value)) {
@@ -736,6 +1158,15 @@ class Assert
         }
     }
 
+    /**
+     * Min length.
+     *
+     * @param        $value
+     * @param        $min
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function minLength($value, $min, $message = '')
     {
         if (static::strlen($value) < $min) {
@@ -747,6 +1178,15 @@ class Assert
         }
     }
 
+    /**
+     * Max length.
+     *
+     * @param        $value
+     * @param        $max
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function maxLength($value, $max, $message = '')
     {
         if (static::strlen($value) > $max) {
@@ -758,6 +1198,16 @@ class Assert
         }
     }
 
+    /**
+     * Length between.
+     *
+     * @param        $value
+     * @param        $min
+     * @param        $max
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function lengthBetween($value, $min, $max, $message = '')
     {
         $length = static::strlen($value);
@@ -772,6 +1222,14 @@ class Assert
         }
     }
 
+    /**
+     * File exists.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function fileExists($value, $message = '')
     {
         static::string($value);
@@ -784,6 +1242,14 @@ class Assert
         }
     }
 
+    /**
+     * File.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function file($value, $message = '')
     {
         static::fileExists($value, $message);
@@ -796,6 +1262,14 @@ class Assert
         }
     }
 
+    /**
+     * Directory.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function directory($value, $message = '')
     {
         static::fileExists($value, $message);
@@ -808,6 +1282,14 @@ class Assert
         }
     }
 
+    /**
+     * Readable.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function readable($value, $message = '')
     {
         if (!is_readable($value)) {
@@ -818,6 +1300,14 @@ class Assert
         }
     }
 
+    /**
+     * Writable.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function writable($value, $message = '')
     {
         if (!is_writable($value)) {
@@ -828,6 +1318,14 @@ class Assert
         }
     }
 
+    /**
+     * Class exists.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function classExists($value, $message = '')
     {
         if (!class_exists($value)) {
@@ -838,6 +1336,15 @@ class Assert
         }
     }
 
+    /**
+     * Subclass of.
+     *
+     * @param        $value
+     * @param        $class
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function subclassOf($value, $class, $message = '')
     {
         if (!is_subclass_of($value, $class)) {
@@ -849,6 +1356,15 @@ class Assert
         }
     }
 
+    /**
+     * Implements interface.
+     *
+     * @param        $value
+     * @param        $interface
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function implementsInterface($value, $interface, $message = '')
     {
         if (!in_array($interface, class_implements($value))) {
@@ -860,6 +1376,15 @@ class Assert
         }
     }
 
+    /**
+     * Property exists.
+     *
+     * @param        $classOrObject
+     * @param        $property
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function propertyExists($classOrObject, $property, $message = '')
     {
         if (!property_exists($classOrObject, $property)) {
@@ -870,6 +1395,15 @@ class Assert
         }
     }
 
+    /**
+     * Property not exists.
+     *
+     * @param        $classOrObject
+     * @param        $property
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function propertyNotExists($classOrObject, $property, $message = '')
     {
         if (property_exists($classOrObject, $property)) {
@@ -880,6 +1414,15 @@ class Assert
         }
     }
 
+    /**
+     * Method exists.
+     *
+     * @param        $classOrObject
+     * @param        $method
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function methodExists($classOrObject, $method, $message = '')
     {
         if (!method_exists($classOrObject, $method)) {
@@ -890,6 +1433,15 @@ class Assert
         }
     }
 
+    /**
+     * Method not exists.
+     *
+     * @param        $classOrObject
+     * @param        $method
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function methodNotExists($classOrObject, $method, $message = '')
     {
         if (method_exists($classOrObject, $method)) {
@@ -900,6 +1452,15 @@ class Assert
         }
     }
 
+    /**
+     * Key exists.
+     *
+     * @param        $array
+     * @param        $key
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function keyExists($array, $key, $message = '')
     {
         if (!(isset($array[$key]) || array_key_exists($key, $array))) {
@@ -910,6 +1471,15 @@ class Assert
         }
     }
 
+    /**
+     * Key not exists.
+     *
+     * @param        $array
+     * @param        $key
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function keyNotExists($array, $key, $message = '')
     {
         if (isset($array[$key]) || array_key_exists($key, $array)) {
@@ -920,6 +1490,15 @@ class Assert
         }
     }
 
+    /**
+     * Count.
+     *
+     * @param        $array
+     * @param        $number
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function count($array, $number, $message = '')
     {
         static::eq(
@@ -929,6 +1508,15 @@ class Assert
         );
     }
 
+    /**
+     * Min count.
+     *
+     * @param        $array
+     * @param        $min
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function minCount($array, $min, $message = '')
     {
         if (count($array) < $min) {
@@ -940,6 +1528,15 @@ class Assert
         }
     }
 
+    /**
+     * Max count.
+     *
+     * @param        $array
+     * @param        $max
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function maxCount($array, $max, $message = '')
     {
         if (count($array) > $max) {
@@ -951,6 +1548,16 @@ class Assert
         }
     }
 
+    /**
+     * Count between.
+     *
+     * @param        $array
+     * @param        $min
+     * @param        $max
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function countBetween($array, $min, $max, $message = '')
     {
         $count = count($array);
@@ -965,6 +1572,14 @@ class Assert
         }
     }
 
+    /**
+     * Uuid.
+     *
+     * @param        $value
+     * @param string $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function uuid($value, $message = '')
     {
         $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
@@ -983,6 +1598,15 @@ class Assert
         }
     }
 
+    /**
+     * Throws.
+     *
+     * @param Closure $expression
+     * @param string  $class
+     * @param string  $message
+     *
+     * @throws \InvalidArgumentException
+     */
     public static function throws(Closure $expression, $class = 'Exception', $message = '')
     {
         static::string($class);
@@ -1010,6 +1634,14 @@ class Assert
         ));
     }
 
+    /**
+     * __call static.
+     *
+     * @param $name
+     * @param $arguments
+     *
+     * @throws \BadMethodCallException
+     */
     public static function __callStatic($name, $arguments)
     {
         if ('nullOr' === substr($name, 0, 6)) {
@@ -1039,6 +1671,13 @@ class Assert
         throw new BadMethodCallException('No such method: '.$name);
     }
 
+    /**
+     * Value to string.
+     *
+     * @param $value
+     *
+     * @return string
+     */
     protected static function valueToString($value)
     {
         if (null === $value) {
@@ -1076,11 +1715,25 @@ class Assert
         return (string) $value;
     }
 
+    /**
+     * Type to string.
+     *
+     * @param $value
+     *
+     * @return string
+     */
     protected static function typeToString($value)
     {
         return is_object($value) ? get_class($value) : gettype($value);
     }
 
+    /**
+     * Strlen.
+     *
+     * @param $value
+     *
+     * @return int
+     */
     protected static function strlen($value)
     {
         if (!function_exists('mb_detect_encoding')) {
@@ -1094,11 +1747,21 @@ class Assert
         return mb_strwidth($value, $encoding);
     }
 
+    /**
+     * Report invalid argument.
+     *
+     * @param $message
+     *
+     * @throws \InvalidArgumentException
+     */
     protected static function reportInvalidArgument($message)
     {
         throw new InvalidArgumentException($message);
     }
 
+    /**
+     * Keep the constructor private to avoid creating an instance of this object.
+     */
     private function __construct()
     {
     }
