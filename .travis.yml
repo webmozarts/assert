@@ -32,7 +32,7 @@ matrix:
   fast_finish: true
 
 before_install:
-  - if [[ $TRAVIS_PHP_VERSION != hhvm && $COVERAGE != yes ]]; then phpenv config-rm xdebug.ini; fi;
+  - if [[ $TRAVIS_PHP_VERSION != hhvm && $TRAVIS_PHP_VERSION != 7.3 && $COVERAGE != yes ]]; then phpenv config-rm xdebug.ini; fi;
   - if [[ $TRAVIS_REPO_SLUG = webmozart/assert ]]; then cp .composer-auth.json ~/.composer/auth.json; fi;
   - composer self-update
 
