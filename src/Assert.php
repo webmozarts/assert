@@ -79,6 +79,7 @@ use Traversable;
  * @method static void nullOrWritable($value, $message = '')
  * @method static void nullOrClassExists($value, $message = '')
  * @method static void nullOrSubclassOf($value, $class, $message = '')
+ * @method static void nullOrInterfaceExists($value, $message = '')
  * @method static void nullOrImplementsInterface($value, $interface, $message = '')
  * @method static void nullOrPropertyExists($value, $property, $message = '')
  * @method static void nullOrPropertyNotExists($value, $property, $message = '')
@@ -149,6 +150,7 @@ use Traversable;
  * @method static void allWritable($values, $message = '')
  * @method static void allClassExists($values, $message = '')
  * @method static void allSubclassOf($values, $class, $message = '')
+ * @method static void allInterfaceExists($values, $message = '')
  * @method static void allImplementsInterface($values, $interface, $message = '')
  * @method static void allPropertyExists($values, $property, $message = '')
  * @method static void allPropertyNotExists($values, $property, $message = '')
@@ -845,6 +847,16 @@ class Assert
                 $message ?: 'Expected a sub-class of %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($class)
+            ));
+        }
+    }
+
+    public static function interfaceExists($value, $message = '')
+    {
+        if (!interface_exists($value)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an existing interface name. got %s',
+                static::valueToString($value)
             ));
         }
     }
