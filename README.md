@@ -178,6 +178,7 @@ Method                                                | Description
 ----------------------------------------------------- | --------------------------------------------------
 `classExists($value, $message = '')`                  | Check that a value is an existing class name
 `subclassOf($value, $class, $message = '')`           | Check that a class is a subclass of another
+`interfaceExists($value, $message = '')`              | Check that a value is an existing interface name
 `implementsInterface($value, $class, $message = '')`  | Check that a class implements an interface
 `propertyExists($value, $property, $message = '')`    | Check that a property exists in a class/object
 `propertyNotExists($value, $property, $message = '')` | Check that a property does not exist in a class/object
