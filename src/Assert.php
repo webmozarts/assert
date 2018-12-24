@@ -45,6 +45,9 @@ use Traversable;
  * @method static void nullOrNotEmpty($value, $message = '')
  * @method static void nullOrTrue($value, $message = '')
  * @method static void nullOrFalse($value, $message = '')
+ * @method static void nullOrIp($value, $message = '')
+ * @method static void nullOrIpv4($value, $message = '')
+ * @method static void nullOrIpv6($value, $message = '')
  * @method static void nullOrEq($value, $value2, $message = '')
  * @method static void nullOrNotEq($value,$value2,  $message = '')
  * @method static void nullOrSame($value, $value2, $message = '')
@@ -116,6 +119,9 @@ use Traversable;
  * @method static void allNotEmpty($values, $message = '')
  * @method static void allTrue($values, $message = '')
  * @method static void allFalse($values, $message = '')
+ * @method static void allIp($values, $message = '')
+ * @method static void allIpv4($values, $message = '')
+ * @method static void allIpv6($values, $message = '')
  * @method static void allEq($values, $value2, $message = '')
  * @method static void allNotEq($values,$value2,  $message = '')
  * @method static void allSame($values, $value2, $message = '')
@@ -443,6 +449,36 @@ class Assert
         if (false !== $value) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to be false. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function ip($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_IP)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be an IP. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function ipv4($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be an IPv4. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function ipv6($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be an IPv6. Got %s',
                 static::valueToString($value)
             ));
         }
