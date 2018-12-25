@@ -25,18 +25,20 @@ matrix:
     - php: 7.1
       env: COMPOSER_FLAGS='--prefer-lowest --prefer-stable'
     - php: 7.2
+    - php: 7.3
   allow_failures:
     - php: hhvm
     - php: nightly
   fast_finish: true
 
 before_install:
-  - if [[ $TRAVIS_PHP_VERSION != hhvm && $COVERAGE != yes ]]; then phpenv config-rm xdebug.ini; fi;
-  - if [[ $TRAVIS_REPO_SLUG = webmozart/assert ]]; then cp .composer-auth.json ~/.composer/auth.json; fi;
-  - composer self-update
+  - if [[ $TRAVIS_PHP_VERSION != hhvm && $TRAVIS_PHP_VERSION != 7.3 && $COVERAGE != yes ]]; then phpenv config-rm xdebug.ini; fi;
 
-install: composer update $COMPOSER_FLAGS --prefer-dist --no-interaction
+install:
+  - composer update $COMPOSER_FLAGS --prefer-dist --no-interaction
 
-script: if [[ $COVERAGE = yes ]]; then vendor/bin/phpunit --verbose --coverage-clover=coverage.clover; else vendor/bin/phpunit --verbose; fi
+script:
+  - if [[ $COVERAGE = yes ]]; then vendor/bin/phpunit --verbose --coverage-clover=coverage.clover; else vendor/bin/phpunit --verbose; fi
 
-after_script: if [[ $COVERAGE = yes ]]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+after_script:
+  - if [[ $COVERAGE = yes ]]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
