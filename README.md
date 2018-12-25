@@ -156,6 +156,9 @@ Method                                              | Description
 `maxLength($value, $max, $message = '')`            | Check that a string has at most a certain number of characters
 `lengthBetween($value, $min, $max, $message = '')`  | Check that a string has a length in the given range
 `uuid($value, $message = '')`                       | Check that a string is a valid UUID
+`ip($value, $message = '')`                         | Check that a string is a valid IP (either IPv4 or IPv6)
+`ipv4($value, $message = '')`                       | Check that a string is a valid IPv4
+`ipv6($value, $message = '')`                       | Check that a string is a valid IPv6
 `notWhitespaceOnly($value, $message = '')`          | Check that a string contains at least one non-whitespace character
 
 ### File Assertions
@@ -174,6 +177,7 @@ Method                                                | Description
 ----------------------------------------------------- | --------------------------------------------------
 `classExists($value, $message = '')`                  | Check that a value is an existing class name
 `subclassOf($value, $class, $message = '')`           | Check that a class is a subclass of another
+`interfaceExists($value, $message = '')`              | Check that a value is an existing interface name
 `implementsInterface($value, $class, $message = '')`  | Check that a class implements an interface
 `propertyExists($value, $property, $message = '')`    | Check that a property exists in a class/object
 `propertyNotExists($value, $property, $message = '')` | Check that a property does not exist in a class/object
@@ -190,6 +194,8 @@ Method                                             | Description
 `minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
 `maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
 `countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
+`isList($array, $message = '')`                    | Check that an array is a non-associative list
+`isMap($array, $message = '')`                     | Check that an array is associative and has strings as keys
 
 ### Function Assertions
 
