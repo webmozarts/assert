@@ -95,6 +95,8 @@ use Traversable;
  * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
+ * @method static void nullOrIsList($value, $message = '')
+ * @method static void nullOrIsMap($value, $message = '')
  * @method static void nullOrCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void nullOrThrows($expression, $class = 'Exception', $message = '')
@@ -173,6 +175,8 @@ use Traversable;
  * @method static void allMinCount($values, $min, $message = '')
  * @method static void allMaxCount($values, $max, $message = '')
  * @method static void allCountBetween($values, $min, $max, $message = '')
+ * @method static void allIsList($values, $message = '')
+ * @method static void allIsMap($values, $message = '')
  * @method static void allUuid($values, $message = '')
  * @method static void allThrows($expressions, $class = 'Exception', $message = '')
  *
@@ -1016,6 +1020,30 @@ class Assert
                 $min,
                 $max
             ));
+        }
+    }
+
+    public static function isList($array, $message = '')
+    {
+        if (!is_array($array) || !$array || array_keys($array) !== range(0, count($array) - 1)) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected list - non-associative array.'
+            );
+        }
+    }
+
+    public static function isMap($array, $message = '')
+    {
+        if (
+            !is_array($array) ||
+            !$array ||
+            array_keys($array) !== array_filter(array_keys($array), function ($key) {
+                return is_string($key);
+            })
+        ) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected map - associative array with string keys.'
+            );
         }
     }
 

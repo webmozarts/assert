@@ -195,6 +195,8 @@ Method                                             | Description
 `minCount($array, $min, $message = '')`            | Check that an array contains at least a certain number of elements
 `maxCount($array, $max, $message = '')`            | Check that an array contains at most a certain number of elements
 `countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
+`isList($array, $message = '')`                    | Check that an array is a non-associative list
+`isMap($array, $message = '')`                     | Check that an array is associative and has strings as keys
 
 ### Function Assertions
 
