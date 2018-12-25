@@ -6,10 +6,6 @@ Webmozart Assert
 [![Latest Stable Version](https://poser.pugx.org/webmozart/assert/v/stable.svg)](https://packagist.org/packages/webmozart/assert)
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
 
-Latest release: [1.2.0](https://packagist.org/packages/webmozart/assert#1.2.0)
-
-PHP >= 5.3.9
-
 This library contains efficient assertions to test the input and output of
 your methods. With these assertions, you can greatly reduce the amount of coding
 needed to write a safe implementation.
@@ -234,12 +230,6 @@ Contributions to the package are always welcome!
 
 * Report any bugs or issues you find on the [issue tracker].
 * You can grab the source code at the package's [Git repository].
-
-Support
--------
-
-If you are having problems, send a mail to bschussek@gmail.com or shout out to
-[@webmozart] on Twitter.
 
 License
 -------
