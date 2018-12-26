@@ -3,9 +3,22 @@ Changelog
 
 ## UNRELEASED
 
-### Removed
+## 1.4.0 (2018-12-25)
 
-* removed `Assert::isTraversable()`
+### Added
+
+* added `Assert::ip()`
+* added `Assert::ipv4()`
+* added `Assert::ipv6()`
+* added `Assert::notRegex()`
+* added `Assert::interfaceExists()`
+* added `Assert::isList()`
+* added `Assert::isMap()`
+* added polyfill for ctype
+
+### Fixed
+
+* Special case when comparing objects implementing `__toString()`
 
 ## 1.3.0 (2018-01-29)
 

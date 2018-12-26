@@ -29,6 +29,7 @@ use Traversable;
  * @method static void nullOrIntegerish($value, $message = '')
  * @method static void nullOrFloat($value, $message = '')
  * @method static void nullOrNumeric($value, $message = '')
+ * @method static void nullOrNatural($value, $message = '')
  * @method static void nullOrBoolean($value, $message = '')
  * @method static void nullOrScalar($value, $message = '')
  * @method static void nullOrObject($value, $message = '')
@@ -38,6 +39,7 @@ use Traversable;
  * @method static void nullOrIsTraversable($value, $message = '')
  * @method static void nullOrIsArrayAccessible($value, $message = '')
  * @method static void nullOrIsCountable($value, $message = '')
+ * @method static void nullOrIsIterable($value, $message = '')
  * @method static void nullOrIsInstanceOf($value, $class, $message = '')
  * @method static void nullOrNotInstanceOf($value, $class, $message = '')
  * @method static void nullOrIsInstanceOfAny($value, $classes, $message = '')
@@ -45,6 +47,9 @@ use Traversable;
  * @method static void nullOrNotEmpty($value, $message = '')
  * @method static void nullOrTrue($value, $message = '')
  * @method static void nullOrFalse($value, $message = '')
+ * @method static void nullOrIp($value, $message = '')
+ * @method static void nullOrIpv4($value, $message = '')
+ * @method static void nullOrIpv6($value, $message = '')
  * @method static void nullOrEq($value, $value2, $message = '')
  * @method static void nullOrNotEq($value,$value2,  $message = '')
  * @method static void nullOrSame($value, $value2, $message = '')
@@ -79,6 +84,7 @@ use Traversable;
  * @method static void nullOrWritable($value, $message = '')
  * @method static void nullOrClassExists($value, $message = '')
  * @method static void nullOrSubclassOf($value, $class, $message = '')
+ * @method static void nullOrInterfaceExists($value, $message = '')
  * @method static void nullOrImplementsInterface($value, $interface, $message = '')
  * @method static void nullOrPropertyExists($value, $property, $message = '')
  * @method static void nullOrPropertyNotExists($value, $property, $message = '')
@@ -89,14 +95,18 @@ use Traversable;
  * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
- * @method static void nullCountBetween($value, $min, $max, $message = '')
+ * @method static void nullOrIsList($value, $message = '')
+ * @method static void nullOrIsMap($value, $message = '')
+ * @method static void nullOrCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
+ * @method static void nullOrThrows($expression, $class = 'Exception', $message = '')
  * @method static void allString($values, $message = '')
  * @method static void allStringNotEmpty($values, $message = '')
  * @method static void allInteger($values, $message = '')
  * @method static void allIntegerish($values, $message = '')
  * @method static void allFloat($values, $message = '')
  * @method static void allNumeric($values, $message = '')
+ * @method static void allNatural($values, $message = '')
  * @method static void allBoolean($values, $message = '')
  * @method static void allScalar($values, $message = '')
  * @method static void allObject($values, $message = '')
@@ -106,6 +116,7 @@ use Traversable;
  * @method static void allIsTraversable($values, $message = '')
  * @method static void allIsArrayAccessible($values, $message = '')
  * @method static void allIsCountable($values, $message = '')
+ * @method static void allIsIterable($values, $message = '')
  * @method static void allIsInstanceOf($values, $class, $message = '')
  * @method static void allNotInstanceOf($values, $class, $message = '')
  * @method static void allIsInstanceOfAny($values, $classes, $message = '')
@@ -115,6 +126,9 @@ use Traversable;
  * @method static void allNotEmpty($values, $message = '')
  * @method static void allTrue($values, $message = '')
  * @method static void allFalse($values, $message = '')
+ * @method static void allIp($values, $message = '')
+ * @method static void allIpv4($values, $message = '')
+ * @method static void allIpv6($values, $message = '')
  * @method static void allEq($values, $value2, $message = '')
  * @method static void allNotEq($values,$value2,  $message = '')
  * @method static void allSame($values, $value2, $message = '')
@@ -149,6 +163,7 @@ use Traversable;
  * @method static void allWritable($values, $message = '')
  * @method static void allClassExists($values, $message = '')
  * @method static void allSubclassOf($values, $class, $message = '')
+ * @method static void allInterfaceExists($values, $message = '')
  * @method static void allImplementsInterface($values, $interface, $message = '')
  * @method static void allPropertyExists($values, $property, $message = '')
  * @method static void allPropertyNotExists($values, $property, $message = '')
@@ -160,7 +175,10 @@ use Traversable;
  * @method static void allMinCount($values, $min, $message = '')
  * @method static void allMaxCount($values, $max, $message = '')
  * @method static void allCountBetween($values, $min, $max, $message = '')
+ * @method static void allIsList($values, $message = '')
+ * @method static void allIsMap($values, $message = '')
  * @method static void allUuid($values, $message = '')
+ * @method static void allThrows($expressions, $class = 'Exception', $message = '')
  *
  * @since  1.0
  *
@@ -441,6 +459,36 @@ class Assert
         if (false !== $value) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to be false. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function ip($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_IP)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be an IP. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function ipv4($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be an IPv4. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function ipv6($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be an IPv6. Got %s',
                 static::valueToString($value)
             ));
         }
@@ -849,6 +897,16 @@ class Assert
         }
     }
 
+    public static function interfaceExists($value, $message = '')
+    {
+        if (!interface_exists($value)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an existing interface name. got %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
     public static function implementsInterface($value, $interface, $message = '')
     {
         if (!in_array($interface, class_implements($value))) {
@@ -962,6 +1020,30 @@ class Assert
                 $min,
                 $max
             ));
+        }
+    }
+
+    public static function isList($array, $message = '')
+    {
+        if (!is_array($array) || !$array || array_keys($array) !== range(0, count($array) - 1)) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected list - non-associative array.'
+            );
+        }
+    }
+
+    public static function isMap($array, $message = '')
+    {
+        if (
+            !is_array($array) ||
+            !$array ||
+            array_keys($array) !== array_filter(array_keys($array), function ($key) {
+                return is_string($key);
+            })
+        ) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected map - associative array with string keys.'
+            );
         }
     }
 
