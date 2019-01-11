@@ -504,7 +504,7 @@ class Assert
 
         foreach ($countValues as $value => $count) {
             if ($count > 1) {
-                array_push($nonUniqueValues, $nonUniqueValues);
+                array_push($nonUniqueValues, $value);
             }
         }
 
