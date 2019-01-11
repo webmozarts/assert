@@ -50,6 +50,7 @@ use Traversable;
  * @method static void nullOrIp($value, $message = '')
  * @method static void nullOrIpv4($value, $message = '')
  * @method static void nullOrIpv6($value, $message = '')
+ * @method static void nullOrUniqueValues($values, $message = '')
  * @method static void nullOrEq($value, $value2, $message = '')
  * @method static void nullOrNotEq($value,$value2,  $message = '')
  * @method static void nullOrSame($value, $value2, $message = '')
@@ -129,6 +130,7 @@ use Traversable;
  * @method static void allIp($values, $message = '')
  * @method static void allIpv4($values, $message = '')
  * @method static void allIpv6($values, $message = '')
+ * @method static void allUniqueValues($values, $message = '')
  * @method static void allEq($values, $value2, $message = '')
  * @method static void allNotEq($values,$value2,  $message = '')
  * @method static void allSame($values, $value2, $message = '')
@@ -490,6 +492,28 @@ class Assert
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to be an IPv6. Got %s',
                 static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function uniqueValues(array $values, $message = '')
+    {
+        $countValues = array_count_values($values);
+
+        $nonUniqueValues = array();
+
+        foreach ($countValues as $value => $count) {
+            if ($count > 1) {
+                array_push($nonUniqueValues, $nonUniqueValues);
+            }
+        }
+
+        if (!empty($nonUniqueValues)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected an array of unique values, but %s %s duplicated: %s',
+                count($nonUniqueValues),
+                (1 === count($nonUniqueValues) ? 'is' : 'are'),
+                implode(', ', $nonUniqueValues)
             ));
         }
     }
