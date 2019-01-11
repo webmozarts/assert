@@ -509,10 +509,12 @@ class Assert
         }
 
         if (!empty($nonUniqueValues)) {
+            $countNonUniqueValues = count($nonUniqueValues);
+
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an array of unique values, but %s %s duplicated: %s',
-                count($nonUniqueValues),
-                (1 === count($nonUniqueValues) ? 'is' : 'are'),
+                $countNonUniqueValues,
+                (1 === $countNonUniqueValues ? 'is' : 'are'),
                 implode(', ', $nonUniqueValues)
             ));
         }
