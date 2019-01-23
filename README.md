@@ -106,6 +106,7 @@ Method                                                   | Description
 `isInstanceOfAny($value, array $classes, $message = '')` | Check that a value is an `instanceof` a at least one class on the array of classes
 `notInstanceOf($value, $class, $message = '')`           | Check that a value is not an `instanceof` a class
 `isArrayAccessible($value, $message = '')`               | Check that a value can be accessed as an array
+`uniqueValues($values, $message = '')`                   | Check that the given array contains unique values
 
 ### Comparison Assertions
 
@@ -155,7 +156,6 @@ Method                                              | Description
 `ip($value, $message = '')`                         | Check that a string is a valid IP (either IPv4 or IPv6)
 `ipv4($value, $message = '')`                       | Check that a string is a valid IPv4
 `ipv6($value, $message = '')`                       | Check that a string is a valid IPv6
-`uniqueValues($values, $message = '')`              | Check that the given array contains unique values
 `notWhitespaceOnly($value, $message = '')`          | Check that a string contains at least one non-whitespace character
 
 ### File Assertions
