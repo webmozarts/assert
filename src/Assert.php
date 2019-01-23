@@ -498,24 +498,16 @@ class Assert
 
     public static function uniqueValues(array $values, $message = '')
     {
-        $countValues = array_count_values($values);
+        $allValues = count($values);
+        $uniqueValues = count(array_unique($values));
 
-        $nonUniqueValues = array();
-
-        foreach ($countValues as $value => $count) {
-            if ($count > 1) {
-                array_push($nonUniqueValues, $value);
-            }
-        }
-
-        if (!empty($nonUniqueValues)) {
-            $countNonUniqueValues = count($nonUniqueValues);
+        if ($allValues !== $uniqueValues) {
+            $difference = $allValues - $uniqueValues;
 
             static::reportInvalidArgument(sprintf(
-                $message ?: 'Expected an array of unique values, but %s %s duplicated: %s',
-                $countNonUniqueValues,
-                (1 === $countNonUniqueValues ? 'is' : 'are'),
-                implode(', ', $nonUniqueValues)
+                $message ?: 'Expected an array of unique values, but %s of them %s duplicated',
+                $difference,
+                (1 === $difference ? 'is' : 'are')
             ));
         }
     }
