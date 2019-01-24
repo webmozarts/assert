@@ -105,6 +105,9 @@ Method                                                   | Description
 `isInstanceOf($value, $class, $message = '')`            | Check that a value is an `instanceof` a class
 `isInstanceOfAny($value, array $classes, $message = '')` | Check that a value is an `instanceof` a at least one class on the array of classes
 `notInstanceOf($value, $class, $message = '')`           | Check that a value is not an `instanceof` a class
+`isAOf($value, $class, $message = '')`                   | Check that a value is of the class or has one of its parents
+`isAOfAny($value, array $classes, $message = '')`        | Check that a value a at least one of the class or has one of its parents
+`notAOf($value, $class, $message = '')`                  | Check that a value is not of the class or has not one of its parents
 `isArrayAccessible($value, $message = '')`               | Check that a value can be accessed as an array
 
 ### Comparison Assertions
