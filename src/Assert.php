@@ -607,7 +607,6 @@ class Assert
         }
     }
 
-
     public static function notAOf($value, $class, $message = '')
     {
         if (!is_string($class) || is_a($value, $class, is_string($value))) {
