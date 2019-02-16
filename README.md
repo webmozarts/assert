@@ -217,6 +217,26 @@ assertion only if it the value is not `null`:
 Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
 ```
 
+
+Project-Specific Exception
+--------------------------
+
+Instead of the default SPL `\InvalidArgumentException` that is thrown when an exception fails, you can override that with a project-specific exception class. (Inspired by [beberlei/assert])
+
+```php
+<?php
+
+namespace MyProject\Namespace;
+
+use Webmozart\Assert\Assert as BaseAssert;
+
+class Assert extends BaseAssert
+{
+    protected static $exceptionClass = 'MyProject\Namespace\ProjectSpecificException';
+}
+```
+
+
 Authors
 -------
 

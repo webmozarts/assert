@@ -186,6 +186,15 @@ use Traversable;
  */
 class Assert
 {
+    /**
+     * Class name of the exception to throw when an assertion failed.
+     *
+     * The exception to be thrown, can be overwritten in a project-specific Assert class that extends from this class.
+     *
+     * @var string
+     */
+    protected static $exceptionClass = 'InvalidArgumentException';
+
     public static function string($value, $message = '')
     {
         if (!is_string($value)) {
@@ -1178,7 +1187,9 @@ class Assert
 
     protected static function reportInvalidArgument($message)
     {
-        throw new InvalidArgumentException($message);
+        $exceptionClass = static::$exceptionClass;
+
+        throw new $exceptionClass($message);
     }
 
     private function __construct()
