@@ -12,10 +12,10 @@
 
 namespace Webmozart\Assert\Tests {
 
-    use PHPUnit\Framework\TestCase;
+    use PHPUnit_Framework_TestCase;
     use Webmozart\Assert\MyProjectNamespace\Assert;
 
-    class CustomExceptionClassTest extends TestCase
+    class CustomExceptionClassTest extends PHPUnit_Framework_TestCase
     {
         public function testCustomException()
         {
