@@ -1173,7 +1173,7 @@ class Assert
             return strlen($value);
         }
 
-        return mb_strwidth($value, $encoding);
+        return mb_strlen($value, $encoding);
     }
 
     protected static function reportInvalidArgument($message)
