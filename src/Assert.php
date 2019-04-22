@@ -187,6 +187,15 @@ use Traversable;
  */
 class Assert
 {
+    public static function assert($value, $message = ''): bool
+    {
+        if (!$value) {
+            static::reportInvalidArgument($message ?: 'Assert failed');
+            return false;
+        }
+        return true;
+    }
+
     public static function string($value, $message = ''): bool
     {
         if (!is_string($value)) {
