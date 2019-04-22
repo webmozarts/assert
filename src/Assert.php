@@ -17,7 +17,8 @@ use BadMethodCallException;
 use Closure;
 use Countable;
 use Exception;
-use InvalidArgumentException;
+use RuntimeException;
+use SplFileObject;
 use Throwable;
 use Traversable;
 
@@ -187,10 +188,17 @@ use Traversable;
  */
 class Assert
 {
+    protected static $throwException = true;
+
+    public static function setThrowException(bool $b)
+    {
+        self::$throwException = $b;
+    }
+
     public static function assert($value, $message = ''): bool
     {
         if (!$value) {
-            static::reportInvalidArgument($message ?: 'Assert failed');
+            static::reportInvalidArgument($message);
             return false;
         }
         return true;
@@ -1321,9 +1329,18 @@ class Assert
         return mb_strwidth($value, $encoding);
     }
 
-    protected static function reportInvalidArgument($message)
+    protected static function reportInvalidArgument(string $message = '')
     {
-        throw new InvalidArgumentException($message);
+        $e = new RuntimeException($message);
+        if (self::$throwException) {
+            throw $e;
+        } else {
+            $file = $e->getFile();
+            $line = $e->getLine();
+            $msg = $e->getMessage();
+            $trace = $e->getTraceAsString();
+            echo "\nAssert failed: {$msg} in {$file} on line {$line}\nStack trace: \n{$trace}\n";
+        }
     }
 
     private function __construct()
