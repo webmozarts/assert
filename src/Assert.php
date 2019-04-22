@@ -1332,14 +1332,20 @@ class Assert
     protected static function reportInvalidArgument(string $message = '')
     {
         $e = new RuntimeException($message);
-        if (self::$throwException) {
+        if (static::$throwException) {
             throw $e;
         } else {
             $file = $e->getFile();
             $line = $e->getLine();
             $msg = $e->getMessage();
             $trace = $e->getTraceAsString();
-            echo "\nAssert failed: {$msg} in {$file} on line {$line}\nStack trace: \n{$trace}\n";
+            foreach ($e->getTrace() as $call) {
+                if ($call['file'] !== __FILE__) {
+                    $file = $call['file'];
+                    $line = $call['line'];
+                }
+            }
+            echo "\nAssert failed: " . (empty($msg) ? '' : "{$msg} ") . "in {$file} on line {$line}\nStack trace: \n{$trace}\n";
         }
     }
 
