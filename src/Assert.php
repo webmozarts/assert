@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Swoole\Assert;
+namespace Swoole;
 
 use ArrayAccess;
 use BadMethodCallException;
@@ -24,162 +24,162 @@ use Traversable;
 /**
  * Efficient assertions to validate the input/output of your methods.
  *
- * @method static void nullOrString($value, $message = '')
- * @method static void nullOrStringNotEmpty($value, $message = '')
- * @method static void nullOrInteger($value, $message = '')
- * @method static void nullOrIntegerish($value, $message = '')
- * @method static void nullOrFloat($value, $message = '')
- * @method static void nullOrNumeric($value, $message = '')
- * @method static void nullOrNatural($value, $message = '')
- * @method static void nullOrBoolean($value, $message = '')
- * @method static void nullOrScalar($value, $message = '')
- * @method static void nullOrObject($value, $message = '')
- * @method static void nullOrResource($value, $type = null, $message = '')
- * @method static void nullOrIsCallable($value, $message = '')
- * @method static void nullOrIsArray($value, $message = '')
- * @method static void nullOrIsTraversable($value, $message = '')
- * @method static void nullOrIsArrayAccessible($value, $message = '')
- * @method static void nullOrIsCountable($value, $message = '')
- * @method static void nullOrIsIterable($value, $message = '')
- * @method static void nullOrIsInstanceOf($value, $class, $message = '')
- * @method static void nullOrNotInstanceOf($value, $class, $message = '')
- * @method static void nullOrIsInstanceOfAny($value, $classes, $message = '')
- * @method static void nullOrIsEmpty($value, $message = '')
- * @method static void nullOrNotEmpty($value, $message = '')
- * @method static void nullOrTrue($value, $message = '')
- * @method static void nullOrFalse($value, $message = '')
- * @method static void nullOrIp($value, $message = '')
- * @method static void nullOrIpv4($value, $message = '')
- * @method static void nullOrIpv6($value, $message = '')
- * @method static void nullOrEq($value, $value2, $message = '')
- * @method static void nullOrNotEq($value,$value2,  $message = '')
- * @method static void nullOrSame($value, $value2, $message = '')
- * @method static void nullOrNotSame($value, $value2, $message = '')
- * @method static void nullOrGreaterThan($value, $value2, $message = '')
- * @method static void nullOrGreaterThanEq($value, $value2, $message = '')
- * @method static void nullOrLessThan($value, $value2, $message = '')
- * @method static void nullOrLessThanEq($value, $value2, $message = '')
- * @method static void nullOrRange($value, $min, $max, $message = '')
- * @method static void nullOrOneOf($value, $values, $message = '')
- * @method static void nullOrContains($value, $subString, $message = '')
- * @method static void nullOrNotContains($value, $subString, $message = '')
- * @method static void nullOrNotWhitespaceOnly($value, $message = '')
- * @method static void nullOrStartsWith($value, $prefix, $message = '')
- * @method static void nullOrStartsWithLetter($value, $message = '')
- * @method static void nullOrEndsWith($value, $suffix, $message = '')
- * @method static void nullOrRegex($value, $pattern, $message = '')
- * @method static void nullOrNotRegex($value, $pattern, $message = '')
- * @method static void nullOrAlpha($value, $message = '')
- * @method static void nullOrDigits($value, $message = '')
- * @method static void nullOrAlnum($value, $message = '')
- * @method static void nullOrLower($value, $message = '')
- * @method static void nullOrUpper($value, $message = '')
- * @method static void nullOrLength($value, $length, $message = '')
- * @method static void nullOrMinLength($value, $min, $message = '')
- * @method static void nullOrMaxLength($value, $max, $message = '')
- * @method static void nullOrLengthBetween($value, $min, $max, $message = '')
- * @method static void nullOrFileExists($value, $message = '')
- * @method static void nullOrFile($value, $message = '')
- * @method static void nullOrDirectory($value, $message = '')
- * @method static void nullOrReadable($value, $message = '')
- * @method static void nullOrWritable($value, $message = '')
- * @method static void nullOrClassExists($value, $message = '')
- * @method static void nullOrSubclassOf($value, $class, $message = '')
- * @method static void nullOrInterfaceExists($value, $message = '')
- * @method static void nullOrImplementsInterface($value, $interface, $message = '')
- * @method static void nullOrPropertyExists($value, $property, $message = '')
- * @method static void nullOrPropertyNotExists($value, $property, $message = '')
- * @method static void nullOrMethodExists($value, $method, $message = '')
- * @method static void nullOrMethodNotExists($value, $method, $message = '')
- * @method static void nullOrKeyExists($value, $key, $message = '')
- * @method static void nullOrKeyNotExists($value, $key, $message = '')
- * @method static void nullOrCount($value, $key, $message = '')
- * @method static void nullOrMinCount($value, $min, $message = '')
- * @method static void nullOrMaxCount($value, $max, $message = '')
- * @method static void nullOrIsList($value, $message = '')
- * @method static void nullOrIsMap($value, $message = '')
- * @method static void nullOrCountBetween($value, $min, $max, $message = '')
- * @method static void nullOrUuid($values, $message = '')
- * @method static void nullOrThrows($expression, $class = 'Exception', $message = '')
- * @method static void allString($values, $message = '')
- * @method static void allStringNotEmpty($values, $message = '')
- * @method static void allInteger($values, $message = '')
- * @method static void allIntegerish($values, $message = '')
- * @method static void allFloat($values, $message = '')
- * @method static void allNumeric($values, $message = '')
- * @method static void allNatural($values, $message = '')
- * @method static void allBoolean($values, $message = '')
- * @method static void allScalar($values, $message = '')
- * @method static void allObject($values, $message = '')
- * @method static void allResource($values, $type = null, $message = '')
- * @method static void allIsCallable($values, $message = '')
- * @method static void allIsArray($values, $message = '')
- * @method static void allIsTraversable($values, $message = '')
- * @method static void allIsArrayAccessible($values, $message = '')
- * @method static void allIsCountable($values, $message = '')
- * @method static void allIsIterable($values, $message = '')
- * @method static void allIsInstanceOf($values, $class, $message = '')
- * @method static void allNotInstanceOf($values, $class, $message = '')
- * @method static void allIsInstanceOfAny($values, $classes, $message = '')
- * @method static void allNull($values, $message = '')
- * @method static void allNotNull($values, $message = '')
- * @method static void allIsEmpty($values, $message = '')
- * @method static void allNotEmpty($values, $message = '')
- * @method static void allTrue($values, $message = '')
- * @method static void allFalse($values, $message = '')
- * @method static void allIp($values, $message = '')
- * @method static void allIpv4($values, $message = '')
- * @method static void allIpv6($values, $message = '')
- * @method static void allEq($values, $value2, $message = '')
- * @method static void allNotEq($values,$value2,  $message = '')
- * @method static void allSame($values, $value2, $message = '')
- * @method static void allNotSame($values, $value2, $message = '')
- * @method static void allGreaterThan($values, $value2, $message = '')
- * @method static void allGreaterThanEq($values, $value2, $message = '')
- * @method static void allLessThan($values, $value2, $message = '')
- * @method static void allLessThanEq($values, $value2, $message = '')
- * @method static void allRange($values, $min, $max, $message = '')
- * @method static void allOneOf($values, $values, $message = '')
- * @method static void allContains($values, $subString, $message = '')
- * @method static void allNotContains($values, $subString, $message = '')
- * @method static void allNotWhitespaceOnly($values, $message = '')
- * @method static void allStartsWith($values, $prefix, $message = '')
- * @method static void allStartsWithLetter($values, $message = '')
- * @method static void allEndsWith($values, $suffix, $message = '')
- * @method static void allRegex($values, $pattern, $message = '')
- * @method static void allNotRegex($values, $pattern, $message = '')
- * @method static void allAlpha($values, $message = '')
- * @method static void allDigits($values, $message = '')
- * @method static void allAlnum($values, $message = '')
- * @method static void allLower($values, $message = '')
- * @method static void allUpper($values, $message = '')
- * @method static void allLength($values, $length, $message = '')
- * @method static void allMinLength($values, $min, $message = '')
- * @method static void allMaxLength($values, $max, $message = '')
- * @method static void allLengthBetween($values, $min, $max, $message = '')
- * @method static void allFileExists($values, $message = '')
- * @method static void allFile($values, $message = '')
- * @method static void allDirectory($values, $message = '')
- * @method static void allReadable($values, $message = '')
- * @method static void allWritable($values, $message = '')
- * @method static void allClassExists($values, $message = '')
- * @method static void allSubclassOf($values, $class, $message = '')
- * @method static void allInterfaceExists($values, $message = '')
- * @method static void allImplementsInterface($values, $interface, $message = '')
- * @method static void allPropertyExists($values, $property, $message = '')
- * @method static void allPropertyNotExists($values, $property, $message = '')
- * @method static void allMethodExists($values, $method, $message = '')
- * @method static void allMethodNotExists($values, $method, $message = '')
- * @method static void allKeyExists($values, $key, $message = '')
- * @method static void allKeyNotExists($values, $key, $message = '')
- * @method static void allCount($values, $key, $message = '')
- * @method static void allMinCount($values, $min, $message = '')
- * @method static void allMaxCount($values, $max, $message = '')
- * @method static void allCountBetween($values, $min, $max, $message = '')
- * @method static void allIsList($values, $message = '')
- * @method static void allIsMap($values, $message = '')
- * @method static void allUuid($values, $message = '')
- * @method static void allThrows($expressions, $class = 'Exception', $message = '')
+ * @method static bool nullOrString($value, $message = '')
+ * @method static bool nullOrStringNotEmpty($value, $message = '')
+ * @method static bool nullOrInteger($value, $message = '')
+ * @method static bool nullOrIntegerish($value, $message = '')
+ * @method static bool nullOrFloat($value, $message = '')
+ * @method static bool nullOrNumeric($value, $message = '')
+ * @method static bool nullOrNatural($value, $message = '')
+ * @method static bool nullOrBoolean($value, $message = '')
+ * @method static bool nullOrScalar($value, $message = '')
+ * @method static bool nullOrObject($value, $message = '')
+ * @method static bool nullOrResource($value, $type = null, $message = '')
+ * @method static bool nullOrIsCallable($value, $message = '')
+ * @method static bool nullOrIsArray($value, $message = '')
+ * @method static bool nullOrIsTraversable($value, $message = '')
+ * @method static bool nullOrIsArrayAccessible($value, $message = '')
+ * @method static bool nullOrIsCountable($value, $message = '')
+ * @method static bool nullOrIsIterable($value, $message = '')
+ * @method static bool nullOrIsInstanceOf($value, $class, $message = '')
+ * @method static bool nullOrNotInstanceOf($value, $class, $message = '')
+ * @method static bool nullOrIsInstanceOfAny($value, $classes, $message = '')
+ * @method static bool nullOrIsEmpty($value, $message = '')
+ * @method static bool nullOrNotEmpty($value, $message = '')
+ * @method static bool nullOrTrue($value, $message = '')
+ * @method static bool nullOrFalse($value, $message = '')
+ * @method static bool nullOrIp($value, $message = '')
+ * @method static bool nullOrIpv4($value, $message = '')
+ * @method static bool nullOrIpv6($value, $message = '')
+ * @method static bool nullOrEq($value, $value2, $message = '')
+ * @method static bool nullOrNotEq($value,$value2,  $message = '')
+ * @method static bool nullOrSame($value, $value2, $message = '')
+ * @method static bool nullOrNotSame($value, $value2, $message = '')
+ * @method static bool nullOrGreaterThan($value, $value2, $message = '')
+ * @method static bool nullOrGreaterThanEq($value, $value2, $message = '')
+ * @method static bool nullOrLessThan($value, $value2, $message = '')
+ * @method static bool nullOrLessThanEq($value, $value2, $message = '')
+ * @method static bool nullOrRange($value, $min, $max, $message = '')
+ * @method static bool nullOrOneOf($value, $values, $message = '')
+ * @method static bool nullOrContains($value, $subString, $message = '')
+ * @method static bool nullOrNotContains($value, $subString, $message = '')
+ * @method static bool nullOrNotWhitespaceOnly($value, $message = '')
+ * @method static bool nullOrStartsWith($value, $prefix, $message = '')
+ * @method static bool nullOrStartsWithLetter($value, $message = '')
+ * @method static bool nullOrEndsWith($value, $suffix, $message = '')
+ * @method static bool nullOrRegex($value, $pattern, $message = '')
+ * @method static bool nullOrNotRegex($value, $pattern, $message = '')
+ * @method static bool nullOrAlpha($value, $message = '')
+ * @method static bool nullOrDigits($value, $message = '')
+ * @method static bool nullOrAlnum($value, $message = '')
+ * @method static bool nullOrLower($value, $message = '')
+ * @method static bool nullOrUpper($value, $message = '')
+ * @method static bool nullOrLength($value, $length, $message = '')
+ * @method static bool nullOrMinLength($value, $min, $message = '')
+ * @method static bool nullOrMaxLength($value, $max, $message = '')
+ * @method static bool nullOrLengthBetween($value, $min, $max, $message = '')
+ * @method static bool nullOrFileExists($value, $message = '')
+ * @method static bool nullOrFile($value, $message = '')
+ * @method static bool nullOrDirectory($value, $message = '')
+ * @method static bool nullOrReadable($value, $message = '')
+ * @method static bool nullOrWritable($value, $message = '')
+ * @method static bool nullOrClassExists($value, $message = '')
+ * @method static bool nullOrSubclassOf($value, $class, $message = '')
+ * @method static bool nullOrInterfaceExists($value, $message = '')
+ * @method static bool nullOrImplementsInterface($value, $interface, $message = '')
+ * @method static bool nullOrPropertyExists($value, $property, $message = '')
+ * @method static bool nullOrPropertyNotExists($value, $property, $message = '')
+ * @method static bool nullOrMethodExists($value, $method, $message = '')
+ * @method static bool nullOrMethodNotExists($value, $method, $message = '')
+ * @method static bool nullOrKeyExists($value, $key, $message = '')
+ * @method static bool nullOrKeyNotExists($value, $key, $message = '')
+ * @method static bool nullOrCount($value, $key, $message = '')
+ * @method static bool nullOrMinCount($value, $min, $message = '')
+ * @method static bool nullOrMaxCount($value, $max, $message = '')
+ * @method static bool nullOrIsList($value, $message = '')
+ * @method static bool nullOrIsMap($value, $message = '')
+ * @method static bool nullOrCountBetween($value, $min, $max, $message = '')
+ * @method static bool nullOrUuid($values, $message = '')
+ * @method static bool nullOrThrows($expression, $class = 'Exception', $message = '')
+ * @method static bool allString($values, $message = '')
+ * @method static bool allStringNotEmpty($values, $message = '')
+ * @method static bool allInteger($values, $message = '')
+ * @method static bool allIntegerish($values, $message = '')
+ * @method static bool allFloat($values, $message = '')
+ * @method static bool allNumeric($values, $message = '')
+ * @method static bool allNatural($values, $message = '')
+ * @method static bool allBoolean($values, $message = '')
+ * @method static bool allScalar($values, $message = '')
+ * @method static bool allObject($values, $message = '')
+ * @method static bool allResource($values, $type = null, $message = '')
+ * @method static bool allIsCallable($values, $message = '')
+ * @method static bool allIsArray($values, $message = '')
+ * @method static bool allIsTraversable($values, $message = '')
+ * @method static bool allIsArrayAccessible($values, $message = '')
+ * @method static bool allIsCountable($values, $message = '')
+ * @method static bool allIsIterable($values, $message = '')
+ * @method static bool allIsInstanceOf($values, $class, $message = '')
+ * @method static bool allNotInstanceOf($values, $class, $message = '')
+ * @method static bool allIsInstanceOfAny($values, $classes, $message = '')
+ * @method static bool allNull($values, $message = '')
+ * @method static bool allNotNull($values, $message = '')
+ * @method static bool allIsEmpty($values, $message = '')
+ * @method static bool allNotEmpty($values, $message = '')
+ * @method static bool allTrue($values, $message = '')
+ * @method static bool allFalse($values, $message = '')
+ * @method static bool allIp($values, $message = '')
+ * @method static bool allIpv4($values, $message = '')
+ * @method static bool allIpv6($values, $message = '')
+ * @method static bool allEq($values, $value2, $message = '')
+ * @method static bool allNotEq($values,$value2,  $message = '')
+ * @method static bool allSame($values, $value2, $message = '')
+ * @method static bool allNotSame($values, $value2, $message = '')
+ * @method static bool allGreaterThan($values, $value2, $message = '')
+ * @method static bool allGreaterThanEq($values, $value2, $message = '')
+ * @method static bool allLessThan($values, $value2, $message = '')
+ * @method static bool allLessThanEq($values, $value2, $message = '')
+ * @method static bool allRange($values, $min, $max, $message = '')
+ * @method static bool allOneOf($values, $values, $message = '')
+ * @method static bool allContains($values, $subString, $message = '')
+ * @method static bool allNotContains($values, $subString, $message = '')
+ * @method static bool allNotWhitespaceOnly($values, $message = '')
+ * @method static bool allStartsWith($values, $prefix, $message = '')
+ * @method static bool allStartsWithLetter($values, $message = '')
+ * @method static bool allEndsWith($values, $suffix, $message = '')
+ * @method static bool allRegex($values, $pattern, $message = '')
+ * @method static bool allNotRegex($values, $pattern, $message = '')
+ * @method static bool allAlpha($values, $message = '')
+ * @method static bool allDigits($values, $message = '')
+ * @method static bool allAlnum($values, $message = '')
+ * @method static bool allLower($values, $message = '')
+ * @method static bool allUpper($values, $message = '')
+ * @method static bool allLength($values, $length, $message = '')
+ * @method static bool allMinLength($values, $min, $message = '')
+ * @method static bool allMaxLength($values, $max, $message = '')
+ * @method static bool allLengthBetween($values, $min, $max, $message = '')
+ * @method static bool allFileExists($values, $message = '')
+ * @method static bool allFile($values, $message = '')
+ * @method static bool allDirectory($values, $message = '')
+ * @method static bool allReadable($values, $message = '')
+ * @method static bool allWritable($values, $message = '')
+ * @method static bool allClassExists($values, $message = '')
+ * @method static bool allSubclassOf($values, $class, $message = '')
+ * @method static bool allInterfaceExists($values, $message = '')
+ * @method static bool allImplementsInterface($values, $interface, $message = '')
+ * @method static bool allPropertyExists($values, $property, $message = '')
+ * @method static bool allPropertyNotExists($values, $property, $message = '')
+ * @method static bool allMethodExists($values, $method, $message = '')
+ * @method static bool allMethodNotExists($values, $method, $message = '')
+ * @method static bool allKeyExists($values, $key, $message = '')
+ * @method static bool allKeyNotExists($values, $key, $message = '')
+ * @method static bool allCount($values, $key, $message = '')
+ * @method static bool allMinCount($values, $min, $message = '')
+ * @method static bool allMaxCount($values, $max, $message = '')
+ * @method static bool allCountBetween($values, $min, $max, $message = '')
+ * @method static bool allIsList($values, $message = '')
+ * @method static bool allIsMap($values, $message = '')
+ * @method static bool allUuid($values, $message = '')
+ * @method static bool allThrows($expressions, $class = 'Exception', $message = '')
  *
  * @since  1.0
  *
@@ -187,7 +187,7 @@ use Traversable;
  */
 class Assert
 {
-    public static function string($value, $message = '')
+    public static function string($value, $message = ''): bool
     {
         if (!is_string($value)) {
             static::reportInvalidArgument(sprintf(
@@ -199,12 +199,12 @@ class Assert
         return true;
     }
 
-    public static function stringNotEmpty($value, $message = '')
+    public static function stringNotEmpty($value, $message = ''): bool
     {
         return static::string($value, $message) && static::notEq($value, '', $message);
     }
 
-    public static function integer($value, $message = '')
+    public static function integer($value, $message = ''): bool
     {
         if (!is_int($value)) {
             static::reportInvalidArgument(sprintf(
@@ -216,7 +216,7 @@ class Assert
         return true;
     }
 
-    public static function integerish($value, $message = '')
+    public static function integerish($value, $message = ''): bool
     {
         if (!is_numeric($value) || $value != (int) $value) {
             static::reportInvalidArgument(sprintf(
@@ -228,7 +228,7 @@ class Assert
         return true;
     }
 
-    public static function float($value, $message = '')
+    public static function float($value, $message = ''): bool
     {
         if (!is_float($value)) {
             static::reportInvalidArgument(sprintf(
@@ -240,7 +240,7 @@ class Assert
         return true;
     }
 
-    public static function numeric($value, $message = '')
+    public static function numeric($value, $message = ''): bool
     {
         if (!is_numeric($value)) {
             static::reportInvalidArgument(sprintf(
@@ -252,7 +252,7 @@ class Assert
         return true;
     }
 
-    public static function natural($value, $message = '')
+    public static function natural($value, $message = ''): bool
     {
         if (!is_int($value) || $value < 0) {
             static::reportInvalidArgument(sprintf(
@@ -264,7 +264,7 @@ class Assert
         return true;
     }
 
-    public static function boolean($value, $message = '')
+    public static function boolean($value, $message = ''): bool
     {
         if (!is_bool($value)) {
             static::reportInvalidArgument(sprintf(
@@ -276,7 +276,7 @@ class Assert
         return true;
     }
 
-    public static function scalar($value, $message = '')
+    public static function scalar($value, $message = ''): bool
     {
         if (!is_scalar($value)) {
             static::reportInvalidArgument(sprintf(
@@ -288,7 +288,7 @@ class Assert
         return true;
     }
 
-    public static function object($value, $message = '')
+    public static function object($value, $message = ''): bool
     {
         if (!is_object($value)) {
             static::reportInvalidArgument(sprintf(
@@ -300,7 +300,7 @@ class Assert
         return true;
     }
 
-    public static function resource($value, $type = null, $message = '')
+    public static function resource($value, $type = null, $message = ''): bool
     {
         if (!is_resource($value)) {
             static::reportInvalidArgument(sprintf(
@@ -320,7 +320,7 @@ class Assert
         return true;
     }
 
-    public static function isCallable($value, $message = '')
+    public static function isCallable($value, $message = ''): bool
     {
         if (!is_callable($value)) {
             static::reportInvalidArgument(sprintf(
@@ -332,7 +332,7 @@ class Assert
         return true;
     }
 
-    public static function isArray($value, $message = '')
+    public static function isArray($value, $message = ''): bool
     {
         if (!is_array($value)) {
             static::reportInvalidArgument(sprintf(
@@ -344,7 +344,7 @@ class Assert
         return true;
     }
 
-    public static function isArrayAccessible($value, $message = '')
+    public static function isArrayAccessible($value, $message = ''): bool
     {
         if (!is_array($value) && !($value instanceof ArrayAccess)) {
             static::reportInvalidArgument(sprintf(
@@ -356,7 +356,7 @@ class Assert
         return true;
     }
 
-    public static function isCountable($value, $message = '')
+    public static function isCountable($value, $message = ''): bool
     {
         if (!is_array($value) && !($value instanceof Countable)) {
             static::reportInvalidArgument(sprintf(
@@ -368,7 +368,7 @@ class Assert
         return true;
     }
 
-    public static function isIterable($value, $message = '')
+    public static function isIterable($value, $message = ''): bool
     {
         if (!is_array($value) && !($value instanceof Traversable)) {
             static::reportInvalidArgument(sprintf(
@@ -380,7 +380,7 @@ class Assert
         return true;
     }
 
-    public static function isInstanceOf($value, $class, $message = '')
+    public static function isInstanceOf($value, $class, $message = ''): bool
     {
         if (!($value instanceof $class)) {
             static::reportInvalidArgument(sprintf(
@@ -393,7 +393,7 @@ class Assert
         return true;
     }
 
-    public static function notInstanceOf($value, $class, $message = '')
+    public static function notInstanceOf($value, $class, $message = ''): bool
     {
         if ($value instanceof $class) {
             static::reportInvalidArgument(sprintf(
@@ -406,7 +406,7 @@ class Assert
         return true;
     }
 
-    public static function isInstanceOfAny($value, array $classes, $message = '')
+    public static function isInstanceOfAny($value, array $classes, $message = ''): bool
     {
         foreach ($classes as $class) {
             if ($value instanceof $class) {
@@ -421,7 +421,7 @@ class Assert
         return false;
     }
 
-    public static function isEmpty($value, $message = '')
+    public static function isEmpty($value, $message = ''): bool
     {
         if (!empty($value)) {
             static::reportInvalidArgument(sprintf(
@@ -433,7 +433,7 @@ class Assert
         return true;
     }
 
-    public static function notEmpty($value, $message = '')
+    public static function notEmpty($value, $message = ''): bool
     {
         if (empty($value)) {
             static::reportInvalidArgument(sprintf(
@@ -445,7 +445,7 @@ class Assert
         return true;
     }
 
-    public static function null($value, $message = '')
+    public static function null($value, $message = ''): bool
     {
         if (null !== $value) {
             static::reportInvalidArgument(sprintf(
@@ -457,7 +457,7 @@ class Assert
         return true;
     }
 
-    public static function notNull($value, $message = '')
+    public static function notNull($value, $message = ''): bool
     {
         if (null === $value) {
             static::reportInvalidArgument(
@@ -468,7 +468,7 @@ class Assert
         return true;
     }
 
-    public static function true($value, $message = '')
+    public static function true($value, $message = ''): bool
     {
         if (true !== $value) {
             static::reportInvalidArgument(sprintf(
@@ -480,7 +480,7 @@ class Assert
         return true;
     }
 
-    public static function false($value, $message = '')
+    public static function false($value, $message = ''): bool
     {
         if (false !== $value) {
             static::reportInvalidArgument(sprintf(
@@ -492,7 +492,7 @@ class Assert
         return true;
     }
 
-    public static function ip($value, $message = '')
+    public static function ip($value, $message = ''): bool
     {
         if (false === filter_var($value, FILTER_VALIDATE_IP)) {
             static::reportInvalidArgument(sprintf(
@@ -504,7 +504,7 @@ class Assert
         return true;
     }
 
-    public static function ipv4($value, $message = '')
+    public static function ipv4($value, $message = ''): bool
     {
         if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             static::reportInvalidArgument(sprintf(
@@ -516,7 +516,7 @@ class Assert
         return true;
     }
 
-    public static function ipv6($value, $message = '')
+    public static function ipv6($value, $message = ''): bool
     {
         if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(sprintf(
@@ -528,7 +528,7 @@ class Assert
         return true;
     }
 
-    public static function eq($value, $value2, $message = '')
+    public static function eq($value, $value2, $message = ''): bool
     {
         if ($value2 != $value) {
             static::reportInvalidArgument(sprintf(
@@ -541,7 +541,7 @@ class Assert
         return true;
     }
 
-    public static function notEq($value, $value2, $message = '')
+    public static function notEq($value, $value2, $message = ''): bool
     {
         if ($value2 == $value) {
             static::reportInvalidArgument(sprintf(
@@ -553,7 +553,7 @@ class Assert
         return true;
     }
 
-    public static function same($value, $value2, $message = '')
+    public static function same($value, $value2, $message = ''): bool
     {
         if ($value2 !== $value) {
             static::reportInvalidArgument(sprintf(
@@ -566,7 +566,7 @@ class Assert
         return true;
     }
 
-    public static function notSame($value, $value2, $message = '')
+    public static function notSame($value, $value2, $message = ''): bool
     {
         if ($value2 === $value) {
             static::reportInvalidArgument(sprintf(
@@ -578,7 +578,7 @@ class Assert
         return true;
     }
 
-    public static function greaterThan($value, $limit, $message = '')
+    public static function greaterThan($value, $limit, $message = ''): bool
     {
         if ($value <= $limit) {
             static::reportInvalidArgument(sprintf(
@@ -591,7 +591,7 @@ class Assert
         return true;
     }
 
-    public static function greaterThanEq($value, $limit, $message = '')
+    public static function greaterThanEq($value, $limit, $message = ''): bool
     {
         if ($value < $limit) {
             static::reportInvalidArgument(sprintf(
@@ -604,7 +604,7 @@ class Assert
         return true;
     }
 
-    public static function lessThan($value, $limit, $message = '')
+    public static function lessThan($value, $limit, $message = ''): bool
     {
         if ($value >= $limit) {
             static::reportInvalidArgument(sprintf(
@@ -617,7 +617,7 @@ class Assert
         return true;
     }
 
-    public static function lessThanEq($value, $limit, $message = '')
+    public static function lessThanEq($value, $limit, $message = ''): bool
     {
         if ($value > $limit) {
             static::reportInvalidArgument(sprintf(
@@ -630,7 +630,7 @@ class Assert
         return true;
     }
 
-    public static function range($value, $min, $max, $message = '')
+    public static function range($value, $min, $max, $message = ''): bool
     {
         if ($value < $min || $value > $max) {
             static::reportInvalidArgument(sprintf(
@@ -644,7 +644,7 @@ class Assert
         return true;
     }
 
-    public static function oneOf($value, array $values, $message = '')
+    public static function oneOf($value, array $values, $message = ''): bool
     {
         if (!in_array($value, $values, true)) {
             static::reportInvalidArgument(sprintf(
@@ -657,7 +657,7 @@ class Assert
         return true;
     }
 
-    public static function contains($value, $subString, $message = '')
+    public static function contains($value, $subString, $message = ''): bool
     {
         if (false === strpos($value, $subString)) {
             static::reportInvalidArgument(sprintf(
@@ -670,7 +670,7 @@ class Assert
         return true;
     }
 
-    public static function notContains($value, $subString, $message = '')
+    public static function notContains($value, $subString, $message = ''): bool
     {
         if (false !== strpos($value, $subString)) {
             static::reportInvalidArgument(sprintf(
@@ -683,7 +683,7 @@ class Assert
         return true;
     }
 
-    public static function notWhitespaceOnly($value, $message = '')
+    public static function notWhitespaceOnly($value, $message = ''): bool
     {
         if (preg_match('/^\s*$/', $value)) {
             static::reportInvalidArgument(sprintf(
@@ -695,7 +695,7 @@ class Assert
         return true;
     }
 
-    public static function startsWith($value, $prefix, $message = '')
+    public static function startsWith($value, $prefix, $message = ''): bool
     {
         if (0 !== strpos($value, $prefix)) {
             static::reportInvalidArgument(sprintf(
@@ -708,7 +708,7 @@ class Assert
         return true;
     }
 
-    public static function startsWithLetter($value, $message = '')
+    public static function startsWithLetter($value, $message = ''): bool
     {
         $valid = isset($value[0]);
 
@@ -729,7 +729,7 @@ class Assert
         return true;
     }
 
-    public static function endsWith($value, $suffix, $message = '')
+    public static function endsWith($value, $suffix, $message = ''): bool
     {
         if ($suffix !== substr($value, -static::strlen($suffix))) {
             static::reportInvalidArgument(sprintf(
@@ -742,7 +742,7 @@ class Assert
         return true;
     }
 
-    public static function regex($value, $pattern, $message = '')
+    public static function regex($value, $pattern, $message = ''): bool
     {
         if (!preg_match($pattern, $value)) {
             static::reportInvalidArgument(sprintf(
@@ -754,7 +754,7 @@ class Assert
         return true;
     }
 
-    public static function notRegex($value, $pattern, $message = '')
+    public static function notRegex($value, $pattern, $message = ''): bool
     {
         if (preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
             static::reportInvalidArgument(sprintf(
@@ -768,7 +768,7 @@ class Assert
         return true;
     }
 
-    public static function alpha($value, $message = '')
+    public static function alpha($value, $message = ''): bool
     {
         $locale = setlocale(LC_CTYPE, 0);
         setlocale(LC_CTYPE, 'C');
@@ -785,7 +785,7 @@ class Assert
         return true;
     }
 
-    public static function digits($value, $message = '')
+    public static function digits($value, $message = ''): bool
     {
         $locale = setlocale(LC_CTYPE, 0);
         setlocale(LC_CTYPE, 'C');
@@ -802,7 +802,7 @@ class Assert
         return true;
     }
 
-    public static function alnum($value, $message = '')
+    public static function alnum($value, $message = ''): bool
     {
         $locale = setlocale(LC_CTYPE, 0);
         setlocale(LC_CTYPE, 'C');
@@ -819,7 +819,7 @@ class Assert
         return true;
     }
 
-    public static function lower($value, $message = '')
+    public static function lower($value, $message = ''): bool
     {
         $locale = setlocale(LC_CTYPE, 0);
         setlocale(LC_CTYPE, 'C');
@@ -836,7 +836,7 @@ class Assert
         return true;
     }
 
-    public static function upper($value, $message = '')
+    public static function upper($value, $message = ''): bool
     {
         $locale = setlocale(LC_CTYPE, 0);
         setlocale(LC_CTYPE, 'C');
@@ -853,7 +853,7 @@ class Assert
         return true;
     }
 
-    public static function length($value, $length, $message = '')
+    public static function length($value, $length, $message = ''): bool
     {
         if ($length !== static::strlen($value)) {
             static::reportInvalidArgument(sprintf(
@@ -866,7 +866,7 @@ class Assert
         return true;
     }
 
-    public static function minLength($value, $min, $message = '')
+    public static function minLength($value, $min, $message = ''): bool
     {
         if (static::strlen($value) < $min) {
             static::reportInvalidArgument(sprintf(
@@ -879,7 +879,7 @@ class Assert
         return true;
     }
 
-    public static function maxLength($value, $max, $message = '')
+    public static function maxLength($value, $max, $message = ''): bool
     {
         if (static::strlen($value) > $max) {
             static::reportInvalidArgument(sprintf(
@@ -892,7 +892,7 @@ class Assert
         return true;
     }
 
-    public static function lengthBetween($value, $min, $max, $message = '')
+    public static function lengthBetween($value, $min, $max, $message = ''): bool
     {
         $length = static::strlen($value);
 
@@ -908,7 +908,7 @@ class Assert
         return true;
     }
 
-    public static function fileExists($value, $message = '')
+    public static function fileExists($value, $message = ''): bool
     {
         static::string($value);
 
@@ -922,7 +922,7 @@ class Assert
         return true;
     }
 
-    public static function file($value, $message = '')
+    public static function file($value, $message = ''): bool
     {
         static::fileExists($value, $message);
 
@@ -936,7 +936,7 @@ class Assert
         return true;
     }
 
-    public static function directory($value, $message = '')
+    public static function directory($value, $message = ''): bool
     {
         static::fileExists($value, $message);
 
@@ -950,7 +950,7 @@ class Assert
         return true;
     }
 
-    public static function readable($value, $message = '')
+    public static function readable($value, $message = ''): bool
     {
         if (!is_readable($value)) {
             static::reportInvalidArgument(sprintf(
@@ -962,7 +962,7 @@ class Assert
         return true;
     }
 
-    public static function writable($value, $message = '')
+    public static function writable($value, $message = ''): bool
     {
         if (!is_writable($value)) {
             static::reportInvalidArgument(sprintf(
@@ -974,7 +974,7 @@ class Assert
         return true;
     }
 
-    public static function classExists($value, $message = '')
+    public static function classExists($value, $message = ''): bool
     {
         if (!class_exists($value)) {
             static::reportInvalidArgument(sprintf(
@@ -986,7 +986,7 @@ class Assert
         return true;
     }
 
-    public static function subclassOf($value, $class, $message = '')
+    public static function subclassOf($value, $class, $message = ''): bool
     {
         if (!is_subclass_of($value, $class)) {
             static::reportInvalidArgument(sprintf(
@@ -999,7 +999,7 @@ class Assert
         return true;
     }
 
-    public static function interfaceExists($value, $message = '')
+    public static function interfaceExists($value, $message = ''): bool
     {
         if (!interface_exists($value)) {
             static::reportInvalidArgument(sprintf(
@@ -1011,7 +1011,7 @@ class Assert
         return true;
     }
 
-    public static function implementsInterface($value, $interface, $message = '')
+    public static function implementsInterface($value, $interface, $message = ''): bool
     {
         if (!in_array($interface, class_implements($value))) {
             static::reportInvalidArgument(sprintf(
@@ -1024,7 +1024,7 @@ class Assert
         return true;
     }
 
-    public static function propertyExists($classOrObject, $property, $message = '')
+    public static function propertyExists($classOrObject, $property, $message = ''): bool
     {
         if (!property_exists($classOrObject, $property)) {
             static::reportInvalidArgument(sprintf(
@@ -1036,7 +1036,7 @@ class Assert
         return true;
     }
 
-    public static function propertyNotExists($classOrObject, $property, $message = '')
+    public static function propertyNotExists($classOrObject, $property, $message = ''): bool
     {
         if (property_exists($classOrObject, $property)) {
             static::reportInvalidArgument(sprintf(
@@ -1048,7 +1048,7 @@ class Assert
         return true;
     }
 
-    public static function methodExists($classOrObject, $method, $message = '')
+    public static function methodExists($classOrObject, $method, $message = ''): bool
     {
         if (!method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(sprintf(
@@ -1060,7 +1060,7 @@ class Assert
         return true;
     }
 
-    public static function methodNotExists($classOrObject, $method, $message = '')
+    public static function methodNotExists($classOrObject, $method, $message = ''): bool
     {
         if (method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(sprintf(
@@ -1072,7 +1072,7 @@ class Assert
         return true;
     }
 
-    public static function keyExists($array, $key, $message = '')
+    public static function keyExists($array, $key, $message = ''): bool
     {
         if (!(isset($array[$key]) || array_key_exists($key, $array))) {
             static::reportInvalidArgument(sprintf(
@@ -1084,7 +1084,7 @@ class Assert
         return true;
     }
 
-    public static function keyNotExists($array, $key, $message = '')
+    public static function keyNotExists($array, $key, $message = ''): bool
     {
         if (isset($array[$key]) || array_key_exists($key, $array)) {
             static::reportInvalidArgument(sprintf(
@@ -1096,7 +1096,7 @@ class Assert
         return true;
     }
 
-    public static function count($array, $number, $message = '')
+    public static function count($array, $number, $message = ''): bool
     {
         return static::eq(
             count($array),
@@ -1105,7 +1105,7 @@ class Assert
         );
     }
 
-    public static function minCount($array, $min, $message = '')
+    public static function minCount($array, $min, $message = ''): bool
     {
         if (count($array) < $min) {
             static::reportInvalidArgument(sprintf(
@@ -1118,7 +1118,7 @@ class Assert
         return true;
     }
 
-    public static function maxCount($array, $max, $message = '')
+    public static function maxCount($array, $max, $message = ''): bool
     {
         if (count($array) > $max) {
             static::reportInvalidArgument(sprintf(
@@ -1131,7 +1131,7 @@ class Assert
         return true;
     }
 
-    public static function countBetween($array, $min, $max, $message = '')
+    public static function countBetween($array, $min, $max, $message = ''): bool
     {
         $count = count($array);
 
@@ -1147,7 +1147,7 @@ class Assert
         return true;
     }
 
-    public static function isList($array, $message = '')
+    public static function isList($array, $message = ''): bool
     {
         if (!is_array($array) || !$array || array_keys($array) !== range(0, count($array) - 1)) {
             static::reportInvalidArgument(
@@ -1158,7 +1158,7 @@ class Assert
         return true;
     }
 
-    public static function isMap($array, $message = '')
+    public static function isMap($array, $message = ''): bool
     {
         if (
             !is_array($array) ||
@@ -1175,7 +1175,7 @@ class Assert
         return true;
     }
 
-    public static function uuid($value, $message = '')
+    public static function uuid($value, $message = ''): bool
     {
         $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
 
@@ -1195,7 +1195,7 @@ class Assert
         return true;
     }
 
-    public static function throws(Closure $expression, $class = 'Exception', $message = '')
+    public static function throws(Closure $expression, $class = 'Exception', $message = '') : bool
     {
         static::string($class);
 
@@ -1223,7 +1223,7 @@ class Assert
         return false;
     }
 
-    public static function __callStatic($name, $arguments)
+    public static function __callStatic($name, $arguments): bool
     {
         if ('nullOr' === substr($name, 0, 6)) {
             if (null !== $arguments[0]) {
@@ -1257,7 +1257,7 @@ class Assert
         throw new BadMethodCallException('No such method: '.$name);
     }
 
-    protected static function valueToString($value)
+    protected static function valueToString($value): string
     {
         if (null === $value) {
             return 'null';
@@ -1294,12 +1294,12 @@ class Assert
         return (string) $value;
     }
 
-    protected static function typeToString($value)
+    protected static function typeToString($value): string
     {
         return is_object($value) ? get_class($value) : gettype($value);
     }
 
-    protected static function strlen($value)
+    protected static function strlen($value): int
     {
         if (!function_exists('mb_detect_encoding')) {
             return strlen($value);
