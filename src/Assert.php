@@ -181,7 +181,7 @@ use Traversable;
  * @method static bool allUuid($values, $message = '')
  * @method static bool allThrows($expressions, $class = 'Exception', $message = '')
  *
- * @since  1.0
+ * @since  2.0
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
