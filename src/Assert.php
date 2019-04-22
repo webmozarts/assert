@@ -52,7 +52,7 @@ use Traversable;
  * @method static bool nullOrIpv4($value, $message = '')
  * @method static bool nullOrIpv6($value, $message = '')
  * @method static bool nullOrEq($value, $value2, $message = '')
- * @method static bool nullOrNotEq($value,$value2,  $message = '')
+ * @method static bool nullOrNotEq($value, $value2, $message = '')
  * @method static bool nullOrSame($value, $value2, $message = '')
  * @method static bool nullOrNotSame($value, $value2, $message = '')
  * @method static bool nullOrGreaterThan($value, $value2, $message = '')
@@ -131,7 +131,7 @@ use Traversable;
  * @method static bool allIpv4($values, $message = '')
  * @method static bool allIpv6($values, $message = '')
  * @method static bool allEq($values, $value2, $message = '')
- * @method static bool allNotEq($values,$value2,  $message = '')
+ * @method static bool allNotEq($values, $value2, $message = '')
  * @method static bool allSame($values, $value2, $message = '')
  * @method static bool allNotSame($values, $value2, $message = '')
  * @method static bool allGreaterThan($values, $value2, $message = '')
@@ -218,7 +218,7 @@ class Assert
 
     public static function integerish($value, $message = ''): bool
     {
-        if (!is_numeric($value) || $value != (int) $value) {
+        if (!is_numeric($value) || $value != (int)$value) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an integerish value. Got: %s',
                 static::typeToString($value)
@@ -416,7 +416,7 @@ class Assert
         static::reportInvalidArgument(sprintf(
             $message ?: 'Expected an instance of any of %2$s. Got: %s',
             static::typeToString($value),
-            implode(', ', array_map(array('static', 'valueToString'), $classes))
+            implode(', ', array_map(['static', 'valueToString'], $classes))
         ));
         return false;
     }
@@ -650,7 +650,7 @@ class Assert
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected one of: %2$s. Got: %s',
                 static::valueToString($value),
-                implode(', ', array_map(array('static', 'valueToString'), $values))
+                implode(', ', array_map(['static', 'valueToString'], $values))
             ));
             return false;
         }
@@ -1177,7 +1177,7 @@ class Assert
 
     public static function uuid($value, $message = ''): bool
     {
-        $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
+        $value = str_replace(['urn:', 'uuid:', '{', '}'], '', $value);
 
         // The nil UUID is special form of UUID that is specified to have all
         // 128 bits set to zero.
@@ -1195,7 +1195,7 @@ class Assert
         return true;
     }
 
-    public static function throws(Closure $expression, $class = 'Exception', $message = '') : bool
+    public static function throws(Closure $expression, $class = 'Exception', $message = ''): bool
     {
         static::string($class);
 
@@ -1228,7 +1228,7 @@ class Assert
         if ('nullOr' === substr($name, 0, 6)) {
             if (null !== $arguments[0]) {
                 $method = lcfirst(substr($name, 6));
-                if (!call_user_func_array(array('static', $method), $arguments)) {
+                if (!call_user_func_array(['static', $method], $arguments)) {
                     return false;
                 }
             }
@@ -1246,7 +1246,7 @@ class Assert
 
             foreach ($arguments[0] as $entry) {
                 $args[0] = $entry;
-                if (!call_user_func_array(array('static', $method), $args)) {
+                if (!call_user_func_array(['static', $method], $args)) {
                     return false;
                 }
             }
@@ -1254,7 +1254,7 @@ class Assert
             return true;
         }
 
-        throw new BadMethodCallException('No such method: '.$name);
+        throw new BadMethodCallException('No such method: ' . $name);
     }
 
     protected static function valueToString($value): string
@@ -1277,7 +1277,7 @@ class Assert
 
         if (is_object($value)) {
             if (method_exists($value, '__toString')) {
-                return get_class($value).': '.self::valueToString($value->__toString());
+                return get_class($value) . ': ' . self::valueToString($value->__toString());
             }
 
             return get_class($value);
@@ -1288,10 +1288,10 @@ class Assert
         }
 
         if (is_string($value)) {
-            return '"'.$value.'"';
+            return '"' . $value . '"';
         }
 
-        return (string) $value;
+        return (string)$value;
     }
 
     protected static function typeToString($value): string
