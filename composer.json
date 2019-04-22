@@ -18,11 +18,13 @@
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "ext-mbstring": "*",
+        "ext-ctype": "*"
     },
     "autoload": {
-        "psr-4": {
-            "Swoole\\Assert\\": "src"
-        }
+        "classmap": [
+            "src/Assert.php"
+        ]
     }
 }
