@@ -18,7 +18,6 @@ use Closure;
 use Countable;
 use Exception;
 use RuntimeException;
-use SplFileObject;
 use Throwable;
 use Traversable;
 
