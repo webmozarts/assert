@@ -556,7 +556,7 @@ class Assert
 
     public static function greaterThan($value, $limit, $message = '')
     {
-        if ($value <= $limit) {
+        if ($value < $limit) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value greater than %2$s. Got: %s',
                 static::valueToString($value),
@@ -567,7 +567,7 @@ class Assert
 
     public static function greaterThanEq($value, $limit, $message = '')
     {
-        if ($value < $limit) {
+        if ($value <= $limit) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value greater than or equal to %2$s. Got: %s',
                 static::valueToString($value),
@@ -578,7 +578,7 @@ class Assert
 
     public static function lessThan($value, $limit, $message = '')
     {
-        if ($value >= $limit) {
+        if ($value > $limit) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value less than %2$s. Got: %s',
                 static::valueToString($value),
@@ -589,7 +589,7 @@ class Assert
 
     public static function lessThanEq($value, $limit, $message = '')
     {
-        if ($value > $limit) {
+        if ($value >= $limit) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value less than or equal to %2$s. Got: %s',
                 static::valueToString($value),
