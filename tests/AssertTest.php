@@ -412,6 +412,9 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('ipv6', array(array()), false),
             array('ipv6', array(null), false),
             array('ipv6', array(false), false),
+            array('uniqueValues', array(array('qwerty', 'qwerty')), false),
+            array('uniqueValues', array(array('asdfg', 'qwerty')), true),
+            array('uniqueValues', array(array(123, '123')), false),
         );
     }
 

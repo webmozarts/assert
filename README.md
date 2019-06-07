@@ -109,6 +109,7 @@ Method                                                   | Description
 `isAOfAny($value, array $classes, $message = '')`        | Check that a value a at least one of the class or has one of its parents
 `notAOf($value, $class, $message = '')`                  | Check that a value is not of the class or has not one of its parents
 `isArrayAccessible($value, $message = '')`               | Check that a value can be accessed as an array
+`uniqueValues($values, $message = '')`                   | Check that the given array contains unique values
 
 ### Comparison Assertions
 
