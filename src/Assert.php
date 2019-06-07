@@ -192,6 +192,9 @@ use Traversable;
  */
 class Assert
 {
+    /**
+     * @psalm-assert string $value
+     */
     public static function string($value, $message = '')
     {
         if (!\is_string($value)) {
@@ -202,12 +205,18 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert string $value
+     */
     public static function stringNotEmpty($value, $message = '')
     {
         static::string($value, $message);
         static::notEq($value, '', $message);
     }
 
+    /**
+     * @psalm-assert int $value
+     */
     public static function integer($value, $message = '')
     {
         if (!\is_int($value)) {
@@ -218,6 +227,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert numeric $value
+     */
     public static function integerish($value, $message = '')
     {
         if (!\is_numeric($value) || $value != (int) $value) {
@@ -228,6 +240,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert float $value
+     */
     public static function float($value, $message = '')
     {
         if (!\is_float($value)) {
@@ -238,6 +253,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert numeric $value
+     */
     public static function numeric($value, $message = '')
     {
         if (!\is_numeric($value)) {
@@ -248,6 +266,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert int $value
+     */
     public static function natural($value, $message = '')
     {
         if (!\is_int($value) || $value < 0) {
@@ -258,6 +279,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert bool $value
+     */
     public static function boolean($value, $message = '')
     {
         if (!\is_bool($value)) {
@@ -268,6 +292,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert scalar $value
+     */
     public static function scalar($value, $message = '')
     {
         if (!\is_scalar($value)) {
@@ -278,6 +305,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert object $value
+     */
     public static function object($value, $message = '')
     {
         if (!\is_object($value)) {
@@ -288,6 +318,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert resource $value
+     */
     public static function resource($value, $type = null, $message = '')
     {
         if (!\is_resource($value)) {
@@ -306,6 +339,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert callable $value
+     */
     public static function isCallable($value, $message = '')
     {
         if (!\is_callable($value)) {
@@ -316,6 +352,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert array $value
+     */
     public static function isArray($value, $message = '')
     {
         if (!\is_array($value)) {
@@ -328,6 +367,8 @@ class Assert
 
     /**
      * @deprecated
+     *
+     * @psalm-assert iterable $value
      */
     public static function isTraversable($value, $message = '')
     {
@@ -347,6 +388,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert (array|ArrayAccess) $value
+     */
     public static function isArrayAccessible($value, $message = '')
     {
         if (!\is_array($value) && !($value instanceof ArrayAccess)) {
@@ -357,6 +401,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert (array|Countable) $value
+     */
     public static function isCountable($value, $message = '')
     {
         if (!\is_array($value) && !($value instanceof Countable)) {
@@ -367,6 +414,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert iterable $value
+     */
     public static function isIterable($value, $message = '')
     {
         if (!\is_array($value) && !($value instanceof Traversable)) {
@@ -377,6 +427,11 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert ExpectedType $value
+     */
     public static function isInstanceOf($value, $class, $message = '')
     {
         if (!($value instanceof $class)) {
@@ -388,6 +443,11 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert !ExpectedType $value
+     */
     public static function notInstanceOf($value, $class, $message = '')
     {
         if ($value instanceof $class) {
@@ -398,7 +458,11 @@ class Assert
             ));
         }
     }
-
+    /**
+     * @psalm-template ExpectedType
+     * @psalm-param array<class-string<ExpectedType>> $classes
+     * @psalm-assert ExpectedType $value
+     */
     public static function isInstanceOfAny($value, array $classes, $message = '')
     {
         foreach ($classes as $class) {
@@ -414,6 +478,9 @@ class Assert
         ));
     }
 
+    /**
+     * @psalm-assert empty $value
+     */
     public static function isEmpty($value, $message = '')
     {
         if (!empty($value)) {
@@ -424,6 +491,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert !empty $value
+     */
     public static function notEmpty($value, $message = '')
     {
         if (empty($value)) {
@@ -434,6 +504,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert null $value
+     */
     public static function null($value, $message = '')
     {
         if (null !== $value) {
@@ -444,6 +517,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert !null $value
+     */
     public static function notNull($value, $message = '')
     {
         if (null === $value) {
@@ -453,6 +529,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert true $value
+     */
     public static function true($value, $message = '')
     {
         if (true !== $value) {
@@ -463,6 +542,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert false $value
+     */
     public static function false($value, $message = '')
     {
         if (false !== $value) {
@@ -473,6 +555,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert string $value
+     */
     public static function ip($value, $message = '')
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
@@ -483,6 +568,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert string $value
+     */
     public static function ipv4($value, $message = '')
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
@@ -493,6 +581,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert string $value
+     */
     public static function ipv6($value, $message = '')
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
@@ -550,6 +641,11 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-template ExpectedType
+     * @psalm-param ExpectedType $expect
+     * @psalm-assert =ExpectedType $value
+     */
     public static function same($value, $expect, $message = '')
     {
         if ($expect !== $value) {
@@ -627,6 +723,11 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-template ExpectedType
+     * @psalm-param array<ExpectedType> $values
+     * @psalm-assert ExpectedType $value
+     */
     public static function oneOf($value, array $values, $message = '')
     {
         if (!\in_array($value, $values, true)) {
@@ -745,6 +846,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert !numeric $value
+     */
     public static function alpha($value, $message = '')
     {
         $locale = \setlocale(LC_CTYPE, 0);
@@ -760,6 +864,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert numeric $value
+     */
     public static function digits($value, $message = '')
     {
         $locale = \setlocale(LC_CTYPE, 0);
@@ -923,6 +1030,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert class-string $value
+     */
     public static function classExists($value, $message = '')
     {
         if (!\class_exists($value)) {
@@ -933,6 +1043,11 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert ExpectedType|class-string<ExpectedType> $value
+     */
     public static function subclassOf($value, $class, $message = '')
     {
         if (!\is_subclass_of($value, $class)) {
@@ -944,6 +1059,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert class-string $value
+     */
     public static function interfaceExists($value, $message = '')
     {
         if (!\interface_exists($value)) {
@@ -954,6 +1072,11 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert ExpectedType|class-string<ExpectedType> $value
+     */
     public static function implementsInterface($value, $interface, $message = '')
     {
         if (!\in_array($interface, \class_implements($value))) {
@@ -1025,6 +1148,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert array|\Countable $array
+     */
     public static function count($array, $number, $message = '')
     {
         static::eq(
@@ -1034,6 +1160,9 @@ class Assert
         );
     }
 
+    /**
+     * @psalm-assert array|\Countable $array
+     */
     public static function minCount($array, $min, $message = '')
     {
         if (\count($array) < $min) {
@@ -1045,6 +1174,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert array|\Countable $array
+     */
     public static function maxCount($array, $max, $message = '')
     {
         if (\count($array) > $max) {
@@ -1056,6 +1188,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert array|\Countable $array
+     */
     public static function countBetween($array, $min, $max, $message = '')
     {
         $count = \count($array);
@@ -1070,6 +1205,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert array<int, mixed>&!empty $array
+     */
     public static function isList($array, $message = '')
     {
         if (!\is_array($array) || !$array || \array_keys($array) !== \range(0, \count($array) - 1)) {
@@ -1079,6 +1217,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert array<string, mixed>&!empty $array
+     */
     public static function isMap($array, $message = '')
     {
         if (
@@ -1112,6 +1253,9 @@ class Assert
         }
     }
 
+    /**
+     * @psalm-assert never-return
+     */
     public static function throws(Closure $expression, $class = 'Exception', $message = '')
     {
         static::string($class);
