@@ -18,8 +18,8 @@
         "symfony/polyfill-ctype": "^1.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.6",
-        "sebastian/version": "^1.0.1"
+        "phpunit/phpunit": "^8.1.6",
+        "vimeo/psalm": "^3.4"
     },
     "extra": {
         "branch-alias": {

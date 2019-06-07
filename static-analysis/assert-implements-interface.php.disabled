@@ -1,0 +1,21 @@
+<?php
+
+namespace Webmozart\Assert\StaticAnalysis\AssertSubclassOf;
+
+use Webmozart\Assert\Assert;
+
+interface A
+{
+}
+
+/**
+ * @param mixed $value
+ *
+ * @psalm-return A|class-string<A>
+ */
+function consume($value)
+{
+    Assert::implementsInterface($value, A::class);
+
+    return $value;
+}

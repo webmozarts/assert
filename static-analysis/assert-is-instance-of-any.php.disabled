@@ -1,0 +1,25 @@
+<?php
+
+namespace Webmozart\Assert\StaticAnalysis\AssertIsInstanceOfAny;
+
+use Webmozart\Assert\Assert;
+
+class A
+{
+}
+
+class B
+{
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return A|B
+ */
+function consume($value)
+{
+    Assert::isInstanceOfAny($value, [A::class, B::class]);
+
+    return $value;
+}

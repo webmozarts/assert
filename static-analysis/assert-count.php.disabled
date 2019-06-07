@@ -1,0 +1,17 @@
+<?php
+
+namespace Webmozart\Assert\StaticAnalysis\AssertString;
+
+use Webmozart\Assert\Assert;
+
+/**
+ * @param mixed $value
+ *
+ * @return array|\Countable
+ */
+function consume($value)
+{
+    Assert::count($value, 0);
+
+    return $value;
+}
