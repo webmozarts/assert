@@ -322,6 +322,9 @@ class Assert
         }
     }
 
+    /**
+     * @deprecated
+     */
     public static function isTraversable($value, $message = '')
     {
         @trigger_error(
