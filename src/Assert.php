@@ -369,6 +369,8 @@ class Assert
      * @deprecated
      *
      * @psalm-assert iterable $value
+     *
+     * @deprecated
      */
     public static function isTraversable($value, $message = '')
     {
