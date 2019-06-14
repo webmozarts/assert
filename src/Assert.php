@@ -598,7 +598,9 @@ class Assert
 
     public static function isAOf($value, $class, $message = '')
     {
-        if (!is_string($class) || !is_a($value, $class, is_string($value))) {
+        static::string($class, 'Expected class as a string. Got: %s');
+
+        if (!is_a($value, $class, is_string($value))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an instance of this class or to this class among his parents %2$s. Got: %s',
                 static::typeToString($value),
@@ -609,7 +611,9 @@ class Assert
 
     public static function notAOf($value, $class, $message = '')
     {
-        if (!is_string($class) || is_a($value, $class, is_string($value))) {
+        static::string($class, 'Expected class as a string. Got: %s');
+
+        if (is_a($value, $class, is_string($value))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an instance of this class or to this class among his parents other than %2$s. Got: %s',
                 static::typeToString($value),
@@ -621,7 +625,9 @@ class Assert
     public static function isAOfAny($value, array $classes, $message = '')
     {
         foreach ($classes as $class) {
-            if (!is_string($class) || is_a($value, $class, is_string($value))) {
+            static::string($class, 'Expected class as a string. Got: %s');
+
+            if (is_a($value, $class, is_string($value))) {
                 return;
             }
         }
