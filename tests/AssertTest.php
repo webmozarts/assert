@@ -226,7 +226,10 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('startsWith', array('abcd', 'bc'), false),
             array('startsWith', array('', 'bc'), false),
             array('startsWithLetter', array('abcd'), true),
+            array('startsWithLetter', array('a'), true),
+            array('startsWithLetter', array('a1'), true),
             array('startsWithLetter', array('1abcd'), false),
+            array('startsWithLetter', array('1'), false),
             array('startsWithLetter', array(''), false),
             array('endsWith', array('abcd', 'cd'), true),
             array('endsWith', array('abcd', 'bc'), false),
@@ -349,17 +352,23 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('maxCount', array(array(0, 1), 2), true),
             array('maxCount', array(array(0), 2), true),
             array('countBetween', array(array(0, 1, 2), 4, 5), false),
+            array('countBetween', array(array(0, 1, 2), 3, 5), true),
             array('countBetween', array(array(0, 1, 2), 1, 2), false),
             array('countBetween', array(array(0, 1, 2), 2, 5), true),
+            array('countBetween', array(array(0, 1, 2), 2, 3), true),
             array('isList', array(array(1, 2, 3)), true),
             array('isList', array(array()), false),
             array('isList', array(array(0 => 1, 2 => 3)), false),
             array('isList', array(array('key' => 1, 'foo' => 2)), false),
+            array('isList', array(true), false),
+            array('isList', array(false), false),
             array('isMap', array(array('key' => 1, 'foo' => 2)), true),
             array('isMap', array(array()), false),
             array('isMap', array(array(1, 2, 3)), false),
             array('isMap', array(array(0 => 1, 2 => 3)), false),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
+            array('uuid', array('urn:ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
+            array('uuid', array('uuid:{ff6f8cb0-c57d-21e1-9b21-0800200c9a66}'), true),
             array('uuid', array('ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
             array('uuid', array('ff6f8cb0-c57d-11e1-9b21-0800200c9a66'), true),
             array('uuid', array('ff6f8cb0-c57d-31e1-9b21-0800200c9a66'), true),
@@ -413,6 +422,9 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('ipv6', array(array()), false),
             array('ipv6', array(null), false),
             array('ipv6', array(false), false),
+            array('uniqueValues', array(array('qwerty', 'qwerty')), false),
+            array('uniqueValues', array(array('asdfg', 'qwerty')), true),
+            array('uniqueValues', array(array(123, '123')), false),
         );
     }
 
@@ -556,6 +568,13 @@ class AssertTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+    }
+
+    public function testAnUnkownMethodThrowsABadMethodCall()
+    {
+        $this->setExpectedException('\BadMethodCallException');
+
+        Assert::nonExistentMethod();
     }
 }
 
