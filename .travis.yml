@@ -34,6 +34,7 @@ before_install:
 
 install:
   - export COMPOSER_FLAGS="--prefer-dist --no-interaction"
+  - echo ${TRAVIS_PHP_VERSION}
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "8.0" ]]; then export COMPOSER_FLAGS="$COMOPSER_FLAGS --ignore-platform-reqs"; fi
   - composer update $COMPOSER_FLAGS
 
