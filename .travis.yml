@@ -33,7 +33,9 @@ before_install:
   - if [[ $COVERAGE != yes ]]; then phpenv config-rm xdebug.ini || true; fi;
 
 install:
-  - composer update --prefer-dist --no-interaction
+  - export COMPOSER_FLAGS="--prefer-dist --no-interaction"
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "8.0" ]]; then export COMPOSER_FLAGS="$COMOPSER_FLAGS --ignore-platform-reqs"; fi
+  - composer update $COMPOSER_FLAGS
 
 script:
   - if [[ $COVERAGE = yes ]]; then vendor/bin/phpunit --coverage-clover=coverage.clover; else vendor/bin/phpunit; fi
