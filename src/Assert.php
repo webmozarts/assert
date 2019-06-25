@@ -69,7 +69,7 @@ use Traversable;
  * @method static void nullOrEndsWith($value, $suffix, $message = '')
  * @method static void nullOrRegex($value, $pattern, $message = '')
  * @method static void nullOrNotRegex($value, $pattern, $message = '')
- * @method static void nullOrLetter($value, $message = '')
+ * @method static void nullOrLetters($value, $message = '')
  * @method static void nullOrAlpha($value, $message = '')
  * @method static void nullOrDigits($value, $message = '')
  * @method static void nullOrAlnum($value, $message = '')
@@ -150,7 +150,7 @@ use Traversable;
  * @method static void allEndsWith($values, $suffix, $message = '')
  * @method static void allRegex($values, $pattern, $message = '')
  * @method static void allNotRegex($values, $pattern, $message = '')
- * @method static void allLetter($values, $message = '')
+ * @method static void allLetters($values, $message = '')
  * @method static void allAlpha($values, $message = '')
  * @method static void allDigits($values, $message = '')
  * @method static void allAlnum($values, $message = '')
@@ -721,8 +721,10 @@ class Assert
         }
     }
 
-    public static function letter($value, $message = '')
+    public static function letters($value, $message = '')
     {
+        static::string($value);
+
         if (!preg_match('/^\p{L}+$/u', $value)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to contain only Unicode letters. Got: %s',
