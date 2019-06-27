@@ -50,6 +50,7 @@ use Traversable;
  * @method static void nullOrIp($value, $message = '')
  * @method static void nullOrIpv4($value, $message = '')
  * @method static void nullOrIpv6($value, $message = '')
+ * @method static void nullOrEmail($value, $message = '')
  * @method static void nullOrUniqueValues($values, $message = '')
  * @method static void nullOrEq($value, $expect, $message = '')
  * @method static void nullOrNotEq($value, $expect, $message = '')
@@ -130,6 +131,7 @@ use Traversable;
  * @method static void allIp($values, $message = '')
  * @method static void allIpv4($values, $message = '')
  * @method static void allIpv6($values, $message = '')
+ * @method static void allEmail($values, $message = '')
  * @method static void allUniqueValues($values, $message = '')
  * @method static void allEq($values, $expect, $message = '')
  * @method static void allNotEq($values, $expect, $message = '')
@@ -494,6 +496,16 @@ class Assert
         if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to be an IPv6. Got %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    public static function email($value, $message = '')
+    {
+        if (false === filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to be a valid e-mail address. Got %s',
                 static::valueToString($value)
             ));
         }
