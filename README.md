@@ -106,6 +106,7 @@ Method                                                   | Description
 `isInstanceOfAny($value, array $classes, $message = '')` | Check that a value is an `instanceof` a at least one class on the array of classes
 `notInstanceOf($value, $class, $message = '')`           | Check that a value is not an `instanceof` a class
 `isArrayAccessible($value, $message = '')`               | Check that a value can be accessed as an array
+`uniqueValues($values, $message = '')`                   | Check that the given array contains unique values
 
 ### Comparison Assertions
 

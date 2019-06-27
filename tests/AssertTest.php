@@ -252,7 +252,10 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('startsWith', array('あいうえ', 'いう'), false),
             array('startsWith', array('', 'いう'), false),
             array('startsWithLetter', array('abcd'), true),
+            array('startsWithLetter', array('a'), true),
+            array('startsWithLetter', array('a1'), true),
             array('startsWithLetter', array('1abcd'), false),
+            array('startsWithLetter', array('1'), false),
             array('startsWithLetter', array(''), false),
             array('endsWith', array('abcd', 'cd'), true),
             array('endsWith', array('abcd', 'bc'), false),
@@ -292,18 +295,27 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('length', array('äbcd', 4), true, true),
             array('length', array('äbc', 4), false, true),
             array('length', array('äbcde', 4), false, true),
+            array('length', array('あbcd', 4), true, true), // 'HIRAGANA LETTER A' (U+3042)
+            array('length', array('あbc', 4), false, true),
+            array('length', array('あbcde', 4), false, true),
             array('minLength', array('abcd', 4), true),
             array('minLength', array('abcde', 4), true),
             array('minLength', array('abc', 4), false),
             array('minLength', array('äbcd', 4), true, true),
             array('minLength', array('äbcde', 4), true, true),
             array('minLength', array('äbc', 4), false, true),
+            array('minLength', array('あbcd', 4), true, true),
+            array('minLength', array('あbcde', 4), true, true),
+            array('minLength', array('あbc', 4), false, true),
             array('maxLength', array('abcd', 4), true),
             array('maxLength', array('abc', 4), true),
             array('maxLength', array('abcde', 4), false),
             array('maxLength', array('äbcd', 4), true, true),
             array('maxLength', array('äbc', 4), true, true),
             array('maxLength', array('äbcde', 4), false, true),
+            array('maxLength', array('あbcd', 4), true, true),
+            array('maxLength', array('あbc', 4), true, true),
+            array('maxLength', array('あbcde', 4), false, true),
             array('lengthBetween', array('abcd', 3, 5), true),
             array('lengthBetween', array('abc', 3, 5), true),
             array('lengthBetween', array('abcde', 3, 5), true),
@@ -314,6 +326,11 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('lengthBetween', array('äbcde', 3, 5), true, true),
             array('lengthBetween', array('äb', 3, 5), false, true),
             array('lengthBetween', array('äbcdef', 3, 5), false, true),
+            array('lengthBetween', array('あbcd', 3, 5), true, true),
+            array('lengthBetween', array('あbc', 3, 5), true, true),
+            array('lengthBetween', array('あbcde', 3, 5), true, true),
+            array('lengthBetween', array('あb', 3, 5), false, true),
+            array('lengthBetween', array('あbcdef', 3, 5), false, true),
             array('fileExists', array(__FILE__), true),
             array('fileExists', array(__DIR__), true),
             array('fileExists', array(__DIR__.'/foobar'), false),
@@ -367,17 +384,23 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('maxCount', array(array(0, 1), 2), true),
             array('maxCount', array(array(0), 2), true),
             array('countBetween', array(array(0, 1, 2), 4, 5), false),
+            array('countBetween', array(array(0, 1, 2), 3, 5), true),
             array('countBetween', array(array(0, 1, 2), 1, 2), false),
             array('countBetween', array(array(0, 1, 2), 2, 5), true),
+            array('countBetween', array(array(0, 1, 2), 2, 3), true),
             array('isList', array(array(1, 2, 3)), true),
             array('isList', array(array()), false),
             array('isList', array(array(0 => 1, 2 => 3)), false),
             array('isList', array(array('key' => 1, 'foo' => 2)), false),
+            array('isList', array(true), false),
+            array('isList', array(false), false),
             array('isMap', array(array('key' => 1, 'foo' => 2)), true),
             array('isMap', array(array()), false),
             array('isMap', array(array(1, 2, 3)), false),
             array('isMap', array(array(0 => 1, 2 => 3)), false),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
+            array('uuid', array('urn:ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
+            array('uuid', array('uuid:{ff6f8cb0-c57d-21e1-9b21-0800200c9a66}'), true),
             array('uuid', array('ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
             array('uuid', array('ff6f8cb0-c57d-11e1-9b21-0800200c9a66'), true),
             array('uuid', array('ff6f8cb0-c57d-31e1-9b21-0800200c9a66'), true),
@@ -431,6 +454,9 @@ class AssertTest extends PHPUnit_Framework_TestCase
             array('ipv6', array(array()), false),
             array('ipv6', array(null), false),
             array('ipv6', array(false), false),
+            array('uniqueValues', array(array('qwerty', 'qwerty')), false),
+            array('uniqueValues', array(array('asdfg', 'qwerty')), true),
+            array('uniqueValues', array(array(123, '123')), false),
         );
     }
 
@@ -574,6 +600,13 @@ class AssertTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+    }
+
+    public function testAnUnkownMethodThrowsABadMethodCall()
+    {
+        $this->setExpectedException('\BadMethodCallException');
+
+        Assert::nonExistentMethod();
     }
 }
 
