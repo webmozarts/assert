@@ -2,14 +2,13 @@
 
 namespace Webmozart\Assert\Tests;
 
-use PHPUnit_Framework_TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 
 /**
  * @coversNothing
  */
-class ProjectCodeTest extends PHPUnit_Framework_TestCase
+class ProjectCodeTest extends BaseTestCase
 {
     private static $readmeContent;
     private static $assertDocComment;
