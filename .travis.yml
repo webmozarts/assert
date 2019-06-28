@@ -33,6 +33,7 @@ before_install:
   - if [[ $COVERAGE != yes ]]; then phpenv config-rm xdebug.ini || true; fi;
 
 install:
+  - if [[ $TRAVIS_PHP_VERSION = hhvm-3.30 ]]; then composer require phpunit/phpunit:4.8.36 --dev; fi
   - export COMPOSER_FLAGS="--prefer-dist --no-interaction"
   - if [[ $TRAVIS_PHP_VERSION = nightly ]]; then export COMPOSER_FLAGS="$COMOPSER_FLAGS --ignore-platform-reqs"; fi
   - composer update $COMPOSER_FLAGS
