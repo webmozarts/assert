@@ -10,7 +10,7 @@ This library contains efficient assertions to test the input and output of
 your methods. With these assertions, you can greatly reduce the amount of coding
 needed to write a safe implementation.
 
-All assertions in the [`Assert`] class throw an `\InvalidArgumentException` if 
+All assertions in the [`Assert`] class throw an `\InvalidArgumentException` if
 they fail.
 
 FAQ
@@ -22,21 +22,21 @@ This library is heavily inspired by Benjamin Eberlei's wonderful [assert package
 but fixes a usability issue with error messages that can't be fixed there without
 breaking backwards compatibility.
 
-This package features usable error messages by default. However, you can also 
+This package features usable error messages by default. However, you can also
 easily write custom error messages:
 
 ```
 Assert::string($path, 'The path is expected to be a string. Got: %s');
 ```
 
-In [beberlei/assert], the ordering of the `%s` placeholders is different for 
-every assertion. This package, on the contrary, provides consistent placeholder 
+In [beberlei/assert], the ordering of the `%s` placeholders is different for
+every assertion. This package, on the contrary, provides consistent placeholder
 ordering for all assertions:
 
 * `%s`: The tested value as string, e.g. `"/foo/bar"`.
 * `%2$s`, `%3$s`, ...: Additional assertion-specific values, e.g. the
   minimum/maximum length, allowed values, etc.
-  
+
 Check the source code of the assertions to find out details about the additional
 available placeholders.
 
@@ -69,11 +69,11 @@ If you create an employee with an invalid ID, an exception is thrown:
 
 ```php
 new Employee('foobar');
-// => InvalidArgumentException: 
+// => InvalidArgumentException:
 //    The employee ID must be an integer. Got: string
 
 new Employee(-10);
-// => InvalidArgumentException: 
+// => InvalidArgumentException:
 //    The employee ID must be a positive integer. Got: -10
 ```
 
@@ -143,7 +143,7 @@ Method                                              | Description
 `endsWith($value, $suffix, $message = '')`          | Check that a string has a suffix
 `regex($value, $pattern, $message = '')`            | Check that a string matches a regular expression
 `notRegex($value, $pattern, $message = '')`         | Check that a string does not match a regular expression
-`letters($value, $message = '')`                    | Check that a string contains Unicode letters only
+`unicodeLetters($value, $message = '')`             | Check that a string contains Unicode letters only
 `alpha($value, $message = '')`                      | Check that a string contains letters only
 `digits($value, $message = '')`                     | Check that a string contains digits only
 `alnum($value, $message = '')`                      | Check that a string contains letters and digits only
