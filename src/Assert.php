@@ -690,7 +690,7 @@ class Assert
 
     public static function endsWith($value, $suffix, $message = '')
     {
-        if ($suffix !== substr($value, -static::strlen($suffix))) {
+        if ($suffix !== substr($value, -strlen($suffix))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
                 static::valueToString($value),
