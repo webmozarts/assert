@@ -851,6 +851,21 @@ class Assert
     /**
      * @psalm-assert !numeric $value
      */
+    public static function unicodeLetters($value, $message = '')
+    {
+        static::string($value);
+
+        if (!preg_match('/^\p{L}+$/u', $value)) {
+            static::reportInvalidArgument(sprintf(
+                $message ?: 'Expected a value to contain only Unicode letters. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-assert !numeric $value
+     */
     public static function alpha($value, $message = '')
     {
         $locale = \setlocale(LC_CTYPE, 0);
