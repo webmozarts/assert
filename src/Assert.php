@@ -194,6 +194,9 @@ class Assert
 {
     /**
      * @psalm-assert string $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function string($value, $message = '')
     {
@@ -207,6 +210,9 @@ class Assert
 
     /**
      * @psalm-assert string $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function stringNotEmpty($value, $message = '')
     {
@@ -216,6 +222,9 @@ class Assert
 
     /**
      * @psalm-assert int $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function integer($value, $message = '')
     {
@@ -229,6 +238,9 @@ class Assert
 
     /**
      * @psalm-assert numeric $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function integerish($value, $message = '')
     {
@@ -242,6 +254,9 @@ class Assert
 
     /**
      * @psalm-assert float $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function float($value, $message = '')
     {
@@ -255,6 +270,9 @@ class Assert
 
     /**
      * @psalm-assert numeric $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function numeric($value, $message = '')
     {
@@ -268,6 +286,9 @@ class Assert
 
     /**
      * @psalm-assert int $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function natural($value, $message = '')
     {
@@ -281,6 +302,9 @@ class Assert
 
     /**
      * @psalm-assert bool $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function boolean($value, $message = '')
     {
@@ -294,6 +318,9 @@ class Assert
 
     /**
      * @psalm-assert scalar $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function scalar($value, $message = '')
     {
@@ -307,6 +334,9 @@ class Assert
 
     /**
      * @psalm-assert object $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function object($value, $message = '')
     {
@@ -320,6 +350,10 @@ class Assert
 
     /**
      * @psalm-assert resource $value
+     *
+     * @param mixed $value
+     * @param string|null $type optional, type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
+     * @param string $message
      */
     public static function resource($value, $type = null, $message = '')
     {
@@ -341,6 +375,9 @@ class Assert
 
     /**
      * @psalm-assert callable $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function isCallable($value, $message = '')
     {
@@ -354,6 +391,9 @@ class Assert
 
     /**
      * @psalm-assert array $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function isArray($value, $message = '')
     {
@@ -371,6 +411,9 @@ class Assert
      * @psalm-assert iterable $value
      *
      * @deprecated
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function isTraversable($value, $message = '')
     {
@@ -391,7 +434,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert (array|ArrayAccess) $value
+     * @param mixed $value
+     * @param string $message
      */
     public static function isArrayAccessible($value, $message = '')
     {
@@ -404,7 +448,10 @@ class Assert
     }
 
     /**
-     * @psalm-assert (array|Countable) $value
+     * @psalm-assert countable $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function isCountable($value, $message = '')
     {
@@ -418,6 +465,9 @@ class Assert
 
     /**
      * @psalm-assert iterable $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function isIterable($value, $message = '')
     {
@@ -433,6 +483,10 @@ class Assert
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert ExpectedType $value
+     *
+     * @param mixed $value
+     * @param string|object $class
+     * @param string $message
      */
     public static function isInstanceOf($value, $class, $message = '')
     {
@@ -449,6 +503,10 @@ class Assert
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert !ExpectedType $value
+     *
+     * @param mixed $value
+     * @param string|object $class
+     * @param string $message
      */
     public static function notInstanceOf($value, $class, $message = '')
     {
@@ -462,8 +520,12 @@ class Assert
     }
     /**
      * @psalm-template ExpectedType
-     * @psalm-param array<class-string<ExpectedType>> $classes
+     * @psalm-param array<class-string<ExpectedType>|ExpectedType> $classes
      * @psalm-assert ExpectedType $value
+     *
+     * @param mixed $value
+     * @param array<object|string> $classes
+     * @param string $message
      */
     public static function isInstanceOfAny($value, array $classes, $message = '')
     {
@@ -482,6 +544,9 @@ class Assert
 
     /**
      * @psalm-assert empty $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function isEmpty($value, $message = '')
     {
@@ -495,6 +560,9 @@ class Assert
 
     /**
      * @psalm-assert !empty $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function notEmpty($value, $message = '')
     {
@@ -508,6 +576,9 @@ class Assert
 
     /**
      * @psalm-assert null $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function null($value, $message = '')
     {
@@ -521,6 +592,9 @@ class Assert
 
     /**
      * @psalm-assert !null $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function notNull($value, $message = '')
     {
@@ -533,6 +607,9 @@ class Assert
 
     /**
      * @psalm-assert true $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function true($value, $message = '')
     {
@@ -546,6 +623,9 @@ class Assert
 
     /**
      * @psalm-assert false $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function false($value, $message = '')
     {
@@ -558,7 +638,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @param mixed $value
+     * @param string $message
      */
     public static function ip($value, $message = '')
     {
@@ -571,7 +652,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @param mixed $value
+     * @param string $message
      */
     public static function ipv4($value, $message = '')
     {
@@ -584,7 +666,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @param mixed $value
+     * @param string $message
      */
     public static function ipv6($value, $message = '')
     {
@@ -596,6 +679,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function email($value, $message = '')
     {
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
@@ -606,6 +693,10 @@ class Assert
         }
     }
 
+    /**
+     * @param array $values
+     * @param string $message
+     */
     public static function uniqueValues(array $values, $message = '')
     {
         $allValues = \count($values);
@@ -622,6 +713,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $expect
+     * @param string $message
+     */
     public static function eq($value, $expect, $message = '')
     {
         if ($expect != $value) {
@@ -633,6 +729,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $expect
+     * @param string $message
+     */
     public static function notEq($value, $expect, $message = '')
     {
         if ($expect == $value) {
@@ -647,6 +748,10 @@ class Assert
      * @psalm-template ExpectedType
      * @psalm-param ExpectedType $expect
      * @psalm-assert =ExpectedType $value
+     *
+     * @param mixed $value
+     * @param mixed $expect
+     * @param string $message
      */
     public static function same($value, $expect, $message = '')
     {
@@ -659,6 +764,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $expect
+     * @param string $message
+     */
     public static function notSame($value, $expect, $message = '')
     {
         if ($expect === $value) {
@@ -669,6 +779,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $limit
+     * @param string $message
+     */
     public static function greaterThan($value, $limit, $message = '')
     {
         if ($value <= $limit) {
@@ -680,6 +795,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $limit
+     * @param string $message
+     */
     public static function greaterThanEq($value, $limit, $message = '')
     {
         if ($value < $limit) {
@@ -691,6 +811,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $limit
+     * @param string $message
+     */
     public static function lessThan($value, $limit, $message = '')
     {
         if ($value >= $limit) {
@@ -702,6 +827,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $limit
+     * @param string $message
+     */
     public static function lessThanEq($value, $limit, $message = '')
     {
         if ($value > $limit) {
@@ -713,6 +843,12 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed min
+     * @param mixed max
+     * @param string $message
+     */
     public static function range($value, $min, $max, $message = '')
     {
         if ($value < $min || $value > $max) {
@@ -729,6 +865,10 @@ class Assert
      * @psalm-template ExpectedType
      * @psalm-param array<ExpectedType> $values
      * @psalm-assert ExpectedType $value
+     *
+     * @param mixed $value
+     * @param array $values
+     * @param string $message
      */
     public static function oneOf($value, array $values, $message = '')
     {
@@ -741,6 +881,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $subString
+     * @param string $message
+     */
     public static function contains($value, $subString, $message = '')
     {
         if (false === \strpos($value, $subString)) {
@@ -752,6 +897,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $subString
+     * @param string $message
+     */
     public static function notContains($value, $subString, $message = '')
     {
         if (false !== \strpos($value, $subString)) {
@@ -763,6 +913,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function notWhitespaceOnly($value, $message = '')
     {
         if (\preg_match('/^\s*$/', $value)) {
@@ -773,6 +927,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $prefix
+     * @param string $message
+     */
     public static function startsWith($value, $prefix, $message = '')
     {
         if (0 !== \strpos($value, $prefix)) {
@@ -784,6 +943,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function startsWithLetter($value, $message = '')
     {
         $valid = isset($value[0]);
@@ -803,6 +966,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $suffix
+     * @param string $message
+     */
     public static function endsWith($value, $suffix, $message = '')
     {
         if ($suffix !== \substr($value, -\strlen($suffix))) {
@@ -814,6 +982,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $pattern
+     * @param string $message
+     */
     public static function regex($value, $pattern, $message = '')
     {
         if (!\preg_match($pattern, $value)) {
@@ -824,6 +997,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $pattern
+     * @param string $message
+     */
     public static function notRegex($value, $pattern, $message = '')
     {
         if (\preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
@@ -850,6 +1028,9 @@ class Assert
 
     /**
      * @psalm-assert !numeric $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function unicodeLetters($value, $message = '')
     {
@@ -864,7 +1045,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert !numeric $value
+     * @param mixed $value
+     * @param string $message
      */
     public static function alpha($value, $message = '')
     {
@@ -882,7 +1064,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert numeric $value
+     * @param mixed $value
+     * @param string $message
      */
     public static function digits($value, $message = '')
     {
@@ -899,6 +1082,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function alnum($value, $message = '')
     {
         $locale = \setlocale(LC_CTYPE, 0);
@@ -914,6 +1101,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function lower($value, $message = '')
     {
         $locale = \setlocale(LC_CTYPE, 0);
@@ -929,6 +1120,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function upper($value, $message = '')
     {
         $locale = \setlocale(LC_CTYPE, 0);
@@ -944,6 +1139,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $length
+     * @param string $message
+     */
     public static function length($value, $length, $message = '')
     {
         if ($length !== static::strlen($value)) {
@@ -955,6 +1155,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $min
+     * @param string $message
+     */
     public static function minLength($value, $min, $message = '')
     {
         if (static::strlen($value) < $min) {
@@ -966,6 +1171,11 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $max
+     * @param string $message
+     */
     public static function maxLength($value, $max, $message = '')
     {
         if (static::strlen($value) > $max) {
@@ -977,6 +1187,12 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param mixed $min
+     * @param mixed $max
+     * @param string $message
+     */
     public static function lengthBetween($value, $min, $max, $message = '')
     {
         $length = static::strlen($value);
@@ -991,6 +1207,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function fileExists($value, $message = '')
     {
         static::string($value);
@@ -1003,6 +1223,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function file($value, $message = '')
     {
         static::fileExists($value, $message);
@@ -1015,6 +1239,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function directory($value, $message = '')
     {
         static::fileExists($value, $message);
@@ -1027,6 +1255,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function readable($value, $message = '')
     {
         if (!\is_readable($value)) {
@@ -1037,6 +1269,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function writable($value, $message = '')
     {
         if (!\is_writable($value)) {
@@ -1049,6 +1285,9 @@ class Assert
 
     /**
      * @psalm-assert class-string $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function classExists($value, $message = '')
     {
@@ -1061,9 +1300,9 @@ class Assert
     }
 
     /**
-     * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert ExpectedType|class-string<ExpectedType> $value
+     * @param mixed $value
+     * @param string|object $class
+     * @param string $message
      */
     public static function subclassOf($value, $class, $message = '')
     {
@@ -1078,6 +1317,9 @@ class Assert
 
     /**
      * @psalm-assert class-string $value
+     *
+     * @param mixed $value
+     * @param string $message
      */
     public static function interfaceExists($value, $message = '')
     {
@@ -1090,9 +1332,9 @@ class Assert
     }
 
     /**
-     * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert ExpectedType|class-string<ExpectedType> $value
+     * @param mixed $value
+     * @param mixed $interface
+     * @param string $message
      */
     public static function implementsInterface($value, $interface, $message = '')
     {
@@ -1105,6 +1347,11 @@ class Assert
         }
     }
 
+    /**
+     * @param string|object $classOrObject
+     * @param mixed $property
+     * @param string $message
+     */
     public static function propertyExists($classOrObject, $property, $message = '')
     {
         if (!\property_exists($classOrObject, $property)) {
@@ -1115,6 +1362,11 @@ class Assert
         }
     }
 
+    /**
+     * @param string|object $classOrObject
+     * @param mixed $property
+     * @param string $message
+     */
     public static function propertyNotExists($classOrObject, $property, $message = '')
     {
         if (\property_exists($classOrObject, $property)) {
@@ -1125,6 +1377,11 @@ class Assert
         }
     }
 
+    /**
+     * @param string|object $classOrObject
+     * @param mixed $method
+     * @param string $message
+     */
     public static function methodExists($classOrObject, $method, $message = '')
     {
         if (!\method_exists($classOrObject, $method)) {
@@ -1135,6 +1392,11 @@ class Assert
         }
     }
 
+    /**
+     * @param string|object $classOrObject
+     * @param mixed $method
+     * @param string $message
+     */
     public static function methodNotExists($classOrObject, $method, $message = '')
     {
         if (\method_exists($classOrObject, $method)) {
@@ -1145,6 +1407,11 @@ class Assert
         }
     }
 
+    /**
+     * @param array $array
+     * @param string|int $key
+     * @param string $message
+     */
     public static function keyExists($array, $key, $message = '')
     {
         if (!(isset($array[$key]) || \array_key_exists($key, $array))) {
@@ -1155,6 +1422,11 @@ class Assert
         }
     }
 
+    /**
+     * @param array $array
+     * @param string|int $key
+     * @param string $message
+     */
     public static function keyNotExists($array, $key, $message = '')
     {
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
@@ -1166,7 +1438,9 @@ class Assert
     }
 
     /**
-     * @psalm-assert array|\Countable $array
+     * @param mixed $array
+     * @param mixed $number
+     * @param string $message
      */
     public static function count($array, $number, $message = '')
     {
@@ -1178,7 +1452,9 @@ class Assert
     }
 
     /**
-     * @psalm-assert array|\Countable $array
+     * @param mixed $array
+     * @param mixed $min
+     * @param string $message
      */
     public static function minCount($array, $min, $message = '')
     {
@@ -1192,7 +1468,9 @@ class Assert
     }
 
     /**
-     * @psalm-assert array|\Countable $array
+     * @param mixed $array
+     * @param mixed $max
+     * @param string $message
      */
     public static function maxCount($array, $max, $message = '')
     {
@@ -1206,7 +1484,10 @@ class Assert
     }
 
     /**
-     * @psalm-assert array|\Countable $array
+     * @param mixed $array
+     * @param mixed $min
+     * @param mixed $max
+     * @param string $message
      */
     public static function countBetween($array, $min, $max, $message = '')
     {
@@ -1223,7 +1504,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert array<int, mixed>&!empty $array
+     * @param mixed $array
+     * @param string $message
      */
     public static function isList($array, $message = '')
     {
@@ -1235,7 +1517,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert array<string, mixed>&!empty $array
+     * @param mixed $array
+     * @param string $message
      */
     public static function isMap($array, $message = '')
     {
@@ -1252,6 +1535,10 @@ class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @param string $message
+     */
     public static function uuid($value, $message = '')
     {
         $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
@@ -1271,7 +1558,9 @@ class Assert
     }
 
     /**
-     * @psalm-assert never-return
+     * @param Closure $expression
+     * @param string|object $class
+     * @param string $message
      */
     public static function throws(Closure $expression, $class = 'Exception', $message = '')
     {
@@ -1329,6 +1618,11 @@ class Assert
         throw new BadMethodCallException('No such method: '.$name);
     }
 
+    /**
+     * @param mixed $value
+     *
+     * @return string
+     */
     protected static function valueToString($value)
     {
         if (null === $value) {
@@ -1366,6 +1660,11 @@ class Assert
         return (string) $value;
     }
 
+    /**
+     * @param mixed $value
+     *
+     * @return string
+     */
     protected static function typeToString($value)
     {
         return \is_object($value) ? \get_class($value) : \gettype($value);
@@ -1384,6 +1683,9 @@ class Assert
         return \mb_strlen($value, $encoding);
     }
 
+    /**
+     * @param string $message
+     */
     protected static function reportInvalidArgument($message)
     {
         throw new InvalidArgumentException($message);
