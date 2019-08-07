@@ -157,6 +157,7 @@ Method                                              | Description
 `ip($value, $message = '')`                         | Check that a string is a valid IP (either IPv4 or IPv6)
 `ipv4($value, $message = '')`                       | Check that a string is a valid IPv4
 `ipv6($value, $message = '')`                       | Check that a string is a valid IPv6
+`email($value, $message = '')`                      | Check that a string is a valid e-mail address
 `notWhitespaceOnly($value, $message = '')`          | Check that a string contains at least one non-whitespace character
 
 ### File Assertions
