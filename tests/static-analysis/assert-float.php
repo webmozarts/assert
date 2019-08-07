@@ -1,6 +1,6 @@
 <?php
 
-namespace Webmozart\Assert\StaticAnalysis\AssertString;
+namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
