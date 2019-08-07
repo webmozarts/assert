@@ -352,7 +352,7 @@ class Assert
      * @psalm-assert resource $value
      *
      * @param mixed $value
-     * @param string|null $type optional, type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
+     * @param string|null $type type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
      * @param string $message
      */
     public static function resource($value, $type = null, $message = '')
@@ -406,11 +406,9 @@ class Assert
     }
 
     /**
-     * @deprecated
-     *
      * @psalm-assert iterable $value
      *
-     * @deprecated
+     * @deprecated use "isIterable" or "isInstanceOf" instead
      *
      * @param mixed $value
      * @param string $message
@@ -694,6 +692,8 @@ class Assert
     }
 
     /**
+     * Does non strict comparisons on the items, so ['3', 3] will not pass the assertion.
+     *
      * @param array $values
      * @param string $message
      */
@@ -844,6 +844,8 @@ class Assert
     }
 
     /**
+     * Inclusive range, so Assert::(3, 3, 5) passes.
+     *
      * @param mixed $value
      * @param mixed min
      * @param mixed max
@@ -862,6 +864,8 @@ class Assert
     }
 
     /**
+     * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
+     *
      * @psalm-template ExpectedType
      * @psalm-param array<ExpectedType> $values
      * @psalm-assert ExpectedType $value
@@ -1156,6 +1160,8 @@ class Assert
     }
 
     /**
+     * Inclusive min
+     *
      * @param mixed $value
      * @param mixed $min
      * @param string $message
@@ -1172,6 +1178,8 @@ class Assert
     }
 
     /**
+     * Inclusive max
+     *
      * @param mixed $value
      * @param mixed $max
      * @param string $message
@@ -1188,6 +1196,8 @@ class Assert
     }
 
     /**
+     * Inclusive , so Assert::lengthBetween('asd', 3, 5); passes the assertion.
+     *
      * @param mixed $value
      * @param mixed $min
      * @param mixed $max
@@ -1208,6 +1218,8 @@ class Assert
     }
 
     /**
+     * Will also pass if $value is a directory, use Assert::file() instead if you need to be sure it is a file.
+     *
      * @param mixed $value
      * @param string $message
      */
@@ -1438,6 +1450,8 @@ class Assert
     }
 
     /**
+     * Does not check if $array is countable, this can generate a warning on php versions after 7.2
+     *
      * @param mixed $array
      * @param mixed $number
      * @param string $message
@@ -1452,6 +1466,8 @@ class Assert
     }
 
     /**
+     * Does not check if $array is countable, this can generate a warning on php versions after 7.2
+     *
      * @param mixed $array
      * @param mixed $min
      * @param string $message
@@ -1468,6 +1484,8 @@ class Assert
     }
 
     /**
+     * Does not check if $array is countable, this can generate a warning on php versions after 7.2
+     *
      * @param mixed $array
      * @param mixed $max
      * @param string $message
@@ -1484,6 +1502,8 @@ class Assert
     }
 
     /**
+     * Does not check if $array is countable, this can generate a warning on php versions after 7.2
+     *
      * @param mixed $array
      * @param mixed $min
      * @param mixed $max
