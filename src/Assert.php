@@ -194,8 +194,8 @@ class Assert
 {
     public static function string($value, $message = '')
     {
-        if (!is_string($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_string($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a string. Got: %s',
                 static::typeToString($value)
             ));
@@ -210,8 +210,8 @@ class Assert
 
     public static function integer($value, $message = '')
     {
-        if (!is_int($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_int($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an integer. Got: %s',
                 static::typeToString($value)
             ));
@@ -220,8 +220,8 @@ class Assert
 
     public static function integerish($value, $message = '')
     {
-        if (!is_numeric($value) || $value != (int) $value) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_numeric($value) || $value != (int) $value) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an integerish value. Got: %s',
                 static::typeToString($value)
             ));
@@ -230,8 +230,8 @@ class Assert
 
     public static function float($value, $message = '')
     {
-        if (!is_float($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_float($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a float. Got: %s',
                 static::typeToString($value)
             ));
@@ -240,8 +240,8 @@ class Assert
 
     public static function numeric($value, $message = '')
     {
-        if (!is_numeric($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_numeric($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a numeric. Got: %s',
                 static::typeToString($value)
             ));
@@ -250,8 +250,8 @@ class Assert
 
     public static function natural($value, $message = '')
     {
-        if (!is_int($value) || $value < 0) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_int($value) || $value < 0) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a non-negative integer. Got %s',
                 static::valueToString($value)
             ));
@@ -260,8 +260,8 @@ class Assert
 
     public static function boolean($value, $message = '')
     {
-        if (!is_bool($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_bool($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a boolean. Got: %s',
                 static::typeToString($value)
             ));
@@ -270,8 +270,8 @@ class Assert
 
     public static function scalar($value, $message = '')
     {
-        if (!is_scalar($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_scalar($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a scalar. Got: %s',
                 static::typeToString($value)
             ));
@@ -280,8 +280,8 @@ class Assert
 
     public static function object($value, $message = '')
     {
-        if (!is_object($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_object($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an object. Got: %s',
                 static::typeToString($value)
             ));
@@ -290,15 +290,15 @@ class Assert
 
     public static function resource($value, $type = null, $message = '')
     {
-        if (!is_resource($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_resource($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a resource. Got: %s',
                 static::typeToString($value)
             ));
         }
 
-        if ($type && $type !== get_resource_type($value)) {
-            static::reportInvalidArgument(sprintf(
+        if ($type && $type !== \get_resource_type($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a resource of type %2$s. Got: %s',
                 static::typeToString($value),
                 $type
@@ -308,8 +308,8 @@ class Assert
 
     public static function isCallable($value, $message = '')
     {
-        if (!is_callable($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_callable($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a callable. Got: %s',
                 static::typeToString($value)
             ));
@@ -318,8 +318,8 @@ class Assert
 
     public static function isArray($value, $message = '')
     {
-        if (!is_array($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_array($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array. Got: %s',
                 static::typeToString($value)
             ));
@@ -331,16 +331,16 @@ class Assert
      */
     public static function isTraversable($value, $message = '')
     {
-        @trigger_error(
-            sprintf(
+        @\trigger_error(
+            \sprintf(
                 'The "%s" assertion is deprecated. You should stop using it, as it will soon be removed in 2.0 version. Use "isIterable" or "isInstanceOf" instead.',
                 __METHOD__
             ),
-            E_USER_DEPRECATED
+            \E_USER_DEPRECATED
         );
 
-        if (!is_array($value) && !($value instanceof Traversable)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_array($value) && !($value instanceof Traversable)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a traversable. Got: %s',
                 static::typeToString($value)
             ));
@@ -349,8 +349,8 @@ class Assert
 
     public static function isArrayAccessible($value, $message = '')
     {
-        if (!is_array($value) && !($value instanceof ArrayAccess)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_array($value) && !($value instanceof ArrayAccess)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array accessible. Got: %s',
                 static::typeToString($value)
             ));
@@ -359,8 +359,8 @@ class Assert
 
     public static function isCountable($value, $message = '')
     {
-        if (!is_array($value) && !($value instanceof Countable)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_array($value) && !($value instanceof Countable)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a countable. Got: %s',
                 static::typeToString($value)
             ));
@@ -369,8 +369,8 @@ class Assert
 
     public static function isIterable($value, $message = '')
     {
-        if (!is_array($value) && !($value instanceof Traversable)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_array($value) && !($value instanceof Traversable)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an iterable. Got: %s',
                 static::typeToString($value)
             ));
@@ -380,7 +380,7 @@ class Assert
     public static function isInstanceOf($value, $class, $message = '')
     {
         if (!($value instanceof $class)) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an instance of %2$s. Got: %s',
                 static::typeToString($value),
                 $class
@@ -391,7 +391,7 @@ class Assert
     public static function notInstanceOf($value, $class, $message = '')
     {
         if ($value instanceof $class) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an instance other than %2$s. Got: %s',
                 static::typeToString($value),
                 $class
@@ -407,17 +407,17 @@ class Assert
             }
         }
 
-        static::reportInvalidArgument(sprintf(
+        static::reportInvalidArgument(\sprintf(
             $message ?: 'Expected an instance of any of %2$s. Got: %s',
             static::typeToString($value),
-            implode(', ', array_map(array('static', 'valueToString'), $classes))
+            \implode(', ', \array_map(array('static', 'valueToString'), $classes))
         ));
     }
 
     public static function isEmpty($value, $message = '')
     {
         if (!empty($value)) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an empty value. Got: %s',
                 static::valueToString($value)
             ));
@@ -427,7 +427,7 @@ class Assert
     public static function notEmpty($value, $message = '')
     {
         if (empty($value)) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a non-empty value. Got: %s',
                 static::valueToString($value)
             ));
@@ -437,7 +437,7 @@ class Assert
     public static function null($value, $message = '')
     {
         if (null !== $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected null. Got: %s',
                 static::valueToString($value)
             ));
@@ -456,7 +456,7 @@ class Assert
     public static function true($value, $message = '')
     {
         if (true !== $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be true. Got: %s',
                 static::valueToString($value)
             ));
@@ -466,7 +466,7 @@ class Assert
     public static function false($value, $message = '')
     {
         if (false !== $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be false. Got: %s',
                 static::valueToString($value)
             ));
@@ -475,8 +475,8 @@ class Assert
 
     public static function ip($value, $message = '')
     {
-        if (false === filter_var($value, FILTER_VALIDATE_IP)) {
-            static::reportInvalidArgument(sprintf(
+        if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IP. Got: %s',
                 static::valueToString($value)
             ));
@@ -485,8 +485,8 @@ class Assert
 
     public static function ipv4($value, $message = '')
     {
-        if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-            static::reportInvalidArgument(sprintf(
+        if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv4. Got: %s',
                 static::valueToString($value)
             ));
@@ -495,8 +495,8 @@ class Assert
 
     public static function ipv6($value, $message = '')
     {
-        if (false === filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-            static::reportInvalidArgument(sprintf(
+        if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv6. Got %s',
                 static::valueToString($value)
             ));
@@ -505,8 +505,8 @@ class Assert
 
     public static function email($value, $message = '')
     {
-        if (false === filter_var($value, FILTER_VALIDATE_EMAIL)) {
-            static::reportInvalidArgument(sprintf(
+        if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be a valid e-mail address. Got %s',
                 static::valueToString($value)
             ));
@@ -515,13 +515,13 @@ class Assert
 
     public static function uniqueValues(array $values, $message = '')
     {
-        $allValues = count($values);
-        $uniqueValues = count(array_unique($values));
+        $allValues = \count($values);
+        $uniqueValues = \count(\array_unique($values));
 
         if ($allValues !== $uniqueValues) {
             $difference = $allValues - $uniqueValues;
 
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array of unique values, but %s of them %s duplicated',
                 $difference,
                 (1 === $difference ? 'is' : 'are')
@@ -532,7 +532,7 @@ class Assert
     public static function eq($value, $expect, $message = '')
     {
         if ($expect != $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value equal to %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($expect)
@@ -543,7 +543,7 @@ class Assert
     public static function notEq($value, $expect, $message = '')
     {
         if ($expect == $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a different value than %s.',
                 static::valueToString($expect)
             ));
@@ -553,7 +553,7 @@ class Assert
     public static function same($value, $expect, $message = '')
     {
         if ($expect !== $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value identical to %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($expect)
@@ -564,7 +564,7 @@ class Assert
     public static function notSame($value, $expect, $message = '')
     {
         if ($expect === $value) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value not identical to %s.',
                 static::valueToString($expect)
             ));
@@ -574,7 +574,7 @@ class Assert
     public static function greaterThan($value, $limit, $message = '')
     {
         if ($value <= $limit) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value greater than %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($limit)
@@ -585,7 +585,7 @@ class Assert
     public static function greaterThanEq($value, $limit, $message = '')
     {
         if ($value < $limit) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value greater than or equal to %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($limit)
@@ -596,7 +596,7 @@ class Assert
     public static function lessThan($value, $limit, $message = '')
     {
         if ($value >= $limit) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value less than %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($limit)
@@ -607,7 +607,7 @@ class Assert
     public static function lessThanEq($value, $limit, $message = '')
     {
         if ($value > $limit) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value less than or equal to %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($limit)
@@ -618,7 +618,7 @@ class Assert
     public static function range($value, $min, $max, $message = '')
     {
         if ($value < $min || $value > $max) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value between %2$s and %3$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($min),
@@ -629,19 +629,19 @@ class Assert
 
     public static function oneOf($value, array $values, $message = '')
     {
-        if (!in_array($value, $values, true)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\in_array($value, $values, true)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected one of: %2$s. Got: %s',
                 static::valueToString($value),
-                implode(', ', array_map(array('static', 'valueToString'), $values))
+                \implode(', ', \array_map(array('static', 'valueToString'), $values))
             ));
         }
     }
 
     public static function contains($value, $subString, $message = '')
     {
-        if (false === strpos($value, $subString)) {
-            static::reportInvalidArgument(sprintf(
+        if (false === \strpos($value, $subString)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($subString)
@@ -651,8 +651,8 @@ class Assert
 
     public static function notContains($value, $subString, $message = '')
     {
-        if (false !== strpos($value, $subString)) {
-            static::reportInvalidArgument(sprintf(
+        if (false !== \strpos($value, $subString)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: '%2$s was not expected to be contained in a value. Got: %s',
                 static::valueToString($value),
                 static::valueToString($subString)
@@ -662,8 +662,8 @@ class Assert
 
     public static function notWhitespaceOnly($value, $message = '')
     {
-        if (preg_match('/^\s*$/', $value)) {
-            static::reportInvalidArgument(sprintf(
+        if (\preg_match('/^\s*$/', $value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a non-whitespace string. Got: %s',
                 static::valueToString($value)
             ));
@@ -672,8 +672,8 @@ class Assert
 
     public static function startsWith($value, $prefix, $message = '')
     {
-        if (0 !== strpos($value, $prefix)) {
-            static::reportInvalidArgument(sprintf(
+        if (0 !== \strpos($value, $prefix)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to start with %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($prefix)
@@ -686,14 +686,14 @@ class Assert
         $valid = isset($value[0]);
 
         if ($valid) {
-            $locale = setlocale(LC_CTYPE, 0);
-            setlocale(LC_CTYPE, 'C');
-            $valid = ctype_alpha($value[0]);
-            setlocale(LC_CTYPE, $locale);
+            $locale = \setlocale(LC_CTYPE, 0);
+            \setlocale(LC_CTYPE, 'C');
+            $valid = \ctype_alpha($value[0]);
+            \setlocale(LC_CTYPE, $locale);
         }
 
         if (!$valid) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to start with a letter. Got: %s',
                 static::valueToString($value)
             ));
@@ -702,8 +702,8 @@ class Assert
 
     public static function endsWith($value, $suffix, $message = '')
     {
-        if ($suffix !== substr($value, -strlen($suffix))) {
-            static::reportInvalidArgument(sprintf(
+        if ($suffix !== \substr($value, -\strlen($suffix))) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($suffix)
@@ -713,8 +713,8 @@ class Assert
 
     public static function regex($value, $pattern, $message = '')
     {
-        if (!preg_match($pattern, $value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\preg_match($pattern, $value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s does not match the expected pattern.',
                 static::valueToString($value)
             ));
@@ -723,8 +723,8 @@ class Assert
 
     public static function notRegex($value, $pattern, $message = '')
     {
-        if (preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
-            static::reportInvalidArgument(sprintf(
+        if (\preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s matches the pattern %s (at offset %d).',
                 static::valueToString($value),
                 static::valueToString($pattern),
@@ -737,8 +737,8 @@ class Assert
     {
         static::string($value);
 
-        if (!preg_match('/^\p{L}+$/u', $value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\preg_match('/^\p{L}+$/u', $value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain only Unicode letters. Got: %s',
                 static::valueToString($value)
             ));
@@ -747,13 +747,13 @@ class Assert
 
     public static function alpha($value, $message = '')
     {
-        $locale = setlocale(LC_CTYPE, 0);
-        setlocale(LC_CTYPE, 'C');
-        $valid = !ctype_alpha($value);
-        setlocale(LC_CTYPE, $locale);
+        $locale = \setlocale(LC_CTYPE, 0);
+        \setlocale(LC_CTYPE, 'C');
+        $valid = !\ctype_alpha($value);
+        \setlocale(LC_CTYPE, $locale);
 
         if ($valid) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain only letters. Got: %s',
                 static::valueToString($value)
             ));
@@ -762,13 +762,13 @@ class Assert
 
     public static function digits($value, $message = '')
     {
-        $locale = setlocale(LC_CTYPE, 0);
-        setlocale(LC_CTYPE, 'C');
-        $valid = !ctype_digit($value);
-        setlocale(LC_CTYPE, $locale);
+        $locale = \setlocale(LC_CTYPE, 0);
+        \setlocale(LC_CTYPE, 'C');
+        $valid = !\ctype_digit($value);
+        \setlocale(LC_CTYPE, $locale);
 
         if ($valid) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain digits only. Got: %s',
                 static::valueToString($value)
             ));
@@ -777,13 +777,13 @@ class Assert
 
     public static function alnum($value, $message = '')
     {
-        $locale = setlocale(LC_CTYPE, 0);
-        setlocale(LC_CTYPE, 'C');
-        $valid = !ctype_alnum($value);
-        setlocale(LC_CTYPE, $locale);
+        $locale = \setlocale(LC_CTYPE, 0);
+        \setlocale(LC_CTYPE, 'C');
+        $valid = !\ctype_alnum($value);
+        \setlocale(LC_CTYPE, $locale);
 
         if ($valid) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain letters and digits only. Got: %s',
                 static::valueToString($value)
             ));
@@ -792,13 +792,13 @@ class Assert
 
     public static function lower($value, $message = '')
     {
-        $locale = setlocale(LC_CTYPE, 0);
-        setlocale(LC_CTYPE, 'C');
-        $valid = !ctype_lower($value);
-        setlocale(LC_CTYPE, $locale);
+        $locale = \setlocale(LC_CTYPE, 0);
+        \setlocale(LC_CTYPE, 'C');
+        $valid = !\ctype_lower($value);
+        \setlocale(LC_CTYPE, $locale);
 
         if ($valid) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain lowercase characters only. Got: %s',
                 static::valueToString($value)
             ));
@@ -807,13 +807,13 @@ class Assert
 
     public static function upper($value, $message = '')
     {
-        $locale = setlocale(LC_CTYPE, 0);
-        setlocale(LC_CTYPE, 'C');
-        $valid = !ctype_upper($value);
-        setlocale(LC_CTYPE, $locale);
+        $locale = \setlocale(LC_CTYPE, 0);
+        \setlocale(LC_CTYPE, 'C');
+        $valid = !\ctype_upper($value);
+        \setlocale(LC_CTYPE, $locale);
 
         if ($valid) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain uppercase characters only. Got: %s',
                 static::valueToString($value)
             ));
@@ -823,7 +823,7 @@ class Assert
     public static function length($value, $length, $message = '')
     {
         if ($length !== static::strlen($value)) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s characters. Got: %s',
                 static::valueToString($value),
                 $length
@@ -834,7 +834,7 @@ class Assert
     public static function minLength($value, $min, $message = '')
     {
         if (static::strlen($value) < $min) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at least %2$s characters. Got: %s',
                 static::valueToString($value),
                 $min
@@ -845,7 +845,7 @@ class Assert
     public static function maxLength($value, $max, $message = '')
     {
         if (static::strlen($value) > $max) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at most %2$s characters. Got: %s',
                 static::valueToString($value),
                 $max
@@ -858,7 +858,7 @@ class Assert
         $length = static::strlen($value);
 
         if ($length < $min || $length > $max) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain between %2$s and %3$s characters. Got: %s',
                 static::valueToString($value),
                 $min,
@@ -871,8 +871,8 @@ class Assert
     {
         static::string($value);
 
-        if (!file_exists($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\file_exists($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The file %s does not exist.',
                 static::valueToString($value)
             ));
@@ -883,8 +883,8 @@ class Assert
     {
         static::fileExists($value, $message);
 
-        if (!is_file($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_file($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not a file.',
                 static::valueToString($value)
             ));
@@ -895,8 +895,8 @@ class Assert
     {
         static::fileExists($value, $message);
 
-        if (!is_dir($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_dir($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is no directory.',
                 static::valueToString($value)
             ));
@@ -905,8 +905,8 @@ class Assert
 
     public static function readable($value, $message = '')
     {
-        if (!is_readable($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_readable($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not readable.',
                 static::valueToString($value)
             ));
@@ -915,8 +915,8 @@ class Assert
 
     public static function writable($value, $message = '')
     {
-        if (!is_writable($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_writable($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not writable.',
                 static::valueToString($value)
             ));
@@ -925,8 +925,8 @@ class Assert
 
     public static function classExists($value, $message = '')
     {
-        if (!class_exists($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\class_exists($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an existing class name. Got: %s',
                 static::valueToString($value)
             ));
@@ -935,8 +935,8 @@ class Assert
 
     public static function subclassOf($value, $class, $message = '')
     {
-        if (!is_subclass_of($value, $class)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\is_subclass_of($value, $class)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a sub-class of %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($class)
@@ -946,8 +946,8 @@ class Assert
 
     public static function interfaceExists($value, $message = '')
     {
-        if (!interface_exists($value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\interface_exists($value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an existing interface name. got %s',
                 static::valueToString($value)
             ));
@@ -956,8 +956,8 @@ class Assert
 
     public static function implementsInterface($value, $interface, $message = '')
     {
-        if (!in_array($interface, class_implements($value))) {
-            static::reportInvalidArgument(sprintf(
+        if (!\in_array($interface, \class_implements($value))) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an implementation of %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($interface)
@@ -967,8 +967,8 @@ class Assert
 
     public static function propertyExists($classOrObject, $property, $message = '')
     {
-        if (!property_exists($classOrObject, $property)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\property_exists($classOrObject, $property)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the property %s to exist.',
                 static::valueToString($property)
             ));
@@ -977,8 +977,8 @@ class Assert
 
     public static function propertyNotExists($classOrObject, $property, $message = '')
     {
-        if (property_exists($classOrObject, $property)) {
-            static::reportInvalidArgument(sprintf(
+        if (\property_exists($classOrObject, $property)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the property %s to not exist.',
                 static::valueToString($property)
             ));
@@ -987,8 +987,8 @@ class Assert
 
     public static function methodExists($classOrObject, $method, $message = '')
     {
-        if (!method_exists($classOrObject, $method)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\method_exists($classOrObject, $method)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the method %s to exist.',
                 static::valueToString($method)
             ));
@@ -997,8 +997,8 @@ class Assert
 
     public static function methodNotExists($classOrObject, $method, $message = '')
     {
-        if (method_exists($classOrObject, $method)) {
-            static::reportInvalidArgument(sprintf(
+        if (\method_exists($classOrObject, $method)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the method %s to not exist.',
                 static::valueToString($method)
             ));
@@ -1007,8 +1007,8 @@ class Assert
 
     public static function keyExists($array, $key, $message = '')
     {
-        if (!(isset($array[$key]) || array_key_exists($key, $array))) {
-            static::reportInvalidArgument(sprintf(
+        if (!(isset($array[$key]) || \array_key_exists($key, $array))) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the key %s to exist.',
                 static::valueToString($key)
             ));
@@ -1017,8 +1017,8 @@ class Assert
 
     public static function keyNotExists($array, $key, $message = '')
     {
-        if (isset($array[$key]) || array_key_exists($key, $array)) {
-            static::reportInvalidArgument(sprintf(
+        if (isset($array[$key]) || \array_key_exists($key, $array)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the key %s to not exist.',
                 static::valueToString($key)
             ));
@@ -1028,18 +1028,18 @@ class Assert
     public static function count($array, $number, $message = '')
     {
         static::eq(
-            count($array),
+            \count($array),
             $number,
-            $message ?: sprintf('Expected an array to contain %d elements. Got: %d.', $number, count($array))
+            $message ?: \sprintf('Expected an array to contain %d elements. Got: %d.', $number, \count($array))
         );
     }
 
     public static function minCount($array, $min, $message = '')
     {
-        if (count($array) < $min) {
-            static::reportInvalidArgument(sprintf(
+        if (\count($array) < $min) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
-                count($array),
+                \count($array),
                 $min
             ));
         }
@@ -1047,10 +1047,10 @@ class Assert
 
     public static function maxCount($array, $max, $message = '')
     {
-        if (count($array) > $max) {
-            static::reportInvalidArgument(sprintf(
+        if (\count($array) > $max) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
-                count($array),
+                \count($array),
                 $max
             ));
         }
@@ -1058,10 +1058,10 @@ class Assert
 
     public static function countBetween($array, $min, $max, $message = '')
     {
-        $count = count($array);
+        $count = \count($array);
 
         if ($count < $min || $count > $max) {
-            static::reportInvalidArgument(sprintf(
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain between %2$d and %3$d elements. Got: %d',
                 $count,
                 $min,
@@ -1072,7 +1072,7 @@ class Assert
 
     public static function isList($array, $message = '')
     {
-        if (!is_array($array) || !$array || array_keys($array) !== range(0, count($array) - 1)) {
+        if (!\is_array($array) || !$array || \array_keys($array) !== \range(0, \count($array) - 1)) {
             static::reportInvalidArgument(
                 $message ?: 'Expected list - non-associative array.'
             );
@@ -1082,10 +1082,10 @@ class Assert
     public static function isMap($array, $message = '')
     {
         if (
-            !is_array($array) ||
+            !\is_array($array) ||
             !$array ||
-            array_keys($array) !== array_filter(array_keys($array), function ($key) {
-                return is_string($key);
+            \array_keys($array) !== \array_filter(\array_keys($array), function ($key) {
+                return \is_string($key);
             })
         ) {
             static::reportInvalidArgument(
@@ -1096,7 +1096,7 @@ class Assert
 
     public static function uuid($value, $message = '')
     {
-        $value = str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
+        $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
 
         // The nil UUID is special form of UUID that is specified to have all
         // 128 bits set to zero.
@@ -1104,8 +1104,8 @@ class Assert
             return;
         }
 
-        if (!preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/', $value)) {
-            static::reportInvalidArgument(sprintf(
+        if (!\preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/', $value)) {
+            static::reportInvalidArgument(\sprintf(
                 $message ?: 'Value %s is not a valid UUID.',
                 static::valueToString($value)
             ));
@@ -1121,18 +1121,18 @@ class Assert
         try {
             $expression();
         } catch (Exception $e) {
-            $actual = get_class($e);
+            $actual = \get_class($e);
             if ($e instanceof $class) {
                 return;
             }
         } catch (Throwable $e) {
-            $actual = get_class($e);
+            $actual = \get_class($e);
             if ($e instanceof $class) {
                 return;
             }
         }
 
-        static::reportInvalidArgument($message ?: sprintf(
+        static::reportInvalidArgument($message ?: \sprintf(
             'Expected to throw "%s", got "%s"',
             $class,
             $actual
@@ -1141,25 +1141,25 @@ class Assert
 
     public static function __callStatic($name, $arguments)
     {
-        if ('nullOr' === substr($name, 0, 6)) {
+        if ('nullOr' === \substr($name, 0, 6)) {
             if (null !== $arguments[0]) {
-                $method = lcfirst(substr($name, 6));
-                call_user_func_array(array('static', $method), $arguments);
+                $method = \lcfirst(\substr($name, 6));
+                \call_user_func_array(array('static', $method), $arguments);
             }
 
             return;
         }
 
-        if ('all' === substr($name, 0, 3)) {
+        if ('all' === \substr($name, 0, 3)) {
             static::isIterable($arguments[0]);
 
-            $method = lcfirst(substr($name, 3));
+            $method = \lcfirst(\substr($name, 3));
             $args = $arguments;
 
             foreach ($arguments[0] as $entry) {
                 $args[0] = $entry;
 
-                call_user_func_array(array('static', $method), $args);
+                \call_user_func_array(array('static', $method), $args);
             }
 
             return;
@@ -1182,23 +1182,23 @@ class Assert
             return 'false';
         }
 
-        if (is_array($value)) {
+        if (\is_array($value)) {
             return 'array';
         }
 
-        if (is_object($value)) {
-            if (method_exists($value, '__toString')) {
-                return get_class($value).': '.self::valueToString($value->__toString());
+        if (\is_object($value)) {
+            if (\method_exists($value, '__toString')) {
+                return \get_class($value).': '.self::valueToString($value->__toString());
             }
 
-            return get_class($value);
+            return \get_class($value);
         }
 
-        if (is_resource($value)) {
+        if (\is_resource($value)) {
             return 'resource';
         }
 
-        if (is_string($value)) {
+        if (\is_string($value)) {
             return '"'.$value.'"';
         }
 
@@ -1207,20 +1207,20 @@ class Assert
 
     protected static function typeToString($value)
     {
-        return is_object($value) ? get_class($value) : gettype($value);
+        return \is_object($value) ? \get_class($value) : \gettype($value);
     }
 
     protected static function strlen($value)
     {
-        if (!function_exists('mb_detect_encoding')) {
-            return strlen($value);
+        if (!\function_exists('mb_detect_encoding')) {
+            return \strlen($value);
         }
 
-        if (false === $encoding = mb_detect_encoding($value)) {
-            return strlen($value);
+        if (false === $encoding = \mb_detect_encoding($value)) {
+            return \strlen($value);
         }
 
-        return mb_strlen($value, $encoding);
+        return \mb_strlen($value, $encoding);
     }
 
     protected static function reportInvalidArgument($message)
