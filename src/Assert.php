@@ -516,6 +516,7 @@ class Assert
             ));
         }
     }
+
     /**
      * @psalm-template ExpectedType
      * @psalm-param array<class-string<ExpectedType>|ExpectedType> $classes
@@ -1014,18 +1015,6 @@ class Assert
                 static::valueToString($value),
                 static::valueToString($pattern),
                 $matches[0][1]
-            ));
-        }
-    }
-
-    public static function unicodeLetters($value, $message = '')
-    {
-        static::string($value);
-
-        if (!\preg_match('/^\p{L}+$/u', $value)) {
-            static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected a value to contain only Unicode letters. Got: %s',
-                static::valueToString($value)
             ));
         }
     }
