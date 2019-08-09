@@ -335,7 +335,7 @@ class Assert
     /**
      * @psalm-assert object $value
      *
-     * @param mixed $value
+     * @param mixed  $value
      * @param string $message
      */
     public static function object($value, $message = '')
@@ -623,7 +623,7 @@ class Assert
     /**
      * @psalm-assert false $value
      *
-     * @param mixed $value
+     * @param mixed  $value
      * @param string $message
      */
     public static function false($value, $message = '')
