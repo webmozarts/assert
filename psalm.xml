@@ -12,8 +12,4 @@
         </ignoreFiles>
     </projectFiles>
 
-    <issueHandlers>
-
-        <DuplicateClass errorLevel="suppress" />
-    </issueHandlers>
 </psalm>

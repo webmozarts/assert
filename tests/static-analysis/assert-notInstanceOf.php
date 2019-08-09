@@ -4,15 +4,15 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-class A {}
-class B {}
+class NotA {}
+class NotB {}
 
 /**
- * @param A|B $value
+ * @param NotA|NotB $value
  */
-function consume($value): A
+function consume($value): NotA
 {
-    Assert::notInstanceOf($value, B::class);
+    Assert::notInstanceOf($value, NotB::class);
 
     return $value;
 }

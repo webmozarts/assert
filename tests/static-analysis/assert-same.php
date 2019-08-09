@@ -4,13 +4,13 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-class A {}
+class SameA {}
 
 /**
  * @param mixed $value
  */
-function consume($value) : A
+function consume($value) : SameA
 {
-    Assert::same($value, new A());
+    Assert::same($value, new SameA());
     return $value;
 }
