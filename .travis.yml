@@ -21,7 +21,9 @@ matrix:
     - php: 7.1
     - php: 7.2
     - php: 7.3
-      env: COVERAGE=yes
+      env:
+       - COVERAGE=yes
+       - ANALYSIS=yes
     - php: 7.4snapshot
     - php: hhvm-3.30
     - php: nightly
@@ -42,6 +44,8 @@ install:
 
 script:
   - if [[ $COVERAGE = yes ]]; then vendor/bin/phpunit --coverage-clover=coverage.clover; else vendor/bin/phpunit; fi
+  - if [[ $ANALYSIS = yes ]]; then composer i --working-dir=ci && ci/vendor/bin/psalm; fi
+
 
 after_script:
   - if [[ $COVERAGE = yes ]]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
