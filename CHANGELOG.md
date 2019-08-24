@@ -12,14 +12,14 @@ Changelog
 * added: `Assert::email()`
 * added support for [Psalm](https://github.com/vimeo/psalm), by adding `@psalm-assert` annotations where appropriate.
 
-## Fixed
+### Fixed
 
 * `Assert::endsWith()` would not give the correct result when dealing with multibyte suffix. 
 * `Assert::length(), minLength, maxLength, lengthBetween` would not give the correct result when dealing with multibyte characters. 
 
 **NOTE**: These 2 changes may break your assertions if you relied on the fact that multibyte characters didn't behave correctly.
 
-## Changed
+### Changed
 
 * The names of some variables have been updated to better reflect what they are.
 * All function calls are now in their FQN form, slightly increasing performance.
