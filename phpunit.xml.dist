@@ -9,6 +9,7 @@
     <testsuites>
         <testsuite name="Webmozart Assert Test Suite">
             <directory>./tests/</directory>
+            <exclude>./tests/static-analysis</exclude>
         </testsuite>
     </testsuites>
 
