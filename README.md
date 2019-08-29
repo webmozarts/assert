@@ -220,6 +220,27 @@ assertion only if it the value is not `null`:
 Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
 ```
 
+### Extending Assert
+
+The `Assert` class comes with a few methods, which can be overridden to change the class behaviour. You can also extend it to
+add your own assertions.
+
+#### Overriding methods
+
+Overriding the following methods in your assertion class allows you to change the behaviour of the assertions:
+
+* `public static function __callStatic($name, $arguments)`
+  * This method is used to 'create' the `nullOr` and `all` versions of the assertions.
+* `protected static function valueToString($value)`
+  * This method is used for error messages, to convert the value to a string value for displaying. You could use this for representing a value object with a `__toString` method for example.
+* `protected static function typeToString($value)`
+  * This method is used for error messages, to convert the a value to a string representing its type.
+* `protected static function strlen($value)`
+  * This method is used to calculate string lenght for relevant methods, using the `mb_strlen` if available and usefull.
+* `protected static function reportInvalidArgument($message)`
+  * This method is called when an assertion fails, with the specified error message. Here you can throw your own exception, or log something.
+
+
 Authors
 -------
 
