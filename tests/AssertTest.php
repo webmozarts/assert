@@ -94,10 +94,10 @@ class AssertTest extends BaseTestCase
             array('object', array(true), false),
             array('object', array(1), false),
             array('object', array(array()), false),
-            array('resource', array($resource), true),
+            array('resource', array($resource, null), true),
             array('resource', array($resource, 'stream'), true),
             array('resource', array($resource, 'other'), false),
-            array('resource', array(1), false),
+            array('resource', array(1, null), false),
             array('isCallable', array('strlen'), true),
             array('isCallable', array(array($this, 'getTests')), true),
             array('isCallable', array(function () {}), true),
@@ -436,7 +436,7 @@ class AssertTest extends BaseTestCase
             array('uuid', array('3f6f8cb0-c57d-11e1-9b21-0800200c9a6'), false),
             array('throws', array(function() { throw new LogicException('test'); }, 'LogicException'), true),
             array('throws', array(function() { throw new LogicException('test'); }, 'IllogicException'), false),
-            array('throws', array(function() { throw new Exception('test'); }), true),
+            array('throws', array(function() { throw new Exception('test'); }, 'Exception'), true),
             array('throws', array(function() { trigger_error('test'); }, 'Throwable'), true, false, 70000),
             array('throws', array(function() { trigger_error('test'); }, 'Unthrowable'), false, false, 70000),
             array('throws', array(function() { throw new Error(); }, 'Throwable'), true, true, 70000),
@@ -516,6 +516,31 @@ class AssertTest extends BaseTestCase
         }
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @dataProvider getTests
+     */
+    public function testAssertCustomException($method, $args, $success, $multibyte = false, $minVersion = null)
+    {
+        if ($minVersion && PHP_VERSION_ID < $minVersion) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
+
+            return;
+        }
+        if ($multibyte && !function_exists('mb_strlen')) {
+            $this->markTestSkipped('The function mb_strlen() is not available');
+        }
+
+        if (!$success) {
+            $this->setExpectedException('Webmozart\Assert\Tests\CustomException');
+            $args[] = '';
+            $args[] = new CustomException();
+        }
+
+        call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+
         $this->addToAssertionCount(1);
     }
 
