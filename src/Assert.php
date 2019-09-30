@@ -197,6 +197,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function string($value, $message = '')
     {
@@ -213,6 +214,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function stringNotEmpty($value, $message = '')
     {
@@ -225,6 +227,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function integer($value, $message = '')
     {
@@ -257,6 +260,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function float($value, $message = '')
     {
@@ -273,6 +277,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function numeric($value, $message = '')
     {
@@ -289,6 +294,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function natural($value, $message = '')
     {
@@ -305,6 +311,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function boolean($value, $message = '')
     {
@@ -321,6 +328,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function scalar($value, $message = '')
     {
@@ -337,6 +345,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function object($value, $message = '')
     {
@@ -354,6 +363,7 @@ class Assert
      * @param mixed       $value
      * @param string|null $type    type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
      * @param string      $message
+     * @throws InvalidArgumentException
      */
     public static function resource($value, $type = null, $message = '')
     {
@@ -378,6 +388,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isCallable($value, $message = '')
     {
@@ -394,6 +405,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isArray($value, $message = '')
     {
@@ -412,6 +424,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isTraversable($value, $message = '')
     {
@@ -434,6 +447,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isArrayAccessible($value, $message = '')
     {
@@ -450,6 +464,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isCountable($value, $message = '')
     {
@@ -466,6 +481,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isIterable($value, $message = '')
     {
@@ -485,6 +501,7 @@ class Assert
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function isInstanceOf($value, $class, $message = '')
     {
@@ -505,6 +522,7 @@ class Assert
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function notInstanceOf($value, $class, $message = '')
     {
@@ -521,6 +539,7 @@ class Assert
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     * @throws InvalidArgumentException
      */
     public static function isInstanceOfAny($value, array $classes, $message = '')
     {
@@ -542,6 +561,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isEmpty($value, $message = '')
     {
@@ -558,6 +578,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notEmpty($value, $message = '')
     {
@@ -574,6 +595,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function null($value, $message = '')
     {
@@ -590,6 +612,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notNull($value, $message = '')
     {
@@ -605,6 +628,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function true($value, $message = '')
     {
@@ -621,6 +645,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function false($value, $message = '')
     {
@@ -635,6 +660,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function ip($value, $message = '')
     {
@@ -649,6 +675,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function ipv4($value, $message = '')
     {
@@ -663,6 +690,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function ipv6($value, $message = '')
     {
@@ -677,6 +705,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function email($value, $message = '')
     {
@@ -693,6 +722,7 @@ class Assert
      *
      * @param array  $values
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function uniqueValues(array $values, $message = '')
     {
@@ -714,6 +744,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function eq($value, $expect, $message = '')
     {
@@ -730,6 +761,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notEq($value, $expect, $message = '')
     {
@@ -749,6 +781,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function same($value, $expect, $message = '')
     {
@@ -765,6 +798,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notSame($value, $expect, $message = '')
     {
@@ -780,6 +814,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function greaterThan($value, $limit, $message = '')
     {
@@ -796,6 +831,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function greaterThanEq($value, $limit, $message = '')
     {
@@ -812,6 +848,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function lessThan($value, $limit, $message = '')
     {
@@ -828,6 +865,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function lessThanEq($value, $limit, $message = '')
     {
@@ -847,6 +885,7 @@ class Assert
      * @param mixed min
      * @param mixed max
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function range($value, $min, $max, $message = '')
     {
@@ -870,6 +909,7 @@ class Assert
      * @param mixed  $value
      * @param array  $values
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function oneOf($value, array $values, $message = '')
     {
@@ -886,6 +926,7 @@ class Assert
      * @param mixed  $value
      * @param string $subString
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function contains($value, $subString, $message = '')
     {
@@ -902,6 +943,7 @@ class Assert
      * @param mixed  $value
      * @param string $subString
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notContains($value, $subString, $message = '')
     {
@@ -917,6 +959,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notWhitespaceOnly($value, $message = '')
     {
@@ -932,6 +975,7 @@ class Assert
      * @param mixed  $value
      * @param string $prefix
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function startsWith($value, $prefix, $message = '')
     {
@@ -947,6 +991,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function startsWithLetter($value, $message = '')
     {
@@ -971,6 +1016,7 @@ class Assert
      * @param mixed  $value
      * @param string $suffix
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function endsWith($value, $suffix, $message = '')
     {
@@ -987,6 +1033,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $pattern
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function regex($value, $pattern, $message = '')
     {
@@ -1002,6 +1049,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $pattern
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function notRegex($value, $pattern, $message = '')
     {
@@ -1020,6 +1068,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function unicodeLetters($value, $message = '')
     {
@@ -1036,6 +1085,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function alpha($value, $message = '')
     {
@@ -1055,6 +1105,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function digits($value, $message = '')
     {
@@ -1074,6 +1125,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function alnum($value, $message = '')
     {
@@ -1093,6 +1145,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function lower($value, $message = '')
     {
@@ -1112,6 +1165,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function upper($value, $message = '')
     {
@@ -1132,6 +1186,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $length
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function length($value, $length, $message = '')
     {
@@ -1150,6 +1205,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $min
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function minLength($value, $min, $message = '')
     {
@@ -1168,6 +1224,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $max
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function maxLength($value, $max, $message = '')
     {
@@ -1187,6 +1244,7 @@ class Assert
      * @param mixed  $min
      * @param mixed  $max
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function lengthBetween($value, $min, $max, $message = '')
     {
@@ -1207,6 +1265,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function fileExists($value, $message = '')
     {
@@ -1223,6 +1282,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function file($value, $message = '')
     {
@@ -1239,6 +1299,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function directory($value, $message = '')
     {
@@ -1255,6 +1316,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function readable($value, $message = '')
     {
@@ -1269,6 +1331,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function writable($value, $message = '')
     {
@@ -1285,6 +1348,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function classExists($value, $message = '')
     {
@@ -1300,6 +1364,7 @@ class Assert
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function subclassOf($value, $class, $message = '')
     {
@@ -1317,6 +1382,7 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function interfaceExists($value, $message = '')
     {
@@ -1332,6 +1398,7 @@ class Assert
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function implementsInterface($value, $interface, $message = '')
     {
@@ -1348,6 +1415,7 @@ class Assert
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function propertyExists($classOrObject, $property, $message = '')
     {
@@ -1363,6 +1431,7 @@ class Assert
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function propertyNotExists($classOrObject, $property, $message = '')
     {
@@ -1378,6 +1447,7 @@ class Assert
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function methodExists($classOrObject, $method, $message = '')
     {
@@ -1393,6 +1463,7 @@ class Assert
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function methodNotExists($classOrObject, $method, $message = '')
     {
@@ -1408,6 +1479,7 @@ class Assert
      * @param array      $array
      * @param string|int $key
      * @param string     $message
+     * @throws InvalidArgumentException
      */
     public static function keyExists($array, $key, $message = '')
     {
@@ -1423,6 +1495,7 @@ class Assert
      * @param array      $array
      * @param string|int $key
      * @param string     $message
+     * @throws InvalidArgumentException
      */
     public static function keyNotExists($array, $key, $message = '')
     {
@@ -1440,6 +1513,7 @@ class Assert
      * @param mixed  $array
      * @param mixed  $number
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function count($array, $number, $message = '')
     {
@@ -1456,6 +1530,7 @@ class Assert
      * @param mixed  $array
      * @param mixed  $min
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function minCount($array, $min, $message = '')
     {
@@ -1474,6 +1549,7 @@ class Assert
      * @param mixed  $array
      * @param mixed  $max
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function maxCount($array, $max, $message = '')
     {
@@ -1493,6 +1569,7 @@ class Assert
      * @param mixed  $min
      * @param mixed  $max
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function countBetween($array, $min, $max, $message = '')
     {
@@ -1511,6 +1588,7 @@ class Assert
     /**
      * @param mixed  $array
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isList($array, $message = '')
     {
@@ -1524,6 +1602,7 @@ class Assert
     /**
      * @param mixed  $array
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function isMap($array, $message = '')
     {
@@ -1543,6 +1622,7 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     * @throws InvalidArgumentException
      */
     public static function uuid($value, $message = '')
     {
@@ -1566,6 +1646,7 @@ class Assert
      * @param Closure       $expression
      * @param string|object $class
      * @param string        $message
+     * @throws InvalidArgumentException
      */
     public static function throws(Closure $expression, $class = 'Exception', $message = '')
     {
@@ -1594,6 +1675,9 @@ class Assert
         ));
     }
 
+    /**
+     * @throws BadMethodCallException
+     */
     public static function __callStatic($name, $arguments)
     {
         if ('nullOr' === \substr($name, 0, 6)) {
@@ -1690,6 +1774,7 @@ class Assert
 
     /**
      * @param string $message
+     * @throws InvalidArgumentException
      */
     protected static function reportInvalidArgument($message)
     {
