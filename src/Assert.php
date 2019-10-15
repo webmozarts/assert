@@ -1607,8 +1607,8 @@ class Assert
     /**
      * Checks if a value is a valid array key (int or string).
      *
-     * @param string|int $key
-     * @param string     $message
+     * @param mixed  $key
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
