@@ -270,6 +270,8 @@ class AssertTest extends BaseTestCase
             array('startsWithLetter', array('1abcd'), false),
             array('startsWithLetter', array('1'), false),
             array('startsWithLetter', array(''), false),
+            array('startsWithLetter', array(null), false),
+            array('startsWithLetter', array(66), false),
             array('endsWith', array('abcd', 'cd'), true),
             array('endsWith', array('abcd', 'bc'), false),
             array('endsWith', array('', 'bc'), false),
