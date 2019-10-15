@@ -247,6 +247,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @throws InvalidArgumentException
      */
     public static function integerish($value, $message = '')
     {
