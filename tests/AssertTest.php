@@ -133,6 +133,7 @@ class AssertTest extends BaseTestCase
             array('isInstanceOf', array(new Exception(), 'stdClass'), false),
             array('isInstanceOf', array(123, 'stdClass'), false),
             array('isInstanceOf', array(array(), 'stdClass'), false),
+            array('isInstanceOf', array(null, 'stdClass'), false),
             array('notInstanceOf', array(new stdClass(), 'stdClass'), false),
             array('notInstanceOf', array(new Exception(), 'stdClass'), true),
             array('notInstanceOf', array(123, 'stdClass'), true),
