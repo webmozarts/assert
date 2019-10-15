@@ -683,6 +683,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -690,6 +692,7 @@ class Assert
      */
     public static function ip($value, $message = '')
     {
+        static::string($value, $message);
         if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IP. Got: %s',
@@ -699,6 +702,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -706,6 +711,7 @@ class Assert
      */
     public static function ipv4($value, $message = '')
     {
+        static::string($value, $message);
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv4. Got: %s',
@@ -715,6 +721,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -722,6 +730,7 @@ class Assert
      */
     public static function ipv6($value, $message = '')
     {
+        static::string($value, $message);
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv6. Got %s',
@@ -731,6 +740,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -738,6 +749,7 @@ class Assert
      */
     public static function email($value, $message = '')
     {
+        static::string($value, $message);
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be a valid e-mail address. Got %s',
