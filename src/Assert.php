@@ -1614,7 +1614,7 @@ class Assert
      */
     public static function validArrayKey($value, $message = '')
     {
-        if (!(is_int($value) || is_string($value))) {
+        if (!(\is_int($value) || \is_string($value))) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected string or integer. Got: %s',
                 static::typeToString($value)
