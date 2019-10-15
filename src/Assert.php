@@ -933,9 +933,9 @@ class Assert
     /**
      * Inclusive range, so Assert::(3, 3, 5) passes.
      *
-     * @param mixed $value
-     * @param mixed min
-     * @param mixed max
+     * @param mixed  $value
+     * @param mixed  $min
+     * @param mixed  $max
      * @param string $message
      *
      * @throws InvalidArgumentException
