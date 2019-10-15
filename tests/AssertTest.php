@@ -122,6 +122,7 @@ class AssertTest extends BaseTestCase
             array('isCountable', array(array(1, 2)), true),
             array('isCountable', array(new ArrayIterator(array())), true),
             array('isCountable', array(new stdClass()), false),
+            array('isCountable', array(new \SimpleXMLElement('<foo>bar</foo>')), true),
             array('isCountable', array('abcd'), false),
             array('isCountable', array(123), false),
             array('isIterable', array(array()), true),
