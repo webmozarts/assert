@@ -17,6 +17,8 @@ use Closure;
 use Countable;
 use Exception;
 use InvalidArgumentException;
+use ResourceBundle;
+use SimpleXMLElement;
 use Throwable;
 use Traversable;
 
@@ -95,6 +97,7 @@ use Traversable;
  * @method static void nullOrMethodNotExists($value, $method, $message = '')
  * @method static void nullOrKeyExists($value, $key, $message = '')
  * @method static void nullOrKeyNotExists($value, $key, $message = '')
+ * @method static void nullOrValidArrayKey($value, $message = '')
  * @method static void nullOrCount($value, $key, $message = '')
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
@@ -177,6 +180,7 @@ use Traversable;
  * @method static void allMethodNotExists($values, $method, $message = '')
  * @method static void allKeyExists($values, $key, $message = '')
  * @method static void allKeyNotExists($values, $key, $message = '')
+ * @method static void allValidArrayKey($values, $message = '')
  * @method static void allCount($values, $key, $message = '')
  * @method static void allMinCount($values, $min, $message = '')
  * @method static void allMaxCount($values, $max, $message = '')
@@ -485,7 +489,12 @@ class Assert
      */
     public static function isCountable($value, $message = '')
     {
-        if (!\is_array($value) && !($value instanceof Countable)) {
+        if (
+            !\is_array($value)
+            && !($value instanceof Countable)
+            && !($value instanceof ResourceBundle)
+            && !($value instanceof SimpleXMLElement)
+        ) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a countable. Got: %s',
                 static::typeToString($value)
@@ -1598,6 +1607,24 @@ class Assert
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the key %s to not exist.',
                 static::valueToString($key)
+            ));
+        }
+    }
+
+    /**
+     * Checks if a value is a valid array key (int or string).
+     *
+     * @param mixed  $key
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function validArrayKey($value, $message = '')
+    {
+        if (!(\is_int($value) || \is_string($value))) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected string or integer. Got: %s',
+                static::typeToString($value)
             ));
         }
     }
