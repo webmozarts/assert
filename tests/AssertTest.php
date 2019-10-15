@@ -297,6 +297,8 @@ class AssertTest extends BaseTestCase
             array('alpha', array('abcd'), true),
             array('alpha', array('ab1cd'), false),
             array('alpha', array(''), false),
+            array('alpha', array(66), false),
+            array('alpha', array(array()), false),
             array('digits', array('1234'), true),
             array('digits', array('12a34'), false),
             array('digits', array(''), false),
