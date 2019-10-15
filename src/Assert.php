@@ -1047,6 +1047,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1054,6 +1056,8 @@ class Assert
      */
     public static function startsWithLetter($value, $message = '')
     {
+        static::string($value);
+
         $valid = isset($value[0]);
 
         if ($valid) {
