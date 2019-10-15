@@ -1605,10 +1605,12 @@ class Assert
     }
 
     /**
-     * Checks if a value is a valid array key (int or string)
+     * Checks if a value is a valid array key (int or string).
      *
      * @param string|int $key
-     * @param string $message
+     * @param string     $message
+     *
+     * @throws InvalidArgumentException
      */
     public static function validArrayKey($value, $message = '')
     {
