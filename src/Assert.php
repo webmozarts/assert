@@ -247,6 +247,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @throws InvalidArgumentException
      */
     public static function integerish($value, $message = '')
     {
@@ -931,9 +933,9 @@ class Assert
     /**
      * Inclusive range, so Assert::(3, 3, 5) passes.
      *
-     * @param mixed $value
-     * @param mixed min
-     * @param mixed max
+     * @param mixed  $value
+     * @param mixed  $min
+     * @param mixed  $max
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1045,6 +1047,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1052,6 +1056,8 @@ class Assert
      */
     public static function startsWithLetter($value, $message = '')
     {
+        static::string($value);
+
         $valid = isset($value[0]);
 
         if ($valid) {

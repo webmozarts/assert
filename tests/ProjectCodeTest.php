@@ -78,19 +78,57 @@ class ProjectCodeTest extends BaseTestCase
     }
 
     /**
-     * @return array
+     * @dataProvider provideMethods
+     *
+     * @param ReflectionMethod $method
      */
-    public function providesMethodNames()
+    public function testHasThrowsAnnotation($method)
     {
-        return array_map(function($value) {
-            return array($value);
-        }, $this->getMethodNames());
+        $doc = $method->getDocComment();
+
+        $this->assertNotFalse(
+            $doc,
+            sprintf(
+                'Expected a doc comment on the "%s" method, but none found',
+                $method->getName()
+            )
+        );
+
+        $this->assertContains(
+            '@throws InvalidArgumentException',
+            $doc,
+            sprintf(
+                'Expected method "%s" to have an @throws InvalidArgumentException annotation, but none found',
+                $method->getName()
+            )
+        );
+
     }
 
     /**
      * @return array
      */
-    private function getMethodNames()
+    public function providesMethodNames()
+    {
+        return array_map(function($value) {
+            return array($value->getName());
+        }, $this->getMethods());
+    }
+
+    /**
+     * @return array
+     */
+    public function provideMethods()
+    {
+        return array_map(function($value) {
+            return array($value);
+        }, $this->getMethods());
+    }
+
+    /**
+     * @return array
+     */
+    private function getMethods()
     {
         static $methods;
 
@@ -108,7 +146,7 @@ class ProjectCodeTest extends BaseTestCase
             if (strpos($methodName, '__') === 0) {
                 continue;
             }
-            $methods[] = $methodName;
+            $methods[] = $rcMethod;
         }
 
         return $methods;
