@@ -1132,6 +1132,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1139,6 +1141,8 @@ class Assert
      */
     public static function alpha($value, $message = '')
     {
+        static::string($value);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alpha($value);
