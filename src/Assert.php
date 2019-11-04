@@ -1614,6 +1614,8 @@ class Assert
     /**
      * Checks if a value is a valid array key (int or string).
      *
+     * @psalm-assert array-key $value
+     *
      * @param mixed  $value
      * @param string $message
      *
