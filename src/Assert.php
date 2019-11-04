@@ -964,10 +964,6 @@ class Assert
     /**
      * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
      *
-     * @psalm-template ExpectedType
-     * @psalm-param array<ExpectedType> $values
-     * @psalm-assert ExpectedType $value
-     *
      * @param mixed  $value
      * @param array  $values
      * @param string $message
