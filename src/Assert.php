@@ -1714,6 +1714,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert list $array
+     *
      * @param mixed  $array
      * @param string $message
      *
