@@ -694,8 +694,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -713,8 +711,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -732,8 +728,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -751,8 +745,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -829,10 +821,6 @@ class Assert
     }
 
     /**
-     * @psalm-template ExpectedType
-     * @psalm-param ExpectedType $expect
-     * @psalm-assert =ExpectedType $value
-     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -964,10 +952,6 @@ class Assert
     /**
      * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
      *
-     * @psalm-template ExpectedType
-     * @psalm-param array<ExpectedType> $values
-     * @psalm-assert ExpectedType $value
-     *
      * @param mixed  $value
      * @param array  $values
      * @param string $message
@@ -1056,8 +1040,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1139,8 +1121,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !numeric $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1159,8 +1139,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
