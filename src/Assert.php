@@ -978,7 +978,7 @@ class Assert
      */
     public static function contains($value, $subString, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (false === \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
@@ -998,7 +998,7 @@ class Assert
      */
     public static function notContains($value, $subString, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (false !== \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
@@ -1017,7 +1017,7 @@ class Assert
      */
     public static function notWhitespaceOnly($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (\preg_match('/^\s*$/', $value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1036,7 +1036,7 @@ class Assert
      */
     public static function startsWith($value, $prefix, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (0 !== \strpos($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
@@ -1055,7 +1055,7 @@ class Assert
      */
     public static function startsWithLetter($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         $valid = isset($value[0]);
 
@@ -1148,7 +1148,7 @@ class Assert
      */
     public static function unicodeLetters($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\preg_match('/^\p{L}+$/u', $value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1166,7 +1166,7 @@ class Assert
      */
     public static function alpha($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
@@ -1304,7 +1304,7 @@ class Assert
      */
     public static function minLength($value, $min, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
         if (static::strlen($value) < $min) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at least %2$s characters. Got: %s',
@@ -1371,7 +1371,7 @@ class Assert
      */
     public static function fileExists($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\file_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1463,7 +1463,7 @@ class Assert
      */
     public static function classExists($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\class_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1502,7 +1502,7 @@ class Assert
      */
     public static function interfaceExists($value, $message = '')
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\interface_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1669,7 +1669,7 @@ class Assert
      */
     public static function count($array, $number, $message = '')
     {
-        static::isCountable($array);
+        static::isCountable($array, $message);
 
         static::eq(
             \count($array),
@@ -1687,7 +1687,7 @@ class Assert
      */
     public static function minCount($array, $min, $message = '')
     {
-        static::isCountable($array);
+        static::isCountable($array, $message);
 
         if (\count($array) < $min) {
             static::reportInvalidArgument(\sprintf(
@@ -1707,7 +1707,7 @@ class Assert
      */
     public static function maxCount($array, $max, $message = '')
     {
-        static::isCountable($array);
+        static::isCountable($array, $message);
 
         if (\count($array) > $max) {
             static::reportInvalidArgument(\sprintf(
