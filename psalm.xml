@@ -7,9 +7,26 @@
 >
     <projectFiles>
         <directory name="tests/static-analysis" />
+        <directory name="src" />
         <ignoreFiles>
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
+
+    <issueHandlers>
+        <!--We don't specify the void return type-->
+        <MissingReturnType>
+            <errorLevel type="suppress">
+                <directory name="src"/>
+            </errorLevel>
+        </MissingReturnType>
+
+        <!--We protect our users from themselves, and may do more assertions than needed-->
+        <RedundantConditionGivenDocblockType >
+            <errorLevel type="suppress">
+                <directory name="src"/>
+            </errorLevel>
+        </RedundantConditionGivenDocblockType>
+    </issueHandlers>
 
 </psalm>

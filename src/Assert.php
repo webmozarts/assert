@@ -146,7 +146,7 @@ use Traversable;
  * @method static void allLessThan($values, $limit, $message = '')
  * @method static void allLessThanEq($values, $limit, $message = '')
  * @method static void allRange($values, $min, $max, $message = '')
- * @method static void allOneOf($values, $values, $message = '')
+ * @method static void allOneOf($allValues, $values, $message = '')
  * @method static void allContains($values, $subString, $message = '')
  * @method static void allNotContains($values, $subString, $message = '')
  * @method static void allNotWhitespaceOnly($values, $message = '')
@@ -215,8 +215,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -579,6 +577,7 @@ class Assert
             }
         }
 
+        /** @psalm-suppress InvalidArgument */
         static::reportInvalidArgument(\sprintf(
             $message ?: 'Expected an instance of any of %2$s. Got: %s',
             static::typeToString($value),
@@ -961,6 +960,7 @@ class Assert
     public static function oneOf($value, array $values, $message = '')
     {
         if (!\in_array($value, $values, true)) {
+            /** @psalm-suppress InvalidArgument */
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected one of: %2$s. Got: %s',
                 static::valueToString($value),
@@ -970,7 +970,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $subString
      * @param string $message
      *
@@ -978,6 +978,8 @@ class Assert
      */
     public static function contains($value, $subString, $message = '')
     {
+        static::string($value);
+
         if (false === \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
@@ -988,7 +990,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $subString
      * @param string $message
      *
@@ -996,6 +998,8 @@ class Assert
      */
     public static function notContains($value, $subString, $message = '')
     {
+        static::string($value);
+
         if (false !== \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: '%2$s was not expected to be contained in a value. Got: %s',
@@ -1006,13 +1010,15 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function notWhitespaceOnly($value, $message = '')
     {
+        static::string($value);
+
         if (\preg_match('/^\s*$/', $value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a non-whitespace string. Got: %s',
@@ -1022,7 +1028,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $prefix
      * @param string $message
      *
@@ -1030,6 +1036,8 @@ class Assert
      */
     public static function startsWith($value, $prefix, $message = '')
     {
+        static::string($value);
+
         if (0 !== \strpos($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to start with %2$s. Got: %s',
@@ -1067,7 +1075,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $suffix
      * @param string $message
      *
@@ -1075,6 +1083,8 @@ class Assert
      */
     public static function endsWith($value, $suffix, $message = '')
     {
+        static::string($value, $message);
+
         if ($suffix !== \substr($value, -\strlen($suffix))) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
@@ -1085,14 +1095,17 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $pattern
+     * @param string $value
+     * @param string $pattern
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function regex($value, $pattern, $message = '')
     {
+        static::string($value, $message);
+        static::string($pattern, $message);
+
         if (!\preg_match($pattern, $value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s does not match the expected pattern.',
@@ -1102,15 +1115,22 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $pattern
+     * @param string $value
+     * @param string $pattern
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function notRegex($value, $pattern, $message = '')
     {
+        static::string($value, $message);
+        static::string($pattern, $message);
+
         if (\preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
+            /**
+             * @psalm-suppress MixedArgument
+             * @psalm-suppress MixedArrayAccess
+             */
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s matches the pattern %s (at offset %d).',
                 static::valueToString($value),
@@ -1169,6 +1189,8 @@ class Assert
      */
     public static function digits($value, $message = '')
     {
+        static::string($value, $message);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_digit($value);
@@ -1190,6 +1212,8 @@ class Assert
      */
     public static function alnum($value, $message = '')
     {
+        static::string($value, $message);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alnum($value);
@@ -1211,6 +1235,8 @@ class Assert
      */
     public static function lower($value, $message = '')
     {
+        static::string($value, $message);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_lower($value);
@@ -1232,6 +1258,8 @@ class Assert
      */
     public static function upper($value, $message = '')
     {
+        static::string($value, $message);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_upper($value);
@@ -1246,14 +1274,16 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $length
-     * @param string $message
+     * @param string    $value
+     * @param int|float $length
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function length($value, $length, $message = '')
     {
+        static::string($value, $message);
+
         if ($length !== static::strlen($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s characters. Got: %s',
@@ -1266,14 +1296,15 @@ class Assert
     /**
      * Inclusive min.
      *
-     * @param mixed  $value
-     * @param mixed  $min
-     * @param string $message
+     * @param string    $value
+     * @param int|float $min
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function minLength($value, $min, $message = '')
     {
+        static::string($value);
         if (static::strlen($value) < $min) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at least %2$s characters. Got: %s',
@@ -1286,14 +1317,16 @@ class Assert
     /**
      * Inclusive max.
      *
-     * @param mixed  $value
-     * @param mixed  $max
-     * @param string $message
+     * @param string    $value
+     * @param int|float $max
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function maxLength($value, $max, $message = '')
     {
+        static::string($value, $message);
+
         if (static::strlen($value) > $max) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at most %2$s characters. Got: %s',
@@ -1304,17 +1337,18 @@ class Assert
     }
 
     /**
-     * Inclusive , so Assert::lengthBetween('asd', 3, 5); passes the assertion.
+     * Inclusive, so Assert::lengthBetween('asd', 3, 5); passes the assertion.
      *
-     * @param mixed  $value
-     * @param mixed  $min
-     * @param mixed  $max
-     * @param string $message
+     * @param string    $value
+     * @param int|float $min
+     * @param int|float $max
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function lengthBetween($value, $min, $max, $message = '')
     {
+        static::string($value, $message);
         $length = static::strlen($value);
 
         if ($length < $min || $length > $max) {
@@ -1330,7 +1364,7 @@ class Assert
     /**
      * Will also pass if $value is a directory, use Assert::file() instead if you need to be sure it is a file.
      *
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1348,7 +1382,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1366,7 +1400,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1384,13 +1418,15 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function readable($value, $message = '')
     {
+        static::string($value, $message);
+
         if (!\is_readable($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not readable.',
@@ -1400,13 +1436,15 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function writable($value, $message = '')
     {
+        static::string($value, $message);
+
         if (!\is_writable($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not writable.',
@@ -1418,13 +1456,15 @@ class Assert
     /**
      * @psalm-assert class-string $value
      *
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function classExists($value, $message = '')
     {
+        static::string($value);
+
         if (!\class_exists($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an existing class name. Got: %s',
@@ -1434,9 +1474,10 @@ class Assert
     }
 
     /**
-     * @param mixed         $value
-     * @param string|object $class
+     * @param object|string $value
+     * @param string        $class
      * @param string        $message
+     * @psalm-param class-string $class
      *
      * @throws InvalidArgumentException
      */
@@ -1454,13 +1495,15 @@ class Assert
     /**
      * @psalm-assert class-string $value
      *
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function interfaceExists($value, $message = '')
     {
+        static::string($value);
+
         if (!\interface_exists($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an existing interface name. got %s',
@@ -1470,9 +1513,9 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $interface
-     * @param string $message
+     * @param object|string $value
+     * @param mixed         $interface
+     * @param string        $message
      *
      * @throws InvalidArgumentException
      */
@@ -1488,8 +1531,10 @@ class Assert
     }
 
     /**
+     * @psalm-param class-string|object $classOrObject
+     *
      * @param string|object $classOrObject
-     * @param mixed         $property
+     * @param string        $property
      * @param string        $message
      *
      * @throws InvalidArgumentException
@@ -1505,8 +1550,10 @@ class Assert
     }
 
     /**
+     * @psalm-param class-string|object $classOrObject
+     *
      * @param string|object $classOrObject
-     * @param mixed         $property
+     * @param string        $property
      * @param string        $message
      *
      * @throws InvalidArgumentException
@@ -1522,8 +1569,10 @@ class Assert
     }
 
     /**
+     * @psalm-param class-string|object $classOrObject
+     *
      * @param string|object $classOrObject
-     * @param mixed         $method
+     * @param string        $method
      * @param string        $message
      *
      * @throws InvalidArgumentException
@@ -1539,8 +1588,10 @@ class Assert
     }
 
     /**
+     * @psalm-param class-string|object $classOrObject
+     *
      * @param string|object $classOrObject
-     * @param mixed         $method
+     * @param string        $method
      * @param string        $message
      *
      * @throws InvalidArgumentException
@@ -1610,16 +1661,16 @@ class Assert
     }
 
     /**
-     * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
-     *
-     * @param mixed  $array
-     * @param mixed  $number
-     * @param string $message
+     * @param array|Countable $array
+     * @param int             $number
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
     public static function count($array, $number, $message = '')
     {
+        static::isCountable($array);
+
         static::eq(
             \count($array),
             $number,
@@ -1628,16 +1679,16 @@ class Assert
     }
 
     /**
-     * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
-     *
-     * @param mixed  $array
-     * @param mixed  $min
-     * @param string $message
+     * @param mixed     $array
+     * @param int|float $min
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function minCount($array, $min, $message = '')
     {
+        static::isCountable($array);
+
         if (\count($array) < $min) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
@@ -1648,16 +1699,16 @@ class Assert
     }
 
     /**
-     * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
-     *
-     * @param mixed  $array
-     * @param mixed  $max
-     * @param string $message
+     * @param mixed     $array
+     * @param int|float $max
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function maxCount($array, $max, $message = '')
     {
+        static::isCountable($array);
+
         if (\count($array) > $max) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
@@ -1668,17 +1719,17 @@ class Assert
     }
 
     /**
-     * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
-     *
-     * @param mixed  $array
-     * @param mixed  $min
-     * @param mixed  $max
-     * @param string $message
+     * @param mixed     $array
+     * @param int|float $min
+     * @param int|float $max
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
     public static function countBetween($array, $min, $max, $message = '')
     {
+        static::isCountable($array, $message);
+
         $count = \count($array);
 
         if ($count < $min || $count > $max) {
@@ -1730,13 +1781,15 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function uuid($value, $message = '')
     {
+        static::string($value, $message);
+
         $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
 
         // The nil UUID is special form of UUID that is specified to have all
@@ -1788,6 +1841,11 @@ class Assert
     }
 
     /**
+     * @param string $name
+     * @param array  $arguments
+     *
+     * @psalm-param list<mixed> $arguments
+     *
      * @throws BadMethodCallException
      */
     public static function __callStatic($name, $arguments)
@@ -1807,6 +1865,10 @@ class Assert
             $method = \lcfirst(\substr($name, 3));
             $args = $arguments;
 
+            /**
+             * @param array $entry
+             * @psalm-suppress MixedAssignment
+             */
             foreach ($arguments[0] as $entry) {
                 $args[0] = $entry;
 
@@ -1871,6 +1933,11 @@ class Assert
         return \is_object($value) ? \get_class($value) : \gettype($value);
     }
 
+    /**
+     * @param string $value
+     *
+     * @return int
+     */
     protected static function strlen($value)
     {
         if (!\function_exists('mb_detect_encoding')) {
@@ -1888,6 +1955,8 @@ class Assert
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
+     * @psalm-return never-return
      */
     protected static function reportInvalidArgument($message)
     {
