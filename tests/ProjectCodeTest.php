@@ -106,6 +106,24 @@ class ProjectCodeTest extends BaseTestCase
     }
 
     /**
+     * @dataProvider provideMethods
+     *
+     * @param ReflectionMethod $method
+     */
+    public function testHasCorrespondingStaticAnalysisFile($method)
+    {
+        $doc = $method->getDocComment();
+        if($doc === false || strpos($doc, '@psalm-assert') === false) {
+            $this->addToAssertionCount(1);
+            return;
+        }
+
+        $this->assertFileExists(
+            __DIR__ . '/static-analysis/assert-'. $method->getName() . '.php'
+        );
+    }
+
+    /**
      * @return array
      */
     public function providesMethodNames()
@@ -150,7 +168,5 @@ class ProjectCodeTest extends BaseTestCase
         }
 
         return $methods;
-
     }
-
 }
