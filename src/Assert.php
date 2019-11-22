@@ -1716,7 +1716,6 @@ class Assert
     {
         if (
             !\is_array($array) ||
-            !$array ||
             \array_keys($array) !== \array_filter(\array_keys($array), function ($key) {
                 return \is_string($key);
             })
