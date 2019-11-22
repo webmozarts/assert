@@ -1716,9 +1716,7 @@ class Assert
     {
         if (
             !\is_array($array) ||
-            \array_keys($array) !== \array_filter(\array_keys($array), function ($key) {
-                return \is_string($key);
-            })
+            \array_keys($array) !== \array_filter(\array_keys($array), 'is_string')
         ) {
             static::reportInvalidArgument(
                 $message ?: 'Expected map - associative array with string keys.'
