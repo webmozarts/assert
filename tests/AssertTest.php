@@ -435,7 +435,7 @@ class AssertTest extends BaseTestCase
             array('isList', array(array(array(1), array(2))), true),
             array('isList', array(array(array('foo' => 'bar'), array('baz' => 'tab'))), true),
             array('isMap', array(array('key' => 1, 'foo' => 2)), true),
-            array('isMap', array(array()), false),
+            array('isMap', array(array()), true),
             array('isMap', array(array(1, 2, 3)), false),
             array('isMap', array(array(0 => 1, 2 => 3)), false),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
