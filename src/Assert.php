@@ -1699,7 +1699,7 @@ class Assert
      */
     public static function isList($array, $message = '')
     {
-        if (!\is_array($array) || !$array || \array_keys($array) !== \range(0, \count($array) - 1)) {
+        if (!\is_array($array) || $array !== \array_values($array)) {
             static::reportInvalidArgument(
                 $message ?: 'Expected list - non-associative array.'
             );
