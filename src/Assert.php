@@ -102,7 +102,9 @@ use Traversable;
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
  * @method static void nullOrIsList($value, $message = '')
+ * @method static void nullOrIsNonEmptyList($value, $message = '')
  * @method static void nullOrIsMap($value, $message = '')
+ * @method static void nullOrIsNonEmptyMap($value, $message = '')
  * @method static void nullOrCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void nullOrThrows($expression, $class = 'Exception', $message = '')
@@ -186,7 +188,9 @@ use Traversable;
  * @method static void allMaxCount($values, $max, $message = '')
  * @method static void allCountBetween($values, $min, $max, $message = '')
  * @method static void allIsList($values, $message = '')
+ * @method static void allIsNonEmptyList($values, $message = '')
  * @method static void allIsMap($values, $message = '')
+ * @method static void allIsNonEmptyMap($values, $message = '')
  * @method static void allUuid($values, $message = '')
  * @method static void allThrows($expressions, $class = 'Exception', $message = '')
  *
@@ -1707,6 +1711,20 @@ class Assert
     }
 
     /**
+     * @psalm-assert non-empty-list $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNonEmptyList($array, $message = '')
+    {
+        static::isList($array, $message);
+        static::notEmpty($array, $message);
+    }
+
+    /**
      * @param mixed  $array
      * @param string $message
      *
@@ -1716,12 +1734,24 @@ class Assert
     {
         if (
             !\is_array($array) ||
-            \array_keys($array) !== \array_filter(\array_keys($array), 'is_string')
+            \array_keys($array) !== \array_filter(\array_keys($array), '\is_string')
         ) {
             static::reportInvalidArgument(
                 $message ?: 'Expected map - associative array with string keys.'
             );
         }
+    }
+
+    /**
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNonEmptyMap($array, $message = '')
+    {
+        static::isMap($array, $message);
+        static::notEmpty($array, $message);
     }
 
     /**
