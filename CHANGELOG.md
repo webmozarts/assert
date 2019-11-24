@@ -3,6 +3,34 @@ Changelog
 
 ## UNRELEASED
 
+## 1.6.0 (2019-11-24)
+
+### Added
+
+* added `Assert::validArrayKey()`
+* added `Assert::isNonEmptyList()`
+* added `Assert::isNonEmptyMap()`
+* added `@throws InvalidArgumentException` annotations to all methods that throw.
+* added `@psalm-assert` for the list type to the `isList` assertion.
+
+### Fixed
+
+* `ResourceBundle` & `SimpleXMLElement` now pass the `isCountable` assertions. 
+They are countable, without implementing the `Countable` interface.
+* The doc block of `range` now has the proper variables.
+* An empty array will now pass `isList` and `isMap`. As it is a valid form of both.
+If a non empty variant is needed, use `isNonEmptyList` or `isNonEmptyMap`.
+
+### Changed
+
+* Removed some `@psalm-assert` annotations, that were 'side effect' assertions See:
+  * [#144](https://github.com/webmozart/assert/pull/144)
+  * [#145](https://github.com/webmozart/assert/issues/145)
+  * [#146](https://github.com/webmozart/assert/pull/146)
+  * [#150](https://github.com/webmozart/assert/pull/150)
+* If you use psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict. 
+If you don't use psalm, then this has no impact.
+
 ## 1.5.0 (2019-08-24)
 
 ### Added 
@@ -14,8 +42,8 @@ Changelog
 
 ### Fixed
 
-* `Assert::endsWith()` would not give the correct result when dealing with multibyte suffix. 
-* `Assert::length(), minLength, maxLength, lengthBetween` would not give the correct result when dealing with multibyte characters. 
+* `Assert::endsWith()` would not give the correct result when dealing with multibyte suffix.
+* `Assert::length(), minLength, maxLength, lengthBetween` would not give the correct result when dealing with multibyte characters.
 
 **NOTE**: These 2 changes may break your assertions if you relied on the fact that multibyte characters didn't behave correctly.
 
