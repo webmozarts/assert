@@ -32,15 +32,15 @@ class ProjectCodeTest extends BaseTestCase
             $this->addToAssertionCount(1);
             return;
         }
-
-        $this->assertContains(
-            '@method static void nullOr' . ucfirst($method),
-            self::$assertDocComment,
-            sprintf(
+        $correct = strpos( (string)self::$assertDocComment,'@method static void nullOr' . ucfirst($method));
+        if ($correct === false) {
+            $this->fail(sprintf(
                 'All methods have a corresponding "nullOr" method, please add the "nullOr%s" method to the class level doc comment.',
                 ucfirst($method)
-            )
-        );
+            ));
+        }
+
+       $this->addToAssertionCount(1);
     }
 
     /**
@@ -50,14 +50,16 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testHasAll($method)
     {
-        $this->assertContains(
-            '@method static void all' . ucfirst($method),
-            self::$assertDocComment,
-            sprintf(
+        $correct = strpos((string) self::$assertDocComment,'@method static void all' . ucfirst($method));
+
+        if ($correct === false) {
+            $this->fail(sprintf(
                 'All methods have a corresponding "all" method, please add the "all%s" method to the class level doc comment.',
                 ucfirst($method)
-            )
-        );
+            ));
+        }
+
+        $this->addToAssertionCount(1);
     }
 
     /**
@@ -67,14 +69,15 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testIsInReadme($method)
     {
-        $this->assertContains(
-            $method,
-            self::$readmeContent,
-            sprintf(
+        $correct = strpos((string) self::$readmeContent,$method);
+
+        if($correct === false) {
+            $this->fail(sprintf(
                 'All methods must be documented in the README.md, please add the "%s" method.',
-                ucfirst($method)
-            )
-        );
+                $method
+            ));
+        }
+        $this->addToAssertionCount(1);
     }
 
     /**
