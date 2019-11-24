@@ -102,7 +102,9 @@ use Traversable;
  * @method static void nullOrMinCount($value, $min, $message = '')
  * @method static void nullOrMaxCount($value, $max, $message = '')
  * @method static void nullOrIsList($value, $message = '')
+ * @method static void nullOrIsNonEmptyList($value, $message = '')
  * @method static void nullOrIsMap($value, $message = '')
+ * @method static void nullOrIsNonEmptyMap($value, $message = '')
  * @method static void nullOrCountBetween($value, $min, $max, $message = '')
  * @method static void nullOrUuid($values, $message = '')
  * @method static void nullOrThrows($expression, $class = 'Exception', $message = '')
@@ -186,7 +188,9 @@ use Traversable;
  * @method static void allMaxCount($values, $max, $message = '')
  * @method static void allCountBetween($values, $min, $max, $message = '')
  * @method static void allIsList($values, $message = '')
+ * @method static void allIsNonEmptyList($values, $message = '')
  * @method static void allIsMap($values, $message = '')
+ * @method static void allIsNonEmptyMap($values, $message = '')
  * @method static void allUuid($values, $message = '')
  * @method static void allThrows($expressions, $class = 'Exception', $message = '')
  *
@@ -699,7 +703,6 @@ class Assert
      */
     public static function ip($value, $message = '')
     {
-        static::string($value, $message);
         if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IP. Got: %s',
@@ -716,7 +719,6 @@ class Assert
      */
     public static function ipv4($value, $message = '')
     {
-        static::string($value, $message);
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv4. Got: %s',
@@ -733,7 +735,6 @@ class Assert
      */
     public static function ipv6($value, $message = '')
     {
-        static::string($value, $message);
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv6. Got %s',
@@ -750,7 +751,6 @@ class Assert
      */
     public static function email($value, $message = '')
     {
-        static::string($value, $message);
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be a valid e-mail address. Got %s',
@@ -1707,6 +1707,20 @@ class Assert
     }
 
     /**
+     * @psalm-assert non-empty-list $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNonEmptyList($array, $message = '')
+    {
+        static::isList($array, $message);
+        static::notEmpty($array, $message);
+    }
+
+    /**
      * @param mixed  $array
      * @param string $message
      *
@@ -1716,12 +1730,24 @@ class Assert
     {
         if (
             !\is_array($array) ||
-            \array_keys($array) !== \array_filter(\array_keys($array), 'is_string')
+            \array_keys($array) !== \array_filter(\array_keys($array), '\is_string')
         ) {
             static::reportInvalidArgument(
                 $message ?: 'Expected map - associative array with string keys.'
             );
         }
+    }
+
+    /**
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNonEmptyMap($array, $message = '')
+    {
+        static::isMap($array, $message);
+        static::notEmpty($array, $message);
     }
 
     /**
