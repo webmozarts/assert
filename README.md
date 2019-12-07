@@ -267,7 +267,7 @@ All contents of this package are licensed under the [MIT license].
 [beberlei/assert]: https://github.com/beberlei/assert
 [assert package]: https://github.com/beberlei/assert
 [Composer]: https://getcomposer.org
-[Bernhard Schussek]: http://webmozarts.com
+[Bernhard Schussek]: https://webmozarts.com
 [The Community Contributors]: https://github.com/webmozart/assert/graphs/contributors
 [issue tracker]: https://github.com/webmozart/assert/issues
 [Git repository]: https://github.com/webmozart/assert
