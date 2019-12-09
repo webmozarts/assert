@@ -1172,7 +1172,7 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @param string $value
      * @param string $suffix
      * @param string $message
      *
