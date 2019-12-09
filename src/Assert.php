@@ -1447,6 +1447,8 @@ class Assert
     /**
      * Will also pass if $value is a directory, use Assert::file() instead if you need to be sure it is a file.
      *
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
