@@ -4,38 +4,38 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-class A
+class SubclassOfA
 {
 }
 
-class B extends A
+class SubclassOfB extends SubclassOfA
 {
 }
 
-class C
+class SubclassOfC
 {
 }
 
 /**
  * @param mixed $value
  *
- * @psalm-return class-string<A> $value
+ * @psalm-return class-string<SubclassOfA> $value
  */
 function consumeMixed($value): string
 {
-    Assert::subclassOf($value, A::class);
+    Assert::subclassOf($value, SubclassOfA::class);
 
     return $value;
 }
 
 /**
- * @psalm-param class-string<B>|class-string<C> $value
+ * @psalm-param class-string<SubclassOfB>|class-string<SubclassOfC> $value
  *
- * @psalm-return class-string<B> $value
+ * @psalm-return class-string<SubclassOfB> $value
  */
-function consumeSubclass(string $value): string
+function consumeSubInterface(string $value): string
 {
-    Assert::subclassOf($value, A::class);
+    Assert::subclassOf($value, SubclassOfA::class);
 
     return $value;
 }
