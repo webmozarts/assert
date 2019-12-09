@@ -1748,8 +1748,8 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int            $number
-     * @param string         $message
+     * @param int             $number
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
@@ -1765,9 +1765,9 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @param mixed  $array
-     * @param mixed  $min
-     * @param string $message
+     * @param Countable|array $array
+     * @param int             $min
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
@@ -1785,9 +1785,9 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @param mixed  $array
-     * @param mixed  $max
-     * @param string $message
+     * @param Countable|array $array
+     * @param int             $max
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
@@ -1805,10 +1805,10 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @param mixed  $array
-     * @param mixed  $min
-     * @param mixed  $max
-     * @param string $message
+     * @param Countable|array $array
+     * @param int             $min
+     * @param int             $max
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
