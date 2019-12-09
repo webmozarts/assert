@@ -15,3 +15,15 @@ function consume($value): array
 
     return $value;
 }
+
+/**
+ * @psalm-param array<\stdClass> $value
+ *
+ * @psalm-return list<\stdClass>
+ */
+function consumeWithPreciseItemType(array $value): array
+{
+    Assert::isList($value);
+
+    return $value;
+}
