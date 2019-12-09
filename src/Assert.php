@@ -1246,6 +1246,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1269,7 +1271,9 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @psalm-assert !empty $value
+     *
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1290,7 +1294,9 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @psalm-assert !empty $value
+     *
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1311,7 +1317,9 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @psalm-assert !empty $value
+     *
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1332,7 +1340,9 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @psalm-assert !empty $value
+     *
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
