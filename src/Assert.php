@@ -1383,8 +1383,8 @@ class Assert
     /**
      * Inclusive min.
      *
-     * @param mixed  $value
-     * @param mixed  $min
+     * @param string $value
+     * @param int    $min
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1403,8 +1403,8 @@ class Assert
     /**
      * Inclusive max.
      *
-     * @param mixed  $value
-     * @param mixed  $max
+     * @param string $value
+     * @param int    $max
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1423,9 +1423,9 @@ class Assert
     /**
      * Inclusive , so Assert::lengthBetween('asd', 3, 5); passes the assertion.
      *
-     * @param mixed  $value
-     * @param mixed  $min
-     * @param mixed  $max
+     * @param string $value
+     * @param int    $min
+     * @param int    $max
      * @param string $message
      *
      * @throws InvalidArgumentException
