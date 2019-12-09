@@ -1363,8 +1363,8 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $length
+     * @param string $value
+     * @param int    $length
      * @param string $message
      *
      * @throws InvalidArgumentException
