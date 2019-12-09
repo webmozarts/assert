@@ -116,9 +116,31 @@ class ProjectCodeTest extends BaseTestCase
     public function testHasCorrespondingStaticAnalysisFile($method)
     {
         $doc = $method->getDocComment();
+        $methodName = $method->getName();
+
         if($doc === false || strpos($doc, '@psalm-assert') === false) {
             $this->addToAssertionCount(1);
             return;
+        }
+
+        if (\in_array(
+            $methodName,
+            [
+                'alnum',
+                'digits',
+                'upper',
+                'lower',
+                'readable',
+                'writable',
+                'uuid',
+            ],
+            true
+        )) {
+            self::markTestIncomplete(\sprintf(
+                'Could not design assertions for "%s" due to missing !empty test scenario'
+                . "\n\nSee https://github.com/vimeo/psalm/issues/2450#issuecomment-563479630",
+                $methodName
+            ));
         }
 
         $this->assertFileExists(
