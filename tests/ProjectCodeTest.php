@@ -125,7 +125,7 @@ class ProjectCodeTest extends BaseTestCase
 
         if (\in_array(
             $methodName,
-            [
+            array(
                 'alnum',
                 'digits',
                 'upper',
@@ -133,7 +133,7 @@ class ProjectCodeTest extends BaseTestCase
                 'readable',
                 'writable',
                 'uuid',
-            ],
+            ),
             true
         )) {
             self::markTestIncomplete(\sprintf(
