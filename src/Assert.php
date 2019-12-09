@@ -1561,6 +1561,10 @@ class Assert
     }
 
     /**
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert class-string<ExpectedType> $value
+     *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
