@@ -1747,9 +1747,9 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @param mixed  $array
-     * @param mixed  $number
-     * @param string $message
+     * @param Countable|array $array
+     * @param int            $number
+     * @param string         $message
      *
      * @throws InvalidArgumentException
      */
