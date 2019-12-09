@@ -1896,7 +1896,9 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
+     * @psalm-assert !empty $value
+     *
+     * @param string  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
