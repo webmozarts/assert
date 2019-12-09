@@ -1922,9 +1922,11 @@ class Assert
     }
 
     /**
-     * @param Closure       $expression
-     * @param string|object $class
-     * @param string        $message
+     * @psalm-param class-string<Throwable>
+     *
+     * @param Closure $expression
+     * @param string  $class
+     * @param string  $message
      *
      * @throws InvalidArgumentException
      */
