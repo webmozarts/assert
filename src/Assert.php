@@ -1091,7 +1091,7 @@ class Assert
     }
 
     /**
-     * @param string  $value
+     * @param string $value
      * @param string $subString
      * @param string $message
      *
@@ -1109,7 +1109,7 @@ class Assert
     }
 
     /**
-     * @param string  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -1898,7 +1898,7 @@ class Assert
     /**
      * @psalm-assert !empty $value
      *
-     * @param string  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
