@@ -1207,8 +1207,8 @@ class Assert
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $pattern
+     * @param string $value
+     * @param string $pattern
      * @param string $message
      *
      * @throws InvalidArgumentException
