@@ -476,6 +476,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert array|ArrayAccess $value
+     *
      * @param mixed  $value
      * @param string $message
      *
