@@ -1149,6 +1149,7 @@ class Assert
 
     /**
      * @psalm-assert string $value
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1232,6 +1233,7 @@ class Assert
 
     /**
      * @psalm-assert string $value
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1278,8 +1280,8 @@ class Assert
     /**
      * @psalm-assert !empty $value
      *
-     * @param string $value
-     * @param string $message
+     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
+     * @param string     $message
      *
      * @throws InvalidArgumentException
      */
@@ -1301,8 +1303,8 @@ class Assert
     /**
      * @psalm-assert !empty $value
      *
-     * @param string $value
-     * @param string $message
+     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
+     * @param string     $message
      *
      * @throws InvalidArgumentException
      */
@@ -1324,8 +1326,8 @@ class Assert
     /**
      * @psalm-assert !empty $value
      *
-     * @param string $value
-     * @param string $message
+     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
+     * @param string     $message
      *
      * @throws InvalidArgumentException
      */
@@ -1347,8 +1349,8 @@ class Assert
     /**
      * @psalm-assert !empty $value
      *
-     * @param string $value
-     * @param string $message
+     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
+     * @param string     $message
      *
      * @throws InvalidArgumentException
      */
