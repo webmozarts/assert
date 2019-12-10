@@ -790,7 +790,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @psalm-assert string|object $value note: can be an object implementing __toString
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -808,7 +809,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @psalm-assert string|object $value note: can be an object implementing __toString
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -826,7 +828,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @psalm-assert string|object $value note: can be an object implementing __toString
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -844,7 +847,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
+     * @psalm-assert string|object $value note: can be an object implementing __toString
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message

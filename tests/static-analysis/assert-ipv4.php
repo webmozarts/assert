@@ -4,12 +4,17 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-/**
- * @psalm-param mixed $value
- */
-function consume($value): string
+function consume(?string $value): string
 {
     Assert::ipv4($value);
 
     return $value;
 }
+
+function consumeObject(?object $value): object
+{
+    Assert::ipv4($value);
+
+    return $value;
+}
+
