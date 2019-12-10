@@ -228,6 +228,7 @@ class Assert
 
     /**
      * @psalm-assert string $value
+     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1844,7 +1845,8 @@ class Assert
     }
 
     /**
-     * @psalm-assert non-empty-list $array
+     * @psalm-assert list $array
+     * @psalm-assert !empty $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1861,6 +1863,7 @@ class Assert
      * @psalm-template T
      * @psalm-param mixed|array<T> $array
      * @psalm-assert array<string, T> $array
+     * @psalm-assert !empty $array
      *
      * @param mixed  $array
      * @param string $message
