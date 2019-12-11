@@ -6,6 +6,7 @@ use Countable;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
  * @psalm-param object $value
  */
 function consume($value): Countable

@@ -6,7 +6,8 @@ use Webmozart\Assert\Assert;
 
 
 /**
-
+ * @psalm-pure
+ *
  * @return null
  */
 function consume(?object $value)

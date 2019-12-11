@@ -19,6 +19,8 @@ interface ImplementsInterfaceC
 /**
  * @param mixed $value
  *
+ * @psalm-pure
+ *
  * @psalm-return class-string<ImplementsInterfaceA> $value
  */
 function consumeMixed($value): string
@@ -29,6 +31,8 @@ function consumeMixed($value): string
 }
 
 /**
+ * @psalm-pure
+ *
  * @psalm-param class-string<ImplementsInterfaceB>|class-string<ImplementsInterfaceC> $value
  *
  * @psalm-return class-string<ImplementsInterfaceB> $value

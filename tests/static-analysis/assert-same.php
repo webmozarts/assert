@@ -6,6 +6,7 @@ use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
  * @psalm-param mixed $value
  */
 function consume($value): string
@@ -16,6 +17,7 @@ function consume($value): string
 }
 
 /**
+ * @psalm-pure
  * @psalm-param mixed $value
  */
 function consumeWillInferObject($value): stdClass
@@ -26,6 +28,7 @@ function consumeWillInferObject($value): stdClass
 }
 
 /**
+ * @psalm-pure
  * @psalm-param mixed $value
  */
 function consumeWillInferArray($value): array

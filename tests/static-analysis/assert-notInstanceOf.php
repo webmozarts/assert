@@ -8,6 +8,7 @@ class NotA {}
 class NotB {}
 
 /**
+ * @psalm-pure
  * @param NotA|NotB $value
  */
 function consume($value): NotA

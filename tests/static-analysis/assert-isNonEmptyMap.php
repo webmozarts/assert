@@ -5,6 +5,8 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
+ *
  * @param mixed $value
  *
  * @return array<string, mixed>
@@ -18,6 +20,8 @@ function consume($value): array
 
 /**
  * Verifying that the type of the elements in the array is preserved by the assertion
+ *
+ * @psalm-pure
  *
  * @param array<int|string, \stdClass> $value
  *

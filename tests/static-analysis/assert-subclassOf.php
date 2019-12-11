@@ -19,6 +19,7 @@ class SubclassOfC
 /**
  * @param mixed $value
  *
+ * @psalm-pure
  * @psalm-return class-string<SubclassOfA> $value
  */
 function consumeMixed($value): string
@@ -29,6 +30,7 @@ function consumeMixed($value): string
 }
 
 /**
+ * @psalm-pure
  * @psalm-param class-string<SubclassOfB>|class-string<SubclassOfC> $value
  *
  * @psalm-return class-string<SubclassOfB> $value

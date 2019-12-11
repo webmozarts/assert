@@ -209,6 +209,7 @@ use Traversable;
 class Assert
 {
     /**
+     * @psalm-pure
      * @psalm-assert string $value
      *
      * @param mixed  $value
@@ -227,6 +228,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert string $value
      * @psalm-assert !empty $value
      *
@@ -242,6 +244,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert int $value
      *
      * @param mixed  $value
@@ -260,6 +263,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert numeric $value
      *
      * @param mixed  $value
@@ -278,6 +282,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert float $value
      *
      * @param mixed  $value
@@ -296,6 +301,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert numeric $value
      *
      * @param mixed  $value
@@ -314,6 +320,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert int $value
      *
      * @param mixed  $value
@@ -332,6 +339,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert bool $value
      *
      * @param mixed  $value
@@ -350,6 +358,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert scalar $value
      *
      * @param mixed  $value
@@ -368,6 +377,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert object $value
      *
      * @param mixed  $value
@@ -386,6 +396,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert resource $value
      *
      * @param mixed       $value
@@ -413,6 +424,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert callable $value
      *
      * @param mixed  $value
@@ -431,6 +443,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert array $value
      *
      * @param mixed  $value
@@ -449,6 +462,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert iterable $value
      *
      * @deprecated use "isIterable" or "isInstanceOf" instead
@@ -477,6 +491,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert array|ArrayAccess $value
      *
      * @param mixed  $value
@@ -495,6 +510,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert countable $value
      *
      * @param mixed  $value
@@ -518,6 +534,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert iterable $value
      *
      * @param mixed  $value
@@ -536,6 +553,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert ExpectedType $value
@@ -558,6 +576,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert !ExpectedType $value
@@ -580,6 +599,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
@@ -666,6 +687,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert empty $value
      *
      * @param mixed  $value
@@ -684,6 +706,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param mixed  $value
@@ -702,6 +725,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert null $value
      *
      * @param mixed  $value
@@ -720,6 +744,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !null $value
      *
      * @param mixed  $value
@@ -737,6 +762,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert true $value
      *
      * @param mixed  $value
@@ -755,6 +781,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert false $value
      *
      * @param mixed  $value
@@ -864,6 +891,8 @@ class Assert
     /**
      * Does non strict comparisons on the items, so ['3', 3] will not pass the assertion.
      *
+     * @psalm-pure
+     *
      * @param array  $values
      * @param string $message
      *
@@ -886,6 +915,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType
      * @psalm-param ExpectedType $expect
      * @psalm-assert ExpectedType $value
@@ -908,6 +938,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -925,6 +957,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -943,6 +977,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -960,6 +996,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -978,6 +1016,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -996,6 +1036,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -1014,6 +1056,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -1033,6 +1077,8 @@ class Assert
 
     /**
      * Inclusive range, so Assert::(3, 3, 5) passes.
+     *
+     * @psalm-pure
      *
      * @param mixed  $value
      * @param mixed  $min
@@ -1056,6 +1102,8 @@ class Assert
     /**
      * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
      *
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param array  $values
      * @param string $message
@@ -1074,6 +1122,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $subString
      * @param string $message
@@ -1092,6 +1142,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $subString
      * @param string $message
@@ -1110,6 +1162,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $message
      *
@@ -1126,6 +1180,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $prefix
      * @param string $message
@@ -1144,6 +1200,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert string $value
      * @psalm-assert !empty $value
      *
@@ -1174,6 +1231,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $suffix
      * @param string $message
@@ -1192,6 +1251,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $pattern
      * @param string $message
@@ -1209,6 +1270,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param string $pattern
      * @param string $message
@@ -1228,6 +1291,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert string $value
      * @psalm-assert !empty $value
      *
@@ -1249,6 +1313,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert string $value
      *
      * @param mixed  $value
@@ -1274,6 +1339,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
@@ -1297,6 +1363,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
@@ -1320,6 +1387,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
@@ -1343,6 +1411,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
@@ -1366,6 +1435,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string $value
      * @param int    $length
      * @param string $message
@@ -1385,6 +1456,8 @@ class Assert
 
     /**
      * Inclusive min.
+     *
+     * @psalm-pure
      *
      * @param string $value
      * @param int    $min
@@ -1406,6 +1479,8 @@ class Assert
     /**
      * Inclusive max.
      *
+     * @psalm-pure
+     *
      * @param string $value
      * @param int    $max
      * @param string $message
@@ -1425,6 +1500,8 @@ class Assert
 
     /**
      * Inclusive , so Assert::lengthBetween('asd', 3, 5); passes the assertion.
+     *
+     * @psalm-pure
      *
      * @param string $value
      * @param int    $min
@@ -1546,6 +1623,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert class-string $value
      *
      * @param mixed  $value
@@ -1564,6 +1642,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert class-string<ExpectedType> $value
@@ -1586,6 +1665,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert class-string $value
      *
      * @param mixed  $value
@@ -1604,6 +1684,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $interface
      * @psalm-assert class-string<ExpectedType> $value
@@ -1626,6 +1707,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
@@ -1643,6 +1726,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
@@ -1660,6 +1745,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
@@ -1677,6 +1764,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
@@ -1694,6 +1783,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param array      $array
      * @param string|int $key
      * @param string     $message
@@ -1711,6 +1802,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param array      $array
      * @param string|int $key
      * @param string     $message
@@ -1730,6 +1823,7 @@ class Assert
     /**
      * Checks if a value is a valid array key (int or string).
      *
+     * @psalm-pure
      * @psalm-assert array-key $value
      *
      * @param mixed  $value
@@ -1830,6 +1924,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert list $array
      *
      * @param mixed  $array
@@ -1847,6 +1942,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert list $array
      * @psalm-assert !empty $array
      *
@@ -1862,6 +1958,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template T
      * @psalm-param mixed|array<T> $array
      * @psalm-assert array<string, T> $array
@@ -1885,6 +1982,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template T
      * @psalm-param mixed|array<T> $array
      * @psalm-assert array<string, T> $array
@@ -1901,6 +1999,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param string $value
