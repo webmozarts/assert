@@ -13,3 +13,10 @@ function consume($value): string
 
     return $value;
 }
+
+function consumeNullableString(?string $value): string
+{
+    Assert::alpha($value);
+
+    return $value;
+}
