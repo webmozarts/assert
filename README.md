@@ -240,7 +240,7 @@ Overriding the following methods in your assertion class allows you to change th
 * `protected static function typeToString($value)`
   * This method is used for error messages, to convert the a value to a string representing its type.
 * `protected static function strlen($value)`
-  * This method is used to calculate string lenght for relevant methods, using the `mb_strlen` if available and usefull.
+  * This method is used to calculate string length for relevant methods, using the `mb_strlen` if available and useful.
 * `protected static function reportInvalidArgument($message)`
   * This method is called when an assertion fails, with the specified error message. Here you can throw your own exception, or log something.
 
