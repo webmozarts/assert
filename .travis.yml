@@ -28,7 +28,6 @@ matrix:
     - php: hhvm-3.30
     - php: nightly
   allow_failures:
-    - php: hhvm-3.30
     - php: nightly
   fast_finish: true
 
