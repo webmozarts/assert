@@ -115,6 +115,7 @@ Method                                          | Description
 ----------------------------------------------- | --------------------------------------------------
 `true($value, $message = '')`                   | Check that a value is `true`
 `false($value, $message = '')`                  | Check that a value is `false`
+`notFalse($value, $message = '')`               | Check that a value is not `false`
 `null($value, $message = '')`                   | Check that a value is `null`
 `notNull($value, $message = '')`                | Check that a value is not `null`
 `isEmpty($value, $message = '')`                | Check that a value is `empty()`
