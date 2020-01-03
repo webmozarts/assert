@@ -6,6 +6,8 @@ use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
+ *
  * @param mixed $value
  */
 function consume($value) : stdClass

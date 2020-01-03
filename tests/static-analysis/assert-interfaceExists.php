@@ -6,6 +6,8 @@ use Webmozart\Assert\Assert;
 
 
 /**
+ * @psalm-pure
+ *
  * @param mixed $value
  *
  * @return string

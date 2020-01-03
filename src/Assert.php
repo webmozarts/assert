@@ -203,6 +203,7 @@ use Traversable;
 class Assert
 {
     /**
+     * @psalm-pure
      * @psalm-assert string $value
      *
      * @param mixed  $value
@@ -221,6 +222,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -233,6 +236,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert int $value
      *
      * @param mixed  $value
@@ -251,6 +255,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert numeric $value
      *
      * @param mixed  $value
@@ -269,6 +274,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert float $value
      *
      * @param mixed  $value
@@ -287,6 +293,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert numeric $value
      *
      * @param mixed  $value
@@ -305,6 +312,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert int $value
      *
      * @param mixed  $value
@@ -323,6 +331,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert bool $value
      *
      * @param mixed  $value
@@ -341,6 +350,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert scalar $value
      *
      * @param mixed  $value
@@ -359,6 +369,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert object $value
      *
      * @param mixed  $value
@@ -377,6 +388,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert resource $value
      *
      * @param mixed       $value
@@ -404,6 +416,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert callable $value
      *
      * @param mixed  $value
@@ -422,6 +435,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert array $value
      *
      * @param mixed  $value
@@ -440,6 +454,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert iterable $value
      *
      * @deprecated use "isIterable" or "isInstanceOf" instead
@@ -468,6 +483,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @param mixed  $value
      * @param string $message
      *
@@ -484,6 +500,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert countable $value
      *
      * @param mixed  $value
@@ -507,6 +524,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert iterable $value
      *
      * @param mixed  $value
@@ -525,6 +543,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert ExpectedType $value
@@ -547,6 +566,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert !ExpectedType $value
@@ -569,6 +589,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
@@ -591,6 +613,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert empty $value
      *
      * @param mixed  $value
@@ -609,6 +632,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !empty $value
      *
      * @param mixed  $value
@@ -627,6 +651,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert null $value
      *
      * @param mixed  $value
@@ -645,6 +670,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !null $value
      *
      * @param mixed  $value
@@ -662,6 +688,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert true $value
      *
      * @param mixed  $value
@@ -680,6 +707,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert false $value
      *
      * @param mixed  $value
@@ -715,6 +743,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -731,6 +761,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -747,6 +779,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -763,6 +797,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -780,6 +816,8 @@ class Assert
 
     /**
      * Does non strict comparisons on the items, so ['3', 3] will not pass the assertion.
+     *
+     * @psalm-pure
      *
      * @param array  $values
      * @param string $message
@@ -803,6 +841,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -821,6 +861,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -838,6 +880,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -856,6 +900,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -873,6 +919,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -891,6 +939,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -909,6 +959,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -927,6 +979,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
@@ -945,6 +999,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * Inclusive range, so Assert::(3, 3, 5) passes.
      *
      * @param mixed  $value
@@ -967,6 +1023,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
      *
      * @param mixed  $value
@@ -987,6 +1045,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $subString
      * @param string $message
@@ -1005,6 +1065,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $subString
      * @param string $message
@@ -1023,6 +1085,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1039,6 +1103,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $prefix
      * @param string $message
@@ -1057,6 +1123,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1084,6 +1152,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $suffix
      * @param string $message
@@ -1102,6 +1172,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $pattern
      * @param string $message
@@ -1119,6 +1191,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $pattern
      * @param string $message
@@ -1138,6 +1212,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1156,6 +1232,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1179,6 +1257,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1200,6 +1280,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1221,6 +1303,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1242,6 +1326,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1263,6 +1349,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $length
      * @param string $message
@@ -1282,6 +1370,8 @@ class Assert
 
     /**
      * Inclusive min.
+     *
+     * @psalm-pure
      *
      * @param mixed  $value
      * @param mixed  $min
@@ -1303,6 +1393,8 @@ class Assert
     /**
      * Inclusive max.
      *
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $max
      * @param string $message
@@ -1322,6 +1414,8 @@ class Assert
 
     /**
      * Inclusive , so Assert::lengthBetween('asd', 3, 5); passes the assertion.
+     *
+     * @psalm-pure
      *
      * @param mixed  $value
      * @param mixed  $min
@@ -1347,6 +1441,8 @@ class Assert
     /**
      * Will also pass if $value is a directory, use Assert::file() instead if you need to be sure it is a file.
      *
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1365,6 +1461,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1383,6 +1481,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1401,6 +1501,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1417,6 +1519,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1433,6 +1537,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @psalm-assert class-string $value
      *
      * @param mixed  $value
@@ -1451,6 +1557,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
@@ -1469,6 +1577,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert class-string $value
      *
      * @param mixed  $value
@@ -1487,6 +1596,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
@@ -1505,6 +1616,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
@@ -1522,6 +1635,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
@@ -1539,6 +1654,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
@@ -1556,6 +1673,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
@@ -1573,6 +1692,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param array      $array
      * @param string|int $key
      * @param string     $message
@@ -1590,6 +1711,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param array      $array
      * @param string|int $key
      * @param string     $message
@@ -1609,6 +1732,7 @@ class Assert
     /**
      * Checks if a value is a valid array key (int or string).
      *
+     * @psalm-pure
      * @psalm-assert array-key $value
      *
      * @param mixed  $value
@@ -1629,6 +1753,8 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
+     * @psalm-pure
+     *
      * @param mixed  $array
      * @param mixed  $number
      * @param string $message
@@ -1646,6 +1772,8 @@ class Assert
 
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
+     *
+     * @psalm-pure
      *
      * @param mixed  $array
      * @param mixed  $min
@@ -1667,6 +1795,8 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
+     * @psalm-pure
+     *
      * @param mixed  $array
      * @param mixed  $max
      * @param string $message
@@ -1686,6 +1816,8 @@ class Assert
 
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
+     *
+     * @psalm-pure
      *
      * @param mixed  $array
      * @param mixed  $min
@@ -1709,6 +1841,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert list $array
      *
      * @param mixed  $array
@@ -1726,6 +1859,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert non-empty-list $array
      *
      * @param mixed  $array
@@ -1740,6 +1874,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $array
      * @param string $message
      *
@@ -1758,6 +1894,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $array
      * @param string $message
      *
@@ -1770,6 +1908,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *

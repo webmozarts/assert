@@ -5,6 +5,8 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
+ *
  * @psalm-param mixed $value
  *
  * @psalm-return non-empty-list<mixed>
