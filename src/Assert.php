@@ -49,6 +49,7 @@ use Traversable;
  * @method static void nullOrNotEmpty($value, $message = '')
  * @method static void nullOrTrue($value, $message = '')
  * @method static void nullOrFalse($value, $message = '')
+ * @method static void nullOrNotFalse($value, $message = '')
  * @method static void nullOrIp($value, $message = '')
  * @method static void nullOrIpv4($value, $message = '')
  * @method static void nullOrIpv6($value, $message = '')
@@ -134,6 +135,7 @@ use Traversable;
  * @method static void allNotEmpty($values, $message = '')
  * @method static void allTrue($values, $message = '')
  * @method static void allFalse($values, $message = '')
+ * @method static void allNotFalse($values, $message = '')
  * @method static void allIp($values, $message = '')
  * @method static void allIpv4($values, $message = '')
  * @method static void allIpv6($values, $message = '')
@@ -692,6 +694,23 @@ class Assert
                 $message ?: 'Expected a value to be false. Got: %s',
                 static::valueToString($value)
             ));
+        }
+    }
+
+    /**
+     * @psalm-assert !false $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notFalse($value, $message = '')
+    {
+        if (false === $value) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected a value other than false.'
+            );
         }
     }
 
