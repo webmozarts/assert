@@ -229,7 +229,7 @@ class Assert
     public static function stringNotEmpty($value, $message = '')
     {
         static::string($value, $message);
-        static::notEq($value, '', $message);
+        static::notEq(trim($value), '', $message);
     }
 
     /**

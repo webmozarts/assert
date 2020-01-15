@@ -54,6 +54,7 @@ class AssertTest extends BaseTestCase
             array('stringNotEmpty', array('value'), true),
             array('stringNotEmpty', array('0'), true),
             array('stringNotEmpty', array(''), false),
+            array('stringNotEmpty', array(' '), false),
             array('stringNotEmpty', array(1234), false),
             array('integer', array(123), true),
             array('integer', array('123'), false),
