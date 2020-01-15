@@ -46,8 +46,8 @@ use Traversable;
  * @method static void nullOrNotInstanceOf($value, $class, $message = '')
  * @method static void nullOrIsInstanceOfAny($value, $classes, $message = '')
  * @method static void nullOrIsAOf($value, $classes, $message = '')
- * @method static void nullOrIsAOfAny($value, $classes, $message = '')
- * @method static void nullOrNotAOf($value, $classes, $message = '')
+ * @method static void nullOrIsAnyOf($value, $classes, $message = '')
+ * @method static void nullOrIsNotA($value, $classes, $message = '')
  * @method static void nullOrIsEmpty($value, $message = '')
  * @method static void nullOrNotEmpty($value, $message = '')
  * @method static void nullOrTrue($value, $message = '')
@@ -133,8 +133,8 @@ use Traversable;
  * @method static void allNotInstanceOf($values, $class, $message = '')
  * @method static void allIsInstanceOfAny($values, $classes, $message = '')
  * @method static void allIsAOf($values, $class, $message = '')
- * @method static void allIsAOfAny($values, $class, $message = '')
- * @method static void allNotAOf($values, $class, $message = '')
+ * @method static void allIsAnyOf($values, $class, $message = '')
+ * @method static void allIsNotA($values, $class, $message = '')
  * @method static void allNull($values, $message = '')
  * @method static void allNotNull($values, $message = '')
  * @method static void allIsEmpty($values, $message = '')
@@ -596,6 +596,13 @@ class Assert
         ));
     }
 
+    /**
+     * @param object|string $value
+     * @param string        $class
+     * @param string        $message
+     *
+     * @throws InvalidArgumentException
+     */
     public static function isAOf($value, $class, $message = '')
     {
         static::string($class, 'Expected class as a string. Got: %s');
@@ -609,7 +616,14 @@ class Assert
         }
     }
 
-    public static function notAOf($value, $class, $message = '')
+    /**
+     * @param object|string $value
+     * @param string        $class
+     * @param string        $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNotA($value, $class, $message = '')
     {
         static::string($class, 'Expected class as a string. Got: %s');
 
@@ -622,7 +636,14 @@ class Assert
         }
     }
 
-    public static function isAOfAny($value, array $classes, $message = '')
+    /**
+     * @param object|string $value
+     * @param string[]      $classes
+     * @param string        $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isAnyOf($value, array $classes, $message = '')
     {
         foreach ($classes as $class) {
             static::string($class, 'Expected class as a string. Got: %s');
