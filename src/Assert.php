@@ -484,6 +484,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
