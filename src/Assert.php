@@ -607,7 +607,7 @@ class Assert
     {
         static::string($class, 'Expected class as a string. Got: %s');
 
-        if (!is_a($value, $class, is_string($value))) {
+        if (!\is_a($value, $class, \is_string($value))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an instance of this class or to this class among his parents %2$s. Got: %s',
                 static::typeToString($value),
@@ -627,7 +627,7 @@ class Assert
     {
         static::string($class, 'Expected class as a string. Got: %s');
 
-        if (is_a($value, $class, is_string($value))) {
+        if (\is_a($value, $class, \is_string($value))) {
             static::reportInvalidArgument(sprintf(
                 $message ?: 'Expected an instance of this class or to this class among his parents other than %2$s. Got: %s',
                 static::typeToString($value),
@@ -648,7 +648,7 @@ class Assert
         foreach ($classes as $class) {
             static::string($class, 'Expected class as a string. Got: %s');
 
-            if (is_a($value, $class, is_string($value))) {
+            if (\is_a($value, $class, \is_string($value))) {
                 return;
             }
         }
