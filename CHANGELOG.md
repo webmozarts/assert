@@ -3,6 +3,15 @@ Changelog
 
 ## UNRELEASED
 
+## 1.7.0 (2020-02-14)
+
+### Added
+
+* added `Assert::notFalse()`
+* added `Assert::isAOf()`
+* added `Assert::isAnyOf()`
+* added `Assert::isNotA()`
+
 ## 1.6.0 (2019-11-24)
 
 ### Added
@@ -15,7 +24,7 @@ Changelog
 
 ### Fixed
 
-* `ResourceBundle` & `SimpleXMLElement` now pass the `isCountable` assertions. 
+* `ResourceBundle` & `SimpleXMLElement` now pass the `isCountable` assertions.
 They are countable, without implementing the `Countable` interface.
 * The doc block of `range` now has the proper variables.
 * An empty array will now pass `isList` and `isMap`. As it is a valid form of both.
@@ -28,12 +37,12 @@ If a non empty variant is needed, use `isNonEmptyList` or `isNonEmptyMap`.
   * [#145](https://github.com/webmozart/assert/issues/145)
   * [#146](https://github.com/webmozart/assert/pull/146)
   * [#150](https://github.com/webmozart/assert/pull/150)
-* If you use psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict. 
+* If you use psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict.
 If you don't use psalm, then this has no impact.
 
 ## 1.5.0 (2019-08-24)
 
-### Added 
+### Added
 
 * added `Assert::uniqueValues()`
 * added `Assert::unicodeLetters()`
