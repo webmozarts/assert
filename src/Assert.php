@@ -600,6 +600,7 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-param array<class-string> $classes
      *
      * @param mixed                $value
      * @param array<object|string> $classes
