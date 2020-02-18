@@ -2162,6 +2162,8 @@ class Assert
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
+     * @psalm-pure this method is not supposed to perform side-effects
      */
     protected static function reportInvalidArgument($message)
     {
