@@ -648,6 +648,12 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     * @psalm-template UnexpectedType of object
+     * @psalm-param class-string<UnexpectedType> $class
+     * @psalm-assert !UnexpectedType $value
+     * @psalm-assert !class-string<UnexpectedType> $value
+     *
      * @param object|string $value
      * @param string        $class
      * @param string        $message
