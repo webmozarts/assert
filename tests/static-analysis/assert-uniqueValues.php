@@ -6,13 +6,10 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
- *
- * @psalm-return array-key
  */
-function consume($value)
+function consume(array $value): array
 {
-    Assert::validArrayKey($value);
+    Assert::uniqueValues($value);
 
     return $value;
 }

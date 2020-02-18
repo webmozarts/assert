@@ -5,9 +5,11 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-param mixed $value
+ * @psalm-param non-empty-string $value
+ *
+ * @return non-empty-string
  */
-function consume($value): string
+function consume(string $value): string
 {
     Assert::file($value);
 

@@ -6,13 +6,13 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ * @psalm-param class-string|object $value
  *
- * @psalm-return array-key
+ * @return class-string|object
  */
 function consume($value)
 {
-    Assert::validArrayKey($value);
+    Assert::propertyNotExists($value, 'foo');
 
     return $value;
 }

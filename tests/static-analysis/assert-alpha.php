@@ -6,19 +6,12 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @psalm-param non-empty-string $value
+ *
+ * @psalm-return non-empty-string
  */
-function consume($value): string
-{
-    Assert::alpha($value);
-
-    return $value;
-}
-
-/**
- * @psalm-pure
- */
-function consumeNullableString(?string $value): string
+function consume(string $value): string
 {
     Assert::alpha($value);
 

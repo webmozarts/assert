@@ -5,13 +5,11 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-param non-empty-string $value
- *
- * @return non-empty-string
+ * @psalm-pure
  */
 function consume(string $value): string
 {
-    Assert::ipv6($value);
+    Assert::oneOf($value, ['foo', 'bar']);
 
     return $value;
 }

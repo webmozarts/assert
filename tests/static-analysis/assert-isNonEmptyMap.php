@@ -33,3 +33,18 @@ function consumeWithSpecificValueType(array $value): array
 
     return $value;
 }
+
+
+/**
+ * @psalm-pure
+ *
+ * @param array<int|string, \stdClass> $value
+ *
+ * @return non-empty-array
+ */
+function consumeWillProduceNonEmptyArray(array $value): array
+{
+    Assert::isNonEmptyMap($value);
+
+    return $value;
+}

@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function consume(string $value): string
 {
-    Assert::ipv6($value);
+    Assert::writable($value);
 
     return $value;
 }

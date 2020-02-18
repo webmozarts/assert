@@ -832,8 +832,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !empty $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -850,8 +848,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !empty $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -868,8 +864,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !empty $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -886,8 +880,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !empty $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -931,9 +923,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-template ExpectedType
-     * @psalm-param ExpectedType $expect
-     * @psalm-assert ExpectedType $value
      *
      * @param mixed  $value
      * @param mixed  $expect
@@ -1216,8 +1205,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert string $value
-     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1307,8 +1294,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert string $value
-     * @psalm-assert !empty $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1329,7 +1314,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert string $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1355,7 +1339,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert !empty $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
      * @param string     $message
@@ -1379,7 +1362,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert !empty $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
      * @param string     $message
@@ -1403,7 +1385,7 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert !empty $value
+     * @psalm-assert lowercase-string $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
      * @param string     $message
@@ -1427,7 +1409,7 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert !empty $value
+     * @psalm-assert !lowercase-string $value
      *
      * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
      * @param string     $message
@@ -1542,8 +1524,6 @@ class Assert
     /**
      * Will also pass if $value is a directory, use Assert::file() instead if you need to be sure it is a file.
      *
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1562,8 +1542,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1582,8 +1560,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1602,8 +1578,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !empty $value
-     *
      * @param string $value
      * @param string $message
      *
@@ -1620,8 +1594,6 @@ class Assert
     }
 
     /**
-     * @psalm-assert !empty $value
-     *
      * @param string $value
      * @param string $message
      *
@@ -1638,9 +1610,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     * @psalm-assert class-string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1680,9 +1649,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     * @psalm-assert class-string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1723,6 +1689,7 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
      * @param mixed         $property
@@ -1742,6 +1709,7 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
      * @param mixed         $property
@@ -1761,6 +1729,7 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
      * @param mixed         $method
@@ -1780,6 +1749,7 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
      * @param mixed         $method
@@ -2001,6 +1971,7 @@ class Assert
      * @psalm-template T
      * @psalm-param mixed|array<T> $array
      * @psalm-assert array<string, T> $array
+     * @psalm-assert !empty $array
      *
      * @param mixed  $array
      * @param string $message
@@ -2015,7 +1986,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert !empty $value
      *
      * @param string $value
      * @param string $message

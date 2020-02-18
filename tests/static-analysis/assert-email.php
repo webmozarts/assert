@@ -4,14 +4,12 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-function consume(?string $value): string
-{
-    Assert::email($value);
-
-    return $value;
-}
-
-function consumeObject(?object $value): object
+/**
+ * @psalm-param non-empty-string $value
+ *
+ * @return non-empty-string
+ */
+function consume(string $value): string
 {
     Assert::email($value);
 
