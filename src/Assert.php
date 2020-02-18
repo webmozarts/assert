@@ -674,6 +674,9 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     * @psalm-param array<class-string> $classes
+     *
      * @param object|string $value
      * @param string[]      $classes
      * @param string        $message
