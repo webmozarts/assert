@@ -8,34 +8,13 @@ class SubclassOfA
 {
 }
 
-class SubclassOfB extends SubclassOfA
-{
-}
-
-class SubclassOfC
-{
-}
-
 /**
  * @param mixed $value
  *
  * @psalm-pure
- * @psalm-return class-string<SubclassOfA> $value
+ * @psalm-return class-string<SubclassOfA>|SubclassOfA
  */
-function consumeMixed($value): string
-{
-    Assert::subclassOf($value, SubclassOfA::class);
-
-    return $value;
-}
-
-/**
- * @psalm-pure
- * @psalm-param class-string<SubclassOfB>|class-string<SubclassOfC> $value
- *
- * @psalm-return class-string<SubclassOfB> $value
- */
-function consumeSubInterface(string $value): string
+function consumeMixed($value)
 {
     Assert::subclassOf($value, SubclassOfA::class);
 

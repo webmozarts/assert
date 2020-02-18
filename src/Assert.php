@@ -1645,7 +1645,7 @@ class Assert
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert class-string<ExpectedType> $value
+     * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
      * @param mixed         $value
      * @param string|object $class
