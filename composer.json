@@ -21,7 +21,7 @@
         "phpunit/phpunit": "^4.8.36 || ^7.5.13"
     },
     "conflict": {
-        "vimeo/psalm": "<3.6.0"
+        "vimeo/psalm": "<3.9.1"
     },
     "autoload": {
         "psr-4": {

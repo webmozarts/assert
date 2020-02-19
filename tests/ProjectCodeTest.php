@@ -116,6 +116,7 @@ class ProjectCodeTest extends BaseTestCase
     public function testHasCorrespondingStaticAnalysisFile($method)
     {
         $doc = $method->getDocComment();
+
         if($doc === false || strpos($doc, '@psalm-assert') === false) {
             $this->addToAssertionCount(1);
             return;

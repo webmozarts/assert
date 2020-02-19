@@ -6,9 +6,8 @@ use Webmozart\Assert\Assert;
 
 
 /**
- * @param mixed $value
+ * @param class-string $value
  *
- * @return string
  * @psalm-return class-string
  */
 function consume($value): string

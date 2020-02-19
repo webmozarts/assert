@@ -5,16 +5,14 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
  * @psalm-param mixed $value
- * @param array<int> $array
  *
- * @return array<int>
+ * @psalm-return array-key
  */
-function consume($value, array $array): array
+function consume($value)
 {
     Assert::validArrayKey($value);
 
-    $array[$value] = 12;
-
-    return $array;
+    return $value;
 }
