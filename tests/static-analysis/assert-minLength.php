@@ -8,11 +8,13 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  * @psalm-param non-empty-string $value
  *
+ * @param int|float $minLength
+ *
  * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function consume(string $value, $minLength): string
 {
-    Assert::minLength($value, 0);
+    Assert::minLength($value, $minLength);
 
     return $value;
 }

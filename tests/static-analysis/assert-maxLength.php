@@ -8,11 +8,13 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  * @psalm-param non-empty-string $value
  *
+ * @param int|float $maxLength
+ *
  * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function consume(string $value, $maxLength): string
 {
-    Assert::maxLength($value, 1);
+    Assert::maxLength($value, $maxLength);
 
     return $value;
 }

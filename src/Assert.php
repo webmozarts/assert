@@ -1456,9 +1456,9 @@ class Assert
      *
      * @psalm-pure
      *
-     * @param string $value
-     * @param int    $min
-     * @param string $message
+     * @param string    $value
+     * @param int|float $min
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
@@ -1478,9 +1478,9 @@ class Assert
      *
      * @psalm-pure
      *
-     * @param string $value
-     * @param int    $max
-     * @param string $message
+     * @param string    $value
+     * @param int|float $max
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
@@ -1500,10 +1500,10 @@ class Assert
      *
      * @psalm-pure
      *
-     * @param string $value
-     * @param int    $min
-     * @param int    $max
-     * @param string $message
+     * @param string    $value
+     * @param int|float $min
+     * @param int|float $max
+     * @param string    $message
      *
      * @throws InvalidArgumentException
      */
@@ -1848,7 +1848,7 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int             $min
+     * @param int|float       $min
      * @param string          $message
      *
      * @throws InvalidArgumentException
@@ -1868,7 +1868,7 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int             $max
+     * @param int|float       $max
      * @param string          $message
      *
      * @throws InvalidArgumentException
@@ -1888,8 +1888,8 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int             $min
-     * @param int             $max
+     * @param int|float       $min
+     * @param int|float       $max
      * @param string          $message
      *
      * @throws InvalidArgumentException
