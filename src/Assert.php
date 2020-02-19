@@ -1340,8 +1340,8 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
-     * @param string     $message
+     * @param string $value
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
@@ -1363,8 +1363,8 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
-     * @param string     $message
+     * @param string $value
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
@@ -1387,8 +1387,8 @@ class Assert
      * @psalm-pure
      * @psalm-assert lowercase-string $value
      *
-     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
-     * @param string     $message
+     * @param string $value
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
@@ -1411,8 +1411,8 @@ class Assert
      * @psalm-pure
      * @psalm-assert !lowercase-string $value
      *
-     * @param string|int $value   can be an integer, since ctype_* functions accept ASCII integers -128 ~ +256
-     * @param string     $message
+     * @param string $value
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
