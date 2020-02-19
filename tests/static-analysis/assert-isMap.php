@@ -33,3 +33,18 @@ function consumeWithSpecificValueType(array $value): array
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param array<int|string, mixed> $value
+ *
+ * @return array<string, mixed>
+ */
+function consumeAllowsForEmptyArrays(array $value): array
+{
+    Assert::isMap($value);
+    Assert::isEmpty($value);
+
+    return $value;
+}

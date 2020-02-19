@@ -1947,7 +1947,6 @@ class Assert
      * @psalm-template T
      * @psalm-param mixed|array<T> $array
      * @psalm-assert array<string, T> $array
-     * @psalm-assert !empty $array
      *
      * @param mixed  $array
      * @param string $message
