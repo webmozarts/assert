@@ -898,8 +898,6 @@ class Assert
     /**
      * Does non strict comparisons on the items, so ['3', 3] will not pass the assertion.
      *
-     * @psalm-pure
-     *
      * @param array  $values
      * @param string $message
      *
@@ -922,8 +920,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -942,8 +938,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
