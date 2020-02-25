@@ -224,6 +224,8 @@ class AssertTest extends BaseTestCase
             array('range', array(3, 1, 2), false),
             array('oneOf', array(1, array(1, 2, 3)), true),
             array('oneOf', array(1, array('1', '2', '3')), false),
+            array('inArray', array(1, array(1, 2, 3)), true),
+            array('inArray', array(1, array('1', '2', '3')), false),
             array('contains', array('abcd', 'ab'), true),
             array('contains', array('abcd', 'bc'), true),
             array('contains', array('abcd', 'cd'), true),
