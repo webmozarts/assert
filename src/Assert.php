@@ -1098,7 +1098,7 @@ class Assert
     }
 
     /**
-     * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
+     * A more human-readable alias of Assert::inArray().
      *
      * @psalm-pure
      *
@@ -1109,6 +1109,22 @@ class Assert
      * @throws InvalidArgumentException
      */
     public static function oneOf($value, array $values, $message = '')
+    {
+        static::inArray($value, $values, $message);
+    }
+
+    /**
+     * Does strict comparison, so Assert::inArray(3, ['3']) does not pass the assertion.
+     *
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function inArray($value, array $values, $message = '')
     {
         if (!\in_array($value, $values, true)) {
             static::reportInvalidArgument(\sprintf(
