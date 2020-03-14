@@ -144,10 +144,10 @@ Method                                              | Description
 `contains($value, $subString, $message = '')`       | Check that a string contains a substring
 `notContains($value, $subString, $message = '')`    | Check that a string does not contains a substring
 `startsWith($value, $prefix, $message = '')`        | Check that a string has a prefix
-`notStartsWith($value, $prefix, $message = '')`        | Check that a string does not have a prefix
+`notStartsWith($value, $prefix, $message = '')`     | Check that a string does not have a prefix
 `startsWithLetter($value, $message = '')`           | Check that a string starts with a letter
 `endsWith($value, $suffix, $message = '')`          | Check that a string has a suffix
-`notEndsWith($value, $suffix, $message = '')`          | Check that a string does not have a suffix
+`notEndsWith($value, $suffix, $message = '')`       | Check that a string does not have a suffix
 `regex($value, $pattern, $message = '')`            | Check that a string matches a regular expression
 `notRegex($value, $pattern, $message = '')`         | Check that a string does not match a regular expression
 `unicodeLetters($value, $message = '')`             | Check that a string contains Unicode letters only
