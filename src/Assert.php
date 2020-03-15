@@ -15,6 +15,8 @@ use ArrayAccess;
 use BadMethodCallException;
 use Closure;
 use Countable;
+use DateTime;
+use DateTimeImmutable;
 use Exception;
 use InvalidArgumentException;
 use ResourceBundle;
@@ -2099,7 +2101,7 @@ class Assert
                 return \get_class($value).': '.self::valueToString($value->__toString());
             }
 
-            if ($value instanceof \DateTime || $value instanceof \DateTimeImmutable) {
+            if ($value instanceof DateTime || $value instanceof DateTimeImmutable) {
                 return \get_class($value).': '.self::valueToString($value->format('c'));
             }
 
