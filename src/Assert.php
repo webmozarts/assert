@@ -1766,9 +1766,9 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param array      $array
-     * @param string|int $key
-     * @param string     $message
+     * @param array|ArrayAccess $array
+     * @param string|int        $key
+     * @param string            $message
      *
      * @throws InvalidArgumentException
      */
@@ -1785,9 +1785,9 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param array      $array
-     * @param string|int $key
-     * @param string     $message
+     * @param array|ArrayAccess $array
+     * @param string|int        $key
+     * @param string            $message
      *
      * @throws InvalidArgumentException
      */
