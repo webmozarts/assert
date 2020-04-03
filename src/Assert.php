@@ -15,6 +15,8 @@ use ArrayAccess;
 use BadMethodCallException;
 use Closure;
 use Countable;
+use DateTime;
+use DateTimeImmutable;
 use Exception;
 use InvalidArgumentException;
 use ResourceBundle;
@@ -1850,7 +1852,11 @@ class Assert
         static::eq(
             \count($array),
             $number,
-            $message ?: \sprintf('Expected an array to contain %d elements. Got: %d.', $number, \count($array))
+            \sprintf(
+                $message ?: 'Expected an array to contain %d elements. Got: %d.',
+                $number,
+                \count($array)
+            )
         );
     }
 
@@ -2113,6 +2119,10 @@ class Assert
         if (\is_object($value)) {
             if (\method_exists($value, '__toString')) {
                 return \get_class($value).': '.self::valueToString($value->__toString());
+            }
+
+            if ($value instanceof DateTime || $value instanceof DateTimeImmutable) {
+                return \get_class($value).': '.self::valueToString($value->format('c'));
             }
 
             return \get_class($value);
