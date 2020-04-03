@@ -1880,7 +1880,11 @@ class Assert
         static::eq(
             \count($array),
             $number,
-            $message ?: \sprintf('Expected an array to contain %d elements. Got: %d.', $number, \count($array))
+            \sprintf(
+                $message ?: 'Expected an array to contain %d elements. Got: %d.',
+                $number,
+                \count($array)
+            )
         );
     }
 
