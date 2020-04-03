@@ -74,8 +74,10 @@ use Traversable;
  * @method static void nullOrNotContains($value, $subString, $message = '')
  * @method static void nullOrNotWhitespaceOnly($value, $message = '')
  * @method static void nullOrStartsWith($value, $prefix, $message = '')
+ * @method static void nullOrNotStartsWith($value, $prefix, $message = '')
  * @method static void nullOrStartsWithLetter($value, $message = '')
  * @method static void nullOrEndsWith($value, $suffix, $message = '')
+ * @method static void nullOrNotEndsWith($value, $suffix, $message = '')
  * @method static void nullOrRegex($value, $pattern, $message = '')
  * @method static void nullOrNotRegex($value, $pattern, $message = '')
  * @method static void nullOrUnicodeLetters($value, $message = '')
@@ -163,8 +165,10 @@ use Traversable;
  * @method static void allNotContains($values, $subString, $message = '')
  * @method static void allNotWhitespaceOnly($values, $message = '')
  * @method static void allStartsWith($values, $prefix, $message = '')
+ * @method static void allNotStartsWith($values, $prefix, $message = '')
  * @method static void allStartsWithLetter($values, $message = '')
  * @method static void allEndsWith($values, $suffix, $message = '')
+ * @method static void allNotEndsWith($values, $suffix, $message = '')
  * @method static void allRegex($values, $pattern, $message = '')
  * @method static void allNotRegex($values, $pattern, $message = '')
  * @method static void allUnicodeLetters($values, $message = '')
@@ -1202,6 +1206,26 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @param string $value
+     * @param string $prefix
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notStartsWith($value, $prefix, $message = '')
+    {
+        if (0 === \strpos($value, $prefix)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a value not to start with %2$s. Got: %s',
+                static::valueToString($value),
+                static::valueToString($prefix)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1242,6 +1266,26 @@ class Assert
         if ($suffix !== \substr($value, -\strlen($suffix))) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
+                static::valueToString($value),
+                static::valueToString($suffix)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param string $value
+     * @param string $suffix
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notEndsWith($value, $suffix, $message = '')
+    {
+        if ($suffix === \substr($value, -\strlen($suffix))) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a value not to end with %2$s. Got: %s',
                 static::valueToString($value),
                 static::valueToString($suffix)
             ));
