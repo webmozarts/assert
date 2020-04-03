@@ -3,6 +3,17 @@ Changelog
 
 ## UNRELEASED
 
+### Added
+
+* added `Assert::notStartsWith()`
+* added `Assert::notEndsWith()`
+* added `@psalm-pure` annotations to pure assertions
+
+### Fixed
+
+* Exception messages of comparisons between `DateTime(Immutalbe)` objects now display their date & time.
+* Custom Exception messages for `Assert::count()` now use the values to render the exception message.
+
 ## 1.7.0 (2020-02-14)
 
 ### Added
