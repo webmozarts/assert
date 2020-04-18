@@ -6,6 +6,8 @@ use Countable;
 use Webmozart\Assert\Assert;
 
 /**
+ * @psalm-pure
+ *
  * @param int|float $min
  * @param int|float $max
  */
