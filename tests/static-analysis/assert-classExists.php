@@ -4,9 +4,9 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-
 /**
- * @psalm-param class-string $value
+ * @psalm-pure
+ * @psalm-param mixed $value
  *
  * @psalm-return class-string
  */
