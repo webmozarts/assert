@@ -115,7 +115,7 @@ Method                                                   | Description
 ### Comparison Assertions
 
 Method                                          | Description
------------------------------------------------ | --------------------------------------------------
+----------------------------------------------- | ------------------------------------------------------------------
 `true($value, $message = '')`                   | Check that a value is `true`
 `false($value, $message = '')`                  | Check that a value is `false`
 `notFalse($value, $message = '')`               | Check that a value is not `false`
@@ -132,7 +132,8 @@ Method                                          | Description
 `lessThan($value, $value2, $message = '')`      | Check that a value is less than another
 `lessThanEq($value, $value2, $message = '')`    | Check that a value is less than or equal to another
 `range($value, $min, $max, $message = '')`      | Check that a value is within a range
-`oneOf($value, array $values, $message = '')`   | Check that a value is one of a list of values
+`inArray($value, array $values, $message = '')` | Check that a value is one of a list of values
+`oneOf($value, array $values, $message = '')`   | Check that a value is one of a list of values (alias of `inArray`)
 
 ### String Assertions
 

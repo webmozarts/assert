@@ -70,6 +70,7 @@ use Traversable;
  * @method static void nullOrLessThanEq($value, $limit, $message = '')
  * @method static void nullOrRange($value, $min, $max, $message = '')
  * @method static void nullOrOneOf($value, $values, $message = '')
+ * @method static void nullOrInArray($value, $values, $message = '')
  * @method static void nullOrContains($value, $subString, $message = '')
  * @method static void nullOrNotContains($value, $subString, $message = '')
  * @method static void nullOrNotWhitespaceOnly($value, $message = '')
@@ -161,6 +162,7 @@ use Traversable;
  * @method static void allLessThanEq($values, $limit, $message = '')
  * @method static void allRange($values, $min, $max, $message = '')
  * @method static void allOneOf($values, $values, $message = '')
+ * @method static void allInArray($values, $values, $message = '')
  * @method static void allContains($values, $subString, $message = '')
  * @method static void allNotContains($values, $subString, $message = '')
  * @method static void allNotWhitespaceOnly($values, $message = '')
@@ -1104,7 +1106,7 @@ class Assert
     }
 
     /**
-     * Does strict comparison, so Assert::oneOf(3, ['3']) does not pass the assertion.
+     * A more human-readable alias of Assert::inArray().
      *
      * @psalm-pure
      *
@@ -1115,6 +1117,22 @@ class Assert
      * @throws InvalidArgumentException
      */
     public static function oneOf($value, array $values, $message = '')
+    {
+        static::inArray($value, $values, $message);
+    }
+
+    /**
+     * Does strict comparison, so Assert::inArray(3, ['3']) does not pass the assertion.
+     *
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function inArray($value, array $values, $message = '')
     {
         if (!\in_array($value, $values, true)) {
             static::reportInvalidArgument(\sprintf(
