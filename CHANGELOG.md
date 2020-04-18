@@ -3,10 +3,14 @@ Changelog
 
 ## UNRELEASED
 
+
+## 1.8.0
+
 ### Added
 
 * added `Assert::notStartsWith()`
 * added `Assert::notEndsWith()`
+* added `Assert::inArray()`
 * added `@psalm-pure` annotations to pure assertions
 
 ### Fixed
