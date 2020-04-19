@@ -15,7 +15,7 @@ Changelog
 
 ### Fixed
 
-* Exception messages of comparisons between `DateTime(Immutalbe)` objects now display their date & time.
+* Exception messages of comparisons between `DateTime(Immutable)` objects now display their date & time.
 * Custom Exception messages for `Assert::count()` now use the values to render the exception message.
 
 ## 1.7.0 (2020-02-14)
@@ -43,7 +43,7 @@ Changelog
 They are countable, without implementing the `Countable` interface.
 * The doc block of `range` now has the proper variables.
 * An empty array will now pass `isList` and `isMap`. As it is a valid form of both.
-If a non empty variant is needed, use `isNonEmptyList` or `isNonEmptyMap`.
+If a non-empty variant is needed, use `isNonEmptyList` or `isNonEmptyMap`.
 
 ### Changed
 
@@ -66,7 +66,7 @@ If you don't use psalm, then this has no impact.
 
 ### Fixed
 
-* `Assert::endsWith()` would not give the correct result when dealing with multibyte suffix.
+* `Assert::endsWith()` would not give the correct result when dealing with a multibyte suffix.
 * `Assert::length(), minLength, maxLength, lengthBetween` would not give the correct result when dealing with multibyte characters.
 
 **NOTE**: These 2 changes may break your assertions if you relied on the fact that multibyte characters didn't behave correctly.
