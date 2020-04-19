@@ -841,8 +841,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -859,8 +857,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -877,8 +873,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -895,8 +889,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -914,8 +906,6 @@ class Assert
 
     /**
      * Does non strict comparisons on the items, so ['3', 3] will not pass the assertion.
-     *
-     * @psalm-pure
      *
      * @param array  $values
      * @param string $message
@@ -939,8 +929,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -959,8 +947,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
@@ -1597,8 +1583,6 @@ class Assert
     /**
      * Will also pass if $value is a directory, use Assert::file() instead if you need to be sure it is a file.
      *
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1617,8 +1601,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1637,8 +1619,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1657,8 +1637,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param string $value
      * @param string $message
      *
@@ -1675,8 +1653,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param string $value
      * @param string $message
      *
@@ -1917,8 +1893,6 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @psalm-pure
-     *
      * @param Countable|array $array
      * @param int             $number
      * @param string          $message
@@ -1941,8 +1915,6 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @psalm-pure
-     *
      * @param Countable|array $array
      * @param int|float       $min
      * @param string          $message
@@ -1963,8 +1935,6 @@ class Assert
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
-     * @psalm-pure
-     *
      * @param Countable|array $array
      * @param int|float       $max
      * @param string          $message
@@ -1984,8 +1954,6 @@ class Assert
 
     /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
-     *
-     * @psalm-pure
      *
      * @param Countable|array $array
      * @param int|float       $min
@@ -2178,8 +2146,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed $value
      *
      * @return string
@@ -2226,8 +2192,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
-     *
      * @param mixed $value
      *
      * @return string
@@ -2237,9 +2201,6 @@ class Assert
         return \is_object($value) ? \get_class($value) : \gettype($value);
     }
 
-    /**
-     * @psalm-pure
-     */
     protected static function strlen($value)
     {
         if (!\function_exists('mb_detect_encoding')) {
