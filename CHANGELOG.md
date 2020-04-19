@@ -3,6 +3,12 @@ Changelog
 
 ## UNRELEASED
 
+## 1.8.1
+
+### Fixed
+
+* Added a missing `@psalm-pure` & `@psalm-assert` to `Assert::classExists`
+* Fixed some typos in the changelog
 
 ## 1.8.0
 
