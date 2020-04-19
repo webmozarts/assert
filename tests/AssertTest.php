@@ -718,7 +718,7 @@ class AssertTest extends BaseTestCase
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
     }
 
-    public function testAnUnkownMethodThrowsABadMethodCall()
+    public function testAnUnknownMethodThrowsABadMethodCall()
     {
         $this->setExpectedException('\BadMethodCallException');
 
