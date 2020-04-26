@@ -7,7 +7,43 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function consume(?object $value): object
+function consumeNullableObject(?object $value): object
+{
+    Assert::notEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @return non-empty-string
+ */
+function consumeString(string $value)
+{
+    Assert::notEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @return true
+ */
+function consumeBool(bool $value)
+{
+    Assert::notEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @return non-empty-array
+ */
+function consumeArray(array $value)
 {
     Assert::notEmpty($value);
 
