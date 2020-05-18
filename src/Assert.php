@@ -340,7 +340,7 @@ class Assert
     {
         if (!\is_int($value) || $value < 0) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected a non-negative integer. Got %s',
+                $message ?: 'Expected a non-negative integer. Got: %s',
                 static::valueToString($value)
             ));
         }
@@ -823,6 +823,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !false $value
      *
      * @param mixed  $value
@@ -881,7 +882,7 @@ class Assert
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected a value to be an IPv6. Got %s',
+                $message ?: 'Expected a value to be an IPv6. Got: %s',
                 static::valueToString($value)
             ));
         }
@@ -897,7 +898,7 @@ class Assert
     {
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected a value to be a valid e-mail address. Got %s',
+                $message ?: 'Expected a value to be a valid e-mail address. Got: %s',
                 static::valueToString($value)
             ));
         }
@@ -1668,7 +1669,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
      * @psalm-assert class-string $value
      *
      * @param mixed  $value
