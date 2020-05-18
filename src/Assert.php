@@ -823,6 +823,7 @@ class Assert
     }
 
     /**
+     * @psalm-pure
      * @psalm-assert !false $value
      *
      * @param mixed  $value
@@ -1668,7 +1669,6 @@ class Assert
     }
 
     /**
-     * @psalm-pure
      * @psalm-assert class-string $value
      *
      * @param mixed  $value
