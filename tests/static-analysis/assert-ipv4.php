@@ -5,13 +5,37 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-param non-empty-string $value
+ * @param mixed $value
  *
- * @return non-empty-string
+ * @return mixed
  */
-function consume(string $value): string
+function ipv4($value)
 {
     Assert::ipv4($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrIpv4($value)
+{
+    Assert::nullOrIpv4($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allIpv4($value)
+{
+    Assert::allIpv4($value);
 
     return $value;
 }
