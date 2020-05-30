@@ -550,7 +550,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|empty $value
+     * @psalm-assert empty $value
      *
      * @param mixed  $value
      * @param string $message

@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function consumeNullableObject(?object $value): object
+function notEmptyNullableObject(?object $value): object
 {
     Assert::notEmpty($value);
 
@@ -19,7 +19,7 @@ function consumeNullableObject(?object $value): object
  *
  * @return non-empty-string
  */
-function consumeString(string $value)
+function notEmptyString(string $value)
 {
     Assert::notEmpty($value);
 
@@ -31,7 +31,7 @@ function consumeString(string $value)
  *
  * @return true
  */
-function consumeBool(bool $value)
+function notEmptyBool(bool $value)
 {
     Assert::notEmpty($value);
 
@@ -43,7 +43,7 @@ function consumeBool(bool $value)
  *
  * @return non-empty-array
  */
-function consumeArray(array $value)
+function notEmptyArray(array $value)
 {
     Assert::notEmpty($value);
 

@@ -9,10 +9,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return Serializable
  */
-function isInstanceOf($value)
+function isInstanceOf($value): Serializable
 {
     Assert::isInstanceOf($value, Serializable::class);
 
@@ -23,10 +21,8 @@ function isInstanceOf($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return null|Serializable
  */
-function nullOrIsInstanceOf($value)
+function nullOrIsInstanceOf($value): ?Serializable
 {
     Assert::nullOrIsInstanceOf($value, Serializable::class);
 
@@ -40,7 +36,7 @@ function nullOrIsInstanceOf($value)
  *
  * @return iterable<Serializable>
  */
-function allIsInstanceOf($value)
+function allIsInstanceOf($value): iterable
 {
     Assert::allIsInstanceOf($value, Serializable::class);
 

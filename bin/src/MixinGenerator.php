@@ -198,7 +198,7 @@ final class MixinGenerator
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
                 if ('param' === $key && isset($parts[1]) && ('$value' === $parts[1] || '$array' === $parts[1]) && 'mixed' !== $parts[0]) {
-                    $parts[0] = sprintf($typeTemplate, $parts[0]);
+                    $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate);
 
                     $values[$i] = implode(' ', $parts);
                 }
@@ -213,7 +213,7 @@ final class MixinGenerator
                 $type = $parts[0];
 
                 if ('psalm-assert' === $key) {
-                    $type = sprintf($typeTemplate, $type);
+                    $type = $this->applyTypeTemplate($type, $typeTemplate);
                 }
 
                 if ('param' === $key) {
@@ -252,6 +252,17 @@ final class MixinGenerator
         }
 
         return $this->staticMethod($newMethodName, $parameters, $parametersDefaults, $phpdocLinesDeduplicatedEmptyLines, $indent);
+    }
+
+    private function applyTypeTemplate(string $type, string $typeTemplate): string
+    {
+        $combinedType = sprintf($typeTemplate, $type);
+
+        if ($combinedType === 'null|empty') {
+            $combinedType = 'empty'; // @see https://github.com/vimeo/psalm/issues/3492
+        }
+
+        return $combinedType;
     }
 
     private function shouldSkipAnnotation(string $newMethodName, string $key): bool

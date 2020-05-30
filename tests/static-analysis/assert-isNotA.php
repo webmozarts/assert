@@ -41,7 +41,7 @@ function nullOrIsNotA($value, $class)
  *
  * @return iterable<object|string>
  */
-function allIsNotA($value, $class)
+function allIsNotA($value, $class): iterable
 {
     Assert::allIsNotA($value, $class);
 

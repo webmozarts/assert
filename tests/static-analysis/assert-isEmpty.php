@@ -67,11 +67,9 @@ function isEmptyArray(array $value)
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @return null|empty
  */
-function nullOrIsEmpty($value)
+function nullOrIsEmpty(?object $value)
 {
     Assert::nullOrIsEmpty($value);
 
