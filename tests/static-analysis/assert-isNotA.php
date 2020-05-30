@@ -2,24 +2,48 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use stdClass;
+use DateTime;
 use Webmozart\Assert\Assert;
 
-final class IsNotAA
+/**
+ * @psalm-pure
+ *
+ * @param stdClass|DateTime $value
+ */
+function isNotA(object $value): stdClass
 {
-}
+    Assert::isNotA($value, DateTime::class);
 
-final class IsNotAB
-{
+    return $value;
 }
 
 /**
  * @psalm-pure
  *
- * @psalm-param IsNotAA|IsNotAB $value
+ * @param null|object|string $value
+ * @param class-string $class
+ *
+ * @return null|object|string
  */
-function consume(object $value): IsNotAA
+function nullOrIsNotA($value, $class)
 {
-    Assert::isNotA($value, IsNotAB::class);
+    Assert::nullOrIsNotA($value, $class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<object|string> $value
+ * @param class-string $class
+ *
+ * @return iterable<object|string>
+ */
+function allIsNotA($value, $class)
+{
+    Assert::allIsNotA($value, $class);
 
     return $value;
 }
