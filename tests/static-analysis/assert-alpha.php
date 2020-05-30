@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @psalm-param mixed $value
+ * @param mixed $value
  */
 function alpha($value): string
 {
@@ -19,7 +19,7 @@ function alpha($value): string
 /**
  * @psalm-pure
  *
- * @psalm-param mixed $value
+ * @param mixed $value
  */
 function nullOrAlpha($value): ?string
 {
@@ -31,11 +31,11 @@ function nullOrAlpha($value): ?string
 /**
  * @psalm-pure
  *
- * @psalm-param mixed $value
+ * @param mixed $value
  *
- * @psalm-return iterable<string>
+ * @return iterable<string>
  */
-function allAlpha($value)
+function allAlpha($value): iterable
 {
     Assert::allAlpha($value);
 

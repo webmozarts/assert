@@ -20,8 +20,6 @@ function boolean($value): bool
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return bool|null
  */
 function nullOrBoolean($value): ?bool
 {
@@ -37,7 +35,7 @@ function nullOrBoolean($value): ?bool
  *
  * @return iterable<bool>
  */
-function allBoolean($value)
+function allBoolean($value): iterable
 {
     Assert::allBoolean($value);
 
