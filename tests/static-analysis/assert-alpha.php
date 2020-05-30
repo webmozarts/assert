@@ -36,8 +36,10 @@ function nullOrAlpha($value)
  * @psalm-pure
  *
  * @param mixed $value
+ *
+ * @return mixed
  */
-function allAlpha($value): iterable
+function allAlpha($value)
 {
     Assert::allAlpha($value);
 
