@@ -7,13 +7,41 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @psalm-param mixed $value
+ * @param mixed $value
  *
- * @psalm-return non-empty-list<mixed>
+ * @return non-empty-list<mixed>
  */
-function consume($value): array
+function isNonEmptyList($value): array
 {
     Assert::isNonEmptyList($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|non-empty-list<mixed>
+ */
+function nullOrIsNonEmptyList($value): ?array
+{
+    Assert::nullOrIsNonEmptyList($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<non-empty-list<mixed>>
+ */
+function allIsNonEmptyList($value): iterable
+{
+    Assert::allIsNonEmptyList($value);
 
     return $value;
 }

@@ -1813,8 +1813,7 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert list $array
-     * @psalm-assert !empty $array
+     * @psalm-assert non-empty-list $array
      *
      * @param mixed  $array
      * @param string $message

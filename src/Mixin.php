@@ -1855,6 +1855,7 @@ interface Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert null|non-empty-list $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1865,6 +1866,7 @@ interface Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<non-empty-list> $array
      *
      * @param mixed  $array
      * @param string $message
