@@ -6,11 +6,42 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
  * @param mixed $value
+ *
+ * @return false
  */
-function consume($value): bool
+function false($value): bool
 {
     Assert::false($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|false
+ */
+function nullOrFalse($value): ?bool
+{
+    Assert::nullOrFalse($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<false>
+ */
+function allFalse($value): iterable
+{
+    Assert::allFalse($value);
 
     return $value;
 }
