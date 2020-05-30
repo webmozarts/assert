@@ -28,7 +28,12 @@ function nullOrFileExists($value)
     return $value;
 }
 
-function allFileExists(iterable $value): iterable
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allFileExists($value)
 {
     Assert::allFileExists($value);
 

@@ -28,7 +28,12 @@ function nullOrDirectory($value)
     return $value;
 }
 
-function allDirectory(iterable $value): iterable
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allDirectory($value)
 {
     Assert::allDirectory($value);
 
