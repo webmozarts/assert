@@ -6,10 +6,6 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @psalm-param string $value
- *
- * @psalm-return string
  */
 function alnum(string $value): string
 {
@@ -20,10 +16,6 @@ function alnum(string $value): string
 
 /**
  * @psalm-pure
- *
- * @param string|null $value
- *
- * @return string|null
  */
 function nullOrAlnum(?string $value): ?string
 {

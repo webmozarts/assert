@@ -8,8 +8,6 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @psalm-param mixed $value
- *
- * @psalm-return string
  */
 function alpha($value): string
 {
@@ -22,8 +20,6 @@ function alpha($value): string
  * @psalm-pure
  *
  * @psalm-param mixed $value
- *
- * @psalm-return string|null
  */
 function nullOrAlpha($value): ?string
 {

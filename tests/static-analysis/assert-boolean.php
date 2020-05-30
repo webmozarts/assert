@@ -6,9 +6,10 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @param mixed $value
  */
-function consume($value): bool
+function boolean($value): bool
 {
     Assert::boolean($value);
 
@@ -17,10 +18,12 @@ function consume($value): bool
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @param mixed $value
+ *
  * @return bool|null
  */
-function consumeNullOr($value): ?bool
+function nullOrBoolean($value): ?bool
 {
     Assert::nullOrBoolean($value);
 
@@ -29,10 +32,12 @@ function consumeNullOr($value): ?bool
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
- * @psalm-return iterable<bool>
+ *
+ * @param mixed $value
+ *
+ * @return iterable<bool>
  */
-function consumeAll($value)
+function allBoolean($value)
 {
     Assert::allBoolean($value);
 
