@@ -1421,8 +1421,6 @@ interface Mixin
     public static function allLengthBetween($value, $min, $max, $message = '');
 
     /**
-     * @psalm-assert null|string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1431,8 +1429,6 @@ interface Mixin
     public static function nullOrFileExists($value, $message = '');
 
     /**
-     * @psalm-assert iterable<string> $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1457,8 +1453,6 @@ interface Mixin
     public static function allFile($value, $message = '');
 
     /**
-     * @psalm-assert null|string $value
-     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1467,8 +1461,6 @@ interface Mixin
     public static function nullOrDirectory($value, $message = '');
 
     /**
-     * @psalm-assert iterable<string> $value
-     *
      * @param mixed  $value
      * @param string $message
      *

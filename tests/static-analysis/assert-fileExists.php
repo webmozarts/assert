@@ -6,8 +6,10 @@ use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
+ *
+ * @return mixed
  */
-function fileExists($value): string
+function fileExists($value)
 {
     Assert::fileExists($value);
 

@@ -6,8 +6,10 @@ use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
+ *
+ * @return mixed
  */
-function directory($value): string
+function directory($value)
 {
     Assert::directory($value);
 
