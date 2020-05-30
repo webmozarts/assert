@@ -6,6 +6,7 @@
 
 namespace Webmozart\Assert;
 
+use ArrayAccess;
 use Countable;
 use InvalidArgumentException;
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Webmozart\Assert\Bin;
 
+use ArrayAccess;
 use Countable;
 use InvalidArgumentException;
 use ReflectionClass;
@@ -67,6 +68,7 @@ final class MixinGenerator
         $assert = new ReflectionClass(Assert::class);
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
+        $namespace .= sprintf("use %s;\n", ArrayAccess::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
         $namespace .= sprintf("use %s;\n", InvalidArgumentException::class);
         $namespace .= "\n";
