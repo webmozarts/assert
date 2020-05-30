@@ -1528,6 +1528,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert class-string $value
+     *
      * @param mixed  $value
      * @param string $message
      *

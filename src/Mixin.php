@@ -1547,6 +1547,8 @@ interface Mixin
     public static function allSubclassOf($value, $class, $message = '');
 
     /**
+     * @psalm-assert null|class-string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1555,6 +1557,8 @@ interface Mixin
     public static function nullOrInterfaceExists($value, $message = '');
 
     /**
+     * @psalm-assert iterable<class-string> $value
+     *
      * @param mixed  $value
      * @param string $message
      *
