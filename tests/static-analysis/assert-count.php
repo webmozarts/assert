@@ -34,7 +34,7 @@ function nullOrCount($value, int $number)
  *
  * @return iterable<Countable|array>
  */
-function allCount($value, int $number): iterable
+function allCount(iterable $value, int $number): iterable
 {
     Assert::allCount($value, $number);
 

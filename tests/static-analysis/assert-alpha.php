@@ -35,7 +35,7 @@ function nullOrAlpha($value): ?string
  *
  * @return iterable<string>
  */
-function allAlpha($value): iterable
+function allAlpha(iterable $value): iterable
 {
     Assert::allAlpha($value);
 

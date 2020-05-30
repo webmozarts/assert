@@ -31,7 +31,7 @@ function nullOrAlnum(?string $value): ?string
  *
  * @return iterable<string>
  */
-function allAllnum($value): iterable
+function allAllnum(iterable $value): iterable
 {
     Assert::allAlnum($value);
 

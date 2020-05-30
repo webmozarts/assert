@@ -66,8 +66,9 @@ final class MixinGenerator
         $assert = new ReflectionClass(Assert::class);
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
-        $namespace .= sprintf("use %s;\n\n", InvalidArgumentException::class);
-        $namespace .= sprintf("use %s;\n\n", Countable::class);
+        $namespace .= sprintf("use %s;\n", Countable::class);
+        $namespace .= sprintf("use %s;\n", InvalidArgumentException::class);
+        $namespace .= "\n";
 
         $namespace .= $this->interface($assert);
 

@@ -6,12 +6,43 @@ use Countable;
 use Webmozart\Assert\Assert;
 
 /**
+ * @param Countable|array $value
  * @param int|float $min
  * @param int|float $max
+ *
+ * @return Countable|array
  */
-function consume(Countable $value, $min, $max): Countable
+function countBetween($value, $min, $max)
 {
     Assert::countBetween($value, $min, $max);
+
+    return $value;
+}
+
+/**
+ * @param null|Countable|array $value
+ * @param int|float $min
+ * @param int|float $max
+ *
+ * @return null|Countable|array
+ */
+function nullOrCountBetween($value, $min, $max)
+{
+    Assert::nullOrCountBetween($value, $min, $max);
+
+    return $value;
+}
+
+/**
+ * @param iterable<Countable|array> $value
+ * @param int|float $min
+ * @param int|float $max
+ *
+ * @return iterable<Countable|array>
+ */
+function allCountBetween(iterable $value, $min, $max): iterable
+{
+    Assert::allCountBetween($value, $min, $max);
 
     return $value;
 }

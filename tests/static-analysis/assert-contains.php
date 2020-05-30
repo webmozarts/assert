@@ -31,7 +31,7 @@ function nullOrContains(?string $value, string $subString): ?string
  *
  * @return iterable<string>
  */
-function allContains($value, string $subString): iterable
+function allContains(iterable $value, string $subString): iterable
 {
     Assert::allContains($value, $subString);
 

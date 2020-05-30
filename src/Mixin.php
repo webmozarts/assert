@@ -6,9 +6,8 @@
 
 namespace Webmozart\Assert;
 
-use InvalidArgumentException;
-
 use Countable;
+use InvalidArgumentException;
 
 interface Mixin
 {

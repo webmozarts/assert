@@ -33,7 +33,7 @@ function nullOrClassExists($value): ?string
  *
  * @return iterable<class-string>
  */
-function allClassExists($value): iterable
+function allClassExists(iterable $value): iterable
 {
     Assert::allClassExists($value);
 
