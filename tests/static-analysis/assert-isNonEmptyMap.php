@@ -40,7 +40,7 @@ function consumeWithSpecificValueType(array $value): array
  *
  * @param array<int|string, \stdClass> $value
  *
- * @return non-empty-array
+ * @return non-empty-array<string, \stdClass>
  */
 function consumeWillProduceNonEmptyArray(array $value): array
 {

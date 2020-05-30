@@ -30,7 +30,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Webmozart\\Assert\\Tests\\": "tests/"
+            "Webmozart\\Assert\\Tests\\": "tests/",
+            "Webmozart\\Assert\\Bin\\": "bin/src"
         }
     }
 }
