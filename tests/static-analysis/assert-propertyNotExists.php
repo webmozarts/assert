@@ -6,13 +6,45 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param class-string|object $value
+ *
+ * @param class-string|object $classOrObject
+ * @param mixed $property
  *
  * @return class-string|object
  */
-function consume($value)
+function propertyNotExists($classOrObject, $property)
 {
-    Assert::propertyNotExists($value, 'foo');
+    Assert::propertyNotExists($classOrObject, $property);
 
-    return $value;
+    return $classOrObject;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param null|class-string|object $classOrObject
+ * @param mixed $property
+ *
+ * @return null|class-string|object
+ */
+function nullOrPropertyNotExists($classOrObject, $property)
+{
+    Assert::nullOrPropertyNotExists($classOrObject, $property);
+
+    return $classOrObject;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<class-string|object> $classOrObject
+ * @param mixed $property
+ *
+ * @return iterable<class-string|object>
+ */
+function allPropertyNotExists(iterable $classOrObject, $property): iterable
+{
+    Assert::allPropertyNotExists($classOrObject, $property);
+
+    return $classOrObject;
 }

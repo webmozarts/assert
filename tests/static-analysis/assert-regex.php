@@ -6,13 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume($value): string
+function regex(string $value, string $pattern): string
 {
-    Assert::regex($value, '/foo/');
+    Assert::regex($value, $pattern);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrRegex(?string $value, string $pattern): ?string
+{
+    Assert::nullOrRegex($value, $pattern);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allRegex(iterable $value, string $pattern): iterable
+{
+    Assert::allRegex($value, $pattern);
 
     return $value;
 }

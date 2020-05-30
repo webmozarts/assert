@@ -2,15 +2,47 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param \Exception|bool $value
+ *
+ * @param mixed $value
+ *
+ * @return scalar
  */
-function consume($value): bool
+function scalar($value)
 {
     Assert::scalar($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|scalar
+ */
+function nullOrScalar($value)
+{
+    Assert::nullOrScalar($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<scalar>
+ */
+function allScalar($value): iterable
+{
+    Assert::allScalar($value);
 
     return $value;
 }
