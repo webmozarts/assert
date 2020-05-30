@@ -5,13 +5,37 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-param non-empty-string $value
+ * @param mixed $value
  *
- * @return non-empty-string
+ * @return mixed
  */
-function consume(string $value): string
+function email($value)
 {
     Assert::email($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrEmail($value)
+{
+    Assert::nullOrEmail($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allEmail($value)
+{
+    Assert::allEmail($value);
 
     return $value;
 }
