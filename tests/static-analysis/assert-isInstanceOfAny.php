@@ -4,16 +4,47 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-final class IsInstanceOfAnyA {}
-final class IsInstanceOfAnyB {}
-
 /**
  * @psalm-pure
+ *
+ * @param mixed $value
+ * @param array<class-string> $classes
+ *
+ * @return mixed
  */
-function consume(object $value): object
+function isInstanceOfAny($value, array $classes)
 {
-    Assert::isInstanceOfAny($value, [IsInstanceOfAnyA::class, IsInstanceOfAnyB::class]);
+    Assert::isInstanceOfAny($value, $classes);
 
     return $value;
 }
 
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param array<class-string> $classes
+ *
+ * @return mixed
+ */
+function nullOrIsInstanceOfAny($value, array $classes)
+{
+    Assert::nullOrIsInstanceOfAny($value, $classes);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param array<class-string> $classes
+ *
+ * @return mixed
+ */
+function allIsInstanceOfAny($value, array $classes)
+{
+    Assert::allIsInstanceOfAny($value, $classes);
+
+    return $value;
+}
