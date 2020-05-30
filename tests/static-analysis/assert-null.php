@@ -6,11 +6,28 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @param mixed $value
+ *
  * @return null
  */
-function consume(?object $value)
+function null($value)
 {
     Assert::null($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<null>
+ */
+function allNull($value): iterable
+{
+    Assert::allNull($value);
 
     return $value;
 }

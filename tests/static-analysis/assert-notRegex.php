@@ -6,13 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume($value): string
+function notRegex(string $value, string $pattern): string
 {
-    Assert::notRegex($value, '/foo/');
+    Assert::notRegex($value, $pattern);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrNotRegex(?string $value, string $pattern): ?string
+{
+    Assert::nullOrNotRegex($value, $pattern);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allNotRegex(iterable $value, string $pattern): iterable
+{
+    Assert::allNotRegex($value, $pattern);
 
     return $value;
 }

@@ -9,11 +9,11 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  *
- * @return numeric
+ * @return mixed
  */
-function numeric($value)
+function inArray($value, array $values)
 {
-    Assert::numeric($value);
+    Assert::inArray($value, $values);
 
     return $value;
 }
@@ -23,11 +23,11 @@ function numeric($value)
  *
  * @param mixed $value
  *
- * @return null|numeric
+ * @return mixed
  */
-function nullOrNumeric($value)
+function nullOrInArray($value, array $values)
 {
-    Assert::nullOrNumeric($value);
+    Assert::nullOrInArray($value, $values);
 
     return $value;
 }
@@ -37,11 +37,11 @@ function nullOrNumeric($value)
  *
  * @param mixed $value
  *
- * @return iterable<numeric>
+ * @return mixed
  */
-function allNumeric($value): iterable
+function allInArray($value, array $values)
 {
-    Assert::allNumeric($value);
+    Assert::allInArray($value, $values);
 
     return $value;
 }
