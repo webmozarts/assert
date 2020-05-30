@@ -6,12 +6,12 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-template ExpectedType of object
+ * @psalm-template T of object
  *
  * @param mixed $value
- * @param class-string<ExpectedType> $interface
+ * @param class-string<T> $interface
  *
- * @return class-string<ExpectedType>
+ * @return class-string<T>
  */
 function implementsInterface($value, $interface): string
 {
@@ -22,12 +22,12 @@ function implementsInterface($value, $interface): string
 
 /**
  * @psalm-pure
- * @psalm-template ExpectedType of object
+ * @psalm-template T of object
  *
  * @param mixed $value
- * @param class-string<ExpectedType> $interface
+ * @param class-string<T> $interface
  *
- * @return null|class-string<ExpectedType>
+ * @return null|class-string<T>
  */
 function nullOrImplementsInterface($value, $interface): ?string
 {
@@ -38,12 +38,12 @@ function nullOrImplementsInterface($value, $interface): ?string
 
 /**
  * @psalm-pure
- * @psalm-template ExpectedType of object
+ * @psalm-template T of object
  *
  * @param mixed $value
- * @param class-string<ExpectedType> $interface
+ * @param class-string<T> $interface
  *
- * @return iterable<class-string<ExpectedType>>
+ * @return iterable<class-string<T>>
  */
 function allImplementsInterface($value, $interface): iterable
 {

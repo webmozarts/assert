@@ -6,12 +6,12 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-template ExpectedType of object
+ * @psalm-template T of object
  *
  * @param object|string $value
- * @param class-string<ExpectedType> $class
+ * @param class-string<T> $class
  *
- * @psalm-return class-string<ExpectedType>|ExpectedType
+ * @psalm-return class-string<T>|T
  */
 function isAOf($value, $class)
 {
@@ -22,12 +22,12 @@ function isAOf($value, $class)
 
 /**
  * @psalm-pure
- * @psalm-template ExpectedType of object
+ * @psalm-template T of object
  *
  * @param null|object|string $value
- * @param class-string<ExpectedType> $class
+ * @param class-string<T> $class
  *
- * @psalm-return null|class-string<ExpectedType>|ExpectedType
+ * @psalm-return null|class-string<T>|T
  */
 function nullOrIsAOf($value, $class)
 {
