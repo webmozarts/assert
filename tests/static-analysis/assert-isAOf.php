@@ -4,20 +4,50 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-interface IsAOfA
+/**
+ * @psalm-pure
+ * @psalm-template ExpectedType of object
+ *
+ * @param object|string $value
+ * @param class-string<ExpectedType> $class
+ *
+ * @psalm-return class-string<ExpectedType>|ExpectedType
+ */
+function isAOf($value, $class)
 {
+    Assert::isAOf($value, $class);
+
+    return $value;
 }
 
 /**
  * @psalm-pure
+ * @psalm-template ExpectedType of object
  *
- * @psalm-param string|object $value
+ * @param null|object|string $value
+ * @param class-string<ExpectedType> $class
  *
- * @psalm-return class-string<IsAOfA>|IsAOfA
+ * @psalm-return null|class-string<ExpectedType>|ExpectedType
  */
-function consume($value)
+function nullOrIsAOf($value, $class)
 {
-    Assert::isAOf($value, IsAOfA::class);
+    Assert::nullOrIsAOf($value, $class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-template T of object
+ *
+ * @param iterable<object|string> $value
+ * @param class-string<T> $class
+ *
+ * @return mixed
+ */
+function allIsAOf($value, $class)
+{
+    Assert::allIsAOf($value, $class);
 
     return $value;
 }

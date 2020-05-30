@@ -487,7 +487,6 @@ interface Mixin
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>> $value
      *
      * @param iterable<object|string> $value
      * @param string                  $class
