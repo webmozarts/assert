@@ -5,10 +5,41 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Countable;
 use Webmozart\Assert\Assert;
 
-/** @param int|float $min */
-function consume(Countable $value, $min): Countable
+/**
+ * @param Countable|array $array
+ * @param int|float $min
+ *
+ * @return Countable|array
+ */
+function minCount($array, $min)
 {
-    Assert::minCount($value, $min);
+    Assert::minCount($array, $min);
 
-    return $value;
+    return $array;
+}
+
+/**
+ * @param null|Countable|array $array
+ * @param int|float $min
+ *
+ * @return null|Countable|array
+ */
+function nullOrMinCount($array, $min)
+{
+    Assert::nullOrMinCount($array, $min);
+
+    return $array;
+}
+
+/**
+ * @param iterable<Countable|array> $array
+ * @param int|float $min
+ *
+ * @return iterable<Countable|array>
+ */
+function allMinCount($array, $min)
+{
+    Assert::allMinCount($array, $min);
+
+    return $array;
 }

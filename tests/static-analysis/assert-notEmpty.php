@@ -49,3 +49,32 @@ function notEmptyArray(array $value)
 
     return $value;
 }
+
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrNotEmpty($value)
+{
+    Assert::nullOrNotEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNotEmpty($value)
+{
+    Assert::allNotEmpty($value);
+
+    return $value;
+}
