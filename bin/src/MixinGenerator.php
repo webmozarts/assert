@@ -191,6 +191,16 @@ final class MixinGenerator
 
             $longestType = 0;
             $longestName = 0;
+
+            foreach ($values as $i => $value) {
+                $parts = $this->splitDocLine($value);
+                if ('param' === $key && isset($parts[1]) && '$value' === $parts[1] && 'mixed' !== $parts[0]) {
+                    $parts[0] = sprintf($typeTemplate, $parts[0]);
+
+                    $values[$i] = implode(' ', $parts);
+                }
+            }
+
             if ('param' === $key) {
                 [$longestType, $longestName] = $this->findLongestTypeAndName($values);
             }
@@ -251,7 +261,7 @@ final class MixinGenerator
     }
 
     /**
-     * @psalm-param list<string> $values
+     * @psalm-param array<int, string> $values
      * @psalm-return array{int, int}
      *
      * @param string[] $values
