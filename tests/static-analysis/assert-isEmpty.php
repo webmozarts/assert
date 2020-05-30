@@ -4,13 +4,12 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-
 /**
  * @psalm-pure
  *
  * @return null
  */
-function consumeNullableObject(?object $value)
+function isEmptyNullableObject(?object $value)
 {
     Assert::isEmpty($value);
 
@@ -22,7 +21,7 @@ function consumeNullableObject(?object $value)
  *
  * @return ""|"0"
  */
-function consumeString(string $value)
+function isEmptyString(string $value)
 {
     Assert::isEmpty($value);
 
@@ -34,7 +33,7 @@ function consumeString(string $value)
  *
  * @return (0)
  */
-function consumeInt(int $value)
+function isEmptyInt(int $value)
 {
     Assert::isEmpty($value);
 
@@ -46,7 +45,7 @@ function consumeInt(int $value)
  *
  * @return false
  */
-function consumeBool(bool $value)
+function isEmptyBool(bool $value)
 {
     Assert::isEmpty($value);
 
@@ -58,9 +57,37 @@ function consumeBool(bool $value)
  *
  * @return array<empty, empty>
  */
-function consumeArray(array $value)
+function isEmptyArray(array $value)
 {
     Assert::isEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|empty
+ */
+function nullOrIsEmpty($value)
+{
+    Assert::nullOrIsEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<empty>
+ */
+function allIsEmpty($value): iterable
+{
+    Assert::allIsEmpty($value);
 
     return $value;
 }
