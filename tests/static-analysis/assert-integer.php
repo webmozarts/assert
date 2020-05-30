@@ -6,11 +6,38 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @param mixed $value
  */
-function consume($value): int
+function integer($value): int
 {
     Assert::integer($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ */
+function nullOrInteger($value): ?int
+{
+    Assert::nullOrInteger($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<int>
+ */
+function allInteger($value): iterable
+{
+    Assert::allInteger($value);
 
     return $value;
 }
