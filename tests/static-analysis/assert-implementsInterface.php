@@ -4,42 +4,50 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-interface ImplementsInterfaceA
-{
-}
-
-interface ImplementsInterfaceB extends ImplementsInterfaceA
-{
-}
-
-interface ImplementsInterfaceC
-{
-}
-
 /**
- * @param mixed $value
- *
  * @psalm-pure
+ * @psalm-template ExpectedType of object
  *
- * @psalm-return class-string<ImplementsInterfaceA> $value
+ * @param mixed $value
+ * @param class-string<ExpectedType> $interface
+ *
+ * @return class-string<ExpectedType>
  */
-function consumeMixed($value): string
+function implementsInterface($value, $interface): string
 {
-    Assert::implementsInterface($value, ImplementsInterfaceA::class);
+    Assert::implementsInterface($value, $interface);
 
     return $value;
 }
 
 /**
  * @psalm-pure
+ * @psalm-template ExpectedType of object
  *
- * @psalm-param class-string<ImplementsInterfaceB>|class-string<ImplementsInterfaceC> $value
+ * @param mixed $value
+ * @param class-string<ExpectedType> $interface
  *
- * @psalm-return class-string<ImplementsInterfaceB> $value
+ * @return null|class-string<ExpectedType>
  */
-function consumeSubclass(string $value): string
+function nullOrImplementsInterface($value, $interface): ?string
 {
-    Assert::implementsInterface($value, ImplementsInterfaceB::class);
+    Assert::nullOrImplementsInterface($value, $interface);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-template ExpectedType of object
+ *
+ * @param mixed $value
+ * @param class-string<ExpectedType> $interface
+ *
+ * @return iterable<class-string<ExpectedType>>
+ */
+function allImplementsInterface($value, $interface): iterable
+{
+    Assert::allImplementsInterface($value, $interface);
 
     return $value;
 }
