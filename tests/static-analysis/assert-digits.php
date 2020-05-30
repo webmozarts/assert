@@ -6,14 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function digits(string $value): string
 {
     Assert::digits($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrDigits(?string $value): ?string
+{
+    Assert::nullOrDigits($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allDigits(iterable $value): iterable
+{
+    Assert::allDigits($value);
 
     return $value;
 }
