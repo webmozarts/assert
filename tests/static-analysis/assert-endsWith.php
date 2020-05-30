@@ -6,13 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume($value): string
+function endsWith(string $value, string $suffix): string
 {
-    Assert::endsWith($value, 'foo');
+    Assert::endsWith($value, $suffix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrEndsWith(?string $value, string $suffix): ?string
+{
+    Assert::nullOrEndsWith($value, $suffix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allEndsWith(iterable $value, string $suffix): iterable
+{
+    Assert::allEndsWith($value, $suffix);
 
     return $value;
 }
