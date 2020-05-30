@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  *
- * @psalm-return class-string
+ * @return class-string
  */
 function classExists($value): string
 {
@@ -19,7 +19,7 @@ function classExists($value): string
 /**
  * @param mixed $value
  *
- * @psalm-return class-string|null
+ * @return class-string|null
  */
 function nullOrClassExists($value): ?string
 {
@@ -31,7 +31,7 @@ function nullOrClassExists($value): ?string
 /**
  * @param mixed $value
  *
- * @psalm-return iterable<class-string>
+ * @return iterable<class-string>
  */
 function allClassExists($value): iterable
 {
