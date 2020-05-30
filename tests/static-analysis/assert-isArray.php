@@ -6,11 +6,38 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @param mixed $value
  */
-function consume($value): array
+function isArray($value): array
 {
     Assert::isArray($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ */
+function nullOrIsArray($value): ?array
+{
+    Assert::nullOrIsArray($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<array>
+ */
+function allIsArray($value): iterable
+{
+    Assert::allIsArray($value);
 
     return $value;
 }
