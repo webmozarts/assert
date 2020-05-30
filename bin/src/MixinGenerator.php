@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Webmozart\Assert\Bin;
 
+use Countable;
 use InvalidArgumentException;
 use ReflectionClass;
 use ReflectionException;
@@ -66,6 +67,7 @@ final class MixinGenerator
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
         $namespace .= sprintf("use %s;\n\n", InvalidArgumentException::class);
+        $namespace .= sprintf("use %s;\n\n", Countable::class);
 
         $namespace .= $this->interface($assert);
 
@@ -194,7 +196,7 @@ final class MixinGenerator
 
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
-                if ('param' === $key && isset($parts[1]) && '$value' === $parts[1] && 'mixed' !== $parts[0]) {
+                if ('param' === $key && isset($parts[1]) && ('$value' === $parts[1] || '$array' === $parts[1]) && 'mixed' !== $parts[0]) {
                     $parts[0] = sprintf($typeTemplate, $parts[0]);
 
                     $values[$i] = implode(' ', $parts);

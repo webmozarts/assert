@@ -8,6 +8,8 @@ namespace Webmozart\Assert;
 
 use InvalidArgumentException;
 
+use Countable;
+
 interface Mixin
 {
     /**
@@ -1690,7 +1692,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param array      $array
+     * @param null|array $array
      * @param string|int $key
      * @param string     $message
      *
@@ -1701,9 +1703,9 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param array      $array
-     * @param string|int $key
-     * @param string     $message
+     * @param iterable<array> $array
+     * @param string|int      $key
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
@@ -1712,7 +1714,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param array      $array
+     * @param null|array $array
      * @param string|int $key
      * @param string     $message
      *
@@ -1723,9 +1725,9 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param array      $array
-     * @param string|int $key
-     * @param string     $message
+     * @param iterable<array> $array
+     * @param string|int      $key
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
@@ -1754,74 +1756,74 @@ interface Mixin
     public static function allValidArrayKey($value, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int             $number
-     * @param string          $message
+     * @param null|Countable|array $array
+     * @param int                  $number
+     * @param string               $message
      *
      * @throws InvalidArgumentException
      */
     public static function nullOrCount($array, $number, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int             $number
-     * @param string          $message
+     * @param iterable<Countable|array> $array
+     * @param int                       $number
+     * @param string                    $message
      *
      * @throws InvalidArgumentException
      */
     public static function allCount($array, $number, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int|float       $min
-     * @param string          $message
+     * @param null|Countable|array $array
+     * @param int|float            $min
+     * @param string               $message
      *
      * @throws InvalidArgumentException
      */
     public static function nullOrMinCount($array, $min, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int|float       $min
-     * @param string          $message
+     * @param iterable<Countable|array> $array
+     * @param int|float                 $min
+     * @param string                    $message
      *
      * @throws InvalidArgumentException
      */
     public static function allMinCount($array, $min, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int|float       $max
-     * @param string          $message
+     * @param null|Countable|array $array
+     * @param int|float            $max
+     * @param string               $message
      *
      * @throws InvalidArgumentException
      */
     public static function nullOrMaxCount($array, $max, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int|float       $max
-     * @param string          $message
+     * @param iterable<Countable|array> $array
+     * @param int|float                 $max
+     * @param string                    $message
      *
      * @throws InvalidArgumentException
      */
     public static function allMaxCount($array, $max, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int|float       $min
-     * @param int|float       $max
-     * @param string          $message
+     * @param null|Countable|array $array
+     * @param int|float            $min
+     * @param int|float            $max
+     * @param string               $message
      *
      * @throws InvalidArgumentException
      */
     public static function nullOrCountBetween($array, $min, $max, $message = '');
 
     /**
-     * @param Countable|array $array
-     * @param int|float       $min
-     * @param int|float       $max
-     * @param string          $message
+     * @param iterable<Countable|array> $array
+     * @param int|float                 $min
+     * @param int|float                 $max
+     * @param string                    $message
      *
      * @throws InvalidArgumentException
      */
