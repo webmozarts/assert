@@ -5,13 +5,31 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-param non-empty-string $value
- *
- * @return non-empty-string
+ * @param mixed $value
  */
-function consume(string $value): string
+function directory($value): string
 {
     Assert::directory($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ */
+function nullOrDirectory($value): ?string
+{
+    Assert::nullOrDirectory($value);
+
+    return $value;
+}
+
+/**
+ * @return iterable<string>
+ */
+function allDirectory(iterable $value): iterable
+{
+    Assert::allDirectory($value);
 
     return $value;
 }

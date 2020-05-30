@@ -35,7 +35,7 @@ function nullOrBoolean($value): ?bool
  *
  * @return iterable<bool>
  */
-function allBoolean(iterable $value): iterable
+function allBoolean($value): iterable
 {
     Assert::allBoolean($value);
 
