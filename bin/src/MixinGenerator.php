@@ -36,7 +36,6 @@ final class MixinGenerator
         'allIsNonEmptyList',    // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
         'nullOrIsNonEmptyMap',  // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
         'allIsNonEmptyMap',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
-        'allIsAOf',             // may be a psalm bug (https://github.com/vimeo/psalm/issues/3491)
     ];
 
     /**

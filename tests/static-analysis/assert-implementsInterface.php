@@ -2,52 +2,47 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use Serializable;
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-template T of object
  *
  * @param mixed $value
- * @param class-string<T> $interface
  *
- * @return class-string<T>
+ * @return class-string<Serializable>
  */
-function implementsInterface($value, $interface): string
+function implementsInterface($value): string
 {
-    Assert::implementsInterface($value, $interface);
+    Assert::implementsInterface($value, Serializable::class);
 
     return $value;
 }
 
 /**
  * @psalm-pure
- * @psalm-template T of object
  *
  * @param mixed $value
- * @param class-string<T> $interface
  *
- * @return null|class-string<T>
+ * @return null|class-string<Serializable>
  */
-function nullOrImplementsInterface($value, $interface): ?string
+function nullOrImplementsInterface($value): ?string
 {
-    Assert::nullOrImplementsInterface($value, $interface);
+    Assert::nullOrImplementsInterface($value, Serializable::class);
 
     return $value;
 }
 
 /**
  * @psalm-pure
- * @psalm-template T of object
  *
  * @param mixed $value
- * @param class-string<T> $interface
  *
- * @return iterable<class-string<T>>
+ * @return iterable<class-string<Serializable>>
  */
-function allImplementsInterface($value, $interface): iterable
+function allImplementsInterface($value): iterable
 {
-    Assert::allImplementsInterface($value, $interface);
+    Assert::allImplementsInterface($value, Serializable::class);
 
     return $value;
 }

@@ -2,52 +2,47 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use Serializable;
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-template T of object
  *
  * @param object|string $value
- * @param class-string<T> $class
  *
- * @psalm-return class-string<T>|T
+ * @psalm-return class-string<Serializable>|Serializable
  */
-function isAOf($value, $class)
+function isAOf($value)
 {
-    Assert::isAOf($value, $class);
+    Assert::isAOf($value, Serializable::class);
 
     return $value;
 }
 
 /**
  * @psalm-pure
- * @psalm-template T of object
  *
  * @param null|object|string $value
- * @param class-string<T> $class
  *
- * @psalm-return null|class-string<T>|T
+ * @psalm-return null|class-string<Serializable>|Serializable
  */
-function nullOrIsAOf($value, $class)
+function nullOrIsAOf($value)
 {
-    Assert::nullOrIsAOf($value, $class);
+    Assert::nullOrIsAOf($value, Serializable::class);
 
     return $value;
 }
 
 /**
  * @psalm-pure
- * @psalm-template T of object
  *
  * @param iterable<object|string> $value
- * @param class-string<T> $class
  *
- * @return mixed
+ * @return iterable<class-string<Serializable>|Serializable>
  */
-function allIsAOf($value, $class)
+function allIsAOf($value)
 {
-    Assert::allIsAOf($value, $class);
+    Assert::allIsAOf($value, Serializable::class);
 
     return $value;
 }
