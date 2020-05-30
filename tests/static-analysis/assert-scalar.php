@@ -2,7 +2,6 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
-use stdClass;
 use Webmozart\Assert\Assert;
 
 /**

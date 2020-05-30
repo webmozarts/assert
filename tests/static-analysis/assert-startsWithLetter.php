@@ -6,13 +6,42 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
  *
- * @psalm-return non-empty-string
+ * @param mixed $value
+ *
+ * @return mixed
  */
-function consume($value): string
+function startsWithLetter($value, string $prefix)
 {
-    Assert::startsWithLetter($value);
+    Assert::startsWithLetter($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrStartsWithLetter($value, string $prefix)
+{
+    Assert::nullOrStartsWithLetter($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allStartsWithLetter($value, string $prefix)
+{
+    Assert::allStartsWithLetter($value, $prefix);
 
     return $value;
 }
