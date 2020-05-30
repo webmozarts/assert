@@ -8,8 +8,10 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
+ *
+ * @return mixed
  */
-function alpha($value): string
+function alpha($value)
 {
     Assert::alpha($value);
 
@@ -20,8 +22,10 @@ function alpha($value): string
  * @psalm-pure
  *
  * @param mixed $value
+ *
+ * @return mixed
  */
-function nullOrAlpha($value): ?string
+function nullOrAlpha($value)
 {
     Assert::nullOrAlpha($value);
 
@@ -32,8 +36,6 @@ function nullOrAlpha($value): ?string
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<string>
  */
 function allAlpha($value): iterable
 {

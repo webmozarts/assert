@@ -18,17 +18,16 @@ function directory($value)
 
 /**
  * @param mixed $value
+ *
+ * @return mixed
  */
-function nullOrDirectory($value): ?string
+function nullOrDirectory($value)
 {
     Assert::nullOrDirectory($value);
 
     return $value;
 }
 
-/**
- * @return iterable<string>
- */
 function allDirectory(iterable $value): iterable
 {
     Assert::allDirectory($value);

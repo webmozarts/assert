@@ -18,17 +18,16 @@ function fileExists($value)
 
 /**
  * @param mixed $value
+ *
+ * @return mixed
  */
-function nullOrFileExists($value): ?string
+function nullOrFileExists($value)
 {
     Assert::nullOrFileExists($value);
 
     return $value;
 }
 
-/**
- * @return iterable<string>
- */
 function allFileExists(iterable $value): iterable
 {
     Assert::allFileExists($value);

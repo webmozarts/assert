@@ -1191,7 +1191,6 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert string $value
      *
      * @param mixed  $value
      * @param string $message

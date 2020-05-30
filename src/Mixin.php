@@ -1228,7 +1228,6 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|string $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1239,7 +1238,6 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert iterable<string> $value
      *
      * @param mixed  $value
      * @param string $message
