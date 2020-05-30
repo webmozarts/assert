@@ -66,11 +66,11 @@ function nullOrIsMap($value): ?array
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param iterable<mixed|array<mixed>> $value
  *
  * @return iterable<array<string, mixed>>
  */
-function allIsMap($value): iterable
+function allIsMap(iterable $value): iterable
 {
     Assert::allIsMap($value);
 

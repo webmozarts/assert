@@ -197,7 +197,7 @@ final class MixinGenerator
 
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
-                if ('param' === $key && isset($parts[1]) && ('$value' === $parts[1] || '$array' === $parts[1]) && 'mixed' !== $parts[0]) {
+                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && ('$value' === $parts[1] || '$array' === $parts[1] || '$classOrObject' === $parts[1]) && 'mixed' !== $parts[0]) {
                     $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate);
 
                     $values[$i] = implode(' ', $parts);
@@ -258,7 +258,7 @@ final class MixinGenerator
     {
         $combinedType = sprintf($typeTemplate, $type);
 
-        if ($combinedType === 'null|empty') {
+        if ('null|empty' === $combinedType) {
             $combinedType = 'empty'; // @see https://github.com/vimeo/psalm/issues/3492
         }
 

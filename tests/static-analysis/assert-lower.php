@@ -6,11 +6,10 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
  *
- * @psalm-return lowercase-string
+ * @return lowercase-string
  */
-function consume(string $value): string
+function lower(string $value): string
 {
     Assert::lower($value);
 
@@ -19,13 +18,40 @@ function consume(string $value): string
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
  *
- * @psalm-return non-empty-string
+ * @param non-empty-string $value
+ *
+ * @return non-empty-string
  */
-function consumePreservesTypes(string $value): string
+function lowerPreservesTypes(string $value): string
 {
     Assert::lower($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @return null|lowercase-string
+ */
+function nullOrLower(?string $value): ?string
+{
+    Assert::nullOrLower($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<lowercase-string>
+ */
+function allLower(iterable $value): iterable
+{
+    Assert::allLower($value);
 
     return $value;
 }

@@ -1597,11 +1597,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param null|class-string|object $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $property
-     * @param string        $message
+     * @param null|string|object $classOrObject
+     * @param mixed              $property
+     * @param string             $message
      *
      * @throws InvalidArgumentException
      */
@@ -1609,11 +1609,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $property
-     * @param string        $message
+     * @param iterable<string|object> $classOrObject
+     * @param mixed                   $property
+     * @param string                  $message
      *
      * @throws InvalidArgumentException
      */
@@ -1621,11 +1621,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param null|class-string|object $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $property
-     * @param string        $message
+     * @param null|string|object $classOrObject
+     * @param mixed              $property
+     * @param string             $message
      *
      * @throws InvalidArgumentException
      */
@@ -1633,11 +1633,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $property
-     * @param string        $message
+     * @param iterable<string|object> $classOrObject
+     * @param mixed                   $property
+     * @param string                  $message
      *
      * @throws InvalidArgumentException
      */
@@ -1645,11 +1645,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param null|class-string|object $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $method
-     * @param string        $message
+     * @param null|string|object $classOrObject
+     * @param mixed              $method
+     * @param string             $message
      *
      * @throws InvalidArgumentException
      */
@@ -1657,11 +1657,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $method
-     * @param string        $message
+     * @param iterable<string|object> $classOrObject
+     * @param mixed                   $method
+     * @param string                  $message
      *
      * @throws InvalidArgumentException
      */
@@ -1669,11 +1669,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param null|class-string|object $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $method
-     * @param string        $message
+     * @param null|string|object $classOrObject
+     * @param mixed              $method
+     * @param string             $message
      *
      * @throws InvalidArgumentException
      */
@@ -1681,11 +1681,11 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param class-string|object $classOrObject
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
-     * @param string|object $classOrObject
-     * @param mixed         $method
-     * @param string        $message
+     * @param iterable<string|object> $classOrObject
+     * @param mixed                   $method
+     * @param string                  $message
      *
      * @throws InvalidArgumentException
      */
@@ -1878,7 +1878,7 @@ interface Mixin
     /**
      * @psalm-pure
      * @psalm-template T
-     * @psalm-param mixed|array<T> $array
+     * @psalm-param null|mixed|array<T> $array
      * @psalm-assert null|array<string, T> $array
      *
      * @param mixed  $array
@@ -1891,7 +1891,7 @@ interface Mixin
     /**
      * @psalm-pure
      * @psalm-template T
-     * @psalm-param mixed|array<T> $array
+     * @psalm-param iterable<mixed|array<T>> $array
      * @psalm-assert iterable<array<string, T>> $array
      *
      * @param mixed  $array
@@ -1904,7 +1904,7 @@ interface Mixin
     /**
      * @psalm-pure
      * @psalm-template T
-     * @psalm-param mixed|array<T> $array
+     * @psalm-param null|mixed|array<T> $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1916,7 +1916,7 @@ interface Mixin
     /**
      * @psalm-pure
      * @psalm-template T
-     * @psalm-param mixed|array<T> $array
+     * @psalm-param iterable<mixed|array<T>> $array
      *
      * @param mixed  $array
      * @param string $message
