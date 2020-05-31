@@ -201,7 +201,7 @@ final class MixinGenerator
 
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
-                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && $parts[1] === '$' . $parameters[0] && 'mixed' !== $parts[0]) {
+                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && $parts[1] === '$'.$parameters[0] && 'mixed' !== $parts[0]) {
                     $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate);
 
                     $values[$i] = implode(' ', $parts);
