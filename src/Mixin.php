@@ -7,8 +7,10 @@
 namespace Webmozart\Assert;
 
 use ArrayAccess;
+use Closure;
 use Countable;
 use InvalidArgumentException;
+use Throwable;
 
 interface Mixin
 {
@@ -740,16 +742,16 @@ interface Mixin
     public static function allEmail($value, $message = '');
 
     /**
-     * @param array  $values
-     * @param string $message
+     * @param null|array $values
+     * @param string     $message
      *
      * @throws InvalidArgumentException
      */
     public static function nullOrUniqueValues($values, $message = '');
 
     /**
-     * @param array  $values
-     * @param string $message
+     * @param iterable<array> $values
+     * @param string          $message
      *
      * @throws InvalidArgumentException
      */
@@ -1946,22 +1948,22 @@ interface Mixin
     public static function allUuid($value, $message = '');
 
     /**
-     * @psalm-param class-string<Throwable>
+     * @psalm-param class-string<Throwable> $class
      *
-     * @param Closure $expression
-     * @param string  $class
-     * @param string  $message
+     * @param null|Closure $expression
+     * @param string       $class
+     * @param string       $message
      *
      * @throws InvalidArgumentException
      */
     public static function nullOrThrows($expression, $class = 'Exception', $message = '');
 
     /**
-     * @psalm-param class-string<Throwable>
+     * @psalm-param class-string<Throwable> $class
      *
-     * @param Closure $expression
-     * @param string  $class
-     * @param string  $message
+     * @param iterable<Closure> $expression
+     * @param string            $class
+     * @param string            $message
      *
      * @throws InvalidArgumentException
      */

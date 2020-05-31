@@ -1894,7 +1894,7 @@ class Assert
     }
 
     /**
-     * @psalm-param class-string<Throwable>
+     * @psalm-param class-string<Throwable> $class
      *
      * @param Closure $expression
      * @param string  $class

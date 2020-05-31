@@ -2,21 +2,47 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use stdClass;
 use Webmozart\Assert\Assert;
 
-class SubclassOfA
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return class-string<stdClass>|stdClass
+ */
+function subclassOf($value)
 {
+    Assert::subclassOf($value, stdClass::class);
+
+    return $value;
 }
 
 /**
+ * @psalm-pure
+ *
  * @param mixed $value
  *
- * @psalm-pure
- * @psalm-return class-string<SubclassOfA>|SubclassOfA
+ * @return null|class-string<stdClass>|stdClass
  */
-function consumeMixed($value)
+function nullOrSubclassOf($value)
 {
-    Assert::subclassOf($value, SubclassOfA::class);
+    Assert::nullOrSubclassOf($value, stdClass::class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<class-string<stdClass>|stdClass>
+ */
+function allSubclassOf($value): iterable
+{
+    Assert::allSubclassOf($value, stdClass::class);
 
     return $value;
 }

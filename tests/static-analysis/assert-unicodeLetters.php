@@ -6,13 +6,42 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
  *
- * @psalm-return non-empty-string
+ * @param mixed $value
+ *
+ * @return mixed
  */
-function consume(string $value): string
+function unicodeLetters($value)
 {
     Assert::unicodeLetters($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrUnicodeLetters($value)
+{
+    Assert::nullOrUnicodeLetters($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allUnicodeLetters($value)
+{
+    Assert::allUnicodeLetters($value);
 
     return $value;
 }

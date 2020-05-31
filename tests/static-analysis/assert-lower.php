@@ -19,20 +19,6 @@ function lower(string $value): string
 /**
  * @psalm-pure
  *
- * @param non-empty-string $value
- *
- * @return non-empty-string
- */
-function lowerPreservesTypes(string $value): string
-{
-    Assert::lower($value);
-
-    return $value;
-}
-
-/**
- * @psalm-pure
- *
  * @return null|lowercase-string
  */
 function nullOrLower(?string $value): ?string

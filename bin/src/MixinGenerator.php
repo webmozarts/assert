@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Webmozart\Assert\Bin;
 
 use ArrayAccess;
+use Closure;
 use Countable;
 use InvalidArgumentException;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 use RuntimeException;
+use Throwable;
 use Webmozart\Assert\Assert;
 
 final class MixinGenerator
@@ -66,8 +68,10 @@ final class MixinGenerator
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
+        $namespace .= sprintf("use %s;\n", Closure::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
         $namespace .= sprintf("use %s;\n", InvalidArgumentException::class);
+        $namespace .= sprintf("use %s;\n", Throwable::class);
         $namespace .= "\n";
 
         $namespace .= $this->interface($assert);
@@ -197,7 +201,7 @@ final class MixinGenerator
 
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
-                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && ('$value' === $parts[1] || '$array' === $parts[1] || '$classOrObject' === $parts[1]) && 'mixed' !== $parts[0]) {
+                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && $parts[1] === '$' . $parameters[0] && 'mixed' !== $parts[0]) {
                     $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate);
 
                     $values[$i] = implode(' ', $parts);
