@@ -728,8 +728,8 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
-     * @param string      $message
+     * @param mixed  $value
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
@@ -738,8 +738,8 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param mixed  $value
+     * @param string $message
      *
      * @throws InvalidArgumentException
      */
