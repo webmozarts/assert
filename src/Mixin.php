@@ -726,6 +726,26 @@ interface Mixin
     public static function allIpv6($value, $message = '');
 
     /**
+     * @psalm-pure
+     *
+     * @param null|string $value
+     * @param string      $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrUrl($value, $message = '');
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string> $value
+     * @param string           $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allUrl($value, $message = '');
+
+    /**
      * @param mixed  $value
      * @param string $message
      *
