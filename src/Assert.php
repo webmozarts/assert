@@ -531,8 +531,8 @@ class Assert
         if (
             !\is_array($value)
             && !($value instanceof Countable)
-            && !($value instanceof ResourceBundle)
-            && !($value instanceof SimpleXMLElement)
+            && !(extension_loaded('intl') && $value instanceof ResourceBundle)
+            && !(extension_loaded('SimpleXML') && $value instanceof SimpleXMLElement)
         ) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a countable. Got: %s',
