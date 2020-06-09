@@ -5,13 +5,37 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-param non-empty-string $value
+ * @param mixed $value
  *
- * @return non-empty-string
+ * @return mixed
  */
-function consume(string $value): string
+function fileExists($value)
 {
     Assert::fileExists($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrFileExists($value)
+{
+    Assert::nullOrFileExists($value);
+
+    return $value;
+}
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allFileExists($value)
+{
+    Assert::allFileExists($value);
 
     return $value;
 }

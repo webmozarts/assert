@@ -27,188 +27,7 @@ use Traversable;
 /**
  * Efficient assertions to validate the input/output of your methods.
  *
- * @method static void nullOrString($value, $message = '')
- * @method static void nullOrStringNotEmpty($value, $message = '')
- * @method static void nullOrInteger($value, $message = '')
- * @method static void nullOrIntegerish($value, $message = '')
- * @method static void nullOrFloat($value, $message = '')
- * @method static void nullOrNumeric($value, $message = '')
- * @method static void nullOrNatural($value, $message = '')
- * @method static void nullOrBoolean($value, $message = '')
- * @method static void nullOrScalar($value, $message = '')
- * @method static void nullOrObject($value, $message = '')
- * @method static void nullOrResource($value, $type = null, $message = '')
- * @method static void nullOrIsCallable($value, $message = '')
- * @method static void nullOrIsArray($value, $message = '')
- * @method static void nullOrIsTraversable($value, $message = '')
- * @method static void nullOrIsArrayAccessible($value, $message = '')
- * @method static void nullOrIsCountable($value, $message = '')
- * @method static void nullOrIsIterable($value, $message = '')
- * @method static void nullOrIsInstanceOf($value, $class, $message = '')
- * @method static void nullOrNotInstanceOf($value, $class, $message = '')
- * @method static void nullOrIsInstanceOfAny($value, $classes, $message = '')
- * @method static void nullOrIsAOf($value, $classes, $message = '')
- * @method static void nullOrIsAnyOf($value, $classes, $message = '')
- * @method static void nullOrIsNotA($value, $classes, $message = '')
- * @method static void nullOrIsEmpty($value, $message = '')
- * @method static void nullOrNotEmpty($value, $message = '')
- * @method static void nullOrTrue($value, $message = '')
- * @method static void nullOrFalse($value, $message = '')
- * @method static void nullOrNotFalse($value, $message = '')
- * @method static void nullOrIp($value, $message = '')
- * @method static void nullOrIpv4($value, $message = '')
- * @method static void nullOrIpv6($value, $message = '')
- * @method static void nullOrEmail($value, $message = '')
- * @method static void nullOrUniqueValues($values, $message = '')
- * @method static void nullOrEq($value, $expect, $message = '')
- * @method static void nullOrNotEq($value, $expect, $message = '')
- * @method static void nullOrSame($value, $expect, $message = '')
- * @method static void nullOrNotSame($value, $expect, $message = '')
- * @method static void nullOrGreaterThan($value, $limit, $message = '')
- * @method static void nullOrGreaterThanEq($value, $limit, $message = '')
- * @method static void nullOrLessThan($value, $limit, $message = '')
- * @method static void nullOrLessThanEq($value, $limit, $message = '')
- * @method static void nullOrRange($value, $min, $max, $message = '')
- * @method static void nullOrOneOf($value, $values, $message = '')
- * @method static void nullOrInArray($value, $values, $message = '')
- * @method static void nullOrContains($value, $subString, $message = '')
- * @method static void nullOrNotContains($value, $subString, $message = '')
- * @method static void nullOrNotWhitespaceOnly($value, $message = '')
- * @method static void nullOrStartsWith($value, $prefix, $message = '')
- * @method static void nullOrNotStartsWith($value, $prefix, $message = '')
- * @method static void nullOrStartsWithLetter($value, $message = '')
- * @method static void nullOrEndsWith($value, $suffix, $message = '')
- * @method static void nullOrNotEndsWith($value, $suffix, $message = '')
- * @method static void nullOrRegex($value, $pattern, $message = '')
- * @method static void nullOrNotRegex($value, $pattern, $message = '')
- * @method static void nullOrUnicodeLetters($value, $message = '')
- * @method static void nullOrAlpha($value, $message = '')
- * @method static void nullOrDigits($value, $message = '')
- * @method static void nullOrAlnum($value, $message = '')
- * @method static void nullOrLower($value, $message = '')
- * @method static void nullOrUpper($value, $message = '')
- * @method static void nullOrLength($value, $length, $message = '')
- * @method static void nullOrMinLength($value, $min, $message = '')
- * @method static void nullOrMaxLength($value, $max, $message = '')
- * @method static void nullOrLengthBetween($value, $min, $max, $message = '')
- * @method static void nullOrFileExists($value, $message = '')
- * @method static void nullOrFile($value, $message = '')
- * @method static void nullOrDirectory($value, $message = '')
- * @method static void nullOrReadable($value, $message = '')
- * @method static void nullOrWritable($value, $message = '')
- * @method static void nullOrClassExists($value, $message = '')
- * @method static void nullOrSubclassOf($value, $class, $message = '')
- * @method static void nullOrInterfaceExists($value, $message = '')
- * @method static void nullOrImplementsInterface($value, $interface, $message = '')
- * @method static void nullOrPropertyExists($value, $property, $message = '')
- * @method static void nullOrPropertyNotExists($value, $property, $message = '')
- * @method static void nullOrMethodExists($value, $method, $message = '')
- * @method static void nullOrMethodNotExists($value, $method, $message = '')
- * @method static void nullOrKeyExists($value, $key, $message = '')
- * @method static void nullOrKeyNotExists($value, $key, $message = '')
- * @method static void nullOrValidArrayKey($value, $message = '')
- * @method static void nullOrCount($value, $key, $message = '')
- * @method static void nullOrMinCount($value, $min, $message = '')
- * @method static void nullOrMaxCount($value, $max, $message = '')
- * @method static void nullOrIsList($value, $message = '')
- * @method static void nullOrIsNonEmptyList($value, $message = '')
- * @method static void nullOrIsMap($value, $message = '')
- * @method static void nullOrIsNonEmptyMap($value, $message = '')
- * @method static void nullOrCountBetween($value, $min, $max, $message = '')
- * @method static void nullOrUuid($values, $message = '')
- * @method static void nullOrThrows($expression, $class = 'Exception', $message = '')
- * @method static void allString($values, $message = '')
- * @method static void allStringNotEmpty($values, $message = '')
- * @method static void allInteger($values, $message = '')
- * @method static void allIntegerish($values, $message = '')
- * @method static void allFloat($values, $message = '')
- * @method static void allNumeric($values, $message = '')
- * @method static void allNatural($values, $message = '')
- * @method static void allBoolean($values, $message = '')
- * @method static void allScalar($values, $message = '')
- * @method static void allObject($values, $message = '')
- * @method static void allResource($values, $type = null, $message = '')
- * @method static void allIsCallable($values, $message = '')
- * @method static void allIsArray($values, $message = '')
- * @method static void allIsTraversable($values, $message = '')
- * @method static void allIsArrayAccessible($values, $message = '')
- * @method static void allIsCountable($values, $message = '')
- * @method static void allIsIterable($values, $message = '')
- * @method static void allIsInstanceOf($values, $class, $message = '')
- * @method static void allNotInstanceOf($values, $class, $message = '')
- * @method static void allIsInstanceOfAny($values, $classes, $message = '')
- * @method static void allIsAOf($values, $class, $message = '')
- * @method static void allIsAnyOf($values, $class, $message = '')
- * @method static void allIsNotA($values, $class, $message = '')
- * @method static void allNull($values, $message = '')
- * @method static void allNotNull($values, $message = '')
- * @method static void allIsEmpty($values, $message = '')
- * @method static void allNotEmpty($values, $message = '')
- * @method static void allTrue($values, $message = '')
- * @method static void allFalse($values, $message = '')
- * @method static void allNotFalse($values, $message = '')
- * @method static void allIp($values, $message = '')
- * @method static void allIpv4($values, $message = '')
- * @method static void allIpv6($values, $message = '')
- * @method static void allEmail($values, $message = '')
- * @method static void allUniqueValues($values, $message = '')
- * @method static void allEq($values, $expect, $message = '')
- * @method static void allNotEq($values, $expect, $message = '')
- * @method static void allSame($values, $expect, $message = '')
- * @method static void allNotSame($values, $expect, $message = '')
- * @method static void allGreaterThan($values, $limit, $message = '')
- * @method static void allGreaterThanEq($values, $limit, $message = '')
- * @method static void allLessThan($values, $limit, $message = '')
- * @method static void allLessThanEq($values, $limit, $message = '')
- * @method static void allRange($values, $min, $max, $message = '')
- * @method static void allOneOf($values, $values, $message = '')
- * @method static void allInArray($values, $values, $message = '')
- * @method static void allContains($values, $subString, $message = '')
- * @method static void allNotContains($values, $subString, $message = '')
- * @method static void allNotWhitespaceOnly($values, $message = '')
- * @method static void allStartsWith($values, $prefix, $message = '')
- * @method static void allNotStartsWith($values, $prefix, $message = '')
- * @method static void allStartsWithLetter($values, $message = '')
- * @method static void allEndsWith($values, $suffix, $message = '')
- * @method static void allNotEndsWith($values, $suffix, $message = '')
- * @method static void allRegex($values, $pattern, $message = '')
- * @method static void allNotRegex($values, $pattern, $message = '')
- * @method static void allUnicodeLetters($values, $message = '')
- * @method static void allAlpha($values, $message = '')
- * @method static void allDigits($values, $message = '')
- * @method static void allAlnum($values, $message = '')
- * @method static void allLower($values, $message = '')
- * @method static void allUpper($values, $message = '')
- * @method static void allLength($values, $length, $message = '')
- * @method static void allMinLength($values, $min, $message = '')
- * @method static void allMaxLength($values, $max, $message = '')
- * @method static void allLengthBetween($values, $min, $max, $message = '')
- * @method static void allFileExists($values, $message = '')
- * @method static void allFile($values, $message = '')
- * @method static void allDirectory($values, $message = '')
- * @method static void allReadable($values, $message = '')
- * @method static void allWritable($values, $message = '')
- * @method static void allClassExists($values, $message = '')
- * @method static void allSubclassOf($values, $class, $message = '')
- * @method static void allInterfaceExists($values, $message = '')
- * @method static void allImplementsInterface($values, $interface, $message = '')
- * @method static void allPropertyExists($values, $property, $message = '')
- * @method static void allPropertyNotExists($values, $property, $message = '')
- * @method static void allMethodExists($values, $method, $message = '')
- * @method static void allMethodNotExists($values, $method, $message = '')
- * @method static void allKeyExists($values, $key, $message = '')
- * @method static void allKeyNotExists($values, $key, $message = '')
- * @method static void allValidArrayKey($values, $message = '')
- * @method static void allCount($values, $key, $message = '')
- * @method static void allMinCount($values, $min, $message = '')
- * @method static void allMaxCount($values, $max, $message = '')
- * @method static void allCountBetween($values, $min, $max, $message = '')
- * @method static void allIsList($values, $message = '')
- * @method static void allIsNonEmptyList($values, $message = '')
- * @method static void allIsMap($values, $message = '')
- * @method static void allIsNonEmptyMap($values, $message = '')
- * @method static void allUuid($values, $message = '')
- * @method static void allThrows($expressions, $class = 'Exception', $message = '')
+ * @mixin Mixin
  *
  * @since  1.0
  *
@@ -237,8 +56,7 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert string $value
-     * @psalm-assert !empty $value
+     * @psalm-assert non-empty-string $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1710,6 +1528,8 @@ class Assert
     }
 
     /**
+     * @psalm-assert class-string $value
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1993,8 +1813,7 @@ class Assert
 
     /**
      * @psalm-pure
-     * @psalm-assert list $array
-     * @psalm-assert !empty $array
+     * @psalm-assert non-empty-list $array
      *
      * @param mixed  $array
      * @param string $message
@@ -2075,7 +1894,7 @@ class Assert
     }
 
     /**
-     * @psalm-param class-string<Throwable>
+     * @psalm-param class-string<Throwable> $class
      *
      * @param Closure $expression
      * @param string  $class

@@ -2,17 +2,47 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use ArrayAccess;
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
  *
- * @return array|\ArrayAccess
+ * @param mixed $value
+ *
+ * @return array|ArrayAccess
  */
-function consume($value)
+function isArrayAccessible($value)
 {
     Assert::isArrayAccessible($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|array|ArrayAccess
+ */
+function nullOrIsArrayAccessible($value)
+{
+    Assert::nullOrIsArrayAccessible($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<array|ArrayAccess>
+ */
+function allIsArrayAccessible($value): iterable
+{
+    Assert::allIsArrayAccessible($value);
 
     return $value;
 }

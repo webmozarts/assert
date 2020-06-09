@@ -6,13 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function startsWith(string $value, string $prefix): string
 {
-    Assert::startsWith($value, 'foo');
+    Assert::startsWith($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrStartsWith(?string $value, string $prefix): ?string
+{
+    Assert::nullOrStartsWith($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allStartsWith(iterable $value, string $prefix): iterable
+{
+    Assert::allStartsWith($value, $prefix);
 
     return $value;
 }

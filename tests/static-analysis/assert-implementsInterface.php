@@ -2,30 +2,19 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use Serializable;
 use Webmozart\Assert\Assert;
 
-interface ImplementsInterfaceA
-{
-}
-
-interface ImplementsInterfaceB extends ImplementsInterfaceA
-{
-}
-
-interface ImplementsInterfaceC
-{
-}
-
 /**
- * @param mixed $value
- *
  * @psalm-pure
  *
- * @psalm-return class-string<ImplementsInterfaceA> $value
+ * @param mixed $value
+ *
+ * @return class-string<Serializable>
  */
-function consumeMixed($value): string
+function implementsInterface($value): string
 {
-    Assert::implementsInterface($value, ImplementsInterfaceA::class);
+    Assert::implementsInterface($value, Serializable::class);
 
     return $value;
 }
@@ -33,13 +22,27 @@ function consumeMixed($value): string
 /**
  * @psalm-pure
  *
- * @psalm-param class-string<ImplementsInterfaceB>|class-string<ImplementsInterfaceC> $value
+ * @param mixed $value
  *
- * @psalm-return class-string<ImplementsInterfaceB> $value
+ * @return null|class-string<Serializable>
  */
-function consumeSubclass(string $value): string
+function nullOrImplementsInterface($value): ?string
 {
-    Assert::implementsInterface($value, ImplementsInterfaceB::class);
+    Assert::nullOrImplementsInterface($value, Serializable::class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<class-string<Serializable>>
+ */
+function allImplementsInterface($value): iterable
+{
+    Assert::allImplementsInterface($value, Serializable::class);
 
     return $value;
 }

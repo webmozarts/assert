@@ -6,16 +6,42 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
  *
  * @param int|float $min
  * @param int|float $max
- *
- * @psalm-return non-empty-string
  */
-function consume(string $value, $min, $max): string
+function lengthBetween(string $value, $min, $max): string
 {
     Assert::lengthBetween($value, $min, $max);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param int|float $min
+ * @param int|float $max
+ */
+function nullOrLengthBetween(?string $value, $min, $max): ?string
+{
+    Assert::nullOrLengthBetween($value, $min, $max);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ * @param int|float $min
+ * @param int|float $max
+ *
+ * @return iterable<string>
+ */
+function allLengthBetween(iterable $value, $min, $max): iterable
+{
+    Assert::allLengthBetween($value, $min, $max);
 
     return $value;
 }

@@ -6,14 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function alnum(string $value): string
 {
     Assert::alnum($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrAlnum(?string $value): ?string
+{
+    Assert::nullOrAlnum($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allAllnum(iterable $value): iterable
+{
+    Assert::allAlnum($value);
 
     return $value;
 }

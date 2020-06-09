@@ -7,9 +7,33 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function consume(string $value): string
+function notWhitespaceOnly(string $value): string
 {
     Assert::notWhitespaceOnly($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrNotWhitespaceOnly(?string $value): ?string
+{
+    Assert::nullOrNotWhitespaceOnly($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allNotWhitespaceOnly(iterable $value): iterable
+{
+    Assert::allNotWhitespaceOnly($value);
 
     return $value;
 }

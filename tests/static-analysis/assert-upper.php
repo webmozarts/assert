@@ -6,13 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function upper(string $value): string
 {
     Assert::upper($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrUpper(?string $value): ?string
+{
+    Assert::nullOrUpper($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allUpper(iterable $value): iterable
+{
+    Assert::allUpper($value);
 
     return $value;
 }

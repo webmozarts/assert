@@ -6,13 +6,45 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param class-string|object $value
+ *
+ * @param class-string|object $classOrObject
+ * @param mixed $method
  *
  * @return class-string|object
  */
-function consume($value)
+function methodNotExists($classOrObject, $method)
 {
-    Assert::methodNotExists($value, 'foo');
+    Assert::methodNotExists($classOrObject, $method);
 
-    return $value;
+    return $classOrObject;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param null|class-string|object $classOrObject
+ * @param mixed $method
+ *
+ * @return null|class-string|object
+ */
+function nullOrMethodNotExists($classOrObject, $method)
+{
+    Assert::nullOrMethodNotExists($classOrObject, $method);
+
+    return $classOrObject;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<class-string|object> $classOrObject
+ * @param mixed $method
+ *
+ * @return iterable<class-string|object>
+ */
+function allMethodNotExists(iterable $classOrObject, $method): iterable
+{
+    Assert::allMethodNotExists($classOrObject, $method);
+
+    return $classOrObject;
 }

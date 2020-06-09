@@ -7,9 +7,33 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function consume(string $value): string
+function contains(string $value, string $subString): string
 {
-    Assert::contains($value, 'foo');
+    Assert::contains($value, $subString);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrContains(?string $value, string $subString): ?string
+{
+    Assert::nullOrContains($value, $subString);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allContains(iterable $value, string $subString): iterable
+{
+    Assert::allContains($value, $subString);
 
     return $value;
 }

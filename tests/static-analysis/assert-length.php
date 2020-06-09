@@ -6,13 +6,34 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
- *
- * @psalm-return non-empty-string
  */
-function consume(string $value): string
+function length(string $value, int $length): string
 {
-    Assert::length($value, 0);
+    Assert::length($value, $length);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrLength(?string $value, int $length): ?string
+{
+    Assert::nullOrLength($value, $length);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ *
+ * @return iterable<string>
+ */
+function allLength(iterable $value, int $length): iterable
+{
+    Assert::allLength($value, $length);
 
     return $value;
 }

@@ -2,16 +2,43 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
-use stdClass;
+use Serializable;
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
  * @param mixed $value
  */
-function consume($value) : stdClass
+function isInstanceOf($value): Serializable
 {
-    Assert::isInstanceOf($value, stdClass::class);
+    Assert::isInstanceOf($value, Serializable::class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ */
+function nullOrIsInstanceOf($value): ?Serializable
+{
+    Assert::nullOrIsInstanceOf($value, Serializable::class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<Serializable>
+ */
+function allIsInstanceOf($value): iterable
+{
+    Assert::allIsInstanceOf($value, Serializable::class);
 
     return $value;
 }

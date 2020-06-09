@@ -6,10 +6,45 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $expect
+ *
+ * @return mixed
  */
-function consume(string $value): string
+function notSame($value, $expect)
 {
-    Assert::notSame($value, 'foo');
+    Assert::notSame($value, $expect);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $expect
+ *
+ * @return mixed
+ */
+function nullOrNotSame($value, $expect)
+{
+    Assert::nullOrNotSame($value, $expect);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $expect
+ *
+ * @return mixed
+ */
+function allNotSame($value, $expect)
+{
+    Assert::allNotSame($value, $expect);
 
     return $value;
 }

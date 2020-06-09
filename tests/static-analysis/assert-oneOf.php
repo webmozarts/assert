@@ -6,10 +6,42 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
  */
-function consume(string $value): string
+function oneOf($value, array $values)
 {
-    Assert::oneOf($value, ['foo', 'bar']);
+    Assert::oneOf($value, $values);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrOneOf($value, array $values)
+{
+    Assert::nullOrOneOf($value, $values);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allOneOf($value, array $values)
+{
+    Assert::allOneOf($value, $values);
 
     return $value;
 }

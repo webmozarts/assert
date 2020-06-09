@@ -6,15 +6,39 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param non-empty-string $value
  *
- * @param int|float $minLength
- *
- * @psalm-return non-empty-string
+ * @param int|float $min
  */
-function consume(string $value, $minLength): string
+function minLength(string $value, $min): string
 {
-    Assert::minLength($value, $minLength);
+    Assert::minLength($value, $min);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param int|float $min
+ */
+function nullOrMinLength(?string $value, $min): ?string
+{
+    Assert::nullOrMinLength($value, $min);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ * @param int|float $min
+ *
+ * @return iterable<string>
+ */
+function allMinLength(iterable $value, $min): iterable
+{
+    Assert::allMinLength($value, $min);
 
     return $value;
 }

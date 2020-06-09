@@ -6,13 +6,42 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
  *
- * @psalm-return numeric
+ * @param mixed $value
+ *
+ * @return numeric
  */
-function consume($value)
+function numeric($value)
 {
     Assert::numeric($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|numeric
+ */
+function nullOrNumeric($value)
+{
+    Assert::nullOrNumeric($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<numeric>
+ */
+function allNumeric($value): iterable
+{
+    Assert::allNumeric($value);
 
     return $value;
 }

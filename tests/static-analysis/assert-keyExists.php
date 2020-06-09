@@ -6,14 +6,39 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @param non-empty-array $array
+ *
+ * @param array-key $key
+ */
+function keyExists(array $array, $key): array
+{
+    Assert::keyExists($array, $key);
+
+    return $array;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param array-key $key
+ */
+function nullOrKeyExists(?array $array, $key): ?array
+{
+    Assert::nullOrKeyExists($array, $key);
+
+    return $array;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<array> $array
  * @param array-key $key
  *
- * @return non-empty-array
+ * @return iterable<array>
  */
-function consume(array $array, $key): array
+function allKeyExists(iterable $array, $key): iterable
 {
-    Assert::keyExists($array, 'key');
+    Assert::allKeyExists($array, $key);
 
     return $array;
 }

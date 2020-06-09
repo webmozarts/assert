@@ -2,22 +2,47 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use Serializable;
 use Webmozart\Assert\Assert;
 
-interface IsAOfA
+/**
+ * @psalm-pure
+ *
+ * @param object|string $value
+ *
+ * @psalm-return class-string<Serializable>|Serializable
+ */
+function isAOf($value)
 {
+    Assert::isAOf($value, Serializable::class);
+
+    return $value;
 }
 
 /**
  * @psalm-pure
  *
- * @psalm-param string|object $value
+ * @param null|object|string $value
  *
- * @psalm-return class-string<IsAOfA>|IsAOfA
+ * @psalm-return null|class-string<Serializable>|Serializable
  */
-function consume($value)
+function nullOrIsAOf($value)
 {
-    Assert::isAOf($value, IsAOfA::class);
+    Assert::nullOrIsAOf($value, Serializable::class);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<object|string> $value
+ *
+ * @return iterable<class-string<Serializable>|Serializable>
+ */
+function allIsAOf($value)
+{
+    Assert::allIsAOf($value, Serializable::class);
 
     return $value;
 }

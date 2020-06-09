@@ -6,11 +6,38 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @param mixed $value
  */
-function consume($value): iterable
+function isIterable($value): iterable
 {
     Assert::isIterable($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ */
+function nullOrIsIterable($value): ?iterable
+{
+    Assert::nullOrIsIterable($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<iterable>
+ */
+function allIsIterable($value): iterable
+{
+    Assert::allIsIterable($value);
 
     return $value;
 }

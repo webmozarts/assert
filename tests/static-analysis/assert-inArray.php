@@ -9,11 +9,11 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  *
- * @return array-key
+ * @return mixed
  */
-function validArrayKey($value)
+function inArray($value, array $values)
 {
-    Assert::validArrayKey($value);
+    Assert::inArray($value, $values);
 
     return $value;
 }
@@ -23,11 +23,11 @@ function validArrayKey($value)
  *
  * @param mixed $value
  *
- * @return null|array-key
+ * @return mixed
  */
-function nullOrValidArrayKey($value)
+function nullOrInArray($value, array $values)
 {
-    Assert::nullOrValidArrayKey($value);
+    Assert::nullOrInArray($value, $values);
 
     return $value;
 }
@@ -37,11 +37,11 @@ function nullOrValidArrayKey($value)
  *
  * @param mixed $value
  *
- * @return iterable<array-key>
+ * @return mixed
  */
-function allValidArrayKey($value): iterable
+function allInArray($value, array $values)
 {
-    Assert::allValidArrayKey($value);
+    Assert::allInArray($value, $values);
 
     return $value;
 }

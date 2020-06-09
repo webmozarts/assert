@@ -2,6 +2,7 @@
 
 namespace Webmozart\Assert\Tests;
 
+use Webmozart\Assert\Bin\MixinGenerator;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -12,13 +13,19 @@ class ProjectCodeTest extends BaseTestCase
 {
     private static $readmeContent;
     private static $assertDocComment;
+    private static $mixinMethodNames;
 
     public static function setUpBeforeClass()
     {
         self::$readmeContent = file_get_contents(__DIR__ . '/../README.md');
 
-        $rc = new ReflectionClass('\Webmozart\Assert\Assert');
+        $rc = new ReflectionClass('\Webmozart\Assert\Mixin');
         self::$assertDocComment = $rc->getDocComment();
+
+        self::$mixinMethodNames = array();
+        foreach ($rc->getMethods() as $method) {
+            self::$mixinMethodNames[] = $method->name;
+        }
     }
 
     /**
@@ -28,15 +35,21 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testHasNullOr($method)
     {
+        $fullMethodName = 'nullOr' . ucfirst($method);
+
         if ($method === 'notNull' || $method === 'null') {
             $this->addToAssertionCount(1);
             return;
         }
-        $correct = strpos( (string)self::$assertDocComment,'@method static void nullOr' . ucfirst($method));
+        $correct = strpos( (string)self::$assertDocComment,'@method static void ' . $fullMethodName);
+        if (!$correct) {
+            $correct = in_array($fullMethodName, self::$mixinMethodNames, true);
+        }
+
         if ($correct === false) {
             $this->fail(sprintf(
-                'All methods have a corresponding "nullOr" method, please add the "nullOr%s" method to the class level doc comment.',
-                ucfirst($method)
+                'All methods have a corresponding "nullOr" method, please add the "%s" method to the class level doc comment.',
+                $fullMethodName
             ));
         }
 
@@ -50,12 +63,17 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testHasAll($method)
     {
-        $correct = strpos((string) self::$assertDocComment,'@method static void all' . ucfirst($method));
+        $fullMethodName = 'all' . ucfirst($method);
+
+        $correct = strpos((string) self::$assertDocComment,'@method static void ' . $fullMethodName);
+        if (!$correct) {
+            $correct = in_array($fullMethodName, self::$mixinMethodNames, true);
+        }
 
         if ($correct === false) {
             $this->fail(sprintf(
-                'All methods have a corresponding "all" method, please add the "all%s" method to the class level doc comment.',
-                ucfirst($method)
+                'All methods have a corresponding "all" method, please add the "%s" method to the class level doc comment.',
+                $fullMethodName
             ));
         }
 
@@ -125,6 +143,22 @@ class ProjectCodeTest extends BaseTestCase
         $this->assertFileExists(
             __DIR__ . '/static-analysis/assert-'. $method->getName() . '.php'
         );
+    }
+
+    public function testMixinIsUpToDateVersion()
+    {
+        if (version_compare(PHP_VERSION, '7.2.0') < 0) {
+            $this->markTestSkipped('mixin generator is implemented using php 7.2 features');
+            return;
+        }
+
+        require_once __DIR__ . '/../bin/src/MixinGenerator.php';
+
+        $generator = new MixinGenerator();
+
+        $actual = file_get_contents(__DIR__ . '/../src/Mixin.php');
+
+        $this->assertEquals($generator->generate(), $actual, 'please regenerate Mixin with `php bin/generate.php` command in the project root');
     }
 
     /**

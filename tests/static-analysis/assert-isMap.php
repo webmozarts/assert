@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return array<string, mixed>
  */
-function consume($value): array
+function isMap($value): array
 {
     Assert::isMap($value);
 
@@ -27,7 +27,7 @@ function consume($value): array
  *
  * @return array<string, \stdClass>
  */
-function consumeWithSpecificValueType(array $value): array
+function isMapWithKnownType(array $value): array
 {
     Assert::isMap($value);
 
@@ -39,12 +39,40 @@ function consumeWithSpecificValueType(array $value): array
  *
  * @param array<int|string, mixed> $value
  *
- * @return array<string, mixed>
+ * @return array<empty, empty>
  */
-function consumeAllowsForEmptyArrays(array $value): array
+function isMapWithEmptyArray(array $value): array
 {
     Assert::isMap($value);
     Assert::isEmpty($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|array<string, mixed>
+ */
+function nullOrIsMap($value): ?array
+{
+    Assert::nullOrIsMap($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<mixed|array<mixed>> $value
+ *
+ * @return iterable<array<string, mixed>>
+ */
+function allIsMap(iterable $value): iterable
+{
+    Assert::allIsMap($value);
 
     return $value;
 }

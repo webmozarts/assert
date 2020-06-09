@@ -7,13 +7,41 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @psalm-param non-empty-string $value
+ * @param mixed $value
  *
- * @psalm-return non-empty-string
+ * @return mixed
  */
-function consume(string $value): string
+function alpha($value)
 {
     Assert::alpha($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrAlpha($value)
+{
+    Assert::nullOrAlpha($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allAlpha($value)
+{
+    Assert::allAlpha($value);
 
     return $value;
 }

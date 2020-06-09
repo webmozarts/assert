@@ -6,9 +6,10 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
+ *
+ * @param mixed $value
  */
-function consume($value): string
+function string($value): string
 {
     Assert::string($value);
 
@@ -17,15 +18,26 @@ function consume($value): string
 
 /**
  * @psalm-pure
- * @psalm-param mixed $value
  *
- * @see https://github.com/webmozart/assert/pull/160#issuecomment-564491986
- * @see https://github.com/vimeo/psalm/commit/4b715cdbffea19a7eab6f72482027d2dd358aab2
- * @see https://github.com/vimeo/psalm/issues/2456
+ * @param mixed $value
  */
-function consumeWillNotBeRedundantIfAssertingAndNotUsingEither($value): bool
+function nullOrString($value): ?string
 {
-    Assert::string($value);
+    Assert::nullOrString($value);
 
-    return true;
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<string>
+ */
+function allString($value): iterable
+{
+    Assert::allString($value);
+
+    return $value;
 }

@@ -9,9 +9,9 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  *
- * @return array<string, mixed>
+ * @return non-empty-array<string, mixed>
  */
-function consume($value): array
+function isNonEmptyMap($value): array
 {
     Assert::isNonEmptyMap($value);
 
@@ -27,24 +27,37 @@ function consume($value): array
  *
  * @return array<string, \stdClass>
  */
-function consumeWithSpecificValueType(array $value): array
+function isNonEmptyMapWithKnownType(array $value): array
 {
     Assert::isNonEmptyMap($value);
 
     return $value;
 }
 
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function nullOrIsNonEmptyMap($value)
+{
+    Assert::nullOrIsNonEmptyMap($value);
+
+    return $value;
+}
 
 /**
  * @psalm-pure
  *
- * @param array<int|string, \stdClass> $value
+ * @param iterable<mixed|array<mixed>> $value
  *
- * @return non-empty-array
+ * @return iterable<mixed|array<mixed>>
  */
-function consumeWillProduceNonEmptyArray(array $value): array
+function allIsNonEmptyMap(iterable $value): iterable
 {
-    Assert::isNonEmptyMap($value);
+    Assert::allIsNonEmptyMap($value);
 
     return $value;
 }

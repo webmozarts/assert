@@ -7,11 +7,11 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @psalm-param mixed $value
+ * @param mixed $value
  *
- * @psalm-return list<mixed>
+ * @return list<mixed>
  */
-function consume($value): array
+function isList($value): array
 {
     Assert::isList($value);
 
@@ -21,13 +21,41 @@ function consume($value): array
 /**
  * @psalm-pure
  *
- * @psalm-param array<\stdClass> $value
+ * @param array<\stdClass> $value
  *
- * @psalm-return list<\stdClass>
+ * @return list<\stdClass>
  */
-function consumeWithPreciseItemType(array $value): array
+function isListWithKnownType(array $value): array
 {
     Assert::isList($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return null|list<mixed>
+ */
+function nullOrIsList($value): ?array
+{
+    Assert::nullOrIsList($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<list<mixed>>
+ */
+function allIsList($value): iterable
+{
+    Assert::allIsList($value);
 
     return $value;
 }
