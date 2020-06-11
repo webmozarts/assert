@@ -5,8 +5,8 @@ Changelog
 
 ## 1.9.0
 
-* added better psalm support for `all*` & `nullOr*` methods
-  * These methods are now understood by psalm through a mixin. You may need a newer version of psalm in order to use this.
+* added better Psalm support for `all*` & `nullOr*` methods
+  * These methods are now understood by Psalm through a mixin. You may need a newer version of Psalm in order to use this.
 * added `@psalm-pure` annotation to `Assert::notFalse()`
 * added more `@psalm-assert` annotations where appropriate
 
@@ -66,8 +66,8 @@ If a non-empty variant is needed, use `isNonEmptyList` or `isNonEmptyMap`.
   * [#145](https://github.com/webmozart/assert/issues/145)
   * [#146](https://github.com/webmozart/assert/pull/146)
   * [#150](https://github.com/webmozart/assert/pull/150)
-* If you use psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict.
-If you don't use psalm, then this has no impact.
+* If you use Psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict.
+If you don't use Psalm, then this has no impact.
 
 ## 1.5.0 (2019-08-24)
 
