@@ -3,6 +3,20 @@ Changelog
 
 ## UNRELEASED
 
+## 1.9.0
+
+* added better Psalm support for `all*` & `nullOr*` methods
+  * These methods are now understood by Psalm through a mixin. You may need a newer version of Psalm in order to use this
+* added `@psalm-pure` annotation to `Assert::notFalse()`
+* added more `@psalm-assert` annotations where appropriate
+
+## Changed
+
+* the `all*` & `nullOr*` methods are now declared on an interface, instead of `@method` annotations.
+This interface is linked to the `Assert` class with a `@mixin` annotation. Most IDE's have supported this
+for a long time, and you should not lose any autocompletion capabilities. PHPStan has supported this since
+version `0.12.20`. This package is marked incompatbible (with a composer conflict) with phpstan version prior to that.
+If you do not use PHPStan than this does not matter.
 
 ## 1.8.0
 
@@ -52,8 +66,8 @@ If a non-empty variant is needed, use `isNonEmptyList` or `isNonEmptyMap`.
   * [#145](https://github.com/webmozart/assert/issues/145)
   * [#146](https://github.com/webmozart/assert/pull/146)
   * [#150](https://github.com/webmozart/assert/pull/150)
-* If you use psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict.
-If you don't use psalm, then this has no impact.
+* If you use Psalm, the minimum version needed is `3.6.0`. Which is enforced through a composer conflict.
+If you don't use Psalm, then this has no impact.
 
 ## 1.5.0 (2019-08-24)
 
