@@ -15,7 +15,7 @@ Changelog
 * the `all*` & `nullOr*` methods are now declared on an interface, instead of `@method` annotations.
 This interface is linked to the `Assert` class with a `@mixin` annotation. Most IDE's have supported this
 for a long time, and you should not lose any autocompletion capabilities. PHPStan has supported this since
-version `0.12.20`. This package is marked incompatbible (with a composer conflict) with phpstan version prior to that.
+version `0.12.20`. This package is marked incompatible (with a composer conflict) with phpstan version prior to that.
 If you do not use PHPStan than this does not matter.
 
 ## 1.8.0
