@@ -1620,7 +1620,7 @@ class Assert
      */
     public static function methodExists($classOrObject, $method, $message = '')
     {
-        if (!\method_exists($classOrObject, $method)) {
+        if (!(\is_string($classOrObject) || \is_object($classOrObject)) || !\method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the method %s to exist.',
                 static::valueToString($method)
@@ -1640,7 +1640,7 @@ class Assert
      */
     public static function methodNotExists($classOrObject, $method, $message = '')
     {
-        if (\method_exists($classOrObject, $method)) {
+        if ((\is_string($classOrObject) || \is_object($classOrObject)) && \method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the method %s to not exist.',
                 static::valueToString($method)
