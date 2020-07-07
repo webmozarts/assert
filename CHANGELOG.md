@@ -3,6 +3,12 @@ Changelog
 
 ## UNRELEASED
 
+## 1.9.1
+
+## Fixed
+
+* provisional support for PHP 8.0
+
 ## 1.9.0
 
 * added better Psalm support for `all*` & `nullOr*` methods
