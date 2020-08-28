@@ -104,6 +104,28 @@ interface Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert null|positive-int $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrPositiveInteger($value, $message = '');
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<positive-int> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allPositiveInteger($value, $message = '');
+
+    /**
+     * @psalm-pure
      * @psalm-assert float|null $value
      *
      * @param mixed  $value

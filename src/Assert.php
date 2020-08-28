@@ -109,6 +109,25 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-assert positive-int $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function positiveInteger($value, $message = '')
+    {
+        if (! (\is_int($value) && $value > 0)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a positive integer. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert float $value
      *
      * @param mixed  $value
