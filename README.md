@@ -111,6 +111,7 @@ Method                                                   | Description
 `isNotA($value, $class, $message = '')`                  | Check that a value is not of the class or has not one of its parents
 `isArrayAccessible($value, $message = '')`               | Check that a value can be accessed as an array
 `uniqueValues($values, $message = '')`                   | Check that the given array contains unique values
+`keysInteger($value, $message = '')`                     | Check that the given iterable contains only integer keys
 
 ### Comparison Assertions
 

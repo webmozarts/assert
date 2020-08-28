@@ -1760,6 +1760,32 @@ interface Mixin
     public static function allValidArrayKey($value, $message = '');
 
     /**
+     * @psalm-pure
+     * @psalm-template T
+     * @psalm-param iterable<T> $array
+     * @psalm-assert null|iterable<int, T> $array
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrKeysInteger($value, $message = '');
+
+    /**
+     * @psalm-pure
+     * @psalm-template T
+     * @psalm-param iterable<T> $array
+     * @psalm-assert iterable<iterable<int, T>> $array
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allKeysInteger($value, $message = '');
+
+    /**
      * @param null|Countable|array $array
      * @param int                  $number
      * @param string               $message

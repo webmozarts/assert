@@ -1708,6 +1708,23 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     * @psalm-template T
+     * @psalm-param iterable<T> $array
+     * @psalm-assert iterable<int, T> $array
+     *
+     * @param mixed $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function keysInteger($value, $message = '')
+    {
+        static::isIterable($value, $message);
+        static::allInteger(array_keys(is_array($value) ? $value : iterator_to_array($value)), $message);
+    }
+
+    /**
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
