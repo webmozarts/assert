@@ -1881,7 +1881,7 @@ class Assert
     public static function isMapWithNonEmptyKeys($array, $message = '')
     {
         static::isMap($array, $message);
-        static::allStringNotEmpty(array_keys($array));
+        static::allStringNotEmpty(array_keys($array), $message);
     }
 
     /**
