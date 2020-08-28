@@ -1869,6 +1869,23 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-template T
+     * @psalm-param mixed|array<T> $array
+     * @psalm-assert array<non-empty-string, T> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isMapWithNonEmptyKeys($array, $message = '')
+    {
+        static::isMap($array, $message);
+        static::allStringNotEmpty(array_keys($array));
+    }
+
+    /**
+     * @psalm-pure
      *
      * @param string $value
      * @param string $message

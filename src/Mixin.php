@@ -1929,6 +1929,32 @@ interface Mixin
 
     /**
      * @psalm-pure
+     * @psalm-template T
+     * @psalm-param null|mixed|array<T> $array
+     * @psalm-assert null|array<non-empty-string, T> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrIsMapWithNonEmptyKeys($array, $message = '');
+
+    /**
+     * @psalm-pure
+     * @psalm-template T
+     * @psalm-param iterable<mixed|array<T>> $array
+     * @psalm-assert iterable<array<non-empty-string, T>> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allIsMapWithNonEmptyKeys($array, $message = '');
+
+    /**
+     * @psalm-pure
      *
      * @param null|string $value
      * @param string      $message
