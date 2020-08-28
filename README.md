@@ -206,7 +206,7 @@ Method                                             | Description
 `isNonEmptyList($array, $message = '')`            | Check that an array is a non-associative list, and not empty
 `isMap($array, $message = '')`                     | Check that an array is associative and has strings as keys
 `isNonEmptyMap($array, $message = '')`             | Check that an array is associative and has strings as keys, and is not empty
-`isMapWithNonEmptyKeys($array, $message = '')`     | Check that an array is associative and has strings as keys with atleast one character
+`isMapWithNonEmptyKeys($array, $message = '')`     | Check that an array is associative and has strings as keys with at least one character
 
 ### Function Assertions
 
