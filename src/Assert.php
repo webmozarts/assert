@@ -121,7 +121,7 @@ class Assert
         if (! (\is_int($value) && $value > 0)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a positive integer. Got: %s',
-                static::typeToString($value)
+                static::valueToString($value)
             ));
         }
     }
