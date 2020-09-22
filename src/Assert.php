@@ -33,7 +33,7 @@ use Traversable;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class Assert
+abstract class Assert
 {
     /**
      * @psalm-pure
