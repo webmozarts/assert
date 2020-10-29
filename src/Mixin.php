@@ -9,7 +9,6 @@ namespace Webmozart\Assert;
 use ArrayAccess;
 use Closure;
 use Countable;
-use InvalidArgumentException;
 use Throwable;
 
 interface Mixin

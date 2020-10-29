@@ -7,7 +7,6 @@ namespace Webmozart\Assert\Bin;
 use ArrayAccess;
 use Closure;
 use Countable;
-use InvalidArgumentException;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -70,7 +69,6 @@ final class MixinGenerator
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
         $namespace .= sprintf("use %s;\n", Closure::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
-        $namespace .= sprintf("use %s;\n", InvalidArgumentException::class);
         $namespace .= sprintf("use %s;\n", Throwable::class);
         $namespace .= "\n";
 
