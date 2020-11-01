@@ -16,7 +16,7 @@ interface Mixin
 {
     /**
      * @psalm-pure
-     * @psalm-assert null|string $value
+     * @psalm-assert string|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -38,7 +38,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|non-empty-string $value
+     * @psalm-assert non-empty-string|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -60,7 +60,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|int $value
+     * @psalm-assert int|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -82,7 +82,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|numeric $value
+     * @psalm-assert numeric|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -104,7 +104,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|float $value
+     * @psalm-assert float|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -126,7 +126,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|numeric $value
+     * @psalm-assert numeric|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -148,7 +148,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|int $value
+     * @psalm-assert int|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -170,7 +170,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|bool $value
+     * @psalm-assert bool|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -192,7 +192,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|scalar $value
+     * @psalm-assert scalar|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -214,7 +214,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|object $value
+     * @psalm-assert object|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -236,7 +236,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|resource $value
+     * @psalm-assert resource|null $value
      *
      * @param mixed       $value
      * @param string|null $type    type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
@@ -260,7 +260,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|callable $value
+     * @psalm-assert callable|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -282,7 +282,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|array $value
+     * @psalm-assert array|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -304,7 +304,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|iterable $value
+     * @psalm-assert iterable|null $value
      *
      * @deprecated use "isIterable" or "isInstanceOf" instead
      *
@@ -330,7 +330,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|array|ArrayAccess $value
+     * @psalm-assert array|ArrayAccess|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -352,7 +352,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|countable $value
+     * @psalm-assert countable|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -374,7 +374,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|iterable $value
+     * @psalm-assert iterable|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -398,7 +398,7 @@ interface Mixin
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert null|ExpectedType $value
+     * @psalm-assert ExpectedType|null $value
      *
      * @param mixed         $value
      * @param string|object $class
@@ -476,9 +476,9 @@ interface Mixin
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert null|ExpectedType|class-string<ExpectedType> $value
+     * @psalm-assert ExpectedType|class-string<ExpectedType>|null $value
      *
-     * @param null|object|string $value
+     * @param object|string|null $value
      * @param string             $class
      * @param string             $message
      *
@@ -505,7 +505,7 @@ interface Mixin
      * @psalm-template UnexpectedType of object
      * @psalm-param class-string<UnexpectedType> $class
      *
-     * @param null|object|string $value
+     * @param object|string|null $value
      * @param string             $class
      * @param string             $message
      *
@@ -530,7 +530,7 @@ interface Mixin
      * @psalm-pure
      * @psalm-param array<class-string> $classes
      *
-     * @param null|object|string $value
+     * @param object|string|null $value
      * @param string[]           $classes
      * @param string             $message
      *
@@ -615,7 +615,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|true $value
+     * @psalm-assert true|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -637,7 +637,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|false $value
+     * @psalm-assert false|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -742,7 +742,7 @@ interface Mixin
     public static function allEmail($value, $message = '');
 
     /**
-     * @param null|array $values
+     * @param array|null $values
      * @param string     $message
      *
      * @throws InvalidArgumentException
@@ -996,7 +996,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $subString
      * @param string      $message
      *
@@ -1018,7 +1018,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $subString
      * @param string      $message
      *
@@ -1040,7 +1040,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1060,7 +1060,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $prefix
      * @param string      $message
      *
@@ -1082,7 +1082,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $prefix
      * @param string      $message
      *
@@ -1124,7 +1124,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $suffix
      * @param string      $message
      *
@@ -1146,7 +1146,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $suffix
      * @param string      $message
      *
@@ -1168,7 +1168,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $pattern
      * @param string      $message
      *
@@ -1190,7 +1190,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $pattern
      * @param string      $message
      *
@@ -1252,7 +1252,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1272,7 +1272,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1291,9 +1291,9 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|lowercase-string $value
+     * @psalm-assert lowercase-string|null $value
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1314,7 +1314,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1334,7 +1334,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param int         $length
      * @param string      $message
      *
@@ -1356,7 +1356,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param int|float   $min
      * @param string      $message
      *
@@ -1378,7 +1378,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param int|float   $max
      * @param string      $message
      *
@@ -1400,7 +1400,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param int|float   $min
      * @param int|float   $max
      * @param string      $message
@@ -1470,7 +1470,7 @@ interface Mixin
     public static function allDirectory($value, $message = '');
 
     /**
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1486,7 +1486,7 @@ interface Mixin
     public static function allReadable($value, $message = '');
 
     /**
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1502,7 +1502,7 @@ interface Mixin
     public static function allWritable($value, $message = '');
 
     /**
-     * @psalm-assert null|class-string $value
+     * @psalm-assert class-string|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1525,7 +1525,7 @@ interface Mixin
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
-     * @psalm-assert null|class-string<ExpectedType>|ExpectedType $value
+     * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
      * @param mixed         $value
      * @param string|object $class
@@ -1550,7 +1550,7 @@ interface Mixin
     public static function allSubclassOf($value, $class, $message = '');
 
     /**
-     * @psalm-assert null|class-string $value
+     * @psalm-assert class-string|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1573,7 +1573,7 @@ interface Mixin
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $interface
-     * @psalm-assert null|class-string<ExpectedType> $value
+     * @psalm-assert class-string<ExpectedType>|null $value
      *
      * @param mixed  $value
      * @param mixed  $interface
@@ -1599,9 +1599,9 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param null|class-string|object $classOrObject
+     * @psalm-param class-string|object|null $classOrObject
      *
-     * @param null|string|object $classOrObject
+     * @param string|object|null $classOrObject
      * @param mixed              $property
      * @param string             $message
      *
@@ -1623,9 +1623,9 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param null|class-string|object $classOrObject
+     * @psalm-param class-string|object|null $classOrObject
      *
-     * @param null|string|object $classOrObject
+     * @param string|object|null $classOrObject
      * @param mixed              $property
      * @param string             $message
      *
@@ -1647,9 +1647,9 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param null|class-string|object $classOrObject
+     * @psalm-param class-string|object|null $classOrObject
      *
-     * @param null|string|object $classOrObject
+     * @param string|object|null $classOrObject
      * @param mixed              $method
      * @param string             $message
      *
@@ -1671,9 +1671,9 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-param null|class-string|object $classOrObject
+     * @psalm-param class-string|object|null $classOrObject
      *
-     * @param null|string|object $classOrObject
+     * @param string|object|null $classOrObject
      * @param mixed              $method
      * @param string             $message
      *
@@ -1696,7 +1696,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|array $array
+     * @param array|null $array
      * @param string|int $key
      * @param string     $message
      *
@@ -1718,7 +1718,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|array $array
+     * @param array|null $array
      * @param string|int $key
      * @param string     $message
      *
@@ -1739,7 +1739,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|array-key $value
+     * @psalm-assert array-key|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -1760,7 +1760,7 @@ interface Mixin
     public static function allValidArrayKey($value, $message = '');
 
     /**
-     * @param null|Countable|array $array
+     * @param Countable|array|null $array
      * @param int                  $number
      * @param string               $message
      *
@@ -1778,7 +1778,7 @@ interface Mixin
     public static function allCount($array, $number, $message = '');
 
     /**
-     * @param null|Countable|array $array
+     * @param Countable|array|null $array
      * @param int|float            $min
      * @param string               $message
      *
@@ -1796,7 +1796,7 @@ interface Mixin
     public static function allMinCount($array, $min, $message = '');
 
     /**
-     * @param null|Countable|array $array
+     * @param Countable|array|null $array
      * @param int|float            $max
      * @param string               $message
      *
@@ -1814,7 +1814,7 @@ interface Mixin
     public static function allMaxCount($array, $max, $message = '');
 
     /**
-     * @param null|Countable|array $array
+     * @param Countable|array|null $array
      * @param int|float            $min
      * @param int|float            $max
      * @param string               $message
@@ -1835,7 +1835,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|list $array
+     * @psalm-assert list|null $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1857,7 +1857,7 @@ interface Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|non-empty-list $array
+     * @psalm-assert non-empty-list|null $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1880,8 +1880,8 @@ interface Mixin
     /**
      * @psalm-pure
      * @psalm-template T
-     * @psalm-param null|mixed|array<T> $array
-     * @psalm-assert null|array<string, T> $array
+     * @psalm-param mixed|array<T>|null $array
+     * @psalm-assert array<string, T>|null $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1906,7 +1906,7 @@ interface Mixin
     /**
      * @psalm-pure
      * @psalm-template T
-     * @psalm-param null|mixed|array<T> $array
+     * @psalm-param mixed|array<T>|null $array
      *
      * @param mixed  $array
      * @param string $message
@@ -1930,7 +1930,7 @@ interface Mixin
     /**
      * @psalm-pure
      *
-     * @param null|string $value
+     * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
@@ -1950,7 +1950,7 @@ interface Mixin
     /**
      * @psalm-param class-string<Throwable> $class
      *
-     * @param null|Closure $expression
+     * @param Closure|null $expression
      * @param string       $class
      * @param string       $message
      *

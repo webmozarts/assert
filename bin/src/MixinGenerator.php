@@ -122,7 +122,7 @@ final class MixinGenerator
      */
     private function nullOr(ReflectionMethod $method, int $indent): ?string
     {
-        return $this->assertion($method, 'nullOr%s', 'null|%s', $indent);
+        return $this->assertion($method, 'nullOr%s', '%s|null', $indent);
     }
 
     /**
@@ -157,7 +157,7 @@ final class MixinGenerator
         $parsedComment = $this->parseDocComment($comment);
 
         $parameters = [];
-        /** @psalm-var array<string, null|scalar> $parametersDefaults */
+        /** @psalm-var array<string, scalar|null> $parametersDefaults */
         $parametersDefaults = [];
         $parametersReflection = $method->getParameters();
 
@@ -262,7 +262,7 @@ final class MixinGenerator
     {
         $combinedType = sprintf($typeTemplate, $type);
 
-        if ('null|empty' === $combinedType) {
+        if ('empty|null' === $combinedType) {
             $combinedType = 'empty'; // @see https://github.com/vimeo/psalm/issues/3492
         }
 
