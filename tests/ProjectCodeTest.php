@@ -15,7 +15,10 @@ class ProjectCodeTest extends BaseTestCase
     private static $assertDocComment;
     private static $mixinMethodNames;
 
-    public static function setUpBeforeClass()
+    /**
+     * @beforeClass
+     */
+    public static function doSetUpBeforeClass()
     {
         self::$readmeContent = file_get_contents(__DIR__ . '/../README.md');
 
