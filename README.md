@@ -271,7 +271,7 @@ License
 
 All contents of this package are licensed under the [MIT license].
 
-asfd
+asdf
 [beberlei/assert]: https://github.com/beberlei/assert
 [assert package]: https://github.com/beberlei/assert
 [Composer]: https://getcomposer.org
