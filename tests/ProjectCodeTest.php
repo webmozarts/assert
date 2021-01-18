@@ -2,9 +2,9 @@
 
 namespace Webmozart\Assert\Tests;
 
-use Webmozart\Assert\Bin\MixinGenerator;
 use ReflectionClass;
 use ReflectionMethod;
+use Webmozart\Assert\Bin\MixinGenerator;
 
 /**
  * @coversNothing
@@ -20,7 +20,7 @@ class ProjectCodeTest extends BaseTestCase
      */
     public static function doSetUpBeforeClass()
     {
-        self::$readmeContent = file_get_contents(__DIR__ . '/../README.md');
+        self::$readmeContent = file_get_contents(__DIR__.'/../README.md');
 
         $rc = new ReflectionClass('\Webmozart\Assert\Mixin');
         self::$assertDocComment = $rc->getDocComment();
@@ -38,13 +38,14 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testHasNullOr($method)
     {
-        $fullMethodName = 'nullOr' . ucfirst($method);
+        $fullMethodName = 'nullOr'.ucfirst($method);
 
         if ($method === 'notNull' || $method === 'null') {
             $this->addToAssertionCount(1);
+
             return;
         }
-        $correct = strpos( (string)self::$assertDocComment,'@method static void ' . $fullMethodName);
+        $correct = strpos((string) self::$assertDocComment, '@method static void '.$fullMethodName);
         if (!$correct) {
             $correct = in_array($fullMethodName, self::$mixinMethodNames, true);
         }
@@ -56,7 +57,7 @@ class ProjectCodeTest extends BaseTestCase
             ));
         }
 
-       $this->addToAssertionCount(1);
+        $this->addToAssertionCount(1);
     }
 
     /**
@@ -66,9 +67,9 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testHasAll($method)
     {
-        $fullMethodName = 'all' . ucfirst($method);
+        $fullMethodName = 'all'.ucfirst($method);
 
-        $correct = strpos((string) self::$assertDocComment,'@method static void ' . $fullMethodName);
+        $correct = strpos((string) self::$assertDocComment, '@method static void '.$fullMethodName);
         if (!$correct) {
             $correct = in_array($fullMethodName, self::$mixinMethodNames, true);
         }
@@ -90,9 +91,9 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function testIsInReadme($method)
     {
-        $correct = strpos((string) self::$readmeContent,$method);
+        $correct = strpos((string) self::$readmeContent, $method);
 
-        if($correct === false) {
+        if ($correct === false) {
             $this->fail(sprintf(
                 'All methods must be documented in the README.md, please add the "%s" method.',
                 $method
@@ -126,7 +127,6 @@ class ProjectCodeTest extends BaseTestCase
                 $method->getName()
             )
         );
-
     }
 
     /**
@@ -138,13 +138,14 @@ class ProjectCodeTest extends BaseTestCase
     {
         $doc = $method->getDocComment();
 
-        if($doc === false || strpos($doc, '@psalm-assert') === false) {
+        if ($doc === false || strpos($doc, '@psalm-assert') === false) {
             $this->addToAssertionCount(1);
+
             return;
         }
 
         $this->assertFileExists(
-            __DIR__ . '/static-analysis/assert-'. $method->getName() . '.php'
+            __DIR__.'/static-analysis/assert-'.$method->getName().'.php'
         );
     }
 
@@ -152,14 +153,15 @@ class ProjectCodeTest extends BaseTestCase
     {
         if (version_compare(PHP_VERSION, '7.2.0') < 0) {
             $this->markTestSkipped('mixin generator is implemented using php 7.2 features');
+
             return;
         }
 
-        require_once __DIR__ . '/../bin/src/MixinGenerator.php';
+        require_once __DIR__.'/../bin/src/MixinGenerator.php';
 
         $generator = new MixinGenerator();
 
-        $actual = file_get_contents(__DIR__ . '/../src/Mixin.php');
+        $actual = file_get_contents(__DIR__.'/../src/Mixin.php');
 
         $this->assertEquals($generator->generate(), $actual, 'please regenerate Mixin with `php bin/generate.php` command in the project root');
     }
@@ -169,7 +171,7 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function providesMethodNames()
     {
-        return array_map(function($value) {
+        return array_map(function ($value) {
             return array($value->getName());
         }, $this->getMethods());
     }
@@ -179,7 +181,7 @@ class ProjectCodeTest extends BaseTestCase
      */
     public function provideMethods()
     {
-        return array_map(function($value) {
+        return array_map(function ($value) {
             return array($value);
         }, $this->getMethods());
     }

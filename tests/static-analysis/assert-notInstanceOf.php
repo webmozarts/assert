@@ -2,8 +2,8 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
-use stdClass;
 use DateTime;
+use stdClass;
 use Webmozart\Assert\Assert;
 
 /**

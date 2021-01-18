@@ -32,7 +32,6 @@ function nullOrKeyNotExists(?array $array, $key): ?array
  * @psalm-pure
  *
  * @param iterable<array> $array
- *
  * @param array-key $key
  *
  * @return iterable<array>
