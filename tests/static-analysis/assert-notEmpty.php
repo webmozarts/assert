@@ -50,7 +50,6 @@ function notEmptyArray(array $value)
     return $value;
 }
 
-
 /**
  * @psalm-pure
  *

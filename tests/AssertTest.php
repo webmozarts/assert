@@ -13,8 +13,8 @@ namespace Webmozart\Assert\Tests;
 
 use ArrayIterator;
 use ArrayObject;
-use Exception;
 use Error;
+use Exception;
 use LogicException;
 use RuntimeException;
 use stdClass;
@@ -516,12 +516,12 @@ class AssertTest extends BaseTestCase
             array('uuid', array('ff6f8cb0-c57da-51e1-9b21-0800200c9a66'), false),
             array('uuid', array('af6f8cb-c57d-11e1-9b21-0800200c9a66'), false),
             array('uuid', array('3f6f8cb0-c57d-11e1-9b21-0800200c9a6'), false),
-            array('throws', array(function() { throw new LogicException('test'); }, 'LogicException'), true),
-            array('throws', array(function() { throw new LogicException('test'); }, 'IllogicException'), false),
-            array('throws', array(function() { throw new Exception('test'); }), true),
-            array('throws', array(function() { trigger_error('test'); }, 'Throwable'), true, false, 70000),
-            array('throws', array(function() { trigger_error('test'); }, 'Unthrowable'), false, false, 70000),
-            array('throws', array(function() { throw new Error(); }, 'Throwable'), true, true, 70000),
+            array('throws', array(function () { throw new LogicException('test'); }, 'LogicException'), true),
+            array('throws', array(function () { throw new LogicException('test'); }, 'IllogicException'), false),
+            array('throws', array(function () { throw new Exception('test'); }), true),
+            array('throws', array(function () { trigger_error('test'); }, 'Throwable'), true, false, 70000),
+            array('throws', array(function () { trigger_error('test'); }, 'Unthrowable'), false, false, 70000),
+            array('throws', array(function () { throw new Error(); }, 'Throwable'), true, true, 70000),
             array('ip', array('192.168.0.1'), true),
             array('ip', array(new ToStringClass('192.168.0.1')), true),
             array('ip', array('255.255.255.255'), true),
@@ -698,7 +698,7 @@ class AssertTest extends BaseTestCase
             array('string', array(self::getResource()), 'Expected a string. Got: resource'),
 
             array('eq', array('1', '2'), 'Expected a value equal to "2". Got: "1"'),
-            array('eq', array(new ToStringClass("XXX"), new ToStringClass("YYY")), 'Expected a value equal to Webmozart\Assert\Tests\ToStringClass: "YYY". Got: Webmozart\Assert\Tests\ToStringClass: "XXX"'),
+            array('eq', array(new ToStringClass('XXX'), new ToStringClass('YYY')), 'Expected a value equal to Webmozart\Assert\Tests\ToStringClass: "YYY". Got: Webmozart\Assert\Tests\ToStringClass: "XXX"'),
             array('eq', array(1, 2), 'Expected a value equal to 2. Got: 1'),
             array('eq', array(true, false), 'Expected a value equal to false. Got: true'),
             array('eq', array(true, null), 'Expected a value equal to null. Got: true'),
@@ -732,8 +732,8 @@ class AssertTest extends BaseTestCase
 /**
  * @ignore
  */
-class ToStringClass {
-
+class ToStringClass
+{
     /**
      * @var string
      */
