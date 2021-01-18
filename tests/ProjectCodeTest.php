@@ -119,7 +119,7 @@ class ProjectCodeTest extends BaseTestCase
             )
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '@throws InvalidArgumentException',
             $doc,
             sprintf(
