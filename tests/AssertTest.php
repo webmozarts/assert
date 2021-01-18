@@ -16,6 +16,7 @@ use ArrayObject;
 use Error;
 use Exception;
 use LogicException;
+use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use stdClass;
 use Webmozart\Assert\Assert;
@@ -25,7 +26,7 @@ use Webmozart\Assert\Assert;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class AssertTest extends BaseTestCase
+class AssertTest extends TestCase
 {
     private static $resource;
 
@@ -422,7 +423,7 @@ class AssertTest extends BaseTestCase
             // no tests for readable()/writable() for now
             array('classExists', array(__CLASS__), true),
             array('classExists', array(__NAMESPACE__.'\Foobar'), false),
-            array('subclassOf', array(__CLASS__, 'Webmozart\Assert\Tests\BaseTestCase'), true),
+            array('subclassOf', array(__CLASS__, 'PHPUnit\Framework\TestCase'), true),
             array('subclassOf', array(__CLASS__, 'stdClass'), false),
             array('interfaceExists', array('\Countable'), true),
             array('interfaceExists', array(__CLASS__), false),
