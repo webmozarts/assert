@@ -16,6 +16,7 @@ use ArrayObject;
 use Error;
 use Exception;
 use LogicException;
+use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use stdClass;
 use Webmozart\Assert\Assert;
@@ -25,7 +26,7 @@ use Webmozart\Assert\Assert;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class AssertTest extends BaseTestCase
+class AssertTest extends TestCase
 {
     private static $resource;
 
@@ -422,7 +423,7 @@ class AssertTest extends BaseTestCase
             // no tests for readable()/writable() for now
             array('classExists', array(__CLASS__), true),
             array('classExists', array(__NAMESPACE__.'\Foobar'), false),
-            array('subclassOf', array(__CLASS__, 'Webmozart\Assert\Tests\BaseTestCase'), true),
+            array('subclassOf', array(__CLASS__, 'PHPUnit\Framework\TestCase'), true),
             array('subclassOf', array(__CLASS__, 'stdClass'), false),
             array('interfaceExists', array('\Countable'), true),
             array('interfaceExists', array(__CLASS__), false),
@@ -598,7 +599,7 @@ class AssertTest extends BaseTestCase
         }
 
         if (!$success) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
@@ -620,7 +621,7 @@ class AssertTest extends BaseTestCase
         }
 
         if (!$success && null !== reset($args)) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         call_user_func_array(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), $args);
@@ -651,7 +652,7 @@ class AssertTest extends BaseTestCase
         }
 
         if (!$success) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         $arg = array_shift($args);
@@ -676,7 +677,7 @@ class AssertTest extends BaseTestCase
         }
 
         if (!$success) {
-            $this->setExpectedException('\InvalidArgumentException');
+            $this->expectException('\InvalidArgumentException');
         }
 
         $arg = array_shift($args);
@@ -716,14 +717,15 @@ class AssertTest extends BaseTestCase
      */
     public function testConvertValuesToStrings($method, $args, $exceptionMessage)
     {
-        $this->setExpectedException('\InvalidArgumentException', $exceptionMessage);
+        $this->expectException('\InvalidArgumentException', $exceptionMessage);
+        $this->expectExceptionMessage($exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
     }
 
     public function testAnUnknownMethodThrowsABadMethodCall()
     {
-        $this->setExpectedException('\BadMethodCallException');
+        $this->expectException('\BadMethodCallException');
 
         Assert::nonExistentMethod();
     }

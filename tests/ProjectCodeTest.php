@@ -2,6 +2,7 @@
 
 namespace Webmozart\Assert\Tests;
 
+use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use Webmozart\Assert\Bin\MixinGenerator;
@@ -9,7 +10,7 @@ use Webmozart\Assert\Bin\MixinGenerator;
 /**
  * @coversNothing
  */
-class ProjectCodeTest extends BaseTestCase
+class ProjectCodeTest extends TestCase
 {
     private static $readmeContent;
     private static $assertDocComment;
@@ -119,7 +120,7 @@ class ProjectCodeTest extends BaseTestCase
             )
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             '@throws InvalidArgumentException',
             $doc,
             sprintf(
