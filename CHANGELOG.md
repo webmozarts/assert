@@ -12,7 +12,7 @@ Changelog
 ## 1.9.0
 
 * added better Psalm support for `all*` & `nullOr*` methods
-  * These methods are now understood by Psalm through a mixin. You may need a newer version of Psalm in order to use this
+* These methods are now understood by Psalm through a mixin. You may need a newer version of Psalm in order to use this
 * added `@psalm-pure` annotation to `Assert::notFalse()`
 * added more `@psalm-assert` annotations where appropriate
 
