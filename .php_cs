@@ -18,6 +18,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_summary' => false,
         'phpdoc_to_comment' => false,
         'phpdoc_align' => false,
+        'yoda_style' => false,
     ])
     ->setFinder($finder)
 ;
