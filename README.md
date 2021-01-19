@@ -251,8 +251,10 @@ Overriding the following methods in your assertion class allows you to change th
 
 ## Static analysis support
 
-Where applicable assertion functions are annotated to support Psalm's [Assertion syntax](https://psalm.dev/docs/annotating_code/assertion_syntax/).
-A dedicated [PHPStan Plugin](https://github.com/phpstan/phpstan-webmozart-assert) is required for proper type support.
+Where applicable assertion functions are annotated to support Psalm's
+[Assertion syntax](https://psalm.dev/docs/annotating_code/assertion_syntax/).
+A dedicated [PHPStan Plugin](https://github.com/phpstan/phpstan-webmozart-assert) is
+required for proper type support.
 
 Authors
 -------
