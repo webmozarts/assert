@@ -26,11 +26,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrString($value, $message = '')
     {
-        static::__callStatic('nullOrString', [$value, $message]);
+        static::__callStatic('nullOrString', array($value, $message));
     }
 
     /**
@@ -41,11 +42,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allString($value, $message = '')
     {
-        static::__callStatic('allString', [$value, $message]);
+        static::__callStatic('allString', array($value, $message));
     }
 
     /**
@@ -56,11 +58,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrStringNotEmpty($value, $message = '')
     {
-        static::__callStatic('nullOrStringNotEmpty', [$value, $message]);
+        static::__callStatic('nullOrStringNotEmpty', array($value, $message));
     }
 
     /**
@@ -71,11 +74,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allStringNotEmpty($value, $message = '')
     {
-        static::__callStatic('allStringNotEmpty', [$value, $message]);
+        static::__callStatic('allStringNotEmpty', array($value, $message));
     }
 
     /**
@@ -86,11 +90,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrInteger($value, $message = '')
     {
-        static::__callStatic('nullOrInteger', [$value, $message]);
+        static::__callStatic('nullOrInteger', array($value, $message));
     }
 
     /**
@@ -101,11 +106,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allInteger($value, $message = '')
     {
-        static::__callStatic('allInteger', [$value, $message]);
+        static::__callStatic('allInteger', array($value, $message));
     }
 
     /**
@@ -116,11 +122,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIntegerish($value, $message = '')
     {
-        static::__callStatic('nullOrIntegerish', [$value, $message]);
+        static::__callStatic('nullOrIntegerish', array($value, $message));
     }
 
     /**
@@ -131,11 +138,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIntegerish($value, $message = '')
     {
-        static::__callStatic('allIntegerish', [$value, $message]);
+        static::__callStatic('allIntegerish', array($value, $message));
     }
 
     /**
@@ -146,11 +154,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrPositiveInteger($value, $message = '')
     {
-        static::__callStatic('nullOrPositiveInteger', [$value, $message]);
+        static::__callStatic('nullOrPositiveInteger', array($value, $message));
     }
 
     /**
@@ -161,11 +170,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allPositiveInteger($value, $message = '')
     {
-        static::__callStatic('allPositiveInteger', [$value, $message]);
+        static::__callStatic('allPositiveInteger', array($value, $message));
     }
 
     /**
@@ -176,11 +186,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrFloat($value, $message = '')
     {
-        static::__callStatic('nullOrFloat', [$value, $message]);
+        static::__callStatic('nullOrFloat', array($value, $message));
     }
 
     /**
@@ -191,11 +202,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allFloat($value, $message = '')
     {
-        static::__callStatic('allFloat', [$value, $message]);
+        static::__callStatic('allFloat', array($value, $message));
     }
 
     /**
@@ -206,11 +218,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNumeric($value, $message = '')
     {
-        static::__callStatic('nullOrNumeric', [$value, $message]);
+        static::__callStatic('nullOrNumeric', array($value, $message));
     }
 
     /**
@@ -221,11 +234,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNumeric($value, $message = '')
     {
-        static::__callStatic('allNumeric', [$value, $message]);
+        static::__callStatic('allNumeric', array($value, $message));
     }
 
     /**
@@ -236,11 +250,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNatural($value, $message = '')
     {
-        static::__callStatic('nullOrNatural', [$value, $message]);
+        static::__callStatic('nullOrNatural', array($value, $message));
     }
 
     /**
@@ -251,11 +266,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNatural($value, $message = '')
     {
-        static::__callStatic('allNatural', [$value, $message]);
+        static::__callStatic('allNatural', array($value, $message));
     }
 
     /**
@@ -266,11 +282,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrBoolean($value, $message = '')
     {
-        static::__callStatic('nullOrBoolean', [$value, $message]);
+        static::__callStatic('nullOrBoolean', array($value, $message));
     }
 
     /**
@@ -281,11 +298,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allBoolean($value, $message = '')
     {
-        static::__callStatic('allBoolean', [$value, $message]);
+        static::__callStatic('allBoolean', array($value, $message));
     }
 
     /**
@@ -296,11 +314,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrScalar($value, $message = '')
     {
-        static::__callStatic('nullOrScalar', [$value, $message]);
+        static::__callStatic('nullOrScalar', array($value, $message));
     }
 
     /**
@@ -311,11 +330,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allScalar($value, $message = '')
     {
-        static::__callStatic('allScalar', [$value, $message]);
+        static::__callStatic('allScalar', array($value, $message));
     }
 
     /**
@@ -326,11 +346,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrObject($value, $message = '')
     {
-        static::__callStatic('nullOrObject', [$value, $message]);
+        static::__callStatic('nullOrObject', array($value, $message));
     }
 
     /**
@@ -341,11 +362,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allObject($value, $message = '')
     {
-        static::__callStatic('allObject', [$value, $message]);
+        static::__callStatic('allObject', array($value, $message));
     }
 
     /**
@@ -357,11 +379,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrResource($value, $type = null, $message = '')
     {
-        static::__callStatic('nullOrResource', [$value, $type, $message]);
+        static::__callStatic('nullOrResource', array($value, $type, $message));
     }
 
     /**
@@ -373,11 +396,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allResource($value, $type = null, $message = '')
     {
-        static::__callStatic('allResource', [$value, $type, $message]);
+        static::__callStatic('allResource', array($value, $type, $message));
     }
 
     /**
@@ -388,11 +412,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsCallable($value, $message = '')
     {
-        static::__callStatic('nullOrIsCallable', [$value, $message]);
+        static::__callStatic('nullOrIsCallable', array($value, $message));
     }
 
     /**
@@ -403,11 +428,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsCallable($value, $message = '')
     {
-        static::__callStatic('allIsCallable', [$value, $message]);
+        static::__callStatic('allIsCallable', array($value, $message));
     }
 
     /**
@@ -418,11 +444,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsArray($value, $message = '')
     {
-        static::__callStatic('nullOrIsArray', [$value, $message]);
+        static::__callStatic('nullOrIsArray', array($value, $message));
     }
 
     /**
@@ -433,11 +460,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsArray($value, $message = '')
     {
-        static::__callStatic('allIsArray', [$value, $message]);
+        static::__callStatic('allIsArray', array($value, $message));
     }
 
     /**
@@ -450,11 +478,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsTraversable($value, $message = '')
     {
-        static::__callStatic('nullOrIsTraversable', [$value, $message]);
+        static::__callStatic('nullOrIsTraversable', array($value, $message));
     }
 
     /**
@@ -467,11 +496,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsTraversable($value, $message = '')
     {
-        static::__callStatic('allIsTraversable', [$value, $message]);
+        static::__callStatic('allIsTraversable', array($value, $message));
     }
 
     /**
@@ -482,11 +512,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsArrayAccessible($value, $message = '')
     {
-        static::__callStatic('nullOrIsArrayAccessible', [$value, $message]);
+        static::__callStatic('nullOrIsArrayAccessible', array($value, $message));
     }
 
     /**
@@ -497,11 +528,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsArrayAccessible($value, $message = '')
     {
-        static::__callStatic('allIsArrayAccessible', [$value, $message]);
+        static::__callStatic('allIsArrayAccessible', array($value, $message));
     }
 
     /**
@@ -512,11 +544,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsCountable($value, $message = '')
     {
-        static::__callStatic('nullOrIsCountable', [$value, $message]);
+        static::__callStatic('nullOrIsCountable', array($value, $message));
     }
 
     /**
@@ -527,11 +560,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsCountable($value, $message = '')
     {
-        static::__callStatic('allIsCountable', [$value, $message]);
+        static::__callStatic('allIsCountable', array($value, $message));
     }
 
     /**
@@ -542,11 +576,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsIterable($value, $message = '')
     {
-        static::__callStatic('nullOrIsIterable', [$value, $message]);
+        static::__callStatic('nullOrIsIterable', array($value, $message));
     }
 
     /**
@@ -557,11 +592,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsIterable($value, $message = '')
     {
-        static::__callStatic('allIsIterable', [$value, $message]);
+        static::__callStatic('allIsIterable', array($value, $message));
     }
 
     /**
@@ -575,11 +611,12 @@ trait Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsInstanceOf($value, $class, $message = '')
     {
-        static::__callStatic('nullOrIsInstanceOf', [$value, $class, $message]);
+        static::__callStatic('nullOrIsInstanceOf', array($value, $class, $message));
     }
 
     /**
@@ -593,11 +630,12 @@ trait Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsInstanceOf($value, $class, $message = '')
     {
-        static::__callStatic('allIsInstanceOf', [$value, $class, $message]);
+        static::__callStatic('allIsInstanceOf', array($value, $class, $message));
     }
 
     /**
@@ -610,11 +648,12 @@ trait Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotInstanceOf($value, $class, $message = '')
     {
-        static::__callStatic('nullOrNotInstanceOf', [$value, $class, $message]);
+        static::__callStatic('nullOrNotInstanceOf', array($value, $class, $message));
     }
 
     /**
@@ -627,11 +666,12 @@ trait Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotInstanceOf($value, $class, $message = '')
     {
-        static::__callStatic('allNotInstanceOf', [$value, $class, $message]);
+        static::__callStatic('allNotInstanceOf', array($value, $class, $message));
     }
 
     /**
@@ -643,11 +683,12 @@ trait Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsInstanceOfAny($value, $classes, $message = '')
     {
-        static::__callStatic('nullOrIsInstanceOfAny', [$value, $classes, $message]);
+        static::__callStatic('nullOrIsInstanceOfAny', array($value, $classes, $message));
     }
 
     /**
@@ -659,11 +700,12 @@ trait Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsInstanceOfAny($value, $classes, $message = '')
     {
-        static::__callStatic('allIsInstanceOfAny', [$value, $classes, $message]);
+        static::__callStatic('allIsInstanceOfAny', array($value, $classes, $message));
     }
 
     /**
@@ -677,11 +719,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsAOf($value, $class, $message = '')
     {
-        static::__callStatic('nullOrIsAOf', [$value, $class, $message]);
+        static::__callStatic('nullOrIsAOf', array($value, $class, $message));
     }
 
     /**
@@ -695,11 +738,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsAOf($value, $class, $message = '')
     {
-        static::__callStatic('allIsAOf', [$value, $class, $message]);
+        static::__callStatic('allIsAOf', array($value, $class, $message));
     }
 
     /**
@@ -712,11 +756,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsNotA($value, $class, $message = '')
     {
-        static::__callStatic('nullOrIsNotA', [$value, $class, $message]);
+        static::__callStatic('nullOrIsNotA', array($value, $class, $message));
     }
 
     /**
@@ -729,11 +774,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsNotA($value, $class, $message = '')
     {
-        static::__callStatic('allIsNotA', [$value, $class, $message]);
+        static::__callStatic('allIsNotA', array($value, $class, $message));
     }
 
     /**
@@ -745,11 +791,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsAnyOf($value, $classes, $message = '')
     {
-        static::__callStatic('nullOrIsAnyOf', [$value, $classes, $message]);
+        static::__callStatic('nullOrIsAnyOf', array($value, $classes, $message));
     }
 
     /**
@@ -761,11 +808,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsAnyOf($value, $classes, $message = '')
     {
-        static::__callStatic('allIsAnyOf', [$value, $classes, $message]);
+        static::__callStatic('allIsAnyOf', array($value, $classes, $message));
     }
 
     /**
@@ -776,11 +824,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsEmpty($value, $message = '')
     {
-        static::__callStatic('nullOrIsEmpty', [$value, $message]);
+        static::__callStatic('nullOrIsEmpty', array($value, $message));
     }
 
     /**
@@ -791,11 +840,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsEmpty($value, $message = '')
     {
-        static::__callStatic('allIsEmpty', [$value, $message]);
+        static::__callStatic('allIsEmpty', array($value, $message));
     }
 
     /**
@@ -805,11 +855,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotEmpty($value, $message = '')
     {
-        static::__callStatic('nullOrNotEmpty', [$value, $message]);
+        static::__callStatic('nullOrNotEmpty', array($value, $message));
     }
 
     /**
@@ -819,11 +870,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotEmpty($value, $message = '')
     {
-        static::__callStatic('allNotEmpty', [$value, $message]);
+        static::__callStatic('allNotEmpty', array($value, $message));
     }
 
     /**
@@ -834,11 +886,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNull($value, $message = '')
     {
-        static::__callStatic('allNull', [$value, $message]);
+        static::__callStatic('allNull', array($value, $message));
     }
 
     /**
@@ -848,11 +901,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotNull($value, $message = '')
     {
-        static::__callStatic('allNotNull', [$value, $message]);
+        static::__callStatic('allNotNull', array($value, $message));
     }
 
     /**
@@ -863,11 +917,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrTrue($value, $message = '')
     {
-        static::__callStatic('nullOrTrue', [$value, $message]);
+        static::__callStatic('nullOrTrue', array($value, $message));
     }
 
     /**
@@ -878,11 +933,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allTrue($value, $message = '')
     {
-        static::__callStatic('allTrue', [$value, $message]);
+        static::__callStatic('allTrue', array($value, $message));
     }
 
     /**
@@ -893,11 +949,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrFalse($value, $message = '')
     {
-        static::__callStatic('nullOrFalse', [$value, $message]);
+        static::__callStatic('nullOrFalse', array($value, $message));
     }
 
     /**
@@ -908,11 +965,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allFalse($value, $message = '')
     {
-        static::__callStatic('allFalse', [$value, $message]);
+        static::__callStatic('allFalse', array($value, $message));
     }
 
     /**
@@ -922,11 +980,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotFalse($value, $message = '')
     {
-        static::__callStatic('nullOrNotFalse', [$value, $message]);
+        static::__callStatic('nullOrNotFalse', array($value, $message));
     }
 
     /**
@@ -936,11 +995,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotFalse($value, $message = '')
     {
-        static::__callStatic('allNotFalse', [$value, $message]);
+        static::__callStatic('allNotFalse', array($value, $message));
     }
 
     /**
@@ -948,11 +1008,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIp($value, $message = '')
     {
-        static::__callStatic('nullOrIp', [$value, $message]);
+        static::__callStatic('nullOrIp', array($value, $message));
     }
 
     /**
@@ -960,11 +1021,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIp($value, $message = '')
     {
-        static::__callStatic('allIp', [$value, $message]);
+        static::__callStatic('allIp', array($value, $message));
     }
 
     /**
@@ -972,11 +1034,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIpv4($value, $message = '')
     {
-        static::__callStatic('nullOrIpv4', [$value, $message]);
+        static::__callStatic('nullOrIpv4', array($value, $message));
     }
 
     /**
@@ -984,11 +1047,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIpv4($value, $message = '')
     {
-        static::__callStatic('allIpv4', [$value, $message]);
+        static::__callStatic('allIpv4', array($value, $message));
     }
 
     /**
@@ -996,11 +1060,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIpv6($value, $message = '')
     {
-        static::__callStatic('nullOrIpv6', [$value, $message]);
+        static::__callStatic('nullOrIpv6', array($value, $message));
     }
 
     /**
@@ -1008,11 +1073,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIpv6($value, $message = '')
     {
-        static::__callStatic('allIpv6', [$value, $message]);
+        static::__callStatic('allIpv6', array($value, $message));
     }
 
     /**
@@ -1020,11 +1086,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrEmail($value, $message = '')
     {
-        static::__callStatic('nullOrEmail', [$value, $message]);
+        static::__callStatic('nullOrEmail', array($value, $message));
     }
 
     /**
@@ -1032,11 +1099,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allEmail($value, $message = '')
     {
-        static::__callStatic('allEmail', [$value, $message]);
+        static::__callStatic('allEmail', array($value, $message));
     }
 
     /**
@@ -1044,11 +1112,12 @@ trait Mixin
      * @param string     $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrUniqueValues($values, $message = '')
     {
-        static::__callStatic('nullOrUniqueValues', [$values, $message]);
+        static::__callStatic('nullOrUniqueValues', array($values, $message));
     }
 
     /**
@@ -1056,11 +1125,12 @@ trait Mixin
      * @param string          $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allUniqueValues($values, $message = '')
     {
-        static::__callStatic('allUniqueValues', [$values, $message]);
+        static::__callStatic('allUniqueValues', array($values, $message));
     }
 
     /**
@@ -1069,11 +1139,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrEq($value, $expect, $message = '')
     {
-        static::__callStatic('nullOrEq', [$value, $expect, $message]);
+        static::__callStatic('nullOrEq', array($value, $expect, $message));
     }
 
     /**
@@ -1082,11 +1153,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allEq($value, $expect, $message = '')
     {
-        static::__callStatic('allEq', [$value, $expect, $message]);
+        static::__callStatic('allEq', array($value, $expect, $message));
     }
 
     /**
@@ -1095,11 +1167,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotEq($value, $expect, $message = '')
     {
-        static::__callStatic('nullOrNotEq', [$value, $expect, $message]);
+        static::__callStatic('nullOrNotEq', array($value, $expect, $message));
     }
 
     /**
@@ -1108,11 +1181,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotEq($value, $expect, $message = '')
     {
-        static::__callStatic('allNotEq', [$value, $expect, $message]);
+        static::__callStatic('allNotEq', array($value, $expect, $message));
     }
 
     /**
@@ -1123,11 +1197,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrSame($value, $expect, $message = '')
     {
-        static::__callStatic('nullOrSame', [$value, $expect, $message]);
+        static::__callStatic('nullOrSame', array($value, $expect, $message));
     }
 
     /**
@@ -1138,11 +1213,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allSame($value, $expect, $message = '')
     {
-        static::__callStatic('allSame', [$value, $expect, $message]);
+        static::__callStatic('allSame', array($value, $expect, $message));
     }
 
     /**
@@ -1153,11 +1229,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotSame($value, $expect, $message = '')
     {
-        static::__callStatic('nullOrNotSame', [$value, $expect, $message]);
+        static::__callStatic('nullOrNotSame', array($value, $expect, $message));
     }
 
     /**
@@ -1168,11 +1245,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotSame($value, $expect, $message = '')
     {
-        static::__callStatic('allNotSame', [$value, $expect, $message]);
+        static::__callStatic('allNotSame', array($value, $expect, $message));
     }
 
     /**
@@ -1183,11 +1261,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrGreaterThan($value, $limit, $message = '')
     {
-        static::__callStatic('nullOrGreaterThan', [$value, $limit, $message]);
+        static::__callStatic('nullOrGreaterThan', array($value, $limit, $message));
     }
 
     /**
@@ -1198,11 +1277,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allGreaterThan($value, $limit, $message = '')
     {
-        static::__callStatic('allGreaterThan', [$value, $limit, $message]);
+        static::__callStatic('allGreaterThan', array($value, $limit, $message));
     }
 
     /**
@@ -1213,11 +1293,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrGreaterThanEq($value, $limit, $message = '')
     {
-        static::__callStatic('nullOrGreaterThanEq', [$value, $limit, $message]);
+        static::__callStatic('nullOrGreaterThanEq', array($value, $limit, $message));
     }
 
     /**
@@ -1228,11 +1309,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allGreaterThanEq($value, $limit, $message = '')
     {
-        static::__callStatic('allGreaterThanEq', [$value, $limit, $message]);
+        static::__callStatic('allGreaterThanEq', array($value, $limit, $message));
     }
 
     /**
@@ -1243,11 +1325,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrLessThan($value, $limit, $message = '')
     {
-        static::__callStatic('nullOrLessThan', [$value, $limit, $message]);
+        static::__callStatic('nullOrLessThan', array($value, $limit, $message));
     }
 
     /**
@@ -1258,11 +1341,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allLessThan($value, $limit, $message = '')
     {
-        static::__callStatic('allLessThan', [$value, $limit, $message]);
+        static::__callStatic('allLessThan', array($value, $limit, $message));
     }
 
     /**
@@ -1273,11 +1357,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrLessThanEq($value, $limit, $message = '')
     {
-        static::__callStatic('nullOrLessThanEq', [$value, $limit, $message]);
+        static::__callStatic('nullOrLessThanEq', array($value, $limit, $message));
     }
 
     /**
@@ -1288,11 +1373,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allLessThanEq($value, $limit, $message = '')
     {
-        static::__callStatic('allLessThanEq', [$value, $limit, $message]);
+        static::__callStatic('allLessThanEq', array($value, $limit, $message));
     }
 
     /**
@@ -1304,11 +1390,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrRange($value, $min, $max, $message = '')
     {
-        static::__callStatic('nullOrRange', [$value, $min, $max, $message]);
+        static::__callStatic('nullOrRange', array($value, $min, $max, $message));
     }
 
     /**
@@ -1320,11 +1407,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allRange($value, $min, $max, $message = '')
     {
-        static::__callStatic('allRange', [$value, $min, $max, $message]);
+        static::__callStatic('allRange', array($value, $min, $max, $message));
     }
 
     /**
@@ -1335,11 +1423,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrOneOf($value, $values, $message = '')
     {
-        static::__callStatic('nullOrOneOf', [$value, $values, $message]);
+        static::__callStatic('nullOrOneOf', array($value, $values, $message));
     }
 
     /**
@@ -1350,11 +1439,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allOneOf($value, $values, $message = '')
     {
-        static::__callStatic('allOneOf', [$value, $values, $message]);
+        static::__callStatic('allOneOf', array($value, $values, $message));
     }
 
     /**
@@ -1365,11 +1455,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrInArray($value, $values, $message = '')
     {
-        static::__callStatic('nullOrInArray', [$value, $values, $message]);
+        static::__callStatic('nullOrInArray', array($value, $values, $message));
     }
 
     /**
@@ -1380,11 +1471,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allInArray($value, $values, $message = '')
     {
-        static::__callStatic('allInArray', [$value, $values, $message]);
+        static::__callStatic('allInArray', array($value, $values, $message));
     }
 
     /**
@@ -1395,11 +1487,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrContains($value, $subString, $message = '')
     {
-        static::__callStatic('nullOrContains', [$value, $subString, $message]);
+        static::__callStatic('nullOrContains', array($value, $subString, $message));
     }
 
     /**
@@ -1410,11 +1503,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allContains($value, $subString, $message = '')
     {
-        static::__callStatic('allContains', [$value, $subString, $message]);
+        static::__callStatic('allContains', array($value, $subString, $message));
     }
 
     /**
@@ -1425,11 +1519,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotContains($value, $subString, $message = '')
     {
-        static::__callStatic('nullOrNotContains', [$value, $subString, $message]);
+        static::__callStatic('nullOrNotContains', array($value, $subString, $message));
     }
 
     /**
@@ -1440,11 +1535,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotContains($value, $subString, $message = '')
     {
-        static::__callStatic('allNotContains', [$value, $subString, $message]);
+        static::__callStatic('allNotContains', array($value, $subString, $message));
     }
 
     /**
@@ -1454,11 +1550,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotWhitespaceOnly($value, $message = '')
     {
-        static::__callStatic('nullOrNotWhitespaceOnly', [$value, $message]);
+        static::__callStatic('nullOrNotWhitespaceOnly', array($value, $message));
     }
 
     /**
@@ -1468,11 +1565,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotWhitespaceOnly($value, $message = '')
     {
-        static::__callStatic('allNotWhitespaceOnly', [$value, $message]);
+        static::__callStatic('allNotWhitespaceOnly', array($value, $message));
     }
 
     /**
@@ -1483,11 +1581,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrStartsWith($value, $prefix, $message = '')
     {
-        static::__callStatic('nullOrStartsWith', [$value, $prefix, $message]);
+        static::__callStatic('nullOrStartsWith', array($value, $prefix, $message));
     }
 
     /**
@@ -1498,11 +1597,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allStartsWith($value, $prefix, $message = '')
     {
-        static::__callStatic('allStartsWith', [$value, $prefix, $message]);
+        static::__callStatic('allStartsWith', array($value, $prefix, $message));
     }
 
     /**
@@ -1513,11 +1613,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotStartsWith($value, $prefix, $message = '')
     {
-        static::__callStatic('nullOrNotStartsWith', [$value, $prefix, $message]);
+        static::__callStatic('nullOrNotStartsWith', array($value, $prefix, $message));
     }
 
     /**
@@ -1528,11 +1629,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotStartsWith($value, $prefix, $message = '')
     {
-        static::__callStatic('allNotStartsWith', [$value, $prefix, $message]);
+        static::__callStatic('allNotStartsWith', array($value, $prefix, $message));
     }
 
     /**
@@ -1542,11 +1644,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrStartsWithLetter($value, $message = '')
     {
-        static::__callStatic('nullOrStartsWithLetter', [$value, $message]);
+        static::__callStatic('nullOrStartsWithLetter', array($value, $message));
     }
 
     /**
@@ -1556,11 +1659,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allStartsWithLetter($value, $message = '')
     {
-        static::__callStatic('allStartsWithLetter', [$value, $message]);
+        static::__callStatic('allStartsWithLetter', array($value, $message));
     }
 
     /**
@@ -1571,11 +1675,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrEndsWith($value, $suffix, $message = '')
     {
-        static::__callStatic('nullOrEndsWith', [$value, $suffix, $message]);
+        static::__callStatic('nullOrEndsWith', array($value, $suffix, $message));
     }
 
     /**
@@ -1586,11 +1691,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allEndsWith($value, $suffix, $message = '')
     {
-        static::__callStatic('allEndsWith', [$value, $suffix, $message]);
+        static::__callStatic('allEndsWith', array($value, $suffix, $message));
     }
 
     /**
@@ -1601,11 +1707,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotEndsWith($value, $suffix, $message = '')
     {
-        static::__callStatic('nullOrNotEndsWith', [$value, $suffix, $message]);
+        static::__callStatic('nullOrNotEndsWith', array($value, $suffix, $message));
     }
 
     /**
@@ -1616,11 +1723,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotEndsWith($value, $suffix, $message = '')
     {
-        static::__callStatic('allNotEndsWith', [$value, $suffix, $message]);
+        static::__callStatic('allNotEndsWith', array($value, $suffix, $message));
     }
 
     /**
@@ -1631,11 +1739,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrRegex($value, $pattern, $message = '')
     {
-        static::__callStatic('nullOrRegex', [$value, $pattern, $message]);
+        static::__callStatic('nullOrRegex', array($value, $pattern, $message));
     }
 
     /**
@@ -1646,11 +1755,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allRegex($value, $pattern, $message = '')
     {
-        static::__callStatic('allRegex', [$value, $pattern, $message]);
+        static::__callStatic('allRegex', array($value, $pattern, $message));
     }
 
     /**
@@ -1661,11 +1771,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrNotRegex($value, $pattern, $message = '')
     {
-        static::__callStatic('nullOrNotRegex', [$value, $pattern, $message]);
+        static::__callStatic('nullOrNotRegex', array($value, $pattern, $message));
     }
 
     /**
@@ -1676,11 +1787,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allNotRegex($value, $pattern, $message = '')
     {
-        static::__callStatic('allNotRegex', [$value, $pattern, $message]);
+        static::__callStatic('allNotRegex', array($value, $pattern, $message));
     }
 
     /**
@@ -1690,11 +1802,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrUnicodeLetters($value, $message = '')
     {
-        static::__callStatic('nullOrUnicodeLetters', [$value, $message]);
+        static::__callStatic('nullOrUnicodeLetters', array($value, $message));
     }
 
     /**
@@ -1704,11 +1817,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allUnicodeLetters($value, $message = '')
     {
-        static::__callStatic('allUnicodeLetters', [$value, $message]);
+        static::__callStatic('allUnicodeLetters', array($value, $message));
     }
 
     /**
@@ -1718,11 +1832,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrAlpha($value, $message = '')
     {
-        static::__callStatic('nullOrAlpha', [$value, $message]);
+        static::__callStatic('nullOrAlpha', array($value, $message));
     }
 
     /**
@@ -1732,11 +1847,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allAlpha($value, $message = '')
     {
-        static::__callStatic('allAlpha', [$value, $message]);
+        static::__callStatic('allAlpha', array($value, $message));
     }
 
     /**
@@ -1746,11 +1862,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrDigits($value, $message = '')
     {
-        static::__callStatic('nullOrDigits', [$value, $message]);
+        static::__callStatic('nullOrDigits', array($value, $message));
     }
 
     /**
@@ -1760,11 +1877,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allDigits($value, $message = '')
     {
-        static::__callStatic('allDigits', [$value, $message]);
+        static::__callStatic('allDigits', array($value, $message));
     }
 
     /**
@@ -1774,11 +1892,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrAlnum($value, $message = '')
     {
-        static::__callStatic('nullOrAlnum', [$value, $message]);
+        static::__callStatic('nullOrAlnum', array($value, $message));
     }
 
     /**
@@ -1788,11 +1907,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allAlnum($value, $message = '')
     {
-        static::__callStatic('allAlnum', [$value, $message]);
+        static::__callStatic('allAlnum', array($value, $message));
     }
 
     /**
@@ -1803,11 +1923,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrLower($value, $message = '')
     {
-        static::__callStatic('nullOrLower', [$value, $message]);
+        static::__callStatic('nullOrLower', array($value, $message));
     }
 
     /**
@@ -1818,11 +1939,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allLower($value, $message = '')
     {
-        static::__callStatic('allLower', [$value, $message]);
+        static::__callStatic('allLower', array($value, $message));
     }
 
     /**
@@ -1832,11 +1954,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrUpper($value, $message = '')
     {
-        static::__callStatic('nullOrUpper', [$value, $message]);
+        static::__callStatic('nullOrUpper', array($value, $message));
     }
 
     /**
@@ -1846,11 +1969,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allUpper($value, $message = '')
     {
-        static::__callStatic('allUpper', [$value, $message]);
+        static::__callStatic('allUpper', array($value, $message));
     }
 
     /**
@@ -1861,11 +1985,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrLength($value, $length, $message = '')
     {
-        static::__callStatic('nullOrLength', [$value, $length, $message]);
+        static::__callStatic('nullOrLength', array($value, $length, $message));
     }
 
     /**
@@ -1876,11 +2001,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allLength($value, $length, $message = '')
     {
-        static::__callStatic('allLength', [$value, $length, $message]);
+        static::__callStatic('allLength', array($value, $length, $message));
     }
 
     /**
@@ -1891,11 +2017,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrMinLength($value, $min, $message = '')
     {
-        static::__callStatic('nullOrMinLength', [$value, $min, $message]);
+        static::__callStatic('nullOrMinLength', array($value, $min, $message));
     }
 
     /**
@@ -1906,11 +2033,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allMinLength($value, $min, $message = '')
     {
-        static::__callStatic('allMinLength', [$value, $min, $message]);
+        static::__callStatic('allMinLength', array($value, $min, $message));
     }
 
     /**
@@ -1921,11 +2049,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrMaxLength($value, $max, $message = '')
     {
-        static::__callStatic('nullOrMaxLength', [$value, $max, $message]);
+        static::__callStatic('nullOrMaxLength', array($value, $max, $message));
     }
 
     /**
@@ -1936,11 +2065,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allMaxLength($value, $max, $message = '')
     {
-        static::__callStatic('allMaxLength', [$value, $max, $message]);
+        static::__callStatic('allMaxLength', array($value, $max, $message));
     }
 
     /**
@@ -1952,11 +2082,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrLengthBetween($value, $min, $max, $message = '')
     {
-        static::__callStatic('nullOrLengthBetween', [$value, $min, $max, $message]);
+        static::__callStatic('nullOrLengthBetween', array($value, $min, $max, $message));
     }
 
     /**
@@ -1968,11 +2099,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allLengthBetween($value, $min, $max, $message = '')
     {
-        static::__callStatic('allLengthBetween', [$value, $min, $max, $message]);
+        static::__callStatic('allLengthBetween', array($value, $min, $max, $message));
     }
 
     /**
@@ -1980,11 +2112,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrFileExists($value, $message = '')
     {
-        static::__callStatic('nullOrFileExists', [$value, $message]);
+        static::__callStatic('nullOrFileExists', array($value, $message));
     }
 
     /**
@@ -1992,11 +2125,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allFileExists($value, $message = '')
     {
-        static::__callStatic('allFileExists', [$value, $message]);
+        static::__callStatic('allFileExists', array($value, $message));
     }
 
     /**
@@ -2004,11 +2138,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrFile($value, $message = '')
     {
-        static::__callStatic('nullOrFile', [$value, $message]);
+        static::__callStatic('nullOrFile', array($value, $message));
     }
 
     /**
@@ -2016,11 +2151,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allFile($value, $message = '')
     {
-        static::__callStatic('allFile', [$value, $message]);
+        static::__callStatic('allFile', array($value, $message));
     }
 
     /**
@@ -2028,11 +2164,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrDirectory($value, $message = '')
     {
-        static::__callStatic('nullOrDirectory', [$value, $message]);
+        static::__callStatic('nullOrDirectory', array($value, $message));
     }
 
     /**
@@ -2040,11 +2177,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allDirectory($value, $message = '')
     {
-        static::__callStatic('allDirectory', [$value, $message]);
+        static::__callStatic('allDirectory', array($value, $message));
     }
 
     /**
@@ -2052,11 +2190,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrReadable($value, $message = '')
     {
-        static::__callStatic('nullOrReadable', [$value, $message]);
+        static::__callStatic('nullOrReadable', array($value, $message));
     }
 
     /**
@@ -2064,11 +2203,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allReadable($value, $message = '')
     {
-        static::__callStatic('allReadable', [$value, $message]);
+        static::__callStatic('allReadable', array($value, $message));
     }
 
     /**
@@ -2076,11 +2216,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrWritable($value, $message = '')
     {
-        static::__callStatic('nullOrWritable', [$value, $message]);
+        static::__callStatic('nullOrWritable', array($value, $message));
     }
 
     /**
@@ -2088,11 +2229,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allWritable($value, $message = '')
     {
-        static::__callStatic('allWritable', [$value, $message]);
+        static::__callStatic('allWritable', array($value, $message));
     }
 
     /**
@@ -2102,11 +2244,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrClassExists($value, $message = '')
     {
-        static::__callStatic('nullOrClassExists', [$value, $message]);
+        static::__callStatic('nullOrClassExists', array($value, $message));
     }
 
     /**
@@ -2116,11 +2259,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allClassExists($value, $message = '')
     {
-        static::__callStatic('allClassExists', [$value, $message]);
+        static::__callStatic('allClassExists', array($value, $message));
     }
 
     /**
@@ -2134,11 +2278,12 @@ trait Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrSubclassOf($value, $class, $message = '')
     {
-        static::__callStatic('nullOrSubclassOf', [$value, $class, $message]);
+        static::__callStatic('nullOrSubclassOf', array($value, $class, $message));
     }
 
     /**
@@ -2152,11 +2297,12 @@ trait Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allSubclassOf($value, $class, $message = '')
     {
-        static::__callStatic('allSubclassOf', [$value, $class, $message]);
+        static::__callStatic('allSubclassOf', array($value, $class, $message));
     }
 
     /**
@@ -2166,11 +2312,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrInterfaceExists($value, $message = '')
     {
-        static::__callStatic('nullOrInterfaceExists', [$value, $message]);
+        static::__callStatic('nullOrInterfaceExists', array($value, $message));
     }
 
     /**
@@ -2180,11 +2327,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allInterfaceExists($value, $message = '')
     {
-        static::__callStatic('allInterfaceExists', [$value, $message]);
+        static::__callStatic('allInterfaceExists', array($value, $message));
     }
 
     /**
@@ -2198,11 +2346,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrImplementsInterface($value, $interface, $message = '')
     {
-        static::__callStatic('nullOrImplementsInterface', [$value, $interface, $message]);
+        static::__callStatic('nullOrImplementsInterface', array($value, $interface, $message));
     }
 
     /**
@@ -2216,11 +2365,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allImplementsInterface($value, $interface, $message = '')
     {
-        static::__callStatic('allImplementsInterface', [$value, $interface, $message]);
+        static::__callStatic('allImplementsInterface', array($value, $interface, $message));
     }
 
     /**
@@ -2232,11 +2382,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrPropertyExists($classOrObject, $property, $message = '')
     {
-        static::__callStatic('nullOrPropertyExists', [$classOrObject, $property, $message]);
+        static::__callStatic('nullOrPropertyExists', array($classOrObject, $property, $message));
     }
 
     /**
@@ -2248,11 +2399,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allPropertyExists($classOrObject, $property, $message = '')
     {
-        static::__callStatic('allPropertyExists', [$classOrObject, $property, $message]);
+        static::__callStatic('allPropertyExists', array($classOrObject, $property, $message));
     }
 
     /**
@@ -2264,11 +2416,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrPropertyNotExists($classOrObject, $property, $message = '')
     {
-        static::__callStatic('nullOrPropertyNotExists', [$classOrObject, $property, $message]);
+        static::__callStatic('nullOrPropertyNotExists', array($classOrObject, $property, $message));
     }
 
     /**
@@ -2280,11 +2433,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allPropertyNotExists($classOrObject, $property, $message = '')
     {
-        static::__callStatic('allPropertyNotExists', [$classOrObject, $property, $message]);
+        static::__callStatic('allPropertyNotExists', array($classOrObject, $property, $message));
     }
 
     /**
@@ -2296,11 +2450,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrMethodExists($classOrObject, $method, $message = '')
     {
-        static::__callStatic('nullOrMethodExists', [$classOrObject, $method, $message]);
+        static::__callStatic('nullOrMethodExists', array($classOrObject, $method, $message));
     }
 
     /**
@@ -2312,11 +2467,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allMethodExists($classOrObject, $method, $message = '')
     {
-        static::__callStatic('allMethodExists', [$classOrObject, $method, $message]);
+        static::__callStatic('allMethodExists', array($classOrObject, $method, $message));
     }
 
     /**
@@ -2328,11 +2484,12 @@ trait Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrMethodNotExists($classOrObject, $method, $message = '')
     {
-        static::__callStatic('nullOrMethodNotExists', [$classOrObject, $method, $message]);
+        static::__callStatic('nullOrMethodNotExists', array($classOrObject, $method, $message));
     }
 
     /**
@@ -2344,11 +2501,12 @@ trait Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allMethodNotExists($classOrObject, $method, $message = '')
     {
-        static::__callStatic('allMethodNotExists', [$classOrObject, $method, $message]);
+        static::__callStatic('allMethodNotExists', array($classOrObject, $method, $message));
     }
 
     /**
@@ -2359,11 +2517,12 @@ trait Mixin
      * @param string     $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrKeyExists($array, $key, $message = '')
     {
-        static::__callStatic('nullOrKeyExists', [$array, $key, $message]);
+        static::__callStatic('nullOrKeyExists', array($array, $key, $message));
     }
 
     /**
@@ -2374,11 +2533,12 @@ trait Mixin
      * @param string          $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allKeyExists($array, $key, $message = '')
     {
-        static::__callStatic('allKeyExists', [$array, $key, $message]);
+        static::__callStatic('allKeyExists', array($array, $key, $message));
     }
 
     /**
@@ -2389,11 +2549,12 @@ trait Mixin
      * @param string     $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrKeyNotExists($array, $key, $message = '')
     {
-        static::__callStatic('nullOrKeyNotExists', [$array, $key, $message]);
+        static::__callStatic('nullOrKeyNotExists', array($array, $key, $message));
     }
 
     /**
@@ -2404,11 +2565,12 @@ trait Mixin
      * @param string          $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allKeyNotExists($array, $key, $message = '')
     {
-        static::__callStatic('allKeyNotExists', [$array, $key, $message]);
+        static::__callStatic('allKeyNotExists', array($array, $key, $message));
     }
 
     /**
@@ -2419,11 +2581,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrValidArrayKey($value, $message = '')
     {
-        static::__callStatic('nullOrValidArrayKey', [$value, $message]);
+        static::__callStatic('nullOrValidArrayKey', array($value, $message));
     }
 
     /**
@@ -2434,11 +2597,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allValidArrayKey($value, $message = '')
     {
-        static::__callStatic('allValidArrayKey', [$value, $message]);
+        static::__callStatic('allValidArrayKey', array($value, $message));
     }
 
     /**
@@ -2447,11 +2611,12 @@ trait Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrCount($array, $number, $message = '')
     {
-        static::__callStatic('nullOrCount', [$array, $number, $message]);
+        static::__callStatic('nullOrCount', array($array, $number, $message));
     }
 
     /**
@@ -2460,11 +2625,12 @@ trait Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allCount($array, $number, $message = '')
     {
-        static::__callStatic('allCount', [$array, $number, $message]);
+        static::__callStatic('allCount', array($array, $number, $message));
     }
 
     /**
@@ -2473,11 +2639,12 @@ trait Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrMinCount($array, $min, $message = '')
     {
-        static::__callStatic('nullOrMinCount', [$array, $min, $message]);
+        static::__callStatic('nullOrMinCount', array($array, $min, $message));
     }
 
     /**
@@ -2486,11 +2653,12 @@ trait Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allMinCount($array, $min, $message = '')
     {
-        static::__callStatic('allMinCount', [$array, $min, $message]);
+        static::__callStatic('allMinCount', array($array, $min, $message));
     }
 
     /**
@@ -2499,11 +2667,12 @@ trait Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrMaxCount($array, $max, $message = '')
     {
-        static::__callStatic('nullOrMaxCount', [$array, $max, $message]);
+        static::__callStatic('nullOrMaxCount', array($array, $max, $message));
     }
 
     /**
@@ -2512,11 +2681,12 @@ trait Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allMaxCount($array, $max, $message = '')
     {
-        static::__callStatic('allMaxCount', [$array, $max, $message]);
+        static::__callStatic('allMaxCount', array($array, $max, $message));
     }
 
     /**
@@ -2526,11 +2696,12 @@ trait Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrCountBetween($array, $min, $max, $message = '')
     {
-        static::__callStatic('nullOrCountBetween', [$array, $min, $max, $message]);
+        static::__callStatic('nullOrCountBetween', array($array, $min, $max, $message));
     }
 
     /**
@@ -2540,11 +2711,12 @@ trait Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allCountBetween($array, $min, $max, $message = '')
     {
-        static::__callStatic('allCountBetween', [$array, $min, $max, $message]);
+        static::__callStatic('allCountBetween', array($array, $min, $max, $message));
     }
 
     /**
@@ -2555,11 +2727,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsList($array, $message = '')
     {
-        static::__callStatic('nullOrIsList', [$array, $message]);
+        static::__callStatic('nullOrIsList', array($array, $message));
     }
 
     /**
@@ -2570,11 +2743,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsList($array, $message = '')
     {
-        static::__callStatic('allIsList', [$array, $message]);
+        static::__callStatic('allIsList', array($array, $message));
     }
 
     /**
@@ -2585,11 +2759,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsNonEmptyList($array, $message = '')
     {
-        static::__callStatic('nullOrIsNonEmptyList', [$array, $message]);
+        static::__callStatic('nullOrIsNonEmptyList', array($array, $message));
     }
 
     /**
@@ -2600,11 +2775,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsNonEmptyList($array, $message = '')
     {
-        static::__callStatic('allIsNonEmptyList', [$array, $message]);
+        static::__callStatic('allIsNonEmptyList', array($array, $message));
     }
 
     /**
@@ -2617,11 +2793,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsMap($array, $message = '')
     {
-        static::__callStatic('nullOrIsMap', [$array, $message]);
+        static::__callStatic('nullOrIsMap', array($array, $message));
     }
 
     /**
@@ -2634,11 +2811,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsMap($array, $message = '')
     {
-        static::__callStatic('allIsMap', [$array, $message]);
+        static::__callStatic('allIsMap', array($array, $message));
     }
 
     /**
@@ -2650,11 +2828,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrIsNonEmptyMap($array, $message = '')
     {
-        static::__callStatic('nullOrIsNonEmptyMap', [$array, $message]);
+        static::__callStatic('nullOrIsNonEmptyMap', array($array, $message));
     }
 
     /**
@@ -2666,11 +2845,12 @@ trait Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allIsNonEmptyMap($array, $message = '')
     {
-        static::__callStatic('allIsNonEmptyMap', [$array, $message]);
+        static::__callStatic('allIsNonEmptyMap', array($array, $message));
     }
 
     /**
@@ -2680,11 +2860,12 @@ trait Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrUuid($value, $message = '')
     {
-        static::__callStatic('nullOrUuid', [$value, $message]);
+        static::__callStatic('nullOrUuid', array($value, $message));
     }
 
     /**
@@ -2694,11 +2875,12 @@ trait Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allUuid($value, $message = '')
     {
-        static::__callStatic('allUuid', [$value, $message]);
+        static::__callStatic('allUuid', array($value, $message));
     }
 
     /**
@@ -2709,11 +2891,12 @@ trait Mixin
      * @param string       $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function nullOrThrows($expression, $class = 'Exception', $message = '')
     {
-        static::__callStatic('nullOrThrows', [$expression, $class, $message]);
+        static::__callStatic('nullOrThrows', array($expression, $class, $message));
     }
 
     /**
@@ -2724,10 +2907,11 @@ trait Mixin
      * @param string            $message
      *
      * @throws InvalidArgumentException
+     *
      * @return void
      */
     public static function allThrows($expression, $class = 'Exception', $message = '')
     {
-        static::__callStatic('allThrows', [$expression, $class, $message]);
+        static::__callStatic('allThrows', array($expression, $class, $message));
     }
 }

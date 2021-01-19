@@ -118,7 +118,7 @@ class Assert
      */
     public static function positiveInteger($value, $message = '')
     {
-        if (! (\is_int($value) && $value > 0)) {
+        if (!(\is_int($value) && $value > 0)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a positive integer. Got: %s',
                 static::valueToString($value)

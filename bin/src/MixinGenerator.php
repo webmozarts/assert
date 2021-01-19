@@ -108,8 +108,9 @@ PHP
  */
 trait Mixin
 {
-    %s
+%s
 }
+
 PHP
             ,
             implode("\n\n", $declaredMethods)
@@ -336,11 +337,11 @@ PHP
         $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $defaultValues)."\n"
             .$indentation."{\n"
             .$indentation.$indentation.'static::__callStatic('
-            .'\'' . $name . '\', ['
+            .'\'' . $name . '\', array('
             .implode(', ', \array_map(static function (string $parameter): string {
                 return '$'. $parameter;
             }, $parameters))
-            ."]);\n"
+            ."));\n"
             .$indentation.'}';
 
         return $staticFunction;
@@ -394,7 +395,8 @@ PHP
             $phpdoc .= "\n".$indentation.rtrim(' * '.$line);
         }
 
-        $phpdoc .= "\n".$indentation.' * @return void'
+        $phpdoc .= "\n".$indentation.' *'
+            . "\n".$indentation.' * @return void'
             . "\n".$indentation.' */';
 
         return $phpdoc;
