@@ -12,9 +12,13 @@ use Countable;
 use InvalidArgumentException;
 use Throwable;
 
-interface Mixin
+/**
+ * This trait aids static analysis tooling in introspecting assertion magic methods.
+ * Do not use this trait directly: it will change, and is not designed for reuse.
+ */
+trait Mixin
 {
-    /**
+        /**
      * @psalm-pure
      * @psalm-assert string|null $value
      *
@@ -22,8 +26,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrString($value, $message = '');
+    public static function nullOrString($value, $message = '')
+    {
+        static::__callStatic('nullOrString', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -33,8 +41,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allString($value, $message = '');
+    public static function allString($value, $message = '')
+    {
+        static::__callStatic('allString', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -44,8 +56,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrStringNotEmpty($value, $message = '');
+    public static function nullOrStringNotEmpty($value, $message = '')
+    {
+        static::__callStatic('nullOrStringNotEmpty', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -55,8 +71,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allStringNotEmpty($value, $message = '');
+    public static function allStringNotEmpty($value, $message = '')
+    {
+        static::__callStatic('allStringNotEmpty', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -66,8 +86,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrInteger($value, $message = '');
+    public static function nullOrInteger($value, $message = '')
+    {
+        static::__callStatic('nullOrInteger', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -77,8 +101,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allInteger($value, $message = '');
+    public static function allInteger($value, $message = '')
+    {
+        static::__callStatic('allInteger', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -88,8 +116,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIntegerish($value, $message = '');
+    public static function nullOrIntegerish($value, $message = '')
+    {
+        static::__callStatic('nullOrIntegerish', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -99,8 +131,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIntegerish($value, $message = '');
+    public static function allIntegerish($value, $message = '')
+    {
+        static::__callStatic('allIntegerish', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -110,8 +146,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrPositiveInteger($value, $message = '');
+    public static function nullOrPositiveInteger($value, $message = '')
+    {
+        static::__callStatic('nullOrPositiveInteger', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -121,8 +161,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allPositiveInteger($value, $message = '');
+    public static function allPositiveInteger($value, $message = '')
+    {
+        static::__callStatic('allPositiveInteger', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -132,8 +176,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNaturalNumber($value, $message = '');
+    public static function nullOrNaturalNumber($value, $message = '')
+    {
+        static::__callStatic('nullOrNaturalNumber', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -143,8 +191,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNaturalNumber($value, $message = '');
+    public static function allNaturalNumber($value, $message = '')
+    {
+        static::__callStatic('allNaturalNumber', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -154,8 +206,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrFloat($value, $message = '');
+    public static function nullOrFloat($value, $message = '')
+    {
+        static::__callStatic('nullOrFloat', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -165,8 +221,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allFloat($value, $message = '');
+    public static function allFloat($value, $message = '')
+    {
+        static::__callStatic('allFloat', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -176,8 +236,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNumeric($value, $message = '');
+    public static function nullOrNumeric($value, $message = '')
+    {
+        static::__callStatic('nullOrNumeric', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -187,8 +251,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNumeric($value, $message = '');
+    public static function allNumeric($value, $message = '')
+    {
+        static::__callStatic('allNumeric', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -198,8 +266,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNatural($value, $message = '');
+    public static function nullOrNatural($value, $message = '')
+    {
+        static::__callStatic('nullOrNatural', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -209,8 +281,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNatural($value, $message = '');
+    public static function allNatural($value, $message = '')
+    {
+        static::__callStatic('allNatural', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -220,8 +296,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrBoolean($value, $message = '');
+    public static function nullOrBoolean($value, $message = '')
+    {
+        static::__callStatic('nullOrBoolean', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -231,8 +311,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allBoolean($value, $message = '');
+    public static function allBoolean($value, $message = '')
+    {
+        static::__callStatic('allBoolean', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -242,8 +326,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrScalar($value, $message = '');
+    public static function nullOrScalar($value, $message = '')
+    {
+        static::__callStatic('nullOrScalar', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -253,8 +341,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allScalar($value, $message = '');
+    public static function allScalar($value, $message = '')
+    {
+        static::__callStatic('allScalar', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -264,8 +356,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrObject($value, $message = '');
+    public static function nullOrObject($value, $message = '')
+    {
+        static::__callStatic('nullOrObject', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -275,8 +371,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allObject($value, $message = '');
+    public static function allObject($value, $message = '')
+    {
+        static::__callStatic('allObject', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -287,8 +387,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrResource($value, $type = null, $message = '');
+    public static function nullOrResource($value, $type = null, $message = '')
+    {
+        static::__callStatic('nullOrResource', [$value, $type, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -299,8 +403,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allResource($value, $type = null, $message = '');
+    public static function allResource($value, $type = null, $message = '')
+    {
+        static::__callStatic('allResource', [$value, $type, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -310,8 +418,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsCallable($value, $message = '');
+    public static function nullOrIsCallable($value, $message = '')
+    {
+        static::__callStatic('nullOrIsCallable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -321,8 +433,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsCallable($value, $message = '');
+    public static function allIsCallable($value, $message = '')
+    {
+        static::__callStatic('allIsCallable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -332,8 +448,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsArray($value, $message = '');
+    public static function nullOrIsArray($value, $message = '')
+    {
+        static::__callStatic('nullOrIsArray', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -343,8 +463,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsArray($value, $message = '');
+    public static function allIsArray($value, $message = '')
+    {
+        static::__callStatic('allIsArray', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -356,8 +480,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsTraversable($value, $message = '');
+    public static function nullOrIsTraversable($value, $message = '')
+    {
+        static::__callStatic('nullOrIsTraversable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -369,8 +497,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsTraversable($value, $message = '');
+    public static function allIsTraversable($value, $message = '')
+    {
+        static::__callStatic('allIsTraversable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -380,8 +512,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsArrayAccessible($value, $message = '');
+    public static function nullOrIsArrayAccessible($value, $message = '')
+    {
+        static::__callStatic('nullOrIsArrayAccessible', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -391,8 +527,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsArrayAccessible($value, $message = '');
+    public static function allIsArrayAccessible($value, $message = '')
+    {
+        static::__callStatic('allIsArrayAccessible', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -402,8 +542,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsCountable($value, $message = '');
+    public static function nullOrIsCountable($value, $message = '')
+    {
+        static::__callStatic('nullOrIsCountable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -413,8 +557,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsCountable($value, $message = '');
+    public static function allIsCountable($value, $message = '')
+    {
+        static::__callStatic('allIsCountable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -424,8 +572,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsIterable($value, $message = '');
+    public static function nullOrIsIterable($value, $message = '')
+    {
+        static::__callStatic('nullOrIsIterable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -435,8 +587,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsIterable($value, $message = '');
+    public static function allIsIterable($value, $message = '')
+    {
+        static::__callStatic('allIsIterable', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -449,8 +605,12 @@ interface Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsInstanceOf($value, $class, $message = '');
+    public static function nullOrIsInstanceOf($value, $class, $message = '')
+    {
+        static::__callStatic('nullOrIsInstanceOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -463,8 +623,12 @@ interface Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsInstanceOf($value, $class, $message = '');
+    public static function allIsInstanceOf($value, $class, $message = '')
+    {
+        static::__callStatic('allIsInstanceOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -476,8 +640,12 @@ interface Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotInstanceOf($value, $class, $message = '');
+    public static function nullOrNotInstanceOf($value, $class, $message = '')
+    {
+        static::__callStatic('nullOrNotInstanceOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -489,8 +657,12 @@ interface Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotInstanceOf($value, $class, $message = '');
+    public static function allNotInstanceOf($value, $class, $message = '')
+    {
+        static::__callStatic('allNotInstanceOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -501,8 +673,12 @@ interface Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsInstanceOfAny($value, $classes, $message = '');
+    public static function nullOrIsInstanceOfAny($value, $classes, $message = '')
+    {
+        static::__callStatic('nullOrIsInstanceOfAny', [$value, $classes, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -513,8 +689,12 @@ interface Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsInstanceOfAny($value, $classes, $message = '');
+    public static function allIsInstanceOfAny($value, $classes, $message = '')
+    {
+        static::__callStatic('allIsInstanceOfAny', [$value, $classes, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -527,8 +707,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsAOf($value, $class, $message = '');
+    public static function nullOrIsAOf($value, $class, $message = '')
+    {
+        static::__callStatic('nullOrIsAOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -541,8 +725,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsAOf($value, $class, $message = '');
+    public static function allIsAOf($value, $class, $message = '')
+    {
+        static::__callStatic('allIsAOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -554,8 +742,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsNotA($value, $class, $message = '');
+    public static function nullOrIsNotA($value, $class, $message = '')
+    {
+        static::__callStatic('nullOrIsNotA', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -567,8 +759,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsNotA($value, $class, $message = '');
+    public static function allIsNotA($value, $class, $message = '')
+    {
+        static::__callStatic('allIsNotA', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -579,8 +775,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsAnyOf($value, $classes, $message = '');
+    public static function nullOrIsAnyOf($value, $classes, $message = '')
+    {
+        static::__callStatic('nullOrIsAnyOf', [$value, $classes, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -591,8 +791,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsAnyOf($value, $classes, $message = '');
+    public static function allIsAnyOf($value, $classes, $message = '')
+    {
+        static::__callStatic('allIsAnyOf', [$value, $classes, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -602,8 +806,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsEmpty($value, $message = '');
+    public static function nullOrIsEmpty($value, $message = '')
+    {
+        static::__callStatic('nullOrIsEmpty', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -613,8 +821,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsEmpty($value, $message = '');
+    public static function allIsEmpty($value, $message = '')
+    {
+        static::__callStatic('allIsEmpty', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -623,8 +835,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotEmpty($value, $message = '');
+    public static function nullOrNotEmpty($value, $message = '')
+    {
+        static::__callStatic('nullOrNotEmpty', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -633,8 +849,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotEmpty($value, $message = '');
+    public static function allNotEmpty($value, $message = '')
+    {
+        static::__callStatic('allNotEmpty', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -644,8 +864,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNull($value, $message = '');
+    public static function allNull($value, $message = '')
+    {
+        static::__callStatic('allNull', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -654,8 +878,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotNull($value, $message = '');
+    public static function allNotNull($value, $message = '')
+    {
+        static::__callStatic('allNotNull', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -665,8 +893,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrTrue($value, $message = '');
+    public static function nullOrTrue($value, $message = '')
+    {
+        static::__callStatic('nullOrTrue', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -676,8 +908,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allTrue($value, $message = '');
+    public static function allTrue($value, $message = '')
+    {
+        static::__callStatic('allTrue', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -687,8 +923,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrFalse($value, $message = '');
+    public static function nullOrFalse($value, $message = '')
+    {
+        static::__callStatic('nullOrFalse', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -698,8 +938,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allFalse($value, $message = '');
+    public static function allFalse($value, $message = '')
+    {
+        static::__callStatic('allFalse', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -708,8 +952,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotFalse($value, $message = '');
+    public static function nullOrNotFalse($value, $message = '')
+    {
+        static::__callStatic('nullOrNotFalse', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -718,88 +966,132 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotFalse($value, $message = '');
+    public static function allNotFalse($value, $message = '')
+    {
+        static::__callStatic('allNotFalse', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIp($value, $message = '');
+    public static function nullOrIp($value, $message = '')
+    {
+        static::__callStatic('nullOrIp', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIp($value, $message = '');
+    public static function allIp($value, $message = '')
+    {
+        static::__callStatic('allIp', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIpv4($value, $message = '');
+    public static function nullOrIpv4($value, $message = '')
+    {
+        static::__callStatic('nullOrIpv4', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIpv4($value, $message = '');
+    public static function allIpv4($value, $message = '')
+    {
+        static::__callStatic('allIpv4', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIpv6($value, $message = '');
+    public static function nullOrIpv6($value, $message = '')
+    {
+        static::__callStatic('nullOrIpv6', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIpv6($value, $message = '');
+    public static function allIpv6($value, $message = '')
+    {
+        static::__callStatic('allIpv6', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrEmail($value, $message = '');
+    public static function nullOrEmail($value, $message = '')
+    {
+        static::__callStatic('nullOrEmail', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allEmail($value, $message = '');
+    public static function allEmail($value, $message = '')
+    {
+        static::__callStatic('allEmail', [$value, $message]);
+    }
 
     /**
      * @param array|null $values
      * @param string     $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrUniqueValues($values, $message = '');
+    public static function nullOrUniqueValues($values, $message = '')
+    {
+        static::__callStatic('nullOrUniqueValues', [$values, $message]);
+    }
 
     /**
      * @param iterable<array> $values
      * @param string          $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allUniqueValues($values, $message = '');
+    public static function allUniqueValues($values, $message = '')
+    {
+        static::__callStatic('allUniqueValues', [$values, $message]);
+    }
 
     /**
      * @param mixed  $value
@@ -807,8 +1099,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrEq($value, $expect, $message = '');
+    public static function nullOrEq($value, $expect, $message = '')
+    {
+        static::__callStatic('nullOrEq', [$value, $expect, $message]);
+    }
 
     /**
      * @param mixed  $value
@@ -816,8 +1112,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allEq($value, $expect, $message = '');
+    public static function allEq($value, $expect, $message = '')
+    {
+        static::__callStatic('allEq', [$value, $expect, $message]);
+    }
 
     /**
      * @param mixed  $value
@@ -825,8 +1125,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotEq($value, $expect, $message = '');
+    public static function nullOrNotEq($value, $expect, $message = '')
+    {
+        static::__callStatic('nullOrNotEq', [$value, $expect, $message]);
+    }
 
     /**
      * @param mixed  $value
@@ -834,41 +1138,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotEq($value, $expect, $message = '');
-
-    /**
-     * @psalm-pure
-     *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function nullOrSame($value, $expect, $message = '');
-
-    /**
-     * @psalm-pure
-     *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function allSame($value, $expect, $message = '');
-
-    /**
-     * @psalm-pure
-     *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function nullOrNotSame($value, $expect, $message = '');
+    public static function allNotEq($value, $expect, $message = '')
+    {
+        static::__callStatic('allNotEq', [$value, $expect, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -878,8 +1153,57 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotSame($value, $expect, $message = '');
+    public static function nullOrSame($value, $expect, $message = '')
+    {
+        static::__callStatic('nullOrSame', [$value, $expect, $message]);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public static function allSame($value, $expect, $message = '')
+    {
+        static::__callStatic('allSame', [$value, $expect, $message]);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public static function nullOrNotSame($value, $expect, $message = '')
+    {
+        static::__callStatic('nullOrNotSame', [$value, $expect, $message]);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public static function allNotSame($value, $expect, $message = '')
+    {
+        static::__callStatic('allNotSame', [$value, $expect, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -889,8 +1213,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrGreaterThan($value, $limit, $message = '');
+    public static function nullOrGreaterThan($value, $limit, $message = '')
+    {
+        static::__callStatic('nullOrGreaterThan', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -900,8 +1228,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allGreaterThan($value, $limit, $message = '');
+    public static function allGreaterThan($value, $limit, $message = '')
+    {
+        static::__callStatic('allGreaterThan', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -911,8 +1243,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrGreaterThanEq($value, $limit, $message = '');
+    public static function nullOrGreaterThanEq($value, $limit, $message = '')
+    {
+        static::__callStatic('nullOrGreaterThanEq', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -922,8 +1258,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allGreaterThanEq($value, $limit, $message = '');
+    public static function allGreaterThanEq($value, $limit, $message = '')
+    {
+        static::__callStatic('allGreaterThanEq', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -933,8 +1273,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrLessThan($value, $limit, $message = '');
+    public static function nullOrLessThan($value, $limit, $message = '')
+    {
+        static::__callStatic('nullOrLessThan', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -944,8 +1288,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allLessThan($value, $limit, $message = '');
+    public static function allLessThan($value, $limit, $message = '')
+    {
+        static::__callStatic('allLessThan', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -955,8 +1303,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrLessThanEq($value, $limit, $message = '');
+    public static function nullOrLessThanEq($value, $limit, $message = '')
+    {
+        static::__callStatic('nullOrLessThanEq', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -966,8 +1318,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allLessThanEq($value, $limit, $message = '');
+    public static function allLessThanEq($value, $limit, $message = '')
+    {
+        static::__callStatic('allLessThanEq', [$value, $limit, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -978,8 +1334,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrRange($value, $min, $max, $message = '');
+    public static function nullOrRange($value, $min, $max, $message = '')
+    {
+        static::__callStatic('nullOrRange', [$value, $min, $max, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -990,8 +1350,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allRange($value, $min, $max, $message = '');
+    public static function allRange($value, $min, $max, $message = '')
+    {
+        static::__callStatic('allRange', [$value, $min, $max, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1001,8 +1365,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrOneOf($value, $values, $message = '');
+    public static function nullOrOneOf($value, $values, $message = '')
+    {
+        static::__callStatic('nullOrOneOf', [$value, $values, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1012,8 +1380,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allOneOf($value, $values, $message = '');
+    public static function allOneOf($value, $values, $message = '')
+    {
+        static::__callStatic('allOneOf', [$value, $values, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1023,8 +1395,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrInArray($value, $values, $message = '');
+    public static function nullOrInArray($value, $values, $message = '')
+    {
+        static::__callStatic('nullOrInArray', [$value, $values, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1034,8 +1410,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allInArray($value, $values, $message = '');
+    public static function allInArray($value, $values, $message = '')
+    {
+        static::__callStatic('allInArray', [$value, $values, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1045,8 +1425,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrContains($value, $subString, $message = '');
+    public static function nullOrContains($value, $subString, $message = '')
+    {
+        static::__callStatic('nullOrContains', [$value, $subString, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1056,8 +1440,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allContains($value, $subString, $message = '');
+    public static function allContains($value, $subString, $message = '')
+    {
+        static::__callStatic('allContains', [$value, $subString, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1067,8 +1455,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotContains($value, $subString, $message = '');
+    public static function nullOrNotContains($value, $subString, $message = '')
+    {
+        static::__callStatic('nullOrNotContains', [$value, $subString, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1078,8 +1470,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotContains($value, $subString, $message = '');
+    public static function allNotContains($value, $subString, $message = '')
+    {
+        static::__callStatic('allNotContains', [$value, $subString, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1088,8 +1484,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotWhitespaceOnly($value, $message = '');
+    public static function nullOrNotWhitespaceOnly($value, $message = '')
+    {
+        static::__callStatic('nullOrNotWhitespaceOnly', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1098,30 +1498,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotWhitespaceOnly($value, $message = '');
-
-    /**
-     * @psalm-pure
-     *
-     * @param string|null $value
-     * @param string      $prefix
-     * @param string      $message
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function nullOrStartsWith($value, $prefix, $message = '');
-
-    /**
-     * @psalm-pure
-     *
-     * @param iterable<string> $value
-     * @param string           $prefix
-     * @param string           $message
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function allStartsWith($value, $prefix, $message = '');
+    public static function allNotWhitespaceOnly($value, $message = '')
+    {
+        static::__callStatic('allNotWhitespaceOnly', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1131,8 +1513,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotStartsWith($value, $prefix, $message = '');
+    public static function nullOrStartsWith($value, $prefix, $message = '')
+    {
+        static::__callStatic('nullOrStartsWith', [$value, $prefix, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1142,8 +1528,42 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotStartsWith($value, $prefix, $message = '');
+    public static function allStartsWith($value, $prefix, $message = '')
+    {
+        static::__callStatic('allStartsWith', [$value, $prefix, $message]);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param string|null $value
+     * @param string      $prefix
+     * @param string      $message
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public static function nullOrNotStartsWith($value, $prefix, $message = '')
+    {
+        static::__callStatic('nullOrNotStartsWith', [$value, $prefix, $message]);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string> $value
+     * @param string           $prefix
+     * @param string           $message
+     *
+     * @throws InvalidArgumentException
+     * @return void
+     */
+    public static function allNotStartsWith($value, $prefix, $message = '')
+    {
+        static::__callStatic('allNotStartsWith', [$value, $prefix, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1152,8 +1572,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrStartsWithLetter($value, $message = '');
+    public static function nullOrStartsWithLetter($value, $message = '')
+    {
+        static::__callStatic('nullOrStartsWithLetter', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1162,8 +1586,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allStartsWithLetter($value, $message = '');
+    public static function allStartsWithLetter($value, $message = '')
+    {
+        static::__callStatic('allStartsWithLetter', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1173,8 +1601,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrEndsWith($value, $suffix, $message = '');
+    public static function nullOrEndsWith($value, $suffix, $message = '')
+    {
+        static::__callStatic('nullOrEndsWith', [$value, $suffix, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1184,8 +1616,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allEndsWith($value, $suffix, $message = '');
+    public static function allEndsWith($value, $suffix, $message = '')
+    {
+        static::__callStatic('allEndsWith', [$value, $suffix, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1195,8 +1631,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotEndsWith($value, $suffix, $message = '');
+    public static function nullOrNotEndsWith($value, $suffix, $message = '')
+    {
+        static::__callStatic('nullOrNotEndsWith', [$value, $suffix, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1206,8 +1646,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotEndsWith($value, $suffix, $message = '');
+    public static function allNotEndsWith($value, $suffix, $message = '')
+    {
+        static::__callStatic('allNotEndsWith', [$value, $suffix, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1217,8 +1661,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrRegex($value, $pattern, $message = '');
+    public static function nullOrRegex($value, $pattern, $message = '')
+    {
+        static::__callStatic('nullOrRegex', [$value, $pattern, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1228,8 +1676,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allRegex($value, $pattern, $message = '');
+    public static function allRegex($value, $pattern, $message = '')
+    {
+        static::__callStatic('allRegex', [$value, $pattern, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1239,8 +1691,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrNotRegex($value, $pattern, $message = '');
+    public static function nullOrNotRegex($value, $pattern, $message = '')
+    {
+        static::__callStatic('nullOrNotRegex', [$value, $pattern, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1250,8 +1706,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allNotRegex($value, $pattern, $message = '');
+    public static function allNotRegex($value, $pattern, $message = '')
+    {
+        static::__callStatic('allNotRegex', [$value, $pattern, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1260,8 +1720,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrUnicodeLetters($value, $message = '');
+    public static function nullOrUnicodeLetters($value, $message = '')
+    {
+        static::__callStatic('nullOrUnicodeLetters', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1270,8 +1734,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allUnicodeLetters($value, $message = '');
+    public static function allUnicodeLetters($value, $message = '')
+    {
+        static::__callStatic('allUnicodeLetters', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1280,8 +1748,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrAlpha($value, $message = '');
+    public static function nullOrAlpha($value, $message = '')
+    {
+        static::__callStatic('nullOrAlpha', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1290,8 +1762,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allAlpha($value, $message = '');
+    public static function allAlpha($value, $message = '')
+    {
+        static::__callStatic('allAlpha', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1300,8 +1776,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrDigits($value, $message = '');
+    public static function nullOrDigits($value, $message = '')
+    {
+        static::__callStatic('nullOrDigits', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1310,8 +1790,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allDigits($value, $message = '');
+    public static function allDigits($value, $message = '')
+    {
+        static::__callStatic('allDigits', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1320,8 +1804,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrAlnum($value, $message = '');
+    public static function nullOrAlnum($value, $message = '')
+    {
+        static::__callStatic('nullOrAlnum', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1330,8 +1818,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allAlnum($value, $message = '');
+    public static function allAlnum($value, $message = '')
+    {
+        static::__callStatic('allAlnum', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1341,8 +1833,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrLower($value, $message = '');
+    public static function nullOrLower($value, $message = '')
+    {
+        static::__callStatic('nullOrLower', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1352,8 +1848,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allLower($value, $message = '');
+    public static function allLower($value, $message = '')
+    {
+        static::__callStatic('allLower', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1362,8 +1862,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrUpper($value, $message = '');
+    public static function nullOrUpper($value, $message = '')
+    {
+        static::__callStatic('nullOrUpper', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1372,8 +1876,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allUpper($value, $message = '');
+    public static function allUpper($value, $message = '')
+    {
+        static::__callStatic('allUpper', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1383,8 +1891,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrLength($value, $length, $message = '');
+    public static function nullOrLength($value, $length, $message = '')
+    {
+        static::__callStatic('nullOrLength', [$value, $length, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1394,8 +1906,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allLength($value, $length, $message = '');
+    public static function allLength($value, $length, $message = '')
+    {
+        static::__callStatic('allLength', [$value, $length, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1405,8 +1921,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrMinLength($value, $min, $message = '');
+    public static function nullOrMinLength($value, $min, $message = '')
+    {
+        static::__callStatic('nullOrMinLength', [$value, $min, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1416,8 +1936,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allMinLength($value, $min, $message = '');
+    public static function allMinLength($value, $min, $message = '')
+    {
+        static::__callStatic('allMinLength', [$value, $min, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1427,8 +1951,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrMaxLength($value, $max, $message = '');
+    public static function nullOrMaxLength($value, $max, $message = '')
+    {
+        static::__callStatic('nullOrMaxLength', [$value, $max, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1438,8 +1966,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allMaxLength($value, $max, $message = '');
+    public static function allMaxLength($value, $max, $message = '')
+    {
+        static::__callStatic('allMaxLength', [$value, $max, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1450,8 +1982,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrLengthBetween($value, $min, $max, $message = '');
+    public static function nullOrLengthBetween($value, $min, $max, $message = '')
+    {
+        static::__callStatic('nullOrLengthBetween', [$value, $min, $max, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1462,88 +1998,132 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allLengthBetween($value, $min, $max, $message = '');
+    public static function allLengthBetween($value, $min, $max, $message = '')
+    {
+        static::__callStatic('allLengthBetween', [$value, $min, $max, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrFileExists($value, $message = '');
+    public static function nullOrFileExists($value, $message = '')
+    {
+        static::__callStatic('nullOrFileExists', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allFileExists($value, $message = '');
+    public static function allFileExists($value, $message = '')
+    {
+        static::__callStatic('allFileExists', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrFile($value, $message = '');
+    public static function nullOrFile($value, $message = '')
+    {
+        static::__callStatic('nullOrFile', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allFile($value, $message = '');
+    public static function allFile($value, $message = '')
+    {
+        static::__callStatic('allFile', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrDirectory($value, $message = '');
+    public static function nullOrDirectory($value, $message = '')
+    {
+        static::__callStatic('nullOrDirectory', [$value, $message]);
+    }
 
     /**
      * @param mixed  $value
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allDirectory($value, $message = '');
+    public static function allDirectory($value, $message = '')
+    {
+        static::__callStatic('allDirectory', [$value, $message]);
+    }
 
     /**
      * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrReadable($value, $message = '');
+    public static function nullOrReadable($value, $message = '')
+    {
+        static::__callStatic('nullOrReadable', [$value, $message]);
+    }
 
     /**
      * @param iterable<string> $value
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allReadable($value, $message = '');
+    public static function allReadable($value, $message = '')
+    {
+        static::__callStatic('allReadable', [$value, $message]);
+    }
 
     /**
      * @param string|null $value
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrWritable($value, $message = '');
+    public static function nullOrWritable($value, $message = '')
+    {
+        static::__callStatic('nullOrWritable', [$value, $message]);
+    }
 
     /**
      * @param iterable<string> $value
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allWritable($value, $message = '');
+    public static function allWritable($value, $message = '')
+    {
+        static::__callStatic('allWritable', [$value, $message]);
+    }
 
     /**
      * @psalm-assert class-string|null $value
@@ -1552,8 +2132,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrClassExists($value, $message = '');
+    public static function nullOrClassExists($value, $message = '')
+    {
+        static::__callStatic('nullOrClassExists', [$value, $message]);
+    }
 
     /**
      * @psalm-assert iterable<class-string> $value
@@ -1562,8 +2146,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allClassExists($value, $message = '');
+    public static function allClassExists($value, $message = '')
+    {
+        static::__callStatic('allClassExists', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1576,8 +2164,12 @@ interface Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrSubclassOf($value, $class, $message = '');
+    public static function nullOrSubclassOf($value, $class, $message = '')
+    {
+        static::__callStatic('nullOrSubclassOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1590,8 +2182,12 @@ interface Mixin
      * @param string        $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allSubclassOf($value, $class, $message = '');
+    public static function allSubclassOf($value, $class, $message = '')
+    {
+        static::__callStatic('allSubclassOf', [$value, $class, $message]);
+    }
 
     /**
      * @psalm-assert class-string|null $value
@@ -1600,8 +2196,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrInterfaceExists($value, $message = '');
+    public static function nullOrInterfaceExists($value, $message = '')
+    {
+        static::__callStatic('nullOrInterfaceExists', [$value, $message]);
+    }
 
     /**
      * @psalm-assert iterable<class-string> $value
@@ -1610,8 +2210,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allInterfaceExists($value, $message = '');
+    public static function allInterfaceExists($value, $message = '')
+    {
+        static::__callStatic('allInterfaceExists', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1624,8 +2228,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrImplementsInterface($value, $interface, $message = '');
+    public static function nullOrImplementsInterface($value, $interface, $message = '')
+    {
+        static::__callStatic('nullOrImplementsInterface', [$value, $interface, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1638,8 +2246,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allImplementsInterface($value, $interface, $message = '');
+    public static function allImplementsInterface($value, $interface, $message = '')
+    {
+        static::__callStatic('allImplementsInterface', [$value, $interface, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1650,8 +2262,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrPropertyExists($classOrObject, $property, $message = '');
+    public static function nullOrPropertyExists($classOrObject, $property, $message = '')
+    {
+        static::__callStatic('nullOrPropertyExists', [$classOrObject, $property, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1662,8 +2278,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allPropertyExists($classOrObject, $property, $message = '');
+    public static function allPropertyExists($classOrObject, $property, $message = '')
+    {
+        static::__callStatic('allPropertyExists', [$classOrObject, $property, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1674,8 +2294,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrPropertyNotExists($classOrObject, $property, $message = '');
+    public static function nullOrPropertyNotExists($classOrObject, $property, $message = '')
+    {
+        static::__callStatic('nullOrPropertyNotExists', [$classOrObject, $property, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1686,8 +2310,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allPropertyNotExists($classOrObject, $property, $message = '');
+    public static function allPropertyNotExists($classOrObject, $property, $message = '')
+    {
+        static::__callStatic('allPropertyNotExists', [$classOrObject, $property, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1698,8 +2326,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrMethodExists($classOrObject, $method, $message = '');
+    public static function nullOrMethodExists($classOrObject, $method, $message = '')
+    {
+        static::__callStatic('nullOrMethodExists', [$classOrObject, $method, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1710,8 +2342,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allMethodExists($classOrObject, $method, $message = '');
+    public static function allMethodExists($classOrObject, $method, $message = '')
+    {
+        static::__callStatic('allMethodExists', [$classOrObject, $method, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1722,8 +2358,12 @@ interface Mixin
      * @param string             $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrMethodNotExists($classOrObject, $method, $message = '');
+    public static function nullOrMethodNotExists($classOrObject, $method, $message = '')
+    {
+        static::__callStatic('nullOrMethodNotExists', [$classOrObject, $method, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1734,8 +2374,12 @@ interface Mixin
      * @param string                  $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allMethodNotExists($classOrObject, $method, $message = '');
+    public static function allMethodNotExists($classOrObject, $method, $message = '')
+    {
+        static::__callStatic('allMethodNotExists', [$classOrObject, $method, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1745,8 +2389,12 @@ interface Mixin
      * @param string     $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrKeyExists($array, $key, $message = '');
+    public static function nullOrKeyExists($array, $key, $message = '')
+    {
+        static::__callStatic('nullOrKeyExists', [$array, $key, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1756,8 +2404,12 @@ interface Mixin
      * @param string          $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allKeyExists($array, $key, $message = '');
+    public static function allKeyExists($array, $key, $message = '')
+    {
+        static::__callStatic('allKeyExists', [$array, $key, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1767,8 +2419,12 @@ interface Mixin
      * @param string     $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrKeyNotExists($array, $key, $message = '');
+    public static function nullOrKeyNotExists($array, $key, $message = '')
+    {
+        static::__callStatic('nullOrKeyNotExists', [$array, $key, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1778,8 +2434,12 @@ interface Mixin
      * @param string          $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allKeyNotExists($array, $key, $message = '');
+    public static function allKeyNotExists($array, $key, $message = '')
+    {
+        static::__callStatic('allKeyNotExists', [$array, $key, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1789,8 +2449,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrValidArrayKey($value, $message = '');
+    public static function nullOrValidArrayKey($value, $message = '')
+    {
+        static::__callStatic('nullOrValidArrayKey', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1800,8 +2464,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allValidArrayKey($value, $message = '');
+    public static function allValidArrayKey($value, $message = '')
+    {
+        static::__callStatic('allValidArrayKey', [$value, $message]);
+    }
 
     /**
      * @param Countable|array|null $array
@@ -1809,8 +2477,12 @@ interface Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrCount($array, $number, $message = '');
+    public static function nullOrCount($array, $number, $message = '')
+    {
+        static::__callStatic('nullOrCount', [$array, $number, $message]);
+    }
 
     /**
      * @param iterable<Countable|array> $array
@@ -1818,8 +2490,12 @@ interface Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allCount($array, $number, $message = '');
+    public static function allCount($array, $number, $message = '')
+    {
+        static::__callStatic('allCount', [$array, $number, $message]);
+    }
 
     /**
      * @param Countable|array|null $array
@@ -1827,8 +2503,12 @@ interface Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrMinCount($array, $min, $message = '');
+    public static function nullOrMinCount($array, $min, $message = '')
+    {
+        static::__callStatic('nullOrMinCount', [$array, $min, $message]);
+    }
 
     /**
      * @param iterable<Countable|array> $array
@@ -1836,8 +2516,12 @@ interface Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allMinCount($array, $min, $message = '');
+    public static function allMinCount($array, $min, $message = '')
+    {
+        static::__callStatic('allMinCount', [$array, $min, $message]);
+    }
 
     /**
      * @param Countable|array|null $array
@@ -1845,8 +2529,12 @@ interface Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrMaxCount($array, $max, $message = '');
+    public static function nullOrMaxCount($array, $max, $message = '')
+    {
+        static::__callStatic('nullOrMaxCount', [$array, $max, $message]);
+    }
 
     /**
      * @param iterable<Countable|array> $array
@@ -1854,8 +2542,12 @@ interface Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allMaxCount($array, $max, $message = '');
+    public static function allMaxCount($array, $max, $message = '')
+    {
+        static::__callStatic('allMaxCount', [$array, $max, $message]);
+    }
 
     /**
      * @param Countable|array|null $array
@@ -1864,8 +2556,12 @@ interface Mixin
      * @param string               $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrCountBetween($array, $min, $max, $message = '');
+    public static function nullOrCountBetween($array, $min, $max, $message = '')
+    {
+        static::__callStatic('nullOrCountBetween', [$array, $min, $max, $message]);
+    }
 
     /**
      * @param iterable<Countable|array> $array
@@ -1874,8 +2570,12 @@ interface Mixin
      * @param string                    $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allCountBetween($array, $min, $max, $message = '');
+    public static function allCountBetween($array, $min, $max, $message = '')
+    {
+        static::__callStatic('allCountBetween', [$array, $min, $max, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1885,8 +2585,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsList($array, $message = '');
+    public static function nullOrIsList($array, $message = '')
+    {
+        static::__callStatic('nullOrIsList', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1896,8 +2600,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsList($array, $message = '');
+    public static function allIsList($array, $message = '')
+    {
+        static::__callStatic('allIsList', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1907,8 +2615,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsNonEmptyList($array, $message = '');
+    public static function nullOrIsNonEmptyList($array, $message = '')
+    {
+        static::__callStatic('nullOrIsNonEmptyList', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1918,8 +2630,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsNonEmptyList($array, $message = '');
+    public static function allIsNonEmptyList($array, $message = '')
+    {
+        static::__callStatic('allIsNonEmptyList', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1931,8 +2647,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsMap($array, $message = '');
+    public static function nullOrIsMap($array, $message = '')
+    {
+        static::__callStatic('nullOrIsMap', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1944,8 +2664,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsMap($array, $message = '');
+    public static function allIsMap($array, $message = '')
+    {
+        static::__callStatic('allIsMap', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1956,8 +2680,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrIsNonEmptyMap($array, $message = '');
+    public static function nullOrIsNonEmptyMap($array, $message = '')
+    {
+        static::__callStatic('nullOrIsNonEmptyMap', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1968,8 +2696,12 @@ interface Mixin
      * @param string $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allIsNonEmptyMap($array, $message = '');
+    public static function allIsNonEmptyMap($array, $message = '')
+    {
+        static::__callStatic('allIsNonEmptyMap', [$array, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1978,8 +2710,12 @@ interface Mixin
      * @param string      $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrUuid($value, $message = '');
+    public static function nullOrUuid($value, $message = '')
+    {
+        static::__callStatic('nullOrUuid', [$value, $message]);
+    }
 
     /**
      * @psalm-pure
@@ -1988,8 +2724,12 @@ interface Mixin
      * @param string           $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allUuid($value, $message = '');
+    public static function allUuid($value, $message = '')
+    {
+        static::__callStatic('allUuid', [$value, $message]);
+    }
 
     /**
      * @psalm-param class-string<Throwable> $class
@@ -1999,8 +2739,12 @@ interface Mixin
      * @param string       $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function nullOrThrows($expression, $class = 'Exception', $message = '');
+    public static function nullOrThrows($expression, $class = 'Exception', $message = '')
+    {
+        static::__callStatic('nullOrThrows', [$expression, $class, $message]);
+    }
 
     /**
      * @psalm-param class-string<Throwable> $class
@@ -2010,6 +2754,10 @@ interface Mixin
      * @param string            $message
      *
      * @throws InvalidArgumentException
+     * @return void
      */
-    public static function allThrows($expression, $class = 'Exception', $message = '');
+    public static function allThrows($expression, $class = 'Exception', $message = '')
+    {
+        static::__callStatic('allThrows', [$expression, $class, $message]);
+    }
 }

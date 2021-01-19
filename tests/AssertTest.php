@@ -643,7 +643,7 @@ class AssertTest extends TestCase
      */
     public function testNullOrAcceptsNull($method)
     {
-        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null);
+        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, null, null);
         $this->addToAssertionCount(1);
     }
 

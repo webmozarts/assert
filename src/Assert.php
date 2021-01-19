@@ -27,14 +27,14 @@ use Traversable;
 /**
  * Efficient assertions to validate the input/output of your methods.
  *
- * @mixin Mixin
- *
  * @since  1.0
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 class Assert
 {
+    use Mixin;
+
     /**
      * @psalm-pure
      * @psalm-assert string $value

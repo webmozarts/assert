@@ -204,6 +204,10 @@ class ProjectCodeTest extends TestCase
         $rcMethods = $rc->getMethods(ReflectionMethod::IS_PUBLIC);
 
         foreach ($rcMethods as $rcMethod) {
+            if ($rcMethod->getFileName() !== $rc->getFileName()) {
+                continue;
+            }
+
             $methodName = $rcMethod->getName();
             if (strpos($methodName, '__') === 0) {
                 continue;
