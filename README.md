@@ -90,6 +90,7 @@ Method                                                   | Description
 `integer($value, $message = '')`                         | Check that a value is an integer
 `integerish($value, $message = '')`                      | Check that a value casts to an integer
 `positiveInteger($value, $message = '')`                 | Check that a value is a positive (non-zero) integer
+`naturalNumber($value, $message = '')`                   | Check that a value is a positive integer or zero
 `float($value, $message = '')`                           | Check that a value is a float
 `numeric($value, $message = '')`                         | Check that a value is numeric
 `natural($value, $message= ''')`                         | Check that a value is a non-negative integer

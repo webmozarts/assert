@@ -128,6 +128,25 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-assert positive-int|0 $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function naturalNumber($value, $message = '')
+    {
+        if (! (\is_int($value) && $value > 0)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a positive integer. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert float $value
      *
      * @param mixed  $value
