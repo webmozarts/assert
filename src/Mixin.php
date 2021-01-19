@@ -18,7 +18,7 @@ use Throwable;
  */
 trait Mixin
 {
-        /**
+    /**
      * @psalm-pure
      * @psalm-assert string|null $value
      *
@@ -170,36 +170,6 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert positive-int|0|null $value
-     *
-     * @param mixed  $value
-     * @param string $message
-     *
-     * @throws InvalidArgumentException
-     * @return void
-     */
-    public static function nullOrNaturalNumber($value, $message = '')
-    {
-        static::__callStatic('nullOrNaturalNumber', [$value, $message]);
-    }
-
-    /**
-     * @psalm-pure
-     * @psalm-assert iterable<positive-int|0> $value
-     *
-     * @param mixed  $value
-     * @param string $message
-     *
-     * @throws InvalidArgumentException
-     * @return void
-     */
-    public static function allNaturalNumber($value, $message = '')
-    {
-        static::__callStatic('allNaturalNumber', [$value, $message]);
-    }
-
-    /**
-     * @psalm-pure
      * @psalm-assert float|null $value
      *
      * @param mixed  $value
@@ -260,7 +230,7 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert int|null $value
+     * @psalm-assert positive-int|0|null $value
      *
      * @param mixed  $value
      * @param string $message
@@ -275,7 +245,7 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert iterable<int> $value
+     * @psalm-assert iterable<positive-int|0> $value
      *
      * @param mixed  $value
      * @param string $message

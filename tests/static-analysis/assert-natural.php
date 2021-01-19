@@ -8,6 +8,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
+ *
+ * @psalm-return positive-int|0
  */
 function natural($value): int
 {
@@ -20,6 +22,8 @@ function natural($value): int
  * @psalm-pure
  *
  * @param mixed $value
+ *
+ * @psalm-return positive-int|0|null
  */
 function nullOrNatural($value): ?int
 {
@@ -33,7 +37,10 @@ function nullOrNatural($value): ?int
  *
  * @param mixed $value
  *
- * @return iterable<int>
+ * @return iterable<positive-int|0>
+ *
+ * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
+ * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */
 function allNatural($value): iterable
 {
