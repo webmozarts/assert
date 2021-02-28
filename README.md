@@ -249,6 +249,12 @@ Overriding the following methods in your assertion class allows you to change th
 * `protected static function reportInvalidArgument($message)`
   * This method is called when an assertion fails, with the specified error message. Here you can throw your own exception, or log something.
 
+## Static analysis support
+
+Where applicable, assertion functions are annotated to support Psalm's
+[Assertion syntax](https://psalm.dev/docs/annotating_code/assertion_syntax/).
+A dedicated [PHPStan Plugin](https://github.com/phpstan/phpstan-webmozart-assert) is
+required for proper type support.
 
 Authors
 -------
