@@ -19,7 +19,7 @@
     },
     "conflict": {
         "phpstan/phpstan": "<0.12.20",
-        "vimeo/psalm": "<3.9.1"
+        "vimeo/psalm": "<4.6.1 || 4.6.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5.13"
