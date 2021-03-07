@@ -67,6 +67,16 @@ class AssertTest extends TestCase
             array('integerish', array(1.23), false),
             array('integerish', array(123), true),
             array('integerish', array('123'), true),
+            array('positiveInteger', array(123), true),
+            array('positiveInteger', array(1), true),
+            array('positiveInteger', array(-123), false),
+            array('positiveInteger', array(0), false),
+            array('positiveInteger', array(0.0), false),
+            array('positiveInteger', array('123'), false),
+            array('positiveInteger', array('-123'), false),
+            array('positiveInteger', array('0'), false),
+            array('positiveInteger', array(1.0), false),
+            array('positiveInteger', array(1.23), false),
             array('float', array(1.0), true),
             array('float', array(1.23), true),
             array('float', array(123), false),
@@ -633,7 +643,7 @@ class AssertTest extends TestCase
      */
     public function testNullOrAcceptsNull($method)
     {
-        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null);
+        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, null, null);
         $this->addToAssertionCount(1);
     }
 

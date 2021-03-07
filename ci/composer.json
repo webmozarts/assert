@@ -1,5 +1,5 @@
 {
     "require": {
-        "vimeo/psalm": "dev-master#61f5a06"
+        "vimeo/psalm": "4.6.1"
     }
 }
