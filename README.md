@@ -9,7 +9,7 @@ This library contains efficient assertions to test the input and output of
 your methods. With these assertions, you can greatly reduce the amount of coding
 needed to write a safe implementation.
 
-All assertions in the [`Assert`] class throw an `\InvalidArgumentException` if
+All assertions in the [`Assert`] class throw an `Webmozart\Assert\InvalidArgumentException` if
 they fail.
 
 FAQ
@@ -68,11 +68,11 @@ If you create an employee with an invalid ID, an exception is thrown:
 
 ```php
 new Employee('foobar');
-// => InvalidArgumentException:
+// => Webmozart\Assert\InvalidArgumentException:
 //    The employee ID must be an integer. Got: string
 
 new Employee(-10);
-// => InvalidArgumentException:
+// => Webmozart\Assert\InvalidArgumentException:
 //    The employee ID must be a positive integer. Got: -10
 ```
 
