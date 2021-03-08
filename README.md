@@ -1,7 +1,6 @@
 Webmozart Assert
 ================
 
-[![Code Coverage](https://scrutinizer-ci.com/g/webmozart/assert/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/webmozart/assert/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/webmozart/assert/v/stable.svg)](https://packagist.org/packages/webmozart/assert)
 [![Total Downloads](https://poser.pugx.org/webmozart/assert/downloads.svg)](https://packagist.org/packages/webmozart/assert)
 
