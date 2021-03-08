@@ -54,7 +54,7 @@ final class MixinGenerator
 <?php
 
 /**
- * provides type inference and auto-completion for magic static methods of Assert.
+ * Provides type inference and auto-completion for magic static methods of Assert.
  */
 
 %s
