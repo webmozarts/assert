@@ -143,7 +143,6 @@ jobs:
             -   name: "Upload coverage"
                 run: "wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover"
 
-
     output-generated:
         name: "Generated code is up-to-date"
 
@@ -174,7 +173,7 @@ jobs:
                       echo "#  One of three things have happened here:"
                       echo "#   1) You have modified generated code."
                       echo "#   2) You have added new methods to the Assert class."
-                      echo "#   2) You have updated the code generator."
+                      echo "#   3) You have updated the code generator."
                       echo "#"
                       echo "#  You may solve all problems by running 'php ./bin/generate.php'"
                       echo "#"
