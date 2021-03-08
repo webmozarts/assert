@@ -118,27 +118,3 @@ jobs:
 
             -   name: "Run unit tests"
                 run: "vendor/bin/phpunit tests/AssertTest.php"
-
-    code-coverage:
-        name: "Code Coverage"
-
-        runs-on: "ubuntu-latest"
-
-        steps:
-            -   name: "Checkout"
-                uses: "actions/checkout@v2.3.4"
-            -   name: "Install PHP"
-                uses: "shivammathur/setup-php@2.9.0"
-                with:
-                    coverage: "pcov"
-                    extensions: "mbstring"
-                    php-version: "7.4"
-
-            -   name: "Install dependencies with composer"
-                run: "composer update --no-interaction --no-progress"
-
-            -   name: "Run unit tests"
-                run: "vendor/bin/phpunit --coverage-clover=coverage.clover"
-
-            -   name: "Upload coverage"
-                run: "wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover"
