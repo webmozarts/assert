@@ -31,7 +31,7 @@ class InvalidArgumentExceptionTest extends TestCase
         } catch (\Exception $e) {
             $this->assertStringStartsWith(
                 sprintf(
-                    '#0 %s(%d): Webmozart\Assert\Assert::notNull(NULL)',
+                    '#0 %s(%d): Webmozart\Assert\Assert::notNull',
                     __FILE__,
                     $line + 1
                 ),
@@ -48,17 +48,11 @@ class InvalidArgumentExceptionTest extends TestCase
             $this->fail('Assertion not triggered');
         } catch (\Exception $e) {
             $trace = $e->getTrace();
-            $this->assertEquals(
-                array(
-                    'file' => __FILE__,
-                    'line' => $line + 1,
-                    'function' => 'notNull',
-                    'class' => Assert::class,
-                    'type' => '::',
-                    'args' => array(null)
-                ),
-                $trace[0]
-            );
+
+            $this->assertIsArray($trace);
+            $this->assertArrayHasKey(0, $trace);
+            $this->assertEquals(__FILE__, $trace[0]['file']);
+            $this->assertEquals($line + 1, $trace[0]['line']);
         }
     }
 
@@ -80,20 +74,11 @@ class InvalidArgumentExceptionTest extends TestCase
             $this->fail('Assertion not triggered');
         } catch (\Exception $e) {
             $trace = $e->getTrace();
-            $this->assertEquals(
-                array(
-                    'file' => __FILE__,
-                    'line' => $line + 1,
-                    'function' => 'call_user_func_array',
-                    'args' => array(
-                        array(Assert::class, 'notNull'),
-                        array(null),
-                    ),
-                ),
-                $trace[0]
-            );
+
+            $this->assertIsArray($trace);
+            $this->assertArrayHasKey(0, $trace);
+            $this->assertEquals(__FILE__, $trace[0]['file']);
+            $this->assertEquals($line + 1, $trace[0]['line']);
         }
     }
-
-
 }
