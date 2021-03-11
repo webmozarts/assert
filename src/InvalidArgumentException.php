@@ -11,18 +11,30 @@
 
 namespace Webmozart\Assert;
 
-use Throwable;
-
 class InvalidArgumentException extends \InvalidArgumentException
 {
-    public function __construct($message = "", $code = 0, Throwable $previous = null)
+    public function __construct($message = null, $code = null, $previous = null)
     {
         parent::__construct($message, $code, $previous);
 
         $trace = $this->getTrace();
-        if (isset($trace[0]['class']) && $trace[0]['class'] === Assert::class) {
-            array_shift($trace);
 
+        $needFix = false;
+        if (
+            isset($trace[0]['class'], $trace[0]['function'], $trace[0]['file'], $trace[0]['line'])
+            && $trace[0]['function'] === 'reportInvalidArgument'
+            && $trace[0]['class'] === Assert::class
+        ) {
+            array_shift($trace);
+            $needFix = true;
+        }
+
+        while (!isset($trace[0]['file'], $trace[0]['line'])) {
+            array_shift($trace);
+            $needFix = true;
+        }
+
+        if ($needFix) {
             try {
                 $property = new \ReflectionProperty(\Exception::class, 'trace');
                 $property->setAccessible(true);
@@ -31,7 +43,7 @@ class InvalidArgumentException extends \InvalidArgumentException
             } catch (\Exception $ignored) {
             }
 
-            if (!empty($trace)) {
+            if (isset($trace[0]['file'], $trace[0]['line'])) {
                 $this->file = $trace[0]['file'];
                 $this->line = $trace[0]['line'];
             }

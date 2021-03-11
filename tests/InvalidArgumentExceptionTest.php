@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Webmozart\Assert\Tests;
 
-
 use PHPUnit\Framework\TestCase;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
@@ -51,12 +50,12 @@ class InvalidArgumentExceptionTest extends TestCase
             $trace = $e->getTrace();
             $this->assertEquals(
                 array(
-                    "file" => __FILE__,
-                    "line" => $line + 1,
-                    "function" => "notNull",
-                    "class" => Assert::class,
-                    "type" => "::",
-                    "args" => array(null)
+                    'file' => __FILE__,
+                    'line' => $line + 1,
+                    'function' => 'notNull',
+                    'class' => Assert::class,
+                    'type' => '::',
+                    'args' => array(null)
                 ),
                 $trace[0]
             );
@@ -72,4 +71,29 @@ class InvalidArgumentExceptionTest extends TestCase
             $this->assertEquals(__CLASS__, $trace[0]['class']);
         }
     }
+
+    public function testCallUserFunction()
+    {
+        try {
+            $line = __LINE__;
+            call_user_func_array(array(Assert::class, 'notNull'), array(null));
+            $this->fail('Assertion not triggered');
+        } catch (\Exception $e) {
+            $trace = $e->getTrace();
+            $this->assertEquals(
+                array(
+                    'file' => __FILE__,
+                    'line' => $line + 1,
+                    'function' => 'call_user_func_array',
+                    'args' => array(
+                        array(Assert::class, 'notNull'),
+                        array(null),
+                    ),
+                ),
+                $trace[0]
+            );
+        }
+    }
+
+
 }

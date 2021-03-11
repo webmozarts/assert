@@ -718,7 +718,7 @@ class AssertTest extends TestCase
             array('eq', array(new ArrayIterator(array()), new stdClass()), 'Expected a value equal to stdClass. Got: ArrayIterator'),
             array('eq', array(1, self::getResource()), 'Expected a value equal to resource. Got: 1'),
 
-            array('lessThan', array(new \DateTime('2020-01-01 00:00:00'), new \DateTime('1999-01-01 00:00:00')), 'Expected a value less than DateTime: "1999-01-01T00:00:00+00:00". Got: DateTime: "2020-01-01T00:00:00+00:00"'),
+            array('lessThan', array(new \DateTime('2020-01-01 00:00:00', new \DateTimeZone('UTC')), new \DateTime('1999-01-01 00:00:00', new \DateTimeZone('UTC'))), 'Expected a value less than DateTime: "1999-01-01T00:00:00+00:00". Got: DateTime: "2020-01-01T00:00:00+00:00"'),
         );
     }
 
