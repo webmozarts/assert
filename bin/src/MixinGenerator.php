@@ -99,8 +99,6 @@ PHP
 /**
  * This trait provides nurllOr* and all* variants of assertion base methods.
  * Do not use this trait directly: it will change, and is not designed for reuse.
- *
- * @internal
  */
 trait Mixin
 {
