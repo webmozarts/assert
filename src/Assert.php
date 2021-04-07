@@ -1822,7 +1822,11 @@ class Assert
      */
     public static function isList($array, $message = '')
     {
-        if (!\is_array($array) || $array !== \array_values($array)) {
+        if (
+            !\is_array($array)
+            || (\PHP_VERSION_ID >= 81000 && !\array_is_list($array))
+            || $array !== \array_values($array)
+        ) {
             static::reportInvalidArgument(
                 $message ?: 'Expected list - non-associative array.'
             );
