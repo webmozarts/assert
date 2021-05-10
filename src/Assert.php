@@ -1824,7 +1824,7 @@ class Assert
     {
         if (
             !\is_array($array)
-            || (\PHP_VERSION_ID >= 81000 && !\array_is_list($array))
+            || (function_exists('\array_is_list') && !\array_is_list($array))
             || $array !== \array_values($array)
         ) {
             static::reportInvalidArgument(
