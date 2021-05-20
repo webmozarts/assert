@@ -2054,6 +2054,7 @@ class Assert
      * @throws InvalidArgumentException
      *
      * @psalm-pure this method is not supposed to perform side-effects
+     * @psalm-return never
      */
     protected static function reportInvalidArgument($message)
     {
