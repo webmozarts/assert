@@ -727,7 +727,7 @@ class AssertTest extends TestCase
      */
     public function testConvertValuesToStrings($method, $args, $exceptionMessage)
     {
-        $this->expectException('\InvalidArgumentException', $exceptionMessage);
+        $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
@@ -738,6 +738,45 @@ class AssertTest extends TestCase
         $this->expectException('\BadMethodCallException');
 
         Assert::nonExistentMethod();
+    }
+
+    public function getInvalidIsAOfCases(): iterable
+    {
+        yield array(
+            array('stdClass', 123),
+            'Expected class as a string. Got: integer',
+        );
+
+        yield array(
+            array('Iterator', 'ArrayIterator'),
+            'Expected an instance of this class or to this class among its parents "ArrayIterator". Got: "Iterator"',
+        );
+
+        yield array(
+            array(123, 'Iterator'),
+            'Expected an instance of this class or to this class among its parents "Iterator". Got: 123',
+        );
+
+        yield array(
+            array(array(), 'Iterator'),
+            'Expected an instance of this class or to this class among its parents "Iterator". Got: array',
+        );
+
+        yield array(
+            array(new \stdClass(), 'Iterator'),
+            'Expected an instance of this class or to this class among its parents "Iterator". Got: stdClass',
+        );
+    }
+
+    /**
+     * @dataProvider getInvalidIsAOfCases
+     */
+    public function testIsAOfExceptionMessages(array $args, string $exceptionMessage): void
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage($exceptionMessage);
+
+        call_user_func_array(array('Webmozart\Assert\Assert', 'isAOf'), $args);
     }
 }
 

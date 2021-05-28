@@ -485,8 +485,8 @@ class Assert
 
         if (!\is_a($value, $class, \is_string($value))) {
             static::reportInvalidArgument(sprintf(
-                $message ?: 'Expected an instance of this class or to this class among his parents %2$s. Got: %s',
-                static::typeToString($value),
+                $message ?: 'Expected an instance of this class or to this class among its parents "%2$s". Got: %s',
+                static::valueToString($value),
                 $class
             ));
         }
@@ -511,8 +511,8 @@ class Assert
 
         if (\is_a($value, $class, \is_string($value))) {
             static::reportInvalidArgument(sprintf(
-                $message ?: 'Expected an instance of this class or to this class among his parents other than %2$s. Got: %s',
-                static::typeToString($value),
+                $message ?: 'Expected an instance of this class or to this class among its parents other than "%2$s". Got: %s',
+                static::valueToString($value),
                 $class
             ));
         }
@@ -539,9 +539,9 @@ class Assert
         }
 
         static::reportInvalidArgument(sprintf(
-            $message ?: 'Expected an any of instance of this class or to this class among his parents other than %2$s. Got: %s',
-            static::typeToString($value),
-            \implode(', ', \array_map(array('static', 'valueToString'), $classes))
+            $message ?: 'Expected an instance of any of this classes or any of those classes among their parents "%2$s". Got: %s',
+            static::valueToString($value),
+            \implode(', ', $classes)
         ));
     }
 
