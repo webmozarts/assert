@@ -765,8 +765,12 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     * @psalm-template Expected
+     * @psalm-assert Expected $value
+     *
      * @param mixed  $value
-     * @param mixed  $expect
+     * @param Expected $expect
      * @param string $message
      *
      * @throws InvalidArgumentException
@@ -783,8 +787,12 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     * @psalm-template Expected
+     * @psalm-assert !Expected $value
+     *
      * @param mixed  $value
-     * @param mixed  $expect
+     * @param Expected $expect
      * @param string $message
      *
      * @throws InvalidArgumentException

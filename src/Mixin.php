@@ -1133,9 +1133,13 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @psalm-pure
+     * @psalm-template Expected
+     * @psalm-assert Expected|null $value
+     *
+     * @param mixed    $value
+     * @param Expected $expect
+     * @param string   $message
      *
      * @throws InvalidArgumentException
      *
@@ -1147,9 +1151,13 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @psalm-pure
+     * @psalm-template Expected
+     * @psalm-assert iterable<Expected> $value
+     *
+     * @param mixed    $value
+     * @param Expected $expect
+     * @param string   $message
      *
      * @throws InvalidArgumentException
      *
@@ -1161,9 +1169,13 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @psalm-pure
+     * @psalm-template Expected
+     * @psalm-assert !Expected|null $value
+     *
+     * @param mixed    $value
+     * @param Expected $expect
+     * @param string   $message
      *
      * @throws InvalidArgumentException
      *
@@ -1175,9 +1187,13 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @psalm-pure
+     * @psalm-template Expected
+     * @psalm-assert iterable<!Expected> $value
+     *
+     * @param mixed    $value
+     * @param Expected $expect
+     * @param string   $message
      *
      * @throws InvalidArgumentException
      *
