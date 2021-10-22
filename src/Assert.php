@@ -2060,8 +2060,4 @@ class Assert
     {
         throw new InvalidArgumentException($message);
     }
-
-    private function __construct()
-    {
-    }
 }
