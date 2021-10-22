@@ -55,6 +55,26 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-assert numeric-string $value
+     *
+     * @param mixed $value
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function numericString($value, string $message = ''): void
+    {
+        static::string($value, $message ?: 'Expected a numeric string. Got: %s');
+
+        if (!\is_numeric($value)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a numeric string. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert non-empty-string $value
      *
      * @param mixed  $value
