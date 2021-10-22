@@ -71,6 +71,59 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert numeric-string|null $value
+     *
+     * @param mixed $value
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function nullOrNumericString($value, $message = '')
+    {
+        null === $value || static::numericString($value, $message);
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<numeric-string> $value
+     *
+     * @param mixed $value
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNumericString($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::numericString($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<numeric-string|null> $value
+     *
+     * @param mixed $value
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNumericString($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::numericString($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert non-empty-string|null $value
      *
      * @param mixed  $value

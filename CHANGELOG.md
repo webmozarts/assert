@@ -3,6 +3,8 @@ Changelog
 
 ## UNRELEASED
 
+* Added `Assert::numericString()`
+
 ## 1.11.0
 
 ### Added
