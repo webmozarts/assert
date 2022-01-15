@@ -48,3 +48,18 @@ function allPropertyNotExists(iterable $classOrObject, $property): iterable
 
     return $classOrObject;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<class-string|object|null> $classOrObject
+ * @param mixed $property
+ *
+ * @return iterable<class-string|object|null>
+ */
+function allNullOrPropertyNotExists(iterable $classOrObject, $property): iterable
+{
+    Assert::allNullOrPropertyNotExists($classOrObject, $property);
+
+    return $classOrObject;
+}

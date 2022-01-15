@@ -39,3 +39,15 @@ function allInterfaceExists($value): iterable
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return iterable<class-string|null>
+ */
+function allNullOrInterfaceExists($value): iterable
+{
+    Assert::allNullOrInterfaceExists($value);
+
+    return $value;
+}

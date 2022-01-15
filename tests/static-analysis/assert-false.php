@@ -45,3 +45,17 @@ function allFalse($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<false|null>
+ */
+function allNullOrFalse($value): iterable
+{
+    Assert::allFalse($value);
+
+    return $value;
+}

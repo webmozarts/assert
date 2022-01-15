@@ -45,3 +45,17 @@ function allValidArrayKey($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<array-key|null>
+ */
+function allNullOrValidArrayKey($value): iterable
+{
+    Assert::allNullOrValidArrayKey($value);
+
+    return $value;
+}

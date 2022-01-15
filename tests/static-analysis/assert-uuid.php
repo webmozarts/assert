@@ -37,3 +37,17 @@ function allUuid(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrUuid(iterable $value): iterable
+{
+    Assert::allNullOrUuid($value);
+
+    return $value;
+}

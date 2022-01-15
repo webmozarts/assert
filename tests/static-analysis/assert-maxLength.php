@@ -42,3 +42,18 @@ function allMaxLength(iterable $value, $max): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ * @param int|float $max
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrMaxLength(iterable $value, $max): iterable
+{
+    Assert::allMaxLength($value, $max);
+
+    return $value;
+}

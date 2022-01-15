@@ -46,3 +46,17 @@ function allCountBetween(iterable $value, $min, $max): iterable
 
     return $value;
 }
+
+/**
+ * @param iterable<Countable|array|null> $value
+ * @param int|float $min
+ * @param int|float $max
+ *
+ * @return iterable<Countable|array|null>
+ */
+function allNullOrCountBetween(iterable $value, $min, $max): iterable
+{
+    Assert::allNullOrCountBetween($value, $min, $max);
+
+    return $value;
+}

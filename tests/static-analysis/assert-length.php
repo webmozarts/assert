@@ -37,3 +37,17 @@ function allLength(iterable $value, int $length): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrLength(iterable $value, int $length): iterable
+{
+    Assert::allNullOrLength($value, $length);
+
+    return $value;
+}

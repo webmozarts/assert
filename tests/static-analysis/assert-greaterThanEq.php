@@ -48,3 +48,18 @@ function allGreaterThanEq($value, $limit)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $limit
+ *
+ * @return mixed
+ */
+function allNullOrGreaterThanEq($value, $limit)
+{
+    Assert::allNullOrGreaterThanEq($value, $limit);
+
+    return $value;
+}

@@ -49,3 +49,19 @@ function allNotInstanceOf($value, $class)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ * @psalm-template T of object
+ *
+ * @param mixed $value
+ * @param class-string<T> $class
+ *
+ * @return mixed
+ */
+function allNullOrNotInstanceOf($value, $class)
+{
+    Assert::allNullOrNotInstanceOf($value, $class);
+
+    return $value;
+}

@@ -39,3 +39,15 @@ function allIpv6($value)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrIpv6($value)
+{
+    Assert::allNullOrIpv6($value);
+
+    return $value;
+}

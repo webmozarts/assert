@@ -48,3 +48,20 @@ function allNatural($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<positive-int|0|null>
+ *
+ * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
+ * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
+ */
+function allNullOrNatural($value): iterable
+{
+    Assert::allNullOrNatural($value);
+
+    return $value;
+}

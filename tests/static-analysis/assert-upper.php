@@ -37,3 +37,17 @@ function allUpper(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrUpper(iterable $value): iterable
+{
+    Assert::allNullOrUpper($value);
+
+    return $value;
+}

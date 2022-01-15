@@ -42,3 +42,18 @@ function allMinLength(iterable $value, $min): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ * @param int|float $min
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrMinLength(iterable $value, $min): iterable
+{
+    Assert::allNullOrMinLength($value, $min);
+
+    return $value;
+}

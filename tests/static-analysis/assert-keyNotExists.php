@@ -42,3 +42,18 @@ function allKeyNotExists(iterable $array, $key): iterable
 
     return $array;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<array|null> $array
+ * @param array-key $key
+ *
+ * @return iterable<array|null>
+ */
+function allNullOrKeyNotExists(iterable $array, $key): iterable
+{
+    Assert::allNullOrKeyNotExists($array, $key);
+
+    return $array;
+}

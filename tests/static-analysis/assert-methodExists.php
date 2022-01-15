@@ -48,3 +48,18 @@ function allMethodExists(iterable $classOrObject, $method): iterable
 
     return $classOrObject;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<class-string|object|null> $classOrObject
+ * @param mixed $method
+ *
+ * @return iterable<class-string|object|null>
+ */
+function allNullOrMethodExists(iterable $classOrObject, $method): iterable
+{
+    Assert::allNullOrMethodExists($classOrObject, $method);
+
+    return $classOrObject;
+}

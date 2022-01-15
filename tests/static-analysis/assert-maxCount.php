@@ -43,3 +43,16 @@ function allMaxCount(iterable $array, $max): iterable
 
     return $array;
 }
+
+/**
+ * @param iterable<Countable|array|null> $array
+ * @param int|float $max
+ *
+ * @return iterable<Countable|array|null>
+ */
+function allNullOrMaxCount(iterable $array, $max): iterable
+{
+    Assert::allNullOrMaxCount($array, $max);
+
+    return $array;
+}

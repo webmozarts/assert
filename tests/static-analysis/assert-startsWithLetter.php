@@ -45,3 +45,17 @@ function allStartsWithLetter($value, string $prefix)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrStartsWithLetter($value, string $prefix)
+{
+    Assert::allNullOrStartsWithLetter($value, $prefix);
+
+    return $value;
+}

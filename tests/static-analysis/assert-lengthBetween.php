@@ -45,3 +45,19 @@ function allLengthBetween(iterable $value, $min, $max): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ * @param int|float $min
+ * @param int|float $max
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrLengthBetween(iterable $value, $min, $max): iterable
+{
+    Assert::allNullOrLengthBetween($value, $min, $max);
+
+    return $value;
+}

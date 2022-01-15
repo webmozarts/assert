@@ -38,3 +38,15 @@ function allThrows(iterable $value, $class): iterable
 
     return $value;
 }
+/**
+ * @param iterable<Closure|null> $value
+ * @param class-string<Throwable> $class
+ *
+ * @return iterable<Closure>
+ */
+function allNullOrThrows(iterable $value, $class): iterable
+{
+    Assert::allNullOrThrows($value, $class);
+
+    return $value;
+}

@@ -37,3 +37,17 @@ function allRegex(iterable $value, string $pattern): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrRegex(iterable $value, string $pattern): iterable
+{
+    Assert::allRegex($value, $pattern);
+
+    return $value;
+}

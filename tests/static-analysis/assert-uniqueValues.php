@@ -29,3 +29,15 @@ function allUniqueValues(iterable $values): iterable
 
     return $values;
 }
+
+/**
+ * @param iterable<array|null> $values
+ *
+ * @return iterable<array|null>
+ */
+function allNullOrUniqueValues(iterable $values): iterable
+{
+    Assert::allNullOrUniqueValues($values);
+
+    return $values;
+}

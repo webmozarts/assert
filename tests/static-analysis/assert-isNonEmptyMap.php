@@ -61,3 +61,17 @@ function allIsNonEmptyMap(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<mixed|array<mixed>> $value
+ *
+ * @return iterable<mixed|array<mixed>>
+ */
+function allNullOrIsNonEmptyMap(iterable $value): iterable
+{
+    Assert::allNullOrIsNonEmptyMap($value);
+
+    return $value;
+}

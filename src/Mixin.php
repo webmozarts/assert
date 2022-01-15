@@ -51,6 +51,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<string|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrString($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrString($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert non-empty-string|null $value
      *
      * @param mixed  $value
@@ -82,6 +102,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::stringNotEmpty($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<non-empty-string|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrStringNotEmpty($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrStringNotEmpty($entry, $message);
         }
     }
 
@@ -123,6 +163,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<int|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrInteger($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrInteger($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert numeric|null $value
      *
      * @param mixed  $value
@@ -149,6 +209,26 @@ trait Mixin
      * @return void
      */
     public static function allIntegerish($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::integerish($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<numeric|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIntegerish($value, $message = '')
     {
         static::isIterable($value);
 
@@ -195,6 +275,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<positive-int|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrPositiveInteger($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrPositiveInteger($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert float|null $value
      *
      * @param mixed  $value
@@ -226,6 +326,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::float($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<float|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrFloat($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrFloat($entry, $message);
         }
     }
 
@@ -267,6 +387,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<numeric|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNumeric($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNumeric($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert positive-int|0|null $value
      *
      * @param mixed  $value
@@ -298,6 +438,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::natural($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<positive-int|0|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNatural($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNatural($entry, $message);
         }
     }
 
@@ -339,6 +499,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<bool|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrBoolean($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrBoolean($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert scalar|null $value
      *
      * @param mixed  $value
@@ -375,6 +555,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<scalar|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrScalar($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrScalar($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert object|null $value
      *
      * @param mixed  $value
@@ -406,6 +606,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::object($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<object|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrObject($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrObject($entry, $message);
         }
     }
 
@@ -449,6 +669,27 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<resource|null> $value
+     *
+     * @param mixed       $value
+     * @param string|null $type    type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
+     * @param string      $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrResource($value, $type = null, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrResource($entry, $type, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert callable|null $value
      *
      * @param mixed  $value
@@ -485,6 +726,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<callable|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsCallable($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsCallable($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert array|null $value
      *
      * @param mixed  $value
@@ -516,6 +777,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::isArray($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<array|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsArray($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsArray($entry, $message);
         }
     }
 
@@ -597,6 +878,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<array|ArrayAccess|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsArrayAccessible($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsArrayAccessible($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert countable|null $value
      *
      * @param mixed  $value
@@ -633,6 +934,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<countable|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsCountable($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsCountable($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert iterable|null $value
      *
      * @param mixed  $value
@@ -664,6 +985,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::isIterable($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<iterable|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsIterable($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsIterable($entry, $message);
         }
     }
 
@@ -713,6 +1054,29 @@ trait Mixin
      * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert iterable<ExpectedType|null> $value
+     *
+     * @param mixed         $value
+     * @param string|object $class
+     * @param string        $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsInstanceOf($value, $class, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsInstanceOf($entry, $class, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @param mixed         $value
      * @param string|object $class
@@ -751,6 +1115,28 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     *
+     * @param mixed         $value
+     * @param string|object $class
+     * @param string        $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotInstanceOf($value, $class, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotInstanceOf($entry, $class, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-param array<class-string> $classes
      *
      * @param mixed                $value
@@ -784,6 +1170,27 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::isInstanceOfAny($entry, $classes, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-param array<class-string> $classes
+     *
+     * @param mixed                $value
+     * @param array<object|string> $classes
+     * @param string               $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsInstanceOfAny($value, $classes, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsInstanceOfAny($entry, $classes, $message);
         }
     }
 
@@ -831,6 +1238,29 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>|null> $value
+     *
+     * @param iterable<object|string> $value
+     * @param string                  $class
+     * @param string                  $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsAOf($value, $class, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsAOf($entry, $class, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-template UnexpectedType of object
      * @psalm-param class-string<UnexpectedType> $class
      *
@@ -866,6 +1296,28 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::isNotA($entry, $class, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-template UnexpectedType of object
+     * @psalm-param class-string<UnexpectedType> $class
+     *
+     * @param iterable<object|string> $value
+     * @param string                  $class
+     * @param string                  $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsNotA($value, $class, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsNotA($entry, $class, $message);
         }
     }
 
@@ -909,6 +1361,27 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-param array<class-string> $classes
+     *
+     * @param iterable<object|string> $value
+     * @param string[]                $classes
+     * @param string                  $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsAnyOf($value, $classes, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsAnyOf($entry, $classes, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert empty $value
      *
      * @param mixed  $value
@@ -945,6 +1418,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<empty|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsEmpty($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIsEmpty($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      *
      * @param mixed  $value
      * @param string $message
@@ -974,6 +1467,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notEmpty($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotEmpty($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotEmpty($entry, $message);
         }
     }
 
@@ -1054,6 +1566,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<true|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrTrue($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrTrue($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert false|null $value
      *
      * @param mixed  $value
@@ -1090,6 +1622,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<false|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrFalse($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrFalse($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      *
      * @param mixed  $value
      * @param string $message
@@ -1119,6 +1671,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notFalse($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotFalse($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotFalse($entry, $message);
         }
     }
 
@@ -1160,6 +1731,23 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrIp($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIp($entry, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrIpv4($value, $message = '')
     {
         null === $value || static::ipv4($value, $message);
@@ -1179,6 +1767,23 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::ipv4($entry, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIpv4($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIpv4($entry, $message);
         }
     }
 
@@ -1220,6 +1825,23 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrIpv6($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrIpv6($entry, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrEmail($value, $message = '')
     {
         null === $value || static::email($value, $message);
@@ -1239,6 +1861,23 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::email($entry, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrEmail($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrEmail($entry, $message);
         }
     }
 
@@ -1269,6 +1908,23 @@ trait Mixin
 
         foreach ($values as $entry) {
             static::uniqueValues($entry, $message);
+        }
+    }
+
+    /**
+     * @param iterable<array> $values
+     * @param string          $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrUniqueValues($values, $message = '')
+    {
+        static::isIterable($values);
+
+        foreach ($values as $entry) {
+            static::nullOrUniqueValues($entry, $message);
         }
     }
 
@@ -1313,6 +1969,24 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrEq($value, $expect, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrEq($entry, $expect, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrNotEq($value, $expect, $message = '')
     {
         null === $value || static::notEq($value, $expect, $message);
@@ -1333,6 +2007,24 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notEq($entry, $expect, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotEq($value, $expect, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotEq($entry, $expect, $message);
         }
     }
 
@@ -1383,6 +2075,26 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrSame($value, $expect, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrSame($entry, $expect, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrNotSame($value, $expect, $message = '')
     {
         null === $value || static::notSame($value, $expect, $message);
@@ -1405,6 +2117,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notSame($entry, $expect, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $expect
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotSame($value, $expect, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotSame($entry, $expect, $message);
         }
     }
 
@@ -1455,6 +2187,26 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrGreaterThan($value, $limit, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrGreaterThan($entry, $limit, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $limit
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrGreaterThanEq($value, $limit, $message = '')
     {
         null === $value || static::greaterThanEq($value, $limit, $message);
@@ -1477,6 +2229,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::greaterThanEq($entry, $limit, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $limit
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrGreaterThanEq($value, $limit, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrGreaterThanEq($entry, $limit, $message);
         }
     }
 
@@ -1527,6 +2299,26 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrLessThan($value, $limit, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrLessThan($entry, $limit, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $limit
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrLessThanEq($value, $limit, $message = '')
     {
         null === $value || static::lessThanEq($value, $limit, $message);
@@ -1549,6 +2341,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::lessThanEq($entry, $limit, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $limit
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrLessThanEq($value, $limit, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrLessThanEq($entry, $limit, $message);
         }
     }
 
@@ -1587,6 +2399,27 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::range($entry, $min, $max, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param mixed  $min
+     * @param mixed  $max
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrRange($value, $min, $max, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrRange($entry, $min, $max, $message);
         }
     }
 
@@ -1637,6 +2470,26 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrOneOf($value, $values, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrOneOf($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrInArray($value, $values, $message = '')
     {
         null === $value || static::inArray($value, $values, $message);
@@ -1659,6 +2512,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::inArray($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrInArray($value, $values, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrInArray($entry, $values, $message);
         }
     }
 
@@ -1701,6 +2574,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $subString
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrContains($value, $subString, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrContains($entry, $subString, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $subString
      * @param string      $message
@@ -1737,6 +2630,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $subString
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotContains($value, $subString, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotContains($entry, $subString, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $message
      *
@@ -1765,6 +2678,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notWhitespaceOnly($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotWhitespaceOnly($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotWhitespaceOnly($entry, $message);
         }
     }
 
@@ -1807,6 +2739,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $prefix
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrStartsWith($value, $prefix, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrStartsWith($entry, $prefix, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $prefix
      * @param string      $message
@@ -1843,6 +2795,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $prefix
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotStartsWith($value, $prefix, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotStartsWith($entry, $prefix, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *
@@ -1871,6 +2843,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::startsWithLetter($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrStartsWithLetter($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrStartsWithLetter($entry, $message);
         }
     }
 
@@ -1913,6 +2904,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $suffix
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrEndsWith($value, $suffix, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrEndsWith($entry, $suffix, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $suffix
      * @param string      $message
@@ -1943,6 +2954,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notEndsWith($entry, $suffix, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $suffix
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotEndsWith($value, $suffix, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotEndsWith($entry, $suffix, $message);
         }
     }
 
@@ -1985,6 +3016,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $pattern
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrRegex($value, $pattern, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrRegex($entry, $pattern, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $pattern
      * @param string      $message
@@ -2015,6 +3066,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::notRegex($entry, $pattern, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $pattern
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrNotRegex($value, $pattern, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrNotRegex($entry, $pattern, $message);
         }
     }
 
@@ -2062,6 +3133,25 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrUnicodeLetters($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrUnicodeLetters($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrAlpha($value, $message = '')
     {
         null === $value || static::alpha($value, $message);
@@ -2083,6 +3173,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::alpha($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrAlpha($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrAlpha($entry, $message);
         }
     }
 
@@ -2123,6 +3232,25 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrDigits($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrDigits($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $message
      *
@@ -2151,6 +3279,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::alnum($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrAlnum($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrAlnum($entry, $message);
         }
     }
 
@@ -2192,6 +3339,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<lowercase-string|null> $value
+     *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrLower($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrLower($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      *
      * @param string|null $value
      * @param string      $message
@@ -2221,6 +3388,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::upper($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrUpper($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrUpper($entry, $message);
         }
     }
 
@@ -2263,6 +3449,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param int                   $length
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrLength($value, $length, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrLength($entry, $length, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param int|float   $min
      * @param string      $message
@@ -2293,6 +3499,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::minLength($entry, $min, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param int|float             $min
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrMinLength($value, $min, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrMinLength($entry, $min, $message);
         }
     }
 
@@ -2335,6 +3561,26 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|null> $value
+     * @param int|float             $max
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrMaxLength($value, $max, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrMaxLength($entry, $max, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param int|float   $min
      * @param int|float   $max
@@ -2367,6 +3613,27 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::lengthBetween($entry, $min, $max, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param int|float             $min
+     * @param int|float             $max
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrLengthBetween($value, $min, $max, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrLengthBetween($entry, $min, $max, $message);
         }
     }
 
@@ -2408,6 +3675,23 @@ trait Mixin
      *
      * @return void
      */
+    public static function allNullOrFileExists($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrFileExists($entry, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
     public static function nullOrFile($value, $message = '')
     {
         null === $value || static::file($value, $message);
@@ -2427,6 +3711,23 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::file($entry, $message);
+        }
+    }
+
+    /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrFile($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrFile($entry, $message);
         }
     }
 
@@ -2461,6 +3762,23 @@ trait Mixin
     }
 
     /**
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrDirectory($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrDirectory($entry, $message);
+        }
+    }
+
+    /**
      * @param string|null $value
      * @param string      $message
      *
@@ -2474,8 +3792,8 @@ trait Mixin
     }
 
     /**
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string|null> $value
+     * @param string                $message
      *
      * @throws InvalidArgumentException
      *
@@ -2487,6 +3805,23 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::readable($entry, $message);
+        }
+    }
+
+    /**
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrReadable($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrReadable($entry, $message);
         }
     }
 
@@ -2521,6 +3856,23 @@ trait Mixin
     }
 
     /**
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrWritable($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrWritable($entry, $message);
+        }
+    }
+
+    /**
      * @psalm-assert class-string|null $value
      *
      * @param mixed  $value
@@ -2551,6 +3903,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::classExists($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-assert iterable<class-string|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrClassExists($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrClassExists($entry, $message);
         }
     }
 
@@ -2597,6 +3968,29 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $class
+     * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
+     *
+     * @param mixed         $value
+     * @param string|object $class
+     * @param string        $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrSubclassOf($value, $class, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrSubclassOf($entry, $class, $message);
+        }
+    }
+
+    /**
      * @psalm-assert class-string|null $value
      *
      * @param mixed  $value
@@ -2627,6 +4021,25 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::interfaceExists($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-assert iterable<class-string|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrInterfaceExists($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrInterfaceExists($entry, $message);
         }
     }
 
@@ -2674,6 +4087,29 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-template ExpectedType of object
+     * @psalm-param class-string<ExpectedType> $interface
+     * @psalm-assert iterable<class-string<ExpectedType>|null> $value
+     *
+     * @param mixed  $value
+     * @param mixed  $interface
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrImplementsInterface($value, $interface, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrImplementsInterface($entry, $interface, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-param class-string|object|null $classOrObject
      *
      * @param string|object|null $classOrObject
@@ -2707,6 +4143,27 @@ trait Mixin
 
         foreach ($classOrObject as $entry) {
             static::propertyExists($entry, $property, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-param iterable<class-string|object|null> $classOrObject
+     *
+     * @param iterable<string|object|null> $classOrObject
+     * @param mixed                        $property
+     * @param string                       $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrPropertyExists($classOrObject, $property, $message = '')
+    {
+        static::isIterable($classOrObject);
+
+        foreach ($classOrObject as $entry) {
+            static::nullOrPropertyExists($entry, $property, $message);
         }
     }
 
@@ -2750,6 +4207,27 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-param iterable<class-string|object|null> $classOrObject
+     *
+     * @param iterable<string|object|null> $classOrObject
+     * @param mixed                        $property
+     * @param string                       $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrPropertyNotExists($classOrObject, $property, $message = '')
+    {
+        static::isIterable($classOrObject);
+
+        foreach ($classOrObject as $entry) {
+            static::nullOrPropertyNotExists($entry, $property, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-param class-string|object|null $classOrObject
      *
      * @param string|object|null $classOrObject
@@ -2783,6 +4261,27 @@ trait Mixin
 
         foreach ($classOrObject as $entry) {
             static::methodExists($entry, $method, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-param iterable<class-string|object|null> $classOrObject
+     *
+     * @param iterable<string|object|null> $classOrObject
+     * @param mixed                        $method
+     * @param string                       $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrMethodExists($classOrObject, $method, $message = '')
+    {
+        static::isIterable($classOrObject);
+
+        foreach ($classOrObject as $entry) {
+            static::nullOrMethodExists($entry, $method, $message);
         }
     }
 
@@ -2826,6 +4325,27 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-param iterable<class-string|object|null> $classOrObject
+     *
+     * @param iterable<string|object|null> $classOrObject
+     * @param mixed                        $method
+     * @param string                       $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrMethodNotExists($classOrObject, $method, $message = '')
+    {
+        static::isIterable($classOrObject);
+
+        foreach ($classOrObject as $entry) {
+            static::nullOrMethodNotExists($entry, $method, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      *
      * @param array|null $array
      * @param string|int $key
@@ -2857,6 +4377,26 @@ trait Mixin
 
         foreach ($array as $entry) {
             static::keyExists($entry, $key, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<array|null> $array
+     * @param string|int           $key
+     * @param string               $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrKeyExists($array, $key, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrKeyExists($entry, $key, $message);
         }
     }
 
@@ -2898,6 +4438,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     *
+     * @param iterable<array|null> $array
+     * @param string|int           $key
+     * @param string               $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrKeyNotExists($array, $key, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrKeyNotExists($entry, $key, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert array-key|null $value
      *
      * @param mixed  $value
@@ -2929,6 +4489,26 @@ trait Mixin
 
         foreach ($value as $entry) {
             static::validArrayKey($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<array-key|null> $value
+     *
+     * @param mixed  $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrValidArrayKey($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrValidArrayKey($entry, $message);
         }
     }
 
@@ -2965,6 +4545,24 @@ trait Mixin
     }
 
     /**
+     * @param iterable<Countable|array|null> $array
+     * @param int                            $number
+     * @param string                         $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrCount($array, $number, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrCount($entry, $number, $message);
+        }
+    }
+
+    /**
      * @param Countable|array|null $array
      * @param int|float            $min
      * @param string               $message
@@ -2988,6 +4586,24 @@ trait Mixin
      * @return void
      */
     public static function allMinCount($array, $min, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::minCount($entry, $min, $message);
+        }
+    }
+
+    /**
+     * @param iterable<Countable|array|null> $array
+     * @param int|float                      $min
+     * @param string                         $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrMinCount($array, $min, $message = '')
     {
         static::isIterable($array);
 
@@ -3029,6 +4645,24 @@ trait Mixin
     }
 
     /**
+     * @param iterable<Countable|array|null> $array
+     * @param int|float                      $max
+     * @param string                         $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrMaxCount($array, $max, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrMaxCount($entry, $max, $message);
+        }
+    }
+
+    /**
      * @param Countable|array|null $array
      * @param int|float            $min
      * @param int|float            $max
@@ -3059,6 +4693,25 @@ trait Mixin
 
         foreach ($array as $entry) {
             static::countBetween($entry, $min, $max, $message);
+        }
+    }
+
+    /**
+     * @param iterable<Countable|array|null> $array
+     * @param int|float                      $min
+     * @param int|float                      $max
+     * @param string                         $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrCountBetween($array, $min, $max, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrCountBetween($entry, $min, $max, $message);
         }
     }
 
@@ -3100,6 +4753,26 @@ trait Mixin
 
     /**
      * @psalm-pure
+     * @psalm-assert iterable<list|null> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsList($array, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrIsList($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-assert non-empty-list|null $array
      *
      * @param mixed  $array
@@ -3131,6 +4804,26 @@ trait Mixin
 
         foreach ($array as $entry) {
             static::isNonEmptyList($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert iterable<non-empty-list|null> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsNonEmptyList($array, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrIsNonEmptyList($entry, $message);
         }
     }
 
@@ -3177,6 +4870,28 @@ trait Mixin
     /**
      * @psalm-pure
      * @psalm-template T
+     * @psalm-param iterable<mixed|array<T>|null> $array
+     * @psalm-assert iterable<array<string, T>|null> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsMap($array, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrIsMap($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-template T
      * @psalm-param mixed|array<T>|null $array
      *
      * @param mixed  $array
@@ -3209,6 +4924,27 @@ trait Mixin
 
         foreach ($array as $entry) {
             static::isNonEmptyMap($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-template T
+     * @psalm-param iterable<mixed|array<T>|null> $array
+     *
+     * @param mixed  $array
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrIsNonEmptyMap($array, $message = '')
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::nullOrIsNonEmptyMap($entry, $message);
         }
     }
 
@@ -3247,6 +4983,25 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrUuid($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::nullOrUuid($entry, $message);
+        }
+    }
+
+    /**
      * @psalm-param class-string<Throwable> $class
      *
      * @param Closure|null $expression
@@ -3279,6 +5034,26 @@ trait Mixin
 
         foreach ($expression as $entry) {
             static::throws($entry, $class, $message);
+        }
+    }
+
+    /**
+     * @psalm-param class-string<Throwable> $class
+     *
+     * @param iterable<Closure|null> $expression
+     * @param string                 $class
+     * @param string                 $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNullOrThrows($expression, $class = 'Exception', $message = '')
+    {
+        static::isIterable($expression);
+
+        foreach ($expression as $entry) {
+            static::nullOrThrows($entry, $class, $message);
         }
     }
 }

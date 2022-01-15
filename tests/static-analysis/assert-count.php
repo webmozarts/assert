@@ -40,3 +40,15 @@ function allCount(iterable $value, int $number): iterable
 
     return $value;
 }
+
+/**
+ * @param iterable<Countable|array|null> $value
+ *
+ * @return iterable<Countable|array|null>
+ */
+function allNullOrCount(iterable $value, int $number): iterable
+{
+    Assert::allCount($value, $number);
+
+    return $value;
+}

@@ -77,3 +77,17 @@ function allNotEmpty($value)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrNotEmpty($value)
+{
+    Assert::allNullOrNotEmpty($value);
+
+    return $value;
+}

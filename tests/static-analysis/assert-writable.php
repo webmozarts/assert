@@ -29,3 +29,15 @@ function allWritable(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrWritable(iterable $value): iterable
+{
+    Assert::allNullOrWritable($value);
+
+    return $value;
+}
