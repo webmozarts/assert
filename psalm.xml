@@ -9,6 +9,9 @@
     <projectFiles>
         <directory name="bin" />
         <directory name="tests/static-analysis" />
+        <ignoreFiles>
+            <directory name="ci"/>
+        </ignoreFiles>
     </projectFiles>
 
 </psalm>
