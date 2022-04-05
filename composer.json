@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": "^7.2 || ^8.0",
-        "symfony/polyfill-ctype": "^1.8"
+        "ext-ctype": "*"
     },
     "conflict": {
         "phpstan/phpstan": "<0.12.20",
