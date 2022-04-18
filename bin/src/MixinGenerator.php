@@ -95,9 +95,9 @@ PHP
                 $declaredMethods[] = $all;
             }
 
-            $all = $this->allNullOr($method, 4);
+            $allNullOr = $this->allNullOr($method, 4);
             if (null !== $all) {
-                $declaredMethods[] = $all;
+                $declaredMethods[] = $allNullOr;
             }
         }
 
@@ -169,7 +169,7 @@ BODY;
 static::isIterable({$firstParameter});
 
 foreach ({$firstParameter} as \$entry) {
-    null === {$firstParameter} || static::{$method->name}(\$entry, {$parameters});
+    null === \$entry || static::{$method->name}(\$entry, {$parameters});
 }
 BODY;
         });

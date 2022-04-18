@@ -675,6 +675,39 @@ class AssertTest extends TestCase
     /**
      * @dataProvider getTests
      */
+    public function testAllNullOrArray($method, $args, $success, $multibyte = false, $minVersion = null)
+    {
+        if ($minVersion && PHP_VERSION_ID < $minVersion) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
+
+            return;
+        }
+        if ($multibyte && !function_exists('mb_strlen')) {
+            $this->markTestSkipped('The function mb_strlen() is not available');
+        }
+
+        $arg = array_shift($args);
+
+        if($arg === null) {
+            $this->addToAssertionCount(1);
+            return;
+        }
+
+        if (!$success) {
+            $this->expectException('\InvalidArgumentException');
+        }
+
+
+        array_unshift($args, array($arg,null));
+
+
+        call_user_func_array(array('Webmozart\Assert\Assert', 'allNullOr'.ucfirst($method)), $args);
+        $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @dataProvider getTests
+     */
     public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
     {
         if ($minVersion && PHP_VERSION_ID < $minVersion) {
