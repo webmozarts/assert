@@ -65,7 +65,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::string($entry, $message);
+            null === $entry || static::string($entry, $message);
         }
     }
 
@@ -121,7 +121,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::stringNotEmpty($entry, $message);
+            null === $entry || static::stringNotEmpty($entry, $message);
         }
     }
 
@@ -177,7 +177,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::integer($entry, $message);
+            null === $entry || static::integer($entry, $message);
         }
     }
 
@@ -233,7 +233,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::integerish($entry, $message);
+            null === $entry || static::integerish($entry, $message);
         }
     }
 
@@ -289,7 +289,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::positiveInteger($entry, $message);
+            null === $entry || static::positiveInteger($entry, $message);
         }
     }
 
@@ -345,7 +345,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::float($entry, $message);
+            null === $entry || static::float($entry, $message);
         }
     }
 
@@ -401,7 +401,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::numeric($entry, $message);
+            null === $entry || static::numeric($entry, $message);
         }
     }
 
@@ -457,7 +457,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::natural($entry, $message);
+            null === $entry || static::natural($entry, $message);
         }
     }
 
@@ -513,7 +513,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::boolean($entry, $message);
+            null === $entry || static::boolean($entry, $message);
         }
     }
 
@@ -569,7 +569,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::scalar($entry, $message);
+            null === $entry || static::scalar($entry, $message);
         }
     }
 
@@ -625,7 +625,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::object($entry, $message);
+            null === $entry || static::object($entry, $message);
         }
     }
 
@@ -684,7 +684,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::resource($entry, $type, $message);
+            null === $entry || static::resource($entry, $type, $message);
         }
     }
 
@@ -740,7 +740,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isCallable($entry, $message);
+            null === $entry || static::isCallable($entry, $message);
         }
     }
 
@@ -796,7 +796,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isArray($entry, $message);
+            null === $entry || static::isArray($entry, $message);
         }
     }
 
@@ -858,7 +858,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isTraversable($entry, $message);
+            null === $entry || static::isTraversable($entry, $message);
         }
     }
 
@@ -914,7 +914,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isArrayAccessible($entry, $message);
+            null === $entry || static::isArrayAccessible($entry, $message);
         }
     }
 
@@ -970,7 +970,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isCountable($entry, $message);
+            null === $entry || static::isCountable($entry, $message);
         }
     }
 
@@ -1026,7 +1026,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isIterable($entry, $message);
+            null === $entry || static::isIterable($entry, $message);
         }
     }
 
@@ -1091,7 +1091,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isInstanceOf($entry, $class, $message);
+            null === $entry || static::isInstanceOf($entry, $class, $message);
         }
     }
 
@@ -1154,7 +1154,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notInstanceOf($entry, $class, $message);
+            null === $entry || static::notInstanceOf($entry, $class, $message);
         }
     }
 
@@ -1213,7 +1213,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isInstanceOfAny($entry, $classes, $message);
+            null === $entry || static::isInstanceOfAny($entry, $classes, $message);
         }
     }
 
@@ -1278,7 +1278,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isAOf($entry, $class, $message);
+            null === $entry || static::isAOf($entry, $class, $message);
         }
     }
 
@@ -1342,7 +1342,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isNotA($entry, $class, $message);
+            null === $entry || static::isNotA($entry, $class, $message);
         }
     }
 
@@ -1401,7 +1401,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isAnyOf($entry, $classes, $message);
+            null === $entry || static::isAnyOf($entry, $classes, $message);
         }
     }
 
@@ -1457,7 +1457,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::isEmpty($entry, $message);
+            null === $entry || static::isEmpty($entry, $message);
         }
     }
 
@@ -1511,7 +1511,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notEmpty($entry, $message);
+            null === $entry || static::notEmpty($entry, $message);
         }
     }
 
@@ -1606,7 +1606,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::true($entry, $message);
+            null === $entry || static::true($entry, $message);
         }
     }
 
@@ -1662,7 +1662,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::false($entry, $message);
+            null === $entry || static::false($entry, $message);
         }
     }
 
@@ -1716,7 +1716,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notFalse($entry, $message);
+            null === $entry || static::notFalse($entry, $message);
         }
     }
 
@@ -1763,7 +1763,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::ip($entry, $message);
+            null === $entry || static::ip($entry, $message);
         }
     }
 
@@ -1810,7 +1810,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::ipv4($entry, $message);
+            null === $entry || static::ipv4($entry, $message);
         }
     }
 
@@ -1857,7 +1857,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::ipv6($entry, $message);
+            null === $entry || static::ipv6($entry, $message);
         }
     }
 
@@ -1904,7 +1904,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::email($entry, $message);
+            null === $entry || static::email($entry, $message);
         }
     }
 
@@ -1951,7 +1951,7 @@ trait Mixin
         static::isIterable($values);
 
         foreach ($values as $entry) {
-            null === $values || static::uniqueValues($entry, $message);
+            null === $entry || static::uniqueValues($entry, $message);
         }
     }
 
@@ -2001,7 +2001,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::eq($entry, $expect, $message);
+            null === $entry || static::eq($entry, $expect, $message);
         }
     }
 
@@ -2051,7 +2051,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notEq($entry, $expect, $message);
+            null === $entry || static::notEq($entry, $expect, $message);
         }
     }
 
@@ -2107,7 +2107,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::same($entry, $expect, $message);
+            null === $entry || static::same($entry, $expect, $message);
         }
     }
 
@@ -2163,7 +2163,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notSame($entry, $expect, $message);
+            null === $entry || static::notSame($entry, $expect, $message);
         }
     }
 
@@ -2219,7 +2219,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::greaterThan($entry, $limit, $message);
+            null === $entry || static::greaterThan($entry, $limit, $message);
         }
     }
 
@@ -2275,7 +2275,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::greaterThanEq($entry, $limit, $message);
+            null === $entry || static::greaterThanEq($entry, $limit, $message);
         }
     }
 
@@ -2331,7 +2331,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::lessThan($entry, $limit, $message);
+            null === $entry || static::lessThan($entry, $limit, $message);
         }
     }
 
@@ -2387,7 +2387,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::lessThanEq($entry, $limit, $message);
+            null === $entry || static::lessThanEq($entry, $limit, $message);
         }
     }
 
@@ -2446,7 +2446,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::range($entry, $min, $max, $message);
+            null === $entry || static::range($entry, $min, $max, $message);
         }
     }
 
@@ -2502,7 +2502,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::oneOf($entry, $values, $message);
+            null === $entry || static::oneOf($entry, $values, $message);
         }
     }
 
@@ -2558,7 +2558,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::inArray($entry, $values, $message);
+            null === $entry || static::inArray($entry, $values, $message);
         }
     }
 
@@ -2614,7 +2614,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::contains($entry, $subString, $message);
+            null === $entry || static::contains($entry, $subString, $message);
         }
     }
 
@@ -2670,7 +2670,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notContains($entry, $subString, $message);
+            null === $entry || static::notContains($entry, $subString, $message);
         }
     }
 
@@ -2723,7 +2723,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notWhitespaceOnly($entry, $message);
+            null === $entry || static::notWhitespaceOnly($entry, $message);
         }
     }
 
@@ -2779,7 +2779,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::startsWith($entry, $prefix, $message);
+            null === $entry || static::startsWith($entry, $prefix, $message);
         }
     }
 
@@ -2835,7 +2835,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notStartsWith($entry, $prefix, $message);
+            null === $entry || static::notStartsWith($entry, $prefix, $message);
         }
     }
 
@@ -2888,7 +2888,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::startsWithLetter($entry, $message);
+            null === $entry || static::startsWithLetter($entry, $message);
         }
     }
 
@@ -2944,7 +2944,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::endsWith($entry, $suffix, $message);
+            null === $entry || static::endsWith($entry, $suffix, $message);
         }
     }
 
@@ -3000,7 +3000,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notEndsWith($entry, $suffix, $message);
+            null === $entry || static::notEndsWith($entry, $suffix, $message);
         }
     }
 
@@ -3056,7 +3056,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::regex($entry, $pattern, $message);
+            null === $entry || static::regex($entry, $pattern, $message);
         }
     }
 
@@ -3112,7 +3112,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::notRegex($entry, $pattern, $message);
+            null === $entry || static::notRegex($entry, $pattern, $message);
         }
     }
 
@@ -3165,7 +3165,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::unicodeLetters($entry, $message);
+            null === $entry || static::unicodeLetters($entry, $message);
         }
     }
 
@@ -3218,7 +3218,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::alpha($entry, $message);
+            null === $entry || static::alpha($entry, $message);
         }
     }
 
@@ -3271,7 +3271,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::digits($entry, $message);
+            null === $entry || static::digits($entry, $message);
         }
     }
 
@@ -3324,7 +3324,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::alnum($entry, $message);
+            null === $entry || static::alnum($entry, $message);
         }
     }
 
@@ -3380,7 +3380,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::lower($entry, $message);
+            null === $entry || static::lower($entry, $message);
         }
     }
 
@@ -3434,7 +3434,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::upper($entry, $message);
+            null === $entry || static::upper($entry, $message);
         }
     }
 
@@ -3490,7 +3490,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::length($entry, $length, $message);
+            null === $entry || static::length($entry, $length, $message);
         }
     }
 
@@ -3546,7 +3546,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::minLength($entry, $min, $message);
+            null === $entry || static::minLength($entry, $min, $message);
         }
     }
 
@@ -3602,7 +3602,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::maxLength($entry, $max, $message);
+            null === $entry || static::maxLength($entry, $max, $message);
         }
     }
 
@@ -3661,7 +3661,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::lengthBetween($entry, $min, $max, $message);
+            null === $entry || static::lengthBetween($entry, $min, $max, $message);
         }
     }
 
@@ -3708,7 +3708,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::fileExists($entry, $message);
+            null === $entry || static::fileExists($entry, $message);
         }
     }
 
@@ -3755,7 +3755,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::file($entry, $message);
+            null === $entry || static::file($entry, $message);
         }
     }
 
@@ -3802,7 +3802,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::directory($entry, $message);
+            null === $entry || static::directory($entry, $message);
         }
     }
 
@@ -3849,7 +3849,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::readable($entry, $message);
+            null === $entry || static::readable($entry, $message);
         }
     }
 
@@ -3896,7 +3896,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::writable($entry, $message);
+            null === $entry || static::writable($entry, $message);
         }
     }
 
@@ -3949,7 +3949,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::classExists($entry, $message);
+            null === $entry || static::classExists($entry, $message);
         }
     }
 
@@ -4014,7 +4014,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::subclassOf($entry, $class, $message);
+            null === $entry || static::subclassOf($entry, $class, $message);
         }
     }
 
@@ -4067,7 +4067,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::interfaceExists($entry, $message);
+            null === $entry || static::interfaceExists($entry, $message);
         }
     }
 
@@ -4132,7 +4132,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::implementsInterface($entry, $interface, $message);
+            null === $entry || static::implementsInterface($entry, $interface, $message);
         }
     }
 
@@ -4191,7 +4191,7 @@ trait Mixin
         static::isIterable($classOrObject);
 
         foreach ($classOrObject as $entry) {
-            null === $classOrObject || static::propertyExists($entry, $property, $message);
+            null === $entry || static::propertyExists($entry, $property, $message);
         }
     }
 
@@ -4250,7 +4250,7 @@ trait Mixin
         static::isIterable($classOrObject);
 
         foreach ($classOrObject as $entry) {
-            null === $classOrObject || static::propertyNotExists($entry, $property, $message);
+            null === $entry || static::propertyNotExists($entry, $property, $message);
         }
     }
 
@@ -4309,7 +4309,7 @@ trait Mixin
         static::isIterable($classOrObject);
 
         foreach ($classOrObject as $entry) {
-            null === $classOrObject || static::methodExists($entry, $method, $message);
+            null === $entry || static::methodExists($entry, $method, $message);
         }
     }
 
@@ -4368,7 +4368,7 @@ trait Mixin
         static::isIterable($classOrObject);
 
         foreach ($classOrObject as $entry) {
-            null === $classOrObject || static::methodNotExists($entry, $method, $message);
+            null === $entry || static::methodNotExists($entry, $method, $message);
         }
     }
 
@@ -4424,7 +4424,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::keyExists($entry, $key, $message);
+            null === $entry || static::keyExists($entry, $key, $message);
         }
     }
 
@@ -4480,7 +4480,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::keyNotExists($entry, $key, $message);
+            null === $entry || static::keyNotExists($entry, $key, $message);
         }
     }
 
@@ -4536,7 +4536,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::validArrayKey($entry, $message);
+            null === $entry || static::validArrayKey($entry, $message);
         }
     }
 
@@ -4586,7 +4586,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::count($entry, $number, $message);
+            null === $entry || static::count($entry, $number, $message);
         }
     }
 
@@ -4636,7 +4636,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::minCount($entry, $min, $message);
+            null === $entry || static::minCount($entry, $min, $message);
         }
     }
 
@@ -4686,7 +4686,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::maxCount($entry, $max, $message);
+            null === $entry || static::maxCount($entry, $max, $message);
         }
     }
 
@@ -4739,7 +4739,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::countBetween($entry, $min, $max, $message);
+            null === $entry || static::countBetween($entry, $min, $max, $message);
         }
     }
 
@@ -4795,7 +4795,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::isList($entry, $message);
+            null === $entry || static::isList($entry, $message);
         }
     }
 
@@ -4851,7 +4851,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::isNonEmptyList($entry, $message);
+            null === $entry || static::isNonEmptyList($entry, $message);
         }
     }
 
@@ -4913,7 +4913,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::isMap($entry, $message);
+            null === $entry || static::isMap($entry, $message);
         }
     }
 
@@ -4974,7 +4974,7 @@ trait Mixin
         static::isIterable($array);
 
         foreach ($array as $entry) {
-            null === $array || static::isNonEmptyMap($entry, $message);
+            null === $entry || static::isNonEmptyMap($entry, $message);
         }
     }
 
@@ -5027,7 +5027,7 @@ trait Mixin
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $value || static::uuid($entry, $message);
+            null === $entry || static::uuid($entry, $message);
         }
     }
 
@@ -5083,7 +5083,7 @@ trait Mixin
         static::isIterable($expression);
 
         foreach ($expression as $entry) {
-            null === $expression || static::throws($entry, $class, $message);
+            null === $entry || static::throws($entry, $class, $message);
         }
     }
 }
