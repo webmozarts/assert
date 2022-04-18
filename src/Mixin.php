@@ -1665,6 +1665,78 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function nullOrNotOneOf($value, $values, $message = '')
+    {
+        null === $value || static::notOneOf($value, $values, $message);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNotOneOf($value, $values, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::notOneOf($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function nullOrNotInArray($value, $values, $message = '')
+    {
+        null === $value || static::notInArray($value, $values, $message);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $value
+     * @param array  $values
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     *
+     * @return void
+     */
+    public static function allNotInArray($value, $values, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::notInArray($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|null $value
      * @param string      $subString
      * @param string      $message
