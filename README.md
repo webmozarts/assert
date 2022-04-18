@@ -86,6 +86,7 @@ Method                                                   | Description
 -------------------------------------------------------- | --------------------------------------------------
 `string($value, $message = '')`                          | Check that a value is a string
 `stringNotEmpty($value, $message = '')`                  | Check that a value is a non-empty string
+`numericString($value, $message = '')`                  | Check that a value is a numeric-string
 `integer($value, $message = '')`                         | Check that a value is an integer
 `integerish($value, $message = '')`                      | Check that a value casts to an integer
 `positiveInteger($value, $message = '')`                 | Check that a value is a positive (non-zero) integer
