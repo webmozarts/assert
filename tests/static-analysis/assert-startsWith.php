@@ -37,3 +37,17 @@ function allStartsWith(iterable $value, string $prefix): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrStartsWith(iterable $value, string $prefix): iterable
+{
+    Assert::allNullOrStartsWith($value, $prefix);
+
+    return $value;
+}

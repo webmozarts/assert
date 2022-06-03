@@ -37,3 +37,17 @@ function allDigits(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrDigits(iterable $value): iterable
+{
+    Assert::allNullOrDigits($value);
+
+    return $value;
+}

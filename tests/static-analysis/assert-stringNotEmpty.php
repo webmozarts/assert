@@ -45,3 +45,17 @@ function allStringNotEmpty($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<non-empty-string|null>
+ */
+function allNullOrStringNotEmpty($value): iterable
+{
+    Assert::allNullOrStringNotEmpty($value);
+
+    return $value;
+}

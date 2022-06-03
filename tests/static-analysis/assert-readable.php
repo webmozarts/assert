@@ -29,3 +29,15 @@ function allReadable(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrReadable(iterable $value): iterable
+{
+    Assert::allNullOrReadable($value);
+
+    return $value;
+}

@@ -37,3 +37,17 @@ function allNotContains(iterable $value, string $subString): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrNotContains(iterable $value, string $subString): iterable
+{
+    Assert::allNullOrNotContains($value, $subString);
+
+    return $value;
+}

@@ -39,3 +39,15 @@ function allFileExists($value)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrFileExists($value)
+{
+    Assert::allNullOrFileExists($value);
+
+    return $value;
+}

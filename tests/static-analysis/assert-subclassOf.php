@@ -46,3 +46,17 @@ function allSubclassOf($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<class-string<stdClass>|stdClass|null>
+ */
+function allNullOrSubclassOf($value): iterable
+{
+    Assert::allNullOrSubclassOf($value, stdClass::class);
+
+    return $value;
+}

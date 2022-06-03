@@ -46,3 +46,17 @@ function allIsCountable($value)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<countable|null>
+ */
+function allNullOrIsCountable($value)
+{
+    Assert::allNullOrIsCountable($value);
+
+    return $value;
+}

@@ -45,3 +45,17 @@ function allOneOf($value, array $values)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrOneOf($value, array $values)
+{
+    Assert::allNullOrOneOf($value, $values);
+
+    return $value;
+}

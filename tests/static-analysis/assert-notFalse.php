@@ -55,3 +55,17 @@ function allNotFalse($value)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrNotFalse($value)
+{
+    Assert::allNullOrNotFalse($value);
+
+    return $value;
+}

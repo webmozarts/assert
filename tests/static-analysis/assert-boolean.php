@@ -41,3 +41,17 @@ function allBoolean($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<bool|null>
+ */
+function allNullOrBoolean($value): iterable
+{
+    Assert::allNullOrBoolean($value);
+
+    return $value;
+}

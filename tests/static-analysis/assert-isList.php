@@ -59,3 +59,17 @@ function allIsList($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<list<mixed>|null>
+ */
+function allNullOrIsList($value): iterable
+{
+    Assert::allNullOrIsList($value);
+
+    return $value;
+}

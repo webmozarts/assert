@@ -46,3 +46,17 @@ function allIsAOf($value)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<object|string|null> $value
+ *
+ * @return iterable<class-string<Serializable>|Serializable|null>
+ */
+function allNullOrIsAOf($value)
+{
+    Assert::allNullOrIsAOf($value, Serializable::class);
+
+    return $value;
+}

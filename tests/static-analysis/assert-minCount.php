@@ -43,3 +43,16 @@ function allMinCount($array, $min)
 
     return $array;
 }
+
+/**
+ * @param iterable<Countable|array|null> $array
+ * @param int|float $min
+ *
+ * @return iterable<Countable|array|null>
+ */
+function allNullOrMinCount($array, $min)
+{
+    Assert::allNullOrMinCount($array, $min);
+
+    return $array;
+}

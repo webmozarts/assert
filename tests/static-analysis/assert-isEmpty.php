@@ -89,3 +89,17 @@ function allIsEmpty($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<empty|null>
+ */
+function allNullOrIsEmpty($value): iterable
+{
+    Assert::allNullOrIsEmpty($value);
+
+    return $value;
+}

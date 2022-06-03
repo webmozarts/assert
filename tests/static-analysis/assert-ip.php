@@ -39,3 +39,15 @@ function allIp($value)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrIp($value)
+{
+    Assert::allNullOrIp($value);
+
+    return $value;
+}

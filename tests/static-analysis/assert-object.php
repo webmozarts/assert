@@ -41,3 +41,17 @@ function allObject($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<object|null>
+ */
+function allNullOrObject($value): iterable
+{
+    Assert::allNullOrObject($value);
+
+    return $value;
+}

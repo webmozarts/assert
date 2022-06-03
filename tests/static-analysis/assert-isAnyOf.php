@@ -48,3 +48,18 @@ function allIsAnyOf($value, array $classes): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<object|string|null> $value
+ * @param array<class-string> $classes
+ *
+ * @return iterable<object|string|null>
+ */
+function allNullOrIsAnyOf($value, array $classes): iterable
+{
+    Assert::allNullOrIsAnyOf($value, $classes);
+
+    return $value;
+}

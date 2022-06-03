@@ -51,3 +51,19 @@ function allRange($value, $min, $max)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $min
+ * @param mixed $max
+ *
+ * @return mixed
+ */
+function allNullOrRange($value, $min, $max)
+{
+    Assert::allNullOrRange($value, $min, $max);
+
+    return $value;
+}

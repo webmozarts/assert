@@ -42,3 +42,17 @@ function allIsInstanceOf($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<Serializable|null>
+ */
+function allNullOrIsInstanceOf($value): iterable
+{
+    Assert::allNullOrIsInstanceOf($value, Serializable::class);
+
+    return $value;
+}

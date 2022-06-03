@@ -39,3 +39,15 @@ function allClassExists($value): iterable
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return iterable<class-string|null>
+ */
+function allNullOrClassExists($value): iterable
+{
+    Assert::allNullOrClassExists($value);
+
+    return $value;
+}

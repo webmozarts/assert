@@ -46,3 +46,17 @@ function allIsArrayAccessible($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<array|ArrayAccess|null>
+ */
+function allNullOrIsArrayAccessible($value): iterable
+{
+    Assert::allNullOrIsArrayAccessible($value);
+
+    return $value;
+}

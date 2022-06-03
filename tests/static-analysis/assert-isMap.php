@@ -76,3 +76,17 @@ function allIsMap(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<mixed|array<mixed>> $value
+ *
+ * @return iterable<array<string, mixed>|null>
+ */
+function allNullOrIsMap(iterable $value): iterable
+{
+    Assert::allNullOrIsMap($value);
+
+    return $value;
+}

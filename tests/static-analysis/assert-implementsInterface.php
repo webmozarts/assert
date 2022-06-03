@@ -46,3 +46,17 @@ function allImplementsInterface($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<class-string<Serializable>|null>
+ */
+function allNullOrImplementsInterface($value): iterable
+{
+    Assert::allNullOrImplementsInterface($value, Serializable::class);
+
+    return $value;
+}

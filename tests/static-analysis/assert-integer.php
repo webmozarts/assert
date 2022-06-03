@@ -41,3 +41,17 @@ function allInteger($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<int|null>
+ */
+function allNullOrInteger($value): iterable
+{
+    Assert::allNullOrInteger($value);
+
+    return $value;
+}

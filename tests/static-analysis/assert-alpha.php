@@ -45,3 +45,17 @@ function allAlpha($value)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrAlpha($value)
+{
+    Assert::allNullOrAlpha($value);
+
+    return $value;
+}

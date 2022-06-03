@@ -45,3 +45,17 @@ function allUnicodeLetters($value)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrUnicodeLetters($value)
+{
+    Assert::allNullOrUnicodeLetters($value);
+
+    return $value;
+}

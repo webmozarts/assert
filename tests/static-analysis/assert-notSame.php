@@ -48,3 +48,18 @@ function allNotSame($value, $expect)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $expect
+ *
+ * @return mixed
+ */
+function allNullOrNotSame($value, $expect)
+{
+    Assert::allNullOrNotSame($value, $expect);
+
+    return $value;
+}

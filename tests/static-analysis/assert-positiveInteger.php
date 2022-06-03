@@ -59,3 +59,17 @@ function allPositiveInteger($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<positive-int|null>
+ */
+function allNullOrPositiveInteger($value): iterable
+{
+    Assert::allPositiveInteger($value);
+
+    return $value;
+}

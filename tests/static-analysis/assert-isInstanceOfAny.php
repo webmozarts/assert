@@ -48,3 +48,18 @@ function allIsInstanceOfAny($value, array $classes)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param array<class-string> $classes
+ *
+ * @return mixed
+ */
+function allNullOrIsInstanceOfAny($value, array $classes)
+{
+    Assert::allNullOrIsInstanceOfAny($value, $classes);
+
+    return $value;
+}

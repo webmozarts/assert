@@ -41,3 +41,17 @@ function allFloat($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<float|null>
+ */
+function allNullOrFloat($value): iterable
+{
+    Assert::allNullOrFloat($value);
+
+    return $value;
+}

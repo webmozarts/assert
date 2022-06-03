@@ -47,3 +47,18 @@ function allIsNotA($value, $class): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<object|string|null> $value
+ * @param class-string $class
+ *
+ * @return iterable<object|string|null>
+ */
+function allNullOrIsNotA($value, $class): iterable
+{
+    Assert::allNullOrIsNotA($value, $class);
+
+    return $value;
+}

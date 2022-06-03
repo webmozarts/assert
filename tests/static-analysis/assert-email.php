@@ -39,3 +39,15 @@ function allEmail($value)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrEmail($value)
+{
+    Assert::allNullOrEmail($value);
+
+    return $value;
+}

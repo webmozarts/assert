@@ -45,3 +45,17 @@ function allIntegerish($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<numeric|null>
+ */
+function allNullOrIntegerish($value): iterable
+{
+    Assert::allNullOrIntegerish($value);
+
+    return $value;
+}

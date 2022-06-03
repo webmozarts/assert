@@ -39,3 +39,15 @@ function allFile($value)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrFile($value)
+{
+    Assert::allNullOrFile($value);
+
+    return $value;
+}

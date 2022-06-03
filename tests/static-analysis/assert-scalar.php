@@ -45,3 +45,17 @@ function allScalar($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<scalar|null>
+ */
+function allNullOrScalar($value): iterable
+{
+    Assert::allNullOrScalar($value);
+
+    return $value;
+}

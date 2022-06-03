@@ -41,3 +41,17 @@ function allIsIterable($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<iterable|null>
+ */
+function allNullOrIsIterable($value): iterable
+{
+    Assert::allNullOrIsIterable($value);
+
+    return $value;
+}

@@ -31,9 +31,23 @@ function nullOrAlnum(?string $value): ?string
  *
  * @return iterable<string>
  */
-function allAllnum(iterable $value): iterable
+function allAlnum(iterable $value): iterable
 {
     Assert::allAlnum($value);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrAlnum(iterable $value): iterable
+{
+    Assert::allNullOrAlnum($value);
 
     return $value;
 }

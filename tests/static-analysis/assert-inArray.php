@@ -45,3 +45,17 @@ function allInArray($value, array $values)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrInArray($value, array $values)
+{
+    Assert::allNullOrInArray($value, $values);
+
+    return $value;
+}

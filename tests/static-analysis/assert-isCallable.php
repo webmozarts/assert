@@ -41,3 +41,17 @@ function allIsCallable($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<callable|null>
+ */
+function allNullOrIsCallable($value): iterable
+{
+    Assert::allNullOrIsCallable($value);
+
+    return $value;
+}

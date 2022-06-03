@@ -48,3 +48,18 @@ function allLessThanEq($value, $limit)
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ * @param mixed $limit
+ *
+ * @return mixed
+ */
+function allNullOrLessThanEq($value, $limit)
+{
+    Assert::allNullOrLessThanEq($value, $limit);
+
+    return $value;
+}

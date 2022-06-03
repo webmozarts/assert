@@ -42,3 +42,16 @@ function allNotEq($value, $expect)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ * @param mixed $expect
+ *
+ * @return mixed
+ */
+function allNullOrNotEq($value, $expect)
+{
+    Assert::allNullOrNotEq($value, $expect);
+
+    return $value;
+}

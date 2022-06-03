@@ -45,3 +45,17 @@ function allIsNonEmptyList($value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param mixed $value
+ *
+ * @return iterable<non-empty-list<mixed>|null>
+ */
+function allNullOrIsNonEmptyList($value): iterable
+{
+    Assert::allNullOrIsNonEmptyList($value);
+
+    return $value;
+}

@@ -37,3 +37,17 @@ function allEndsWith(iterable $value, string $suffix): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrEndsWith(iterable $value, string $suffix): iterable
+{
+    Assert::allNullOrEndsWith($value, $suffix);
+
+    return $value;
+}

@@ -45,6 +45,8 @@ final class MixinGenerator
     private $skipMethods = [
         'nullOrNull',           // meaningless
         'nullOrNotNull',        // meaningless
+        'allNullOrNull',        // meaningless
+        'allNullOrNotNull',     // meaningless
     ];
 
     public function generate(): string
@@ -92,12 +94,17 @@ PHP
             if (null !== $all) {
                 $declaredMethods[] = $all;
             }
+
+            $allNullOr = $this->allNullOr($method, 4);
+            if (null !== $allNullOr) {
+                $declaredMethods[] = $allNullOr;
+            }
         }
 
         return \sprintf(
             <<<'PHP'
 /**
- * This trait provides nurllOr* and all* variants of assertion base methods.
+ * This trait provides nurllOr*, all* and allNullOr* variants of assertion base methods.
  * Do not use this trait directly: it will change, and is not designed for reuse.
  */
 trait Mixin
@@ -142,6 +149,27 @@ static::isIterable({$firstParameter});
 
 foreach ({$firstParameter} as \$entry) {
     static::{$method->name}(\$entry, {$parameters});
+}
+BODY;
+        });
+    }
+
+    /**
+     * @param ReflectionMethod $method
+     * @param int              $indent
+     *
+     * @return string|null
+     *
+     * @throws ReflectionException
+     */
+    private function allNullOr(ReflectionMethod $method, int $indent): ?string
+    {
+        return $this->assertion($method, 'allNullOr%s', 'iterable<%s|null>', $indent, function (string $firstParameter, string $parameters) use ($method) {
+            return <<<BODY
+static::isIterable({$firstParameter});
+
+foreach ({$firstParameter} as \$entry) {
+    null === \$entry || static::{$method->name}(\$entry, {$parameters});
 }
 BODY;
         });

@@ -41,3 +41,17 @@ function allLower(iterable $value): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<lowercase-string|null>
+ */
+function allNullOrLower(iterable $value): iterable
+{
+    Assert::allNullOrLower($value);
+
+    return $value;
+}

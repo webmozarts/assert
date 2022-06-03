@@ -39,3 +39,15 @@ function allDirectory($value)
 
     return $value;
 }
+
+/**
+ * @param mixed $value
+ *
+ * @return mixed
+ */
+function allNullOrDirectory($value)
+{
+    Assert::allNullOrDirectory($value);
+
+    return $value;
+}

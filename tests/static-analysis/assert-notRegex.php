@@ -37,3 +37,17 @@ function allNotRegex(iterable $value, string $pattern): iterable
 
     return $value;
 }
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ *
+ * @return iterable<string|null>
+ */
+function allNullOrNotRegex(iterable $value, string $pattern): iterable
+{
+    Assert::allNotRegex($value, $pattern);
+
+    return $value;
+}
