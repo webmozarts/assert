@@ -991,6 +991,9 @@ class Assert
      */
     public static function contains($value, $subString, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($subString, 'Expected value parameter to be a string. Got: %s');
+
         if (false === \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
@@ -1011,6 +1014,9 @@ class Assert
      */
     public static function notContains($value, $subString, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($subString, 'Expected value parameter to be a string. Got: %s');
+
         if (false !== \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: '%2$s was not expected to be contained in a value. Got: %s',
@@ -1030,6 +1036,8 @@ class Assert
      */
     public static function notWhitespaceOnly($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         if (\preg_match('/^\s*$/', $value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a non-whitespace string. Got: %s',
@@ -1049,6 +1057,9 @@ class Assert
      */
     public static function startsWith($value, $prefix, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($prefix, 'Expected prefix parameter to be a string. Got: %s');
+
         if (0 !== \strpos($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to start with %2$s. Got: %s',
@@ -1069,6 +1080,9 @@ class Assert
      */
     public static function notStartsWith($value, $prefix, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($prefix, 'Expected prefix parameter to be a string. Got: %s');
+
         if (0 === \strpos($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value not to start with %2$s. Got: %s',
@@ -1088,8 +1102,6 @@ class Assert
      */
     public static function startsWithLetter($value, $message = '')
     {
-        static::string($value);
-
         $valid = isset($value[0]);
 
         if ($valid) {
@@ -1118,6 +1130,9 @@ class Assert
      */
     public static function endsWith($value, $suffix, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($suffix, 'Expected suffix parameter to be a string. Got: %s');
+
         if ($suffix !== \substr($value, -\strlen($suffix))) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
@@ -1138,6 +1153,9 @@ class Assert
      */
     public static function notEndsWith($value, $suffix, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($suffix, 'Expected suffix parameter to be a string. Got: %s');
+
         if ($suffix === \substr($value, -\strlen($suffix))) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value not to end with %2$s. Got: %s',
@@ -1158,6 +1176,9 @@ class Assert
      */
     public static function regex($value, $pattern, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($pattern, 'Expected pattern parameter to be a string. Got: %s');
+
         if (!\preg_match($pattern, $value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s does not match the expected pattern.',
@@ -1177,6 +1198,9 @@ class Assert
      */
     public static function notRegex($value, $pattern, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+        static::string($pattern, 'Expected pattern parameter to be a string. Got: %s');
+
         if (\preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s matches the pattern %s (at offset %d).',
@@ -1190,14 +1214,14 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
+     * @param string $value
      * @param string $message
      *
      * @throws InvalidArgumentException
      */
     public static function unicodeLetters($value, $message = '')
     {
-        static::string($value);
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
 
         if (!\preg_match('/^\p{L}+$/u', $value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1217,8 +1241,6 @@ class Assert
      */
     public static function alpha($value, $message = '')
     {
-        static::string($value);
-
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alpha($value);
@@ -1242,6 +1264,8 @@ class Assert
      */
     public static function digits($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_digit($value);
@@ -1265,6 +1289,8 @@ class Assert
      */
     public static function alnum($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alnum($value);
@@ -1289,6 +1315,8 @@ class Assert
      */
     public static function lower($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_lower($value);
@@ -1313,6 +1341,8 @@ class Assert
      */
     public static function upper($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_upper($value);
@@ -1337,6 +1367,8 @@ class Assert
      */
     public static function length($value, $length, $message = '')
     {
+        static::positiveInteger($length, 'Expected length parameter to be a postive integer. Got: %s');
+
         if ($length !== static::strlen($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s characters. Got: %s',
@@ -1359,6 +1391,8 @@ class Assert
      */
     public static function minLength($value, $min, $message = '')
     {
+        static::positiveInteger($min, 'Expected min parameter to be a postive integer. Got: %s');
+
         if (static::strlen($value) < $min) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at least %2$s characters. Got: %s',
@@ -1381,6 +1415,8 @@ class Assert
      */
     public static function maxLength($value, $max, $message = '')
     {
+        static::positiveInteger($max, 'Expected max parameter to be a postive integer. Got: %s');
+
         if (static::strlen($value) > $max) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at most %2$s characters. Got: %s',
@@ -1404,6 +1440,9 @@ class Assert
      */
     public static function lengthBetween($value, $min, $max, $message = '')
     {
+        static::positiveInteger($min, 'Expected min parameter to be a postive integer. Got: %s');
+        static::positiveInteger($max, 'Expected max parameter to be a postive integer. Got: %s');
+
         $length = static::strlen($value);
 
         if ($length < $min || $length > $max) {
@@ -1426,7 +1465,7 @@ class Assert
      */
     public static function fileExists($value, $message = '')
     {
-        static::string($value);
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
 
         if (!\file_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1444,6 +1483,7 @@ class Assert
      */
     public static function file($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
         static::fileExists($value, $message);
 
         if (!\is_file($value)) {
@@ -1462,6 +1502,7 @@ class Assert
      */
     public static function directory($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
         static::fileExists($value, $message);
 
         if (!\is_dir($value)) {
@@ -1480,6 +1521,8 @@ class Assert
      */
     public static function readable($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         if (!\is_readable($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not readable.',
@@ -1496,6 +1539,8 @@ class Assert
      */
     public static function writable($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         if (!\is_writable($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not writable.',
@@ -1555,6 +1600,8 @@ class Assert
      */
     public static function interfaceExists($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         if (!\interface_exists($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an existing interface name. got %s',
@@ -1677,6 +1724,9 @@ class Assert
      */
     public static function keyExists($array, $key, $message = '')
     {
+        static::is_array($array, 'Expected array parameter to be a valid array. Got: %s');
+        static::validArrayKey($key, 'Expected key parameter to be a valid array key. Got: %s');
+
         if (!(isset($array[$key]) || \array_key_exists($key, $array))) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the key %s to exist.',
@@ -1696,6 +1746,9 @@ class Assert
      */
     public static function keyNotExists($array, $key, $message = '')
     {
+        static::is_array($array, 'Expected array parameter to be a valid array. Got: %s');
+        static::validArrayKey($key, 'Expected key parameter to be a valid array key. Got: %s');
+
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the key %s to not exist.',
@@ -1736,6 +1789,8 @@ class Assert
      */
     public static function count($array, $number, $message = '')
     {
+        static::natural($number, 'Expected number parameter to be a natural number. Got: %s');
+
         static::eq(
             \count($array),
             $number,
@@ -1751,16 +1806,18 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int|float       $min
+     * @param int             $min
      * @param string          $message
      *
      * @throws InvalidArgumentException
      */
     public static function minCount($array, $min, $message = '')
     {
+        static::natural($min, 'Expected min parameter to be a natural number. Got: %s');
+
         if (\count($array) < $min) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
+                $message ?: 'Expected an array to contain at least %d elements. Got: %d',
                 \count($array),
                 $min
             ));
@@ -1771,16 +1828,18 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int|float       $max
+     * @param int             $max
      * @param string          $message
      *
      * @throws InvalidArgumentException
      */
     public static function maxCount($array, $max, $message = '')
     {
+        static::natural($max, 'Expected max parameter to be a natural number. Got: %s');
+
         if (\count($array) > $max) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
+                $message ?: 'Expected an array to contain at most %d elements. Got: %d',
                 \count($array),
                 $max
             ));
@@ -1791,14 +1850,17 @@ class Assert
      * Does not check if $array is countable, this can generate a warning on php versions after 7.2.
      *
      * @param Countable|array $array
-     * @param int|float       $min
-     * @param int|float       $max
+     * @param int             $min
+     * @param int             $max
      * @param string          $message
      *
      * @throws InvalidArgumentException
      */
     public static function countBetween($array, $min, $max, $message = '')
     {
+        static::natural($min, 'Expected min parameter to be a natural number. Got: %s');
+        static::natural($max, 'Expected max parameter to be a natural number. Got: %s');
+
         $count = \count($array);
 
         if ($count < $min || $count > $max) {
@@ -1908,6 +1970,8 @@ class Assert
      */
     public static function uuid($value, $message = '')
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
 
         // The nil UUID is special form of UUID that is specified to have all
@@ -1935,7 +1999,7 @@ class Assert
      */
     public static function throws(Closure $expression, $class = 'Exception', $message = '')
     {
-        static::string($class);
+        static::string($class, 'Expected value parameter to be a string. Got: %s');
 
         $actual = 'none';
 
@@ -2048,8 +2112,15 @@ class Assert
         return \is_object($value) ? \get_class($value) : \gettype($value);
     }
 
+    /**
+     * @param string $value
+     *
+     * @return int
+     */
     protected static function strlen($value)
     {
+        static::string($value, 'Expected value parameter to be a string. Got: %s');
+
         if (!\function_exists('mb_detect_encoding')) {
             return \strlen($value);
         }
