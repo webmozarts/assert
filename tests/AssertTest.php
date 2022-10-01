@@ -588,6 +588,11 @@ class AssertTest extends TestCase
             array('uniqueValues', array(array('qwerty', 'qwerty')), false),
             array('uniqueValues', array(array('asdfg', 'qwerty')), true),
             array('uniqueValues', array(array(123, '123')), false),
+            array('isNotInstanceOfAny', array(new Exception(), array('Exception', 'ArrayAccess')), false),
+            array('isNotInstanceOfAny', array(new Exception(), array('Iterator', 'Countable')), true),
+            array('isNotInstanceOfAny', array(new Error(), array('Exception', 'Countable')), true),
+            array('isNotInstanceOfAny', array(123, array('stdClass')), true),
+            array('isNotInstanceOfAny', array(array(), array('stdClass')), true),
         );
     }
 
