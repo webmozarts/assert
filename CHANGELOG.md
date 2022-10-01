@@ -3,6 +3,12 @@ Changelog
 
 ## UNRELEASED
 
+## 1.12.0
+
+### Added
+
+* added `Assert::isNotInstanceOfAny()`
+
 ## 1.11.0
 
 ### Added
