@@ -4074,8 +4074,8 @@ trait Mixin
     /**
      * @psalm-pure
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $interface
-     * @psalm-assert class-string<ExpectedType>|null $value
+     * @psalm-param class-string<ExpectedType>|ExpectedType $interface
+     * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
      * @param mixed  $value
      * @param mixed  $interface
@@ -4093,8 +4093,8 @@ trait Mixin
     /**
      * @psalm-pure
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $interface
-     * @psalm-assert iterable<class-string<ExpectedType>> $value
+     * @psalm-param class-string<ExpectedType>|ExpectedType $interface
+     * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
      *
      * @param mixed  $value
      * @param mixed  $interface
@@ -4116,8 +4116,8 @@ trait Mixin
     /**
      * @psalm-pure
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $interface
-     * @psalm-assert iterable<class-string<ExpectedType>|null> $value
+     * @psalm-param class-string<ExpectedType>|ExpectedType $interface
+     * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
      *
      * @param mixed  $value
      * @param mixed  $interface
