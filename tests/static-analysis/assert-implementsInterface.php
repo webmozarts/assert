@@ -10,9 +10,9 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  *
- * @return class-string<Serializable>
+ * @return Serializable|class-string<Serializable>
  */
-function implementsInterface($value): string
+function implementsInterface($value)
 {
     Assert::implementsInterface($value, Serializable::class);
 
@@ -24,9 +24,9 @@ function implementsInterface($value): string
  *
  * @param mixed $value
  *
- * @return null|class-string<Serializable>
+ * @return Serializable|class-string<Serializable>|null
  */
-function nullOrImplementsInterface($value): ?string
+function nullOrImplementsInterface($value)
 {
     Assert::nullOrImplementsInterface($value, Serializable::class);
 
@@ -38,7 +38,7 @@ function nullOrImplementsInterface($value): ?string
  *
  * @param mixed $value
  *
- * @return iterable<class-string<Serializable>>
+ * @return iterable<mixed, Serializable|class-string<Serializable>>
  */
 function allImplementsInterface($value): iterable
 {
@@ -52,7 +52,7 @@ function allImplementsInterface($value): iterable
  *
  * @param mixed $value
  *
- * @return iterable<class-string<Serializable>|null>
+ * @return iterable<mixed, Serializable|class-string<Serializable>|null>
  */
 function allNullOrImplementsInterface($value): iterable
 {
