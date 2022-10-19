@@ -42,7 +42,7 @@ function allCount(iterable $value, int $number): iterable
 }
 
 /**
- * @param iterable<Countable|array|null> $value
+ * @param iterable<Countable|array<array-key>> $value
  *
  * @return iterable<Countable|array|null>
  */

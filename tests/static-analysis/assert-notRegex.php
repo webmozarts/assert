@@ -41,7 +41,7 @@ function allNotRegex(iterable $value, string $pattern): iterable
 /**
  * @psalm-pure
  *
- * @param iterable<string|null> $value
+ * @param iterable<mixed, string> $value
  *
  * @return iterable<string|null>
  */

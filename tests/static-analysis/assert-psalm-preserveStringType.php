@@ -7,9 +7,9 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param non-empty-string $value
+ * @param non-empty-lowercase-string $value
  *
- * @return non-empty-string
+ * @return non-empty-lowercase-string
  */
 function lowerPreservesTypes(string $value): string
 {
