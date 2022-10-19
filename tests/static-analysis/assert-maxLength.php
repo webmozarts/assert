@@ -46,7 +46,7 @@ function allMaxLength(iterable $value, $max): iterable
 /**
  * @psalm-pure
  *
- * @param iterable<string|null> $value
+ * @param iterable<mixed, string> $value
  * @param int|float $max
  *
  * @return iterable<string|null>

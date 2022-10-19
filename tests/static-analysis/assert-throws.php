@@ -42,7 +42,7 @@ function allThrows(iterable $value, $class): iterable
  * @param iterable<Closure|null> $value
  * @param class-string<Throwable> $class
  *
- * @return iterable<Closure>
+ * @return iterable<Closure|null>
  */
 function allNullOrThrows(iterable $value, $class): iterable
 {

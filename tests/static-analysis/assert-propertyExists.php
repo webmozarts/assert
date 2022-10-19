@@ -52,7 +52,7 @@ function allPropertyExists(iterable $classOrObject, $property): iterable
 /**
  * @psalm-pure
  *
- * @param iterable<class-string|object|null> $classOrObject
+ * @param iterable<class-string|object> $classOrObject
  * @param mixed $property
  *
  * @return iterable<class-string|object|null>
