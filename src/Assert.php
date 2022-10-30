@@ -605,9 +605,14 @@ class Assert
     /**
      * @psalm-pure
      * @psalm-assert !null $value
+     * @template     T
+     * @psalm-param  T|null $value
+     * @psalm-return T
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
@@ -618,6 +623,7 @@ class Assert
                 $message ?: 'Expected a value other than null.'
             );
         }
+        return $value;
     }
 
     /**
