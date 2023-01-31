@@ -91,7 +91,7 @@ Method                                                   | Description
 `positiveInteger($value, $message = '')`                 | Check that a value is a positive (non-zero) integer
 `float($value, $message = '')`                           | Check that a value is a float
 `numeric($value, $message = '')`                         | Check that a value is numeric
-`natural($value, $message= ''')`                         | Check that a value is a non-negative integer
+`natural($value, $message = '')`                         | Check that a value is a non-negative integer
 `boolean($value, $message = '')`                         | Check that a value is a boolean
 `scalar($value, $message = '')`                          | Check that a value is a scalar
 `object($value, $message = '')`                          | Check that a value is an object
