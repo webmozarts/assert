@@ -1426,11 +1426,9 @@ class Assert
      */
     public static function fileExists($value, $message = '')
     {
-        static::string($value);
-
         if (!\file_exists($value)) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'The file %s does not exist.',
+                $message ?: 'The path %s does not exist.',
                 static::valueToString($value)
             ));
         }
@@ -1444,8 +1442,6 @@ class Assert
      */
     public static function file($value, $message = '')
     {
-        static::fileExists($value, $message);
-
         if (!\is_file($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The path %s is not a file.',
@@ -1462,11 +1458,9 @@ class Assert
      */
     public static function directory($value, $message = '')
     {
-        static::fileExists($value, $message);
-
         if (!\is_dir($value)) {
             static::reportInvalidArgument(\sprintf(
-                $message ?: 'The path %s is no directory.',
+                $message ?: 'The path %s is not a directory.',
                 static::valueToString($value)
             ));
         }
