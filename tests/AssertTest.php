@@ -833,6 +833,18 @@ class AssertTest extends TestCase
 
         Assert::resource(null, 'curl', 'I want a resource of type %2$s. Got: %s');
     }
+
+    public function testEnumAssertionErrorMessage(): void
+    {
+        if (PHP_VERSION_ID < ENUM_INTRODUCTION_VERSION_ID) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', ENUM_INTRODUCTION_VERSION_ID));
+        }
+
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected null. Got: Webmozart\Assert\Tests\TestEnum::CaseName');
+
+        Assert::null(TestEnum::CaseName, 'Expected null. Got: %s');
+    }
 }
 
 /**
@@ -853,5 +865,14 @@ class ToStringClass
     public function __toString()
     {
         return $this->value;
+    }
+}
+
+const ENUM_INTRODUCTION_VERSION_ID = 80100;
+
+if (PHP_VERSION_ID >= ENUM_INTRODUCTION_VERSION_ID) {
+    enum TestEnum
+    {
+        case CaseName;
     }
 }
