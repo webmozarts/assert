@@ -820,6 +820,14 @@ class AssertTest extends TestCase
 
         call_user_func_array(array('Webmozart\Assert\Assert', 'isAOf'), $args);
     }
+
+    public function testResourceOfTypeCustomMessage(): void
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('I want a resource of type curl. Got: NULL');
+
+        Assert::resource(null, 'curl', 'I want a resource of type %2$s. Got: %s');
+    }
 }
 
 /**

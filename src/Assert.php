@@ -266,7 +266,8 @@ class Assert
         if (!\is_resource($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a resource. Got: %s',
-                static::typeToString($value)
+                static::typeToString($value),
+                $type // User supplied message might include the second placeholder.
             ));
         }
 
