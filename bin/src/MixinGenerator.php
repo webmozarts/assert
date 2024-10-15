@@ -104,7 +104,7 @@ PHP
         return \sprintf(
             <<<'PHP'
 /**
- * This trait provides nurllOr*, all* and allNullOr* variants of assertion base methods.
+ * This trait provides nullOr*, all* and allNullOr* variants of assertion base methods.
  * Do not use this trait directly: it will change, and is not designed for reuse.
  */
 trait Mixin
