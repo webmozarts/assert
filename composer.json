@@ -18,6 +18,7 @@
         "ext-ctype": "*"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.44",
         "phpunit/phpunit": "^8.5.13"
     },
     "conflict": {
@@ -31,8 +32,13 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Webmozart\\Assert\\Tests\\": "tests/",
-            "Webmozart\\Assert\\Bin\\": "bin/src"
+            "Webmozart\\Assert\\Bin\\": "bin/src",
+            "Webmozart\\Assert\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
         }
     },
     "extra": {
