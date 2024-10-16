@@ -1881,10 +1881,11 @@ class Assert
                     $message ?: 'Expected list - non-associative array.'
                 );
             }
+
             return;
         }
 
-        if ([] === $array) {
+        if (array() === $array) {
             return;
         }
 
