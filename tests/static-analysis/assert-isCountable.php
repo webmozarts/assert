@@ -2,7 +2,7 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
-use Countable;
+use countable;
 use Webmozart\Assert\Assert;
 
 /**

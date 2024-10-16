@@ -20,6 +20,7 @@ function notInstanceOf($value): DateTime
 
 /**
  * @psalm-pure
+ *
  * @psalm-template T of object
  *
  * @param mixed $value
@@ -36,6 +37,7 @@ function nullOrNotInstanceOf($value, $class)
 
 /**
  * @psalm-pure
+ *
  * @psalm-template T of object
  *
  * @param mixed $value
@@ -52,6 +54,7 @@ function allNotInstanceOf($value, $class)
 
 /**
  * @psalm-pure
+ *
  * @psalm-template T of object
  *
  * @param mixed $value

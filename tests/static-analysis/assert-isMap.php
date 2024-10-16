@@ -2,6 +2,7 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
@@ -23,9 +24,9 @@ function isMap($value): array
  *
  * @psalm-pure
  *
- * @param array<int|string, \stdClass> $value
+ * @param array<int|string, stdClass> $value
  *
- * @return array<string, \stdClass>
+ * @return array<string, stdClass>
  */
 function isMapWithKnownType(array $value): array
 {

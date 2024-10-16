@@ -152,8 +152,8 @@ class ProjectCodeTest extends TestCase
 
     public function testMixinIsUpToDateVersion()
     {
-        if (version_compare(PHP_VERSION, '7.2.0') < 0) {
-            $this->markTestSkipped('mixin generator is implemented using php 7.2 features');
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('mixin generator is not expected to run on Windows');
 
             return;
         }
