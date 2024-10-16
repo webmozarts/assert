@@ -469,6 +469,29 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-param array<class-string> $classes
+     *
+     * @param mixed                $value
+     * @param array<object|string> $classes
+     * @param string               $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNotInstanceOfAny($value, array $classes, $message = '')
+    {
+        foreach ($classes as $class) {
+            if ($value instanceof $class) {
+                static::reportInvalidArgument(\sprintf(
+                    $message ?: 'Expected not an instance of %2$s. Got: %s',
+                    static::typeToString($value),
+                    \implode(', ', \array_map(array(static::class, 'valueToString'), $classes))
+                ));
+            }
+        }
+    }
+
+    /**
+     * @psalm-pure
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert ExpectedType|class-string<ExpectedType> $value
