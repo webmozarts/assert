@@ -1875,17 +1875,25 @@ class Assert
             );
         }
 
-        if ($array === \array_values($array)) {
-            return;
-        }
-
-        $nextKey = -1;
-        foreach ($array as $k => $v) {
-            if ($k !== ++$nextKey) {
+        if (\function_exists('array_is_list')) {
+            if (!\array_is_list($array)) {
                 static::reportInvalidArgument(
                     $message ?: 'Expected list - non-associative array.'
                 );
             }
+
+            return;
+        }
+
+        if (array() === $array) {
+            return;
+        }
+
+        $keys = array_keys($array);
+        if (array_keys($keys) !== $keys) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected list - non-associative array.'
+            );
         }
     }
 
