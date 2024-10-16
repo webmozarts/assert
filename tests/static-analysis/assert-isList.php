@@ -2,6 +2,7 @@
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
@@ -21,9 +22,9 @@ function isList($value): array
 /**
  * @psalm-pure
  *
- * @param array<\stdClass> $value
+ * @param array<stdClass> $value
  *
- * @return list<\stdClass>
+ * @return list<stdClass>
  */
 function isListWithKnownType(array $value): array
 {

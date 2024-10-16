@@ -13,11 +13,13 @@ namespace Webmozart\Assert\Tests;
 
 use ArrayIterator;
 use ArrayObject;
+use DateTime;
 use Error;
 use Exception;
 use LogicException;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
+use SimpleXMLElement;
 use stdClass;
 use Webmozart\Assert\Assert;
 
@@ -142,7 +144,7 @@ class AssertTest extends TestCase
             array('isCountable', array(array(1, 2)), true),
             array('isCountable', array(new ArrayIterator(array())), true),
             array('isCountable', array(new stdClass()), false),
-            array('isCountable', array(new \SimpleXMLElement('<foo>bar</foo>')), true),
+            array('isCountable', array(new SimpleXMLElement('<foo>bar</foo>')), true),
             array('isCountable', array('abcd'), false),
             array('isCountable', array(123), false),
             array('isIterable', array(array()), true),
@@ -758,7 +760,7 @@ class AssertTest extends TestCase
             array('eq', array(new ArrayIterator(array()), new stdClass()), 'Expected a value equal to stdClass. Got: ArrayIterator'),
             array('eq', array(1, self::getResource()), 'Expected a value equal to resource. Got: 1'),
 
-            array('lessThan', array(new \DateTime('2020-01-01 00:00:00+00:00'), new \DateTime('1999-01-01 00:00:00+00:00')), 'Expected a value less than DateTime: "1999-01-01T00:00:00+00:00". Got: DateTime: "2020-01-01T00:00:00+00:00"'),
+            array('lessThan', array(new DateTime('2020-01-01 00:00:00+00:00'), new DateTime('1999-01-01 00:00:00+00:00')), 'Expected a value less than DateTime: "1999-01-01T00:00:00+00:00". Got: DateTime: "2020-01-01T00:00:00+00:00"'),
         );
     }
 
@@ -803,7 +805,7 @@ class AssertTest extends TestCase
         );
 
         yield array(
-            array(new \stdClass(), 'Iterator'),
+            array(new stdClass(), 'Iterator'),
             'Expected an instance of this class or to this class among its parents "Iterator". Got: stdClass',
         );
     }

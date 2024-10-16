@@ -36,6 +36,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert string $value
      *
      * @param mixed  $value
@@ -55,6 +56,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert non-empty-string $value
      *
      * @param mixed  $value
@@ -70,6 +72,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert int $value
      *
      * @param mixed  $value
@@ -89,6 +92,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert numeric $value
      *
      * @param mixed  $value
@@ -108,6 +112,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert positive-int $value
      *
      * @param mixed  $value
@@ -127,6 +132,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert float $value
      *
      * @param mixed  $value
@@ -146,6 +152,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert numeric $value
      *
      * @param mixed  $value
@@ -165,6 +172,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert positive-int|0 $value
      *
      * @param mixed  $value
@@ -184,6 +192,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert bool $value
      *
      * @param mixed  $value
@@ -203,6 +212,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert scalar $value
      *
      * @param mixed  $value
@@ -222,6 +232,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert object $value
      *
      * @param mixed  $value
@@ -241,6 +252,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert resource $value
      *
      * @param mixed       $value
@@ -269,6 +281,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert callable $value
      *
      * @param mixed  $value
@@ -288,6 +301,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert array $value
      *
      * @param mixed  $value
@@ -307,6 +321,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert iterable $value
      *
      * @deprecated use "isIterable" or "isInstanceOf" instead
@@ -336,6 +351,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert array|ArrayAccess $value
      *
      * @param mixed  $value
@@ -355,6 +371,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert countable $value
      *
      * @param mixed  $value
@@ -379,6 +396,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert iterable $value
      *
      * @param mixed  $value
@@ -398,8 +416,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template ExpectedType of object
+     *
      * @psalm-param class-string<ExpectedType> $class
+     *
      * @psalm-assert ExpectedType $value
      *
      * @param mixed         $value
@@ -421,8 +442,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template ExpectedType of object
+     *
      * @psalm-param class-string<ExpectedType> $class
+     *
      * @psalm-assert !ExpectedType $value
      *
      * @param mixed         $value
@@ -444,6 +468,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-param array<class-string> $classes
      *
      * @param mixed                $value
@@ -469,8 +494,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template ExpectedType of object
+     *
      * @psalm-param class-string<ExpectedType> $class
+     *
      * @psalm-assert ExpectedType|class-string<ExpectedType> $value
      *
      * @param object|string $value
@@ -494,8 +522,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template UnexpectedType of object
+     *
      * @psalm-param class-string<UnexpectedType> $class
+     *
      * @psalm-assert !UnexpectedType $value
      * @psalm-assert !class-string<UnexpectedType> $value
      *
@@ -520,6 +551,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-param array<class-string> $classes
      *
      * @param object|string $value
@@ -547,6 +579,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert empty $value
      *
      * @param mixed  $value
@@ -566,6 +599,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert !empty $value
      *
      * @param mixed  $value
@@ -585,6 +619,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert null $value
      *
      * @param mixed  $value
@@ -604,6 +639,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert !null $value
      *
      * @param mixed  $value
@@ -622,6 +658,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert true $value
      *
      * @param mixed  $value
@@ -641,6 +678,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert false $value
      *
      * @param mixed  $value
@@ -660,6 +698,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert !false $value
      *
      * @param mixed  $value
@@ -759,7 +798,7 @@ class Assert
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array of unique values, but %s of them %s duplicated',
                 $difference,
-                (1 === $difference ? 'is' : 'are')
+                1 === $difference ? 'is' : 'are'
             ));
         }
     }
@@ -1280,6 +1319,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert lowercase-string $value
      *
      * @param string $value
@@ -1304,6 +1344,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert !lowercase-string $value
      *
      * @param string $value
@@ -1524,8 +1565,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template ExpectedType of object
+     *
      * @psalm-param class-string<ExpectedType> $class
+     *
      * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
      * @param mixed         $value
@@ -1565,8 +1609,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template ExpectedType of object
+     *
      * @psalm-param class-string<ExpectedType> $interface
+     *
      * @psalm-assert class-string<ExpectedType> $value
      *
      * @param mixed  $value
@@ -1588,6 +1635,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
@@ -1608,6 +1656,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
@@ -1628,6 +1677,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
@@ -1648,6 +1698,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-param class-string|object $classOrObject
      *
      * @param string|object $classOrObject
@@ -1708,6 +1759,7 @@ class Assert
      * Checks if a value is a valid array key (int or string).
      *
      * @psalm-pure
+     *
      * @psalm-assert array-key $value
      *
      * @param mixed  $value
@@ -1813,6 +1865,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert list $array
      *
      * @param mixed  $array
@@ -1844,6 +1897,7 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert non-empty-list $array
      *
      * @param mixed  $array
@@ -1859,8 +1913,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template T
+     *
      * @psalm-param mixed|array<T> $array
+     *
      * @psalm-assert array<string, T> $array
      *
      * @param mixed  $array
@@ -1871,8 +1928,8 @@ class Assert
     public static function isMap($array, $message = '')
     {
         if (
-            !\is_array($array) ||
-            \array_keys($array) !== \array_filter(\array_keys($array), '\is_string')
+            !\is_array($array)
+            || \array_keys($array) !== \array_filter(\array_keys($array), '\is_string')
         ) {
             static::reportInvalidArgument(
                 $message ?: 'Expected map - associative array with string keys.'
@@ -1882,8 +1939,11 @@ class Assert
 
     /**
      * @psalm-pure
+     *
      * @psalm-template T
+     *
      * @psalm-param mixed|array<T> $array
+     *
      * @psalm-assert array<string, T> $array
      * @psalm-assert !empty $array
      *
@@ -2067,6 +2127,7 @@ class Assert
      * @throws InvalidArgumentException
      *
      * @psalm-pure this method is not supposed to perform side-effects
+     *
      * @psalm-return never
      */
     protected static function reportInvalidArgument($message)
