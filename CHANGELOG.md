@@ -3,6 +3,10 @@ Changelog
 
 ## UNRELEASED
 
+### Fixed
+
+- Corrected messages and typos in arious assertions
+
 ## 1.11.0
 
 ### Added
