@@ -14,6 +14,7 @@ namespace Webmozart\Assert\Tests;
 use ArrayIterator;
 use ArrayObject;
 use DateTime;
+use DateTimeImmutable;
 use Error;
 use Exception;
 use LogicException;
@@ -447,6 +448,10 @@ class AssertTest extends TestCase
             array('interfaceExists', array(__CLASS__), false),
             array('implementsInterface', array('ArrayIterator', 'Traversable'), true),
             array('implementsInterface', array(__CLASS__, 'Traversable'), false),
+            array('implementsInterface', array(new DateTimeImmutable(), 'DateTimeInterface'), true),
+            array('implementsInterface', array(new DateTimeImmutable(), 'Traversable'), false),
+            array('implementsInterface', array(new ArrayIterator(array()), 'DateTimeInterface'), false),
+            array('implementsInterface', array(new ArrayIterator(array()), 'Traversable'), true),
             array('propertyExists', array((object) array('property' => 0), 'property'), true),
             array('propertyExists', array((object) array('property' => null), 'property'), true),
             array('propertyExists', array((object) array('property' => null), 'foo'), false),
