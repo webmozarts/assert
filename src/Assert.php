@@ -2087,6 +2087,10 @@ class Assert
                 return \get_class($value).': '.self::valueToString($value->format('c'));
             }
 
+            if (\function_exists('enum_exists') && \enum_exists(\get_class($value))) {
+                return \get_class($value).'::'.$value->name;
+            }
+
             return \get_class($value);
         }
 
