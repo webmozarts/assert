@@ -1242,7 +1242,7 @@ class Assert
         if (@\preg_match($value, '') === false) {
             static::reportInvalidArgument(\sprintf(
                 $message,
-                static::valueToString($value)
+                $value
             ));
         }
     }

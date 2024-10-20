@@ -165,6 +165,7 @@ Method                                              | Description
 `ipv6($value, $message = '')`                       | Check that a string is a valid IPv6
 `email($value, $message = '')`                      | Check that a string is a valid e-mail address
 `notWhitespaceOnly($value, $message = '')`          | Check that a string contains at least one non-whitespace character
+`validRegexPattern($value, $message = '')`          | Check that a string is a valid regular expression pattern
 
 ### File Assertions
 
