@@ -1230,6 +1230,26 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @param string $value
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function validRegexPattern($value, $message = 'The value %s must be a valid regex pattern.')
+    {
+        static::string($value);
+
+        if (@\preg_match($value, '') === false) {
+            static::reportInvalidArgument(\sprintf(
+                $message,
+                static::valueToString($value)
+            ));
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param mixed  $value
      * @param string $message
      *

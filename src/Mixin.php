@@ -5207,4 +5207,57 @@ trait Mixin
             null === $entry || static::throws($entry, $class, $message);
         }
     }
+
+    /**
+     * @psalm-pure
+     *
+     * @param string|null $value
+     * @param string      $message
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrValidRegexPattern($value, $message = '')
+    {
+        null === $value || static::validRegexPattern($value, $message);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string> $value
+     * @param string           $message
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allValidRegexPattern($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::validRegexPattern($entry, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|null> $value
+     * @param string                $message
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrValidRegexPattern($value, $message = '')
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::validRegexPattern($entry, $message);
+        }
+    }
 }
