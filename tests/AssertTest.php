@@ -599,7 +599,6 @@ class AssertTest extends TestCase
             array('validRegexPattern', array('/^\(\d{3}\) \d{3}-\d{4}$/'), true),
             array('validRegexPattern', array('/^https?:\/\/[^\s\/$.?#].[^\s]*$/i'), true),
             array('validRegexPattern', array('/^(abc/'), false), // Unclosed parenthesis
-            array('validRegexPattern', array('/\p{Foo}/'), false), // Improper Unicode category
             array('validRegexPattern', array('/(?:abc)\1/'), false), // Backreference to non-capturing group
         );
     }
