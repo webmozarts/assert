@@ -833,6 +833,22 @@ class AssertTest extends TestCase
 
         Assert::resource(null, 'curl', 'I want a resource of type %2$s. Got: %s');
     }
+
+    public function testEnumAssertionErrorMessage(): void
+    {
+        $enumIntroductionVersion = 80100;
+
+        if (PHP_VERSION_ID < $enumIntroductionVersion) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $enumIntroductionVersion));
+        }
+
+        require_once 'DummyEnum.php';
+
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected null. Got: Webmozart\Assert\Tests\TestEnum::CaseName');
+
+        Assert::null(TestEnum::CaseName, 'Expected null. Got: %s');
+    }
 }
 
 /**
