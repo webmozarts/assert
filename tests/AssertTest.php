@@ -836,9 +836,13 @@ class AssertTest extends TestCase
 
     public function testEnumAssertionErrorMessage(): void
     {
-        if (PHP_VERSION_ID < ENUM_INTRODUCTION_VERSION_ID) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', ENUM_INTRODUCTION_VERSION_ID));
+        $enumIntroductionVersion = 80100;
+
+        if (PHP_VERSION_ID < $enumIntroductionVersion) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $enumIntroductionVersion));
         }
+
+        require_once 'DummyEnum.php';
 
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage('Expected null. Got: Webmozart\Assert\Tests\TestEnum::CaseName');
@@ -865,14 +869,5 @@ class ToStringClass
     public function __toString()
     {
         return $this->value;
-    }
-}
-
-const ENUM_INTRODUCTION_VERSION_ID = 80100;
-
-if (PHP_VERSION_ID >= ENUM_INTRODUCTION_VERSION_ID) {
-    enum TestEnum
-    {
-        case CaseName;
     }
 }
