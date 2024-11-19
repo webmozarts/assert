@@ -5,7 +5,7 @@ Changelog
 
 ### Fixed
 
-- Corrected messages and typos in arious assertions
+- Corrected messages and typos in various assertions
 
 ## 1.11.0
 
