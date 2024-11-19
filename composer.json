@@ -15,7 +15,8 @@
     ],
     "require": {
         "php": "^7.2 || ^8.0",
-        "ext-ctype": "*"
+        "ext-ctype": "*",
+        "ext-filter": "*"
     },
     "suggest": {
         "ext-simplexml": ""
