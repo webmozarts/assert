@@ -162,7 +162,7 @@ class Assert
      */
     public static function numeric($value, $message = '')
     {
-        if (!\is_numeric($value)) {
+        if (!\is_numeric($value) || \is_float($value) && \is_nan($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a numeric. Got: %s',
                 static::typeToString($value)
@@ -889,6 +889,14 @@ class Assert
      */
     public static function greaterThan($value, $limit, $message = '')
     {
+        if (is_numeric($value)) {
+            self::numeric($value);
+        }
+
+        if (is_numeric($value)) {
+            self::numeric($limit);
+        }
+
         if ($value <= $limit) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value greater than %2$s. Got: %s',
@@ -909,6 +917,14 @@ class Assert
      */
     public static function greaterThanEq($value, $limit, $message = '')
     {
+        if (is_numeric($value)) {
+            self::numeric($value);
+        }
+
+        if (is_numeric($limit)) {
+            self::numeric($limit);
+        }
+
         if ($value < $limit) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value greater than or equal to %2$s. Got: %s',
@@ -929,6 +945,14 @@ class Assert
      */
     public static function lessThan($value, $limit, $message = '')
     {
+        if (is_numeric($value)) {
+            self::numeric($value);
+        }
+
+        if (is_numeric($limit)) {
+            self::numeric($limit);
+        }
+
         if ($value >= $limit) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value less than %2$s. Got: %s',
@@ -949,6 +973,14 @@ class Assert
      */
     public static function lessThanEq($value, $limit, $message = '')
     {
+        if (is_numeric($value)) {
+            self::numeric($value);
+        }
+
+        if (is_numeric($limit)) {
+            self::numeric($limit);
+        }
+
         if ($value > $limit) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value less than or equal to %2$s. Got: %s',
@@ -972,6 +1004,18 @@ class Assert
      */
     public static function range($value, $min, $max, $message = '')
     {
+        if (is_numeric($value)) {
+            self::numeric($value);
+        }
+
+        if (is_numeric($min)) {
+            self::numeric($min);
+        }
+
+        if (is_numeric($max)) {
+            self::numeric($max);
+        }
+
         if ($value < $min || $value > $max) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value between %2$s and %3$s. Got: %s',
@@ -1401,6 +1445,8 @@ class Assert
      */
     public static function minLength($value, $min, $message = '')
     {
+        assert::numeric($min);
+
         if (static::strlen($value) < $min) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at least %2$s characters. Got: %s',
@@ -1423,6 +1469,8 @@ class Assert
      */
     public static function maxLength($value, $max, $message = '')
     {
+        self::numeric($max);
+
         if (static::strlen($value) > $max) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain at most %2$s characters. Got: %s',
@@ -1446,6 +1494,9 @@ class Assert
      */
     public static function lengthBetween($value, $min, $max, $message = '')
     {
+        self::numeric($min);
+        self::numeric($max);
+
         $length = static::strlen($value);
 
         if ($length < $min || $length > $max) {
@@ -1805,6 +1856,8 @@ class Assert
      */
     public static function minCount($array, $min, $message = '')
     {
+        self::numeric($min);
+
         if (\count($array) < $min) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain at least %2$d elements. Got: %d',
@@ -1825,6 +1878,8 @@ class Assert
      */
     public static function maxCount($array, $max, $message = '')
     {
+        self::numeric($max);
+
         if (\count($array) > $max) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an array to contain at most %2$d elements. Got: %d',
@@ -1846,6 +1901,9 @@ class Assert
      */
     public static function countBetween($array, $min, $max, $message = '')
     {
+        self::numeric($min);
+        self::numeric($max);
+
         $count = \count($array);
 
         if ($count < $min || $count > $max) {
