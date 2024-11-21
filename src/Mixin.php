@@ -18,8 +18,8 @@ trait Mixin
      *
      * @psalm-assert string|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -35,8 +35,8 @@ trait Mixin
      *
      * @psalm-assert iterable<string> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -77,8 +77,8 @@ trait Mixin
      *
      * @psalm-assert non-empty-string|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -94,8 +94,8 @@ trait Mixin
      *
      * @psalm-assert iterable<non-empty-string> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -136,8 +136,8 @@ trait Mixin
      *
      * @psalm-assert int|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -153,8 +153,8 @@ trait Mixin
      *
      * @psalm-assert iterable<int> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -195,8 +195,8 @@ trait Mixin
      *
      * @psalm-assert numeric|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -212,8 +212,8 @@ trait Mixin
      *
      * @psalm-assert iterable<numeric> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -313,8 +313,8 @@ trait Mixin
      *
      * @psalm-assert float|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -330,8 +330,8 @@ trait Mixin
      *
      * @psalm-assert iterable<float> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -372,8 +372,8 @@ trait Mixin
      *
      * @psalm-assert numeric|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -389,8 +389,8 @@ trait Mixin
      *
      * @psalm-assert iterable<numeric> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -431,8 +431,8 @@ trait Mixin
      *
      * @psalm-assert positive-int|0|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -448,8 +448,8 @@ trait Mixin
      *
      * @psalm-assert iterable<positive-int|0> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -490,8 +490,8 @@ trait Mixin
      *
      * @psalm-assert bool|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -507,8 +507,8 @@ trait Mixin
      *
      * @psalm-assert iterable<bool> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -549,8 +549,8 @@ trait Mixin
      *
      * @psalm-assert scalar|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -566,8 +566,8 @@ trait Mixin
      *
      * @psalm-assert iterable<scalar> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -608,8 +608,8 @@ trait Mixin
      *
      * @psalm-assert object|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -625,8 +625,8 @@ trait Mixin
      *
      * @psalm-assert iterable<object> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -729,8 +729,8 @@ trait Mixin
      *
      * @psalm-assert callable|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -746,8 +746,8 @@ trait Mixin
      *
      * @psalm-assert iterable<callable> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -788,8 +788,8 @@ trait Mixin
      *
      * @psalm-assert array|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -805,8 +805,8 @@ trait Mixin
      *
      * @psalm-assert iterable<array> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -849,8 +849,8 @@ trait Mixin
      *
      * @deprecated use "isIterable" or "isInstanceOf" instead
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -868,8 +868,8 @@ trait Mixin
      *
      * @deprecated use "isIterable" or "isInstanceOf" instead
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -912,8 +912,8 @@ trait Mixin
      *
      * @psalm-assert array|ArrayAccess|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -929,8 +929,8 @@ trait Mixin
      *
      * @psalm-assert iterable<array|ArrayAccess> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -971,8 +971,8 @@ trait Mixin
      *
      * @psalm-assert countable|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -988,8 +988,8 @@ trait Mixin
      *
      * @psalm-assert iterable<countable> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1030,8 +1030,8 @@ trait Mixin
      *
      * @psalm-assert iterable|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1047,8 +1047,8 @@ trait Mixin
      *
      * @psalm-assert iterable<iterable> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1482,8 +1482,8 @@ trait Mixin
      *
      * @psalm-assert empty $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1499,8 +1499,8 @@ trait Mixin
      *
      * @psalm-assert iterable<empty> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1539,8 +1539,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1554,8 +1554,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1596,8 +1596,8 @@ trait Mixin
      *
      * @psalm-assert iterable<null> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1615,8 +1615,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1636,8 +1636,8 @@ trait Mixin
      *
      * @psalm-assert true|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1653,8 +1653,8 @@ trait Mixin
      *
      * @psalm-assert iterable<true> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1695,8 +1695,8 @@ trait Mixin
      *
      * @psalm-assert false|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1712,8 +1712,8 @@ trait Mixin
      *
      * @psalm-assert iterable<false> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1752,8 +1752,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1767,8 +1767,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1805,8 +1805,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1818,8 +1818,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1852,8 +1852,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1865,8 +1865,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1899,8 +1899,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1912,8 +1912,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1946,8 +1946,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1959,8 +1959,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -1993,8 +1993,7 @@ trait Mixin
     }
 
     /**
-     * @param array|null $values
-     * @param string     $message
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2006,8 +2005,7 @@ trait Mixin
     }
 
     /**
-     * @param iterable<array> $values
-     * @param string          $message
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2040,9 +2038,9 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2054,9 +2052,9 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2090,9 +2088,9 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2104,9 +2102,9 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2142,9 +2140,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2158,9 +2156,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2198,9 +2196,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2214,9 +2212,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $expect
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $expect
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2254,9 +2252,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2270,9 +2268,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2310,9 +2308,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2326,9 +2324,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2366,9 +2364,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2382,9 +2380,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2422,9 +2420,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2438,9 +2436,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $limit
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $limit
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2478,10 +2476,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $min
-     * @param mixed  $max
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $min
+     * @param mixed                    $max
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2495,10 +2493,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param mixed  $min
-     * @param mixed  $max
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $min
+     * @param mixed                    $max
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2537,9 +2535,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param array  $values
-     * @param string $message
+     * @param mixed                    $value
+     * @param array                    $values
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2553,9 +2551,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param array  $values
-     * @param string $message
+     * @param mixed                    $value
+     * @param array                    $values
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2593,9 +2591,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param array  $values
-     * @param string $message
+     * @param mixed                    $value
+     * @param array                    $values
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2609,9 +2607,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param array  $values
-     * @param string $message
+     * @param mixed                    $value
+     * @param array                    $values
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2649,9 +2647,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $subString
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $subString
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2665,9 +2663,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $subString
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $subString
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2705,9 +2703,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $subString
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $subString
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2721,9 +2719,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $subString
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $subString
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2761,8 +2759,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2776,8 +2774,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2814,9 +2812,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $prefix
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $prefix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2830,9 +2828,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $prefix
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $prefix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2870,9 +2868,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $prefix
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $prefix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2886,9 +2884,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $prefix
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $prefix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2926,8 +2924,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2941,8 +2939,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2979,9 +2977,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $suffix
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $suffix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -2995,9 +2993,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $suffix
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $suffix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3035,9 +3033,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $suffix
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $suffix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3051,9 +3049,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $suffix
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $suffix
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3091,9 +3089,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $pattern
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $pattern
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3107,9 +3105,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $pattern
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $pattern
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3147,9 +3145,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $pattern
-     * @param string      $message
+     * @param string|null              $value
+     * @param string                   $pattern
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3163,9 +3161,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $pattern
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string                   $pattern
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3203,8 +3201,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3218,8 +3216,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3256,8 +3254,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3271,8 +3269,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3309,8 +3307,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3324,8 +3322,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3362,8 +3360,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3377,8 +3375,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3417,8 +3415,8 @@ trait Mixin
      *
      * @psalm-assert lowercase-string|null $value
      *
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3434,8 +3432,8 @@ trait Mixin
      *
      * @psalm-assert iterable<lowercase-string> $value
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3474,8 +3472,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3489,8 +3487,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3529,9 +3527,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param int         $length
-     * @param string      $message
+     * @param string|null              $value
+     * @param int                      $length
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3545,9 +3543,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param int              $length
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param int                      $length
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3754,8 +3752,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3767,8 +3765,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3801,8 +3799,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3814,8 +3812,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3848,8 +3846,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3861,8 +3859,8 @@ trait Mixin
     }
 
     /**
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3895,8 +3893,8 @@ trait Mixin
     }
 
     /**
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3908,8 +3906,8 @@ trait Mixin
     }
 
     /**
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3942,8 +3940,8 @@ trait Mixin
     }
 
     /**
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3955,8 +3953,8 @@ trait Mixin
     }
 
     /**
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -3991,8 +3989,8 @@ trait Mixin
     /**
      * @psalm-assert class-string|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4006,8 +4004,8 @@ trait Mixin
     /**
      * @psalm-assert iterable<class-string> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4112,8 +4110,8 @@ trait Mixin
     /**
      * @psalm-assert class-string|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4127,8 +4125,8 @@ trait Mixin
     /**
      * @psalm-assert iterable<class-string> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4169,9 +4167,9 @@ trait Mixin
      * @psalm-param class-string<ExpectedType> $interface
      * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
-     * @param mixed  $value
-     * @param mixed  $interface
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $interface
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4189,9 +4187,9 @@ trait Mixin
      * @psalm-param class-string<ExpectedType> $interface
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
      *
-     * @param mixed  $value
-     * @param mixed  $interface
-     * @param string $message
+     * @param mixed                    $value
+     * @param mixed                    $interface
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4595,8 +4593,8 @@ trait Mixin
      *
      * @psalm-assert array-key|null $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4612,8 +4610,8 @@ trait Mixin
      *
      * @psalm-assert iterable<array-key> $value
      *
-     * @param mixed  $value
-     * @param string $message
+     * @param mixed                    $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4857,8 +4855,8 @@ trait Mixin
      *
      * @psalm-assert list|null $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4874,8 +4872,8 @@ trait Mixin
      *
      * @psalm-assert iterable<list> $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4916,8 +4914,8 @@ trait Mixin
      *
      * @psalm-assert non-empty-list|null $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4933,8 +4931,8 @@ trait Mixin
      *
      * @psalm-assert iterable<non-empty-list> $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4977,8 +4975,8 @@ trait Mixin
      * @psalm-param mixed|array<T>|null $array
      * @psalm-assert array<string, T>|null $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -4996,8 +4994,8 @@ trait Mixin
      * @psalm-param iterable<mixed|array<T>> $array
      * @psalm-assert iterable<array<string, T>> $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -5041,8 +5039,8 @@ trait Mixin
      * @psalm-template T
      * @psalm-param mixed|array<T>|null $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -5059,8 +5057,8 @@ trait Mixin
      * @psalm-template T
      * @psalm-param iterable<mixed|array<T>> $array
      *
-     * @param mixed  $array
-     * @param string $message
+     * @param mixed                    $array
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -5102,8 +5100,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|null $value
-     * @param string      $message
+     * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return void
      *
@@ -5117,8 +5115,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<string> $value
-     * @param string           $message
+     * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return void
      *
