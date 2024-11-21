@@ -1805,6 +1805,28 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
+     * @param mixed  $p
+     * @param mixed  $q
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrImplies($p, $q, $message = '');
+
+    /**
+     * @psalm-pure
+     *
+     * @param mixed  $p
+     * @param mixed  $q
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allImplies($p, $q, $message = '');
+
+    /**
      * @param mixed  $value
      * @param string $message
      *
