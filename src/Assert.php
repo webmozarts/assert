@@ -1734,6 +1734,22 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @param array<int, int|string> $keys
+     * @param array                  $array
+     * @param string                 $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allKeysExist($keys, $array, $message = '')
+    {
+        foreach ($keys as $key) {
+            static::keyExists($array, $key, $message ?: 'Expected the key %s to exist.',);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param array      $array
      * @param string|int $key
      * @param string     $message
