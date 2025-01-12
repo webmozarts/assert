@@ -621,6 +621,10 @@ class AssertTest extends TestCase
             ['uniqueValues', [['qwerty', 'qwerty']], false],
             ['uniqueValues', [['asdfg', 'qwerty']], true],
             ['uniqueValues', [[123, '123']], false],
+            ['isStatic', [static function () {}], true],
+            ['isStatic', [function () {}], false],
+            ['isNotStatic', [static function () {}], false],
+            ['isNotStatic', [function () {}], true],
         ];
     }
 

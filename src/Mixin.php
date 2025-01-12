@@ -4960,7 +4960,6 @@ trait Mixin
      * @param string       $message
      *
      * @return void
-     *
      * @return void
      *
      * @throws InvalidArgumentException
@@ -4975,7 +4974,6 @@ trait Mixin
      * @param string            $message
      *
      * @return void
-     *
      * @return void
      *
      * @throws InvalidArgumentException
@@ -4994,7 +4992,6 @@ trait Mixin
      * @param string                 $message
      *
      * @return void
-     *
      * @return void
      *
      * @throws InvalidArgumentException
@@ -5013,7 +5010,6 @@ trait Mixin
      * @param string       $message
      *
      * @return void
-     *
      * @return void
      *
      * @throws InvalidArgumentException
@@ -5028,7 +5024,6 @@ trait Mixin
      * @param string            $message
      *
      * @return void
-     *
      * @return void
      *
      * @throws InvalidArgumentException
@@ -5047,7 +5042,6 @@ trait Mixin
      * @param string                 $message
      *
      * @return void
-     *
      * @return void
      *
      * @throws InvalidArgumentException
