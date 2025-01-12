@@ -1952,7 +1952,7 @@ class Assert
         Assert::isCallable($closure);
         $reflection = new ReflectionFunction($closure);
 
-        if (! $reflection->isStatic()) {
+        if (!$reflection->isStatic()) {
             static::reportInvalidArgument(
                 $message ?: 'Closure is not static.'
             );
