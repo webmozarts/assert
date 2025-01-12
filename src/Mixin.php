@@ -4956,6 +4956,112 @@ trait Mixin
     }
 
     /**
+     * @param Closure|null $closure
+     * @param string       $message
+     *
+     * @return void
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrIsStatic($closure, $message = '')
+    {
+        null === $closure || static::isStatic($closure, $message);
+    }
+
+    /**
+     * @param iterable<Closure> $closure
+     * @param string            $message
+     *
+     * @return void
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allIsStatic($closure, $message = '')
+    {
+        static::isIterable($closure);
+
+        foreach ($closure as $entry) {
+            static::isStatic($entry, $message);
+        }
+    }
+
+    /**
+     * @param iterable<Closure|null> $closure
+     * @param string                 $message
+     *
+     * @return void
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrIsStatic($closure, $message = '')
+    {
+        static::isIterable($closure);
+
+        foreach ($closure as $entry) {
+            null === $entry || static::isStatic($entry, $message);
+        }
+    }
+
+    /**
+     * @param Closure|null $closure
+     * @param string       $message
+     *
+     * @return void
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrIsNotStatic($closure, $message = '')
+    {
+        null === $closure || static::isNotStatic($closure, $message);
+    }
+
+    /**
+     * @param iterable<Closure> $closure
+     * @param string            $message
+     *
+     * @return void
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allIsNotStatic($closure, $message = '')
+    {
+        static::isIterable($closure);
+
+        foreach ($closure as $entry) {
+            static::isNotStatic($entry, $message);
+        }
+    }
+
+    /**
+     * @param iterable<Closure|null> $closure
+     * @param string                 $message
+     *
+     * @return void
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrIsNotStatic($closure, $message = '')
+    {
+        static::isIterable($closure);
+
+        foreach ($closure as $entry) {
+            null === $entry || static::isNotStatic($entry, $message);
+        }
+    }
+
+    /**
      * @psalm-pure
      *
      * @template T

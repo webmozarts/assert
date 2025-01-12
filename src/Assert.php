@@ -17,6 +17,7 @@ use ArrayAccess;
 use Countable;
 use DateTime;
 use DateTimeImmutable;
+use ReflectionFunction;
 use ReflectionProperty;
 use Throwable;
 use Traversable;
@@ -2040,6 +2041,42 @@ class Assert
         }
 
         return $array;
+    }
+
+    /**
+     * @param Closure $closure
+     * @param string $message
+     * @return void
+     * @throws InvalidArgumentException
+     */
+    public static function isStatic($closure, $message = '')
+    {
+        Assert::isCallable($closure);
+        $reflection = new ReflectionFunction($closure);
+
+        if (! $reflection->isStatic()) {
+            static::reportInvalidArgument(
+                $message ?: 'Closure is not static.'
+            );
+        }
+    }
+
+    /**
+     * @param Closure $closure
+     * @param string $message
+     * @return void
+     * @throws InvalidArgumentException
+     */
+    public static function isNotStatic($closure, $message = '')
+    {
+        Assert::isCallable($closure);
+        $reflection = new ReflectionFunction($closure);
+
+        if ($reflection->isStatic()) {
+            static::reportInvalidArgument(
+                $message ?: 'Closure is not static.'
+            );
+        }
     }
 
     /**
