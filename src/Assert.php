@@ -2049,9 +2049,8 @@ class Assert
      * @return void
      * @throws InvalidArgumentException
      */
-    public static function isStatic($closure, $message = '')
+    public static function isStatic(Closure $closure, $message = '')
     {
-        Assert::isCallable($closure);
         $reflection = new ReflectionFunction($closure);
 
         if (!$reflection->isStatic()) {
@@ -2067,7 +2066,7 @@ class Assert
      * @return void
      * @throws InvalidArgumentException
      */
-    public static function isNotStatic($closure, $message = '')
+    public static function isNotStatic(Closure $closure, $message = '')
     {
         Assert::isCallable($closure);
         $reflection = new ReflectionFunction($closure);
