@@ -849,6 +849,32 @@ class AssertTest extends TestCase
 
         Assert::null(TestEnum::CaseName, 'Expected null. Got: %s');
     }
+
+    public function testNullOrAllUuid(): void
+    {
+        $uuids = [
+            '5ff2b9b4-7692-4330-8ca9-eda6a5681774',
+            'bc87-1005f1a8-479a-a094-b51a4962f3a3',
+        ];
+
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('Value "bc87-1005f1a8-479a-a094-b51a4962f3a3" is not a valid UUID');
+
+        Assert::nullOrAllUuid($uuids);
+    }
+
+    public function testNullOrAllIsInstanceOf(): void
+    {
+        $objects = [
+            new DummyClass(),
+            new StdClass(),
+        ];
+
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('Expected an instance of Webmozart\Assert\Tests\DummyClass. Got: stdClass');
+
+        Assert::nullOrAllIsInstanceOf($objects, DummyClass::class);
+    }
 }
 
 /**
