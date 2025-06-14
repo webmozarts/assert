@@ -440,7 +440,7 @@ class Assert
                 if (!$arrayValue instanceof $type) {
                     self::reportInvalidArgument(
                         $message ?: "Expected instance of '$type'. Element at key '$key' is of class '"
-                            . get_class($arrayValue) . "'."
+                            . \get_class($arrayValue) . "'."
                     );
                 }
 
@@ -453,7 +453,6 @@ class Assert
             }
         }
     }
-
 
     /**
      * @psalm-pure
