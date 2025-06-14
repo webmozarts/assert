@@ -416,6 +416,46 @@ class Assert
     }
 
     /**
+     * @param mixed $value
+     * @param string $type
+     * @param string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isArrayOfType($value, string $type, $message = ''): void
+    {
+        if (!\is_array($value)) {
+            static::reportInvalidArgument($message ?: "Expected array");
+        }
+
+        foreach ($value as $key => $arrayValue) {
+            $actualType = gettype($arrayValue);
+            if ($actualType === "object" ) {
+                if (!\class_exists($type) && !\interface_exists($type)) {
+                    self::reportInvalidArgument(
+                        $message ?: "Invalid type '$type': not a native type nor a valid class/interface."
+                    );
+                }
+
+                if (!$arrayValue instanceof $type) {
+                    self::reportInvalidArgument(
+                        $message ?: "Expected instance of '$type'. Element at key '$key' is of class '"
+                            . get_class($arrayValue) . "'."
+                    );
+                }
+
+                continue;
+            }
+            if ($actualType !== $type) {
+                self::reportInvalidArgument(
+                    $message ?: "Expected type '$type'. Element at key '$key' is of type '$actualType'."
+                );
+            }
+        }
+    }
+
+
+    /**
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
