@@ -430,7 +430,7 @@ class Assert
 
         foreach ($value as $key => $arrayValue) {
             $actualType = gettype($arrayValue);
-            if ($actualType === "object" ) {
+            if ($actualType === "object" && $type !== "object") {
                 if (!\class_exists($type) && !\interface_exists($type)) {
                     self::reportInvalidArgument(
                         $message ?: "Invalid type '$type': not a native type nor a valid class/interface."
