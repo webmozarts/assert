@@ -42,6 +42,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function string($value, $message = '')
@@ -62,6 +64,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function stringNotEmpty($value, $message = '')
@@ -77,6 +81,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -98,6 +104,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function integerish($value, $message = '')
@@ -117,6 +125,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -138,6 +148,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function float($value, $message = '')
@@ -157,6 +169,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -178,6 +192,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function natural($value, $message = '')
@@ -197,6 +213,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -218,6 +236,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function scalar($value, $message = '')
@@ -237,6 +257,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -258,6 +280,8 @@ class Assert
      * @param mixed       $value
      * @param string|null $type    type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
      * @param string      $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -288,6 +312,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isCallable($value, $message = '')
@@ -307,6 +333,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -329,6 +357,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -358,6 +388,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isArrayAccessible($value, $message = '')
@@ -377,6 +409,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -403,6 +437,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isIterable($value, $message = '')
@@ -427,6 +463,8 @@ class Assert
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -454,6 +492,8 @@ class Assert
      * @param string|object $class
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notInstanceOf($value, $class, $message = '')
@@ -475,6 +515,8 @@ class Assert
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -506,6 +548,8 @@ class Assert
      * @param string        $class
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isAOf($value, $class, $message = '')
@@ -535,6 +579,8 @@ class Assert
      * @param string        $class
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isNotA($value, $class, $message = '')
@@ -558,6 +604,8 @@ class Assert
      * @param object|string $value
      * @param string[]      $classes
      * @param string        $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -586,6 +634,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isEmpty($value, $message = '')
@@ -605,6 +655,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -626,6 +678,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function null($value, $message = '')
@@ -646,6 +700,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notNull($value, $message = '')
@@ -664,6 +720,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -685,6 +743,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function false($value, $message = '')
@@ -705,6 +765,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notFalse($value, $message = '')
@@ -719,6 +781,8 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -736,6 +800,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function ipv4($value, $message = '')
@@ -752,6 +818,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function ipv6($value, $message = '')
@@ -767,6 +835,8 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -785,6 +855,8 @@ class Assert
      *
      * @param array  $values
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -809,6 +881,8 @@ class Assert
      * @param mixed  $expect
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function eq($value, $expect, $message = '')
@@ -826,6 +900,8 @@ class Assert
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -845,6 +921,8 @@ class Assert
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -866,6 +944,8 @@ class Assert
      * @param mixed  $expect
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notSame($value, $expect, $message = '')
@@ -884,6 +964,8 @@ class Assert
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -905,6 +987,8 @@ class Assert
      * @param mixed  $limit
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function greaterThanEq($value, $limit, $message = '')
@@ -925,6 +1009,8 @@ class Assert
      * @param mixed  $limit
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function lessThan($value, $limit, $message = '')
@@ -944,6 +1030,8 @@ class Assert
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -968,6 +1056,8 @@ class Assert
      * @param mixed  $max
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function range($value, $min, $max, $message = '')
@@ -991,6 +1081,8 @@ class Assert
      * @param array  $values
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function oneOf($value, array $values, $message = '')
@@ -1006,6 +1098,8 @@ class Assert
      * @param mixed  $value
      * @param array  $values
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1027,6 +1121,8 @@ class Assert
      * @param string $subString
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function contains($value, $subString, $message = '')
@@ -1047,6 +1143,8 @@ class Assert
      * @param string $subString
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notContains($value, $subString, $message = '')
@@ -1066,6 +1164,8 @@ class Assert
      * @param string $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notWhitespaceOnly($value, $message = '')
@@ -1084,6 +1184,8 @@ class Assert
      * @param string $value
      * @param string $prefix
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1105,6 +1207,8 @@ class Assert
      * @param string $prefix
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function notStartsWith($value, $prefix, $message = '')
@@ -1123,6 +1227,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1154,6 +1260,8 @@ class Assert
      * @param string $suffix
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function endsWith($value, $suffix, $message = '')
@@ -1173,6 +1281,8 @@ class Assert
      * @param string $value
      * @param string $suffix
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1194,6 +1304,8 @@ class Assert
      * @param string $pattern
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function regex($value, $pattern, $message = '')
@@ -1212,6 +1324,8 @@ class Assert
      * @param string $value
      * @param string $pattern
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1233,6 +1347,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function unicodeLetters($value, $message = '')
@@ -1252,6 +1368,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1278,6 +1396,8 @@ class Assert
      * @param string $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function digits($value, $message = '')
@@ -1300,6 +1420,8 @@ class Assert
      *
      * @param string $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1326,6 +1448,8 @@ class Assert
      * @param string $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function lower($value, $message = '')
@@ -1351,6 +1475,8 @@ class Assert
      * @param string $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function upper($value, $message = '')
@@ -1375,6 +1501,8 @@ class Assert
      * @param int    $length
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function length($value, $length, $message = '')
@@ -1397,6 +1525,8 @@ class Assert
      * @param int|float $min
      * @param string    $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function minLength($value, $min, $message = '')
@@ -1418,6 +1548,8 @@ class Assert
      * @param string    $value
      * @param int|float $max
      * @param string    $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1442,6 +1574,8 @@ class Assert
      * @param int|float $max
      * @param string    $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function lengthBetween($value, $min, $max, $message = '')
@@ -1464,6 +1598,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function fileExists($value, $message = '')
@@ -1479,6 +1615,8 @@ class Assert
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1496,6 +1634,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function directory($value, $message = '')
@@ -1512,6 +1652,8 @@ class Assert
      * @param string $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function readable($value, $message = '')
@@ -1527,6 +1669,8 @@ class Assert
     /**
      * @param string $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1545,6 +1689,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1571,6 +1717,8 @@ class Assert
      * @param string|object $class
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function subclassOf($value, $class, $message = '')
@@ -1589,6 +1737,8 @@ class Assert
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1615,6 +1765,8 @@ class Assert
      * @param mixed  $interface
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function implementsInterface($value, $interface, $message = '')
@@ -1637,6 +1789,8 @@ class Assert
      * @param mixed         $property
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function propertyExists($classOrObject, $property, $message = '')
@@ -1657,6 +1811,8 @@ class Assert
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1679,6 +1835,8 @@ class Assert
      * @param mixed         $method
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function methodExists($classOrObject, $method, $message = '')
@@ -1700,6 +1858,8 @@ class Assert
      * @param mixed         $method
      * @param string        $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function methodNotExists($classOrObject, $method, $message = '')
@@ -1719,6 +1879,8 @@ class Assert
      * @param string|int $key
      * @param string     $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function keyExists($array, $key, $message = '')
@@ -1737,6 +1899,8 @@ class Assert
      * @param array      $array
      * @param string|int $key
      * @param string     $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1760,6 +1924,8 @@ class Assert
      * @param mixed  $value
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function validArrayKey($value, $message = '')
@@ -1778,6 +1944,8 @@ class Assert
      * @param Countable|array $array
      * @param int             $number
      * @param string          $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1801,6 +1969,8 @@ class Assert
      * @param int|float       $min
      * @param string          $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function minCount($array, $min, $message = '')
@@ -1820,6 +1990,8 @@ class Assert
      * @param Countable|array $array
      * @param int|float       $max
      * @param string          $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1841,6 +2013,8 @@ class Assert
      * @param int|float       $min
      * @param int|float       $max
      * @param string          $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1865,6 +2039,8 @@ class Assert
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1906,6 +2082,8 @@ class Assert
      * @param mixed  $array
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isNonEmptyList($array, $message = '')
@@ -1925,6 +2103,8 @@ class Assert
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1953,6 +2133,8 @@ class Assert
      * @param mixed  $array
      * @param string $message
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function isNonEmptyMap($array, $message = '')
@@ -1966,6 +2148,8 @@ class Assert
      *
      * @param string $value
      * @param string $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
@@ -1993,6 +2177,8 @@ class Assert
      * @param Closure $expression
      * @param string  $class
      * @param string  $message
+     *
+     * @return void
      *
      * @throws InvalidArgumentException
      */
