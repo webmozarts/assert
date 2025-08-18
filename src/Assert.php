@@ -2141,6 +2141,13 @@ class Assert
      */
     protected static function reportInvalidArgument($message)
     {
+        if (\ini_get('zend.assertions') != '1') {
+            //  1 : Assert::* code is always executed (development mode)
+            //  0 : jump around Assert::* code at runtime
+            // -1 : (production mode)
+            // @see https://www.php.net/manual/en/function.assert.php
+            return;
+        }
         throw new InvalidArgumentException($message);
     }
 

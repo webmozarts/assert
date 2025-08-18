@@ -33,6 +33,13 @@ class AssertTest extends TestCase
 {
     private static $resource;
 
+    protected function setUp(): void
+    {
+        if (ini_get('zend.assertions') == '-1') {
+            $this->markTestSkipped('Test case not executed because disabled by PHP configuration (zend.assertions=-1)');
+        }
+    }
+
     public static function getResource()
     {
         if (!static::$resource) {
@@ -609,18 +616,34 @@ class AssertTest extends TestCase
         return array_values($methods);
     }
 
+    private function skippedByConditions($method, $multibyte, $minVersion): bool
+    {
+        if ($minVersion && PHP_VERSION_ID < $minVersion) {
+            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
+
+            return true;
+        }
+        if ($multibyte && !function_exists('mb_strlen')) {
+            $this->markTestSkipped('The function mb_strlen() is not available');
+
+            return true;
+        }
+        if ($method && ini_get('zend.assertions') == '0') {
+            $this->markTestSkipped(sprintf('The PHP configuration (zend.assertions=0) skipped checks assertion at runtime. Test case "%s " was not executed.', $method));
+
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @dataProvider getTests
      */
     public function testAssert($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->skippedByConditions($method, $multibyte, $minVersion)) {
             return;
-        }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
         }
 
         if (!$success) {
@@ -636,13 +659,8 @@ class AssertTest extends TestCase
      */
     public function testNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->skippedByConditions($method, $multibyte, $minVersion)) {
             return;
-        }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
         }
 
         if (!$success && null !== reset($args)) {
@@ -667,13 +685,8 @@ class AssertTest extends TestCase
      */
     public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->skippedByConditions($method, $multibyte, $minVersion)) {
             return;
-        }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
         }
 
         if (!$success) {
@@ -692,13 +705,8 @@ class AssertTest extends TestCase
      */
     public function testAllNullOrArray($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->skippedByConditions($method, $multibyte, $minVersion)) {
             return;
-        }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
         }
 
         $arg = array_shift($args);
@@ -724,13 +732,8 @@ class AssertTest extends TestCase
      */
     public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
+        if ($this->skippedByConditions($method, $multibyte, $minVersion)) {
             return;
-        }
-        if ($multibyte && !function_exists('mb_strlen')) {
-            $this->markTestSkipped('The function mb_strlen() is not available');
         }
 
         if (!$success) {
@@ -774,6 +777,10 @@ class AssertTest extends TestCase
      */
     public function testConvertValuesToStrings($method, $args, $exceptionMessage)
     {
+        if ($this->skippedByConditions($method, $multibyte = false, $minVersion = null)) {
+            return;
+        }
+
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
 
@@ -820,6 +827,10 @@ class AssertTest extends TestCase
      */
     public function testIsAOfExceptionMessages(array $args, string $exceptionMessage): void
     {
+        if ($this->skippedByConditions($method = 'isAOf', $multibyte = false, $minVersion = null)) {
+            return;
+        }
+
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
 
@@ -828,6 +839,10 @@ class AssertTest extends TestCase
 
     public function testResourceOfTypeCustomMessage(): void
     {
+        if ($this->skippedByConditions($method = 'resource', $multibyte = false, $minVersion = null)) {
+            return;
+        }
+
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage('I want a resource of type curl. Got: NULL');
 
@@ -836,10 +851,8 @@ class AssertTest extends TestCase
 
     public function testEnumAssertionErrorMessage(): void
     {
-        $enumIntroductionVersion = 80100;
-
-        if (PHP_VERSION_ID < $enumIntroductionVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $enumIntroductionVersion));
+        if ($this->skippedByConditions($method = 'null', $multibyte = false, $minVersion = 80100)) {
+            return;
         }
 
         require_once 'DummyEnum.php';
