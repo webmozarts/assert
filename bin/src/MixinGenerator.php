@@ -439,10 +439,7 @@ BODY;
             }
         }
 
-        $phpdoc .= "\n".$indentation.' * @return void';
-
         if (strlen($throws) > 0) {
-            $phpdoc .= "\n".$indentation.' *';
             $phpdoc .= $throws;
         }
 
