@@ -5,8 +5,9 @@ Changelog
 
 ### Fixed
 
-- Corrected messages and typos in various assertions
-- Document `void` return type
+- Corrected messages and typos in various assertions.
+- Document `void` return type.
+- Prevent UUIDs with trailing newlines from validating.
 
 ## 1.11.0
 
