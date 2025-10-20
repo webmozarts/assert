@@ -23,6 +23,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrString($value, $message = '')
@@ -37,6 +39,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -61,6 +65,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrString($value, $message = '')
@@ -82,6 +88,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrStringNotEmpty($value, $message = '')
@@ -96,6 +104,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -120,6 +130,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrStringNotEmpty($value, $message = '')
@@ -141,6 +153,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrInteger($value, $message = '')
@@ -155,6 +169,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -179,6 +195,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrInteger($value, $message = '')
@@ -200,6 +218,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIntegerish($value, $message = '')
@@ -214,6 +234,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -238,6 +260,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIntegerish($value, $message = '')
@@ -259,6 +283,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrPositiveInteger($value, $message = '')
@@ -273,6 +299,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -297,6 +325,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrPositiveInteger($value, $message = '')
@@ -318,6 +348,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrFloat($value, $message = '')
@@ -332,6 +364,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -356,6 +390,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrFloat($value, $message = '')
@@ -377,6 +413,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNumeric($value, $message = '')
@@ -391,6 +429,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -415,6 +455,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNumeric($value, $message = '')
@@ -436,6 +478,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNatural($value, $message = '')
@@ -450,6 +494,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -474,6 +520,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNatural($value, $message = '')
@@ -495,6 +543,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrBoolean($value, $message = '')
@@ -509,6 +559,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -533,6 +585,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrBoolean($value, $message = '')
@@ -554,6 +608,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrScalar($value, $message = '')
@@ -568,6 +624,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -592,6 +650,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrScalar($value, $message = '')
@@ -613,6 +673,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrObject($value, $message = '')
@@ -627,6 +689,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -648,6 +712,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -673,6 +739,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrResource($value, $type = null, $message = '')
@@ -688,6 +756,8 @@ trait Mixin
      * @param mixed       $value
      * @param string|null $type    type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
      * @param string      $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -713,6 +783,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrResource($value, $type = null, $message = '')
@@ -734,6 +806,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsCallable($value, $message = '')
@@ -748,6 +822,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -772,6 +848,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsCallable($value, $message = '')
@@ -793,6 +871,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsArray($value, $message = '')
@@ -807,6 +887,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -828,6 +910,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -854,6 +938,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsTraversable($value, $message = '')
@@ -870,6 +956,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -896,6 +984,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsTraversable($value, $message = '')
@@ -917,6 +1007,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsArrayAccessible($value, $message = '')
@@ -931,6 +1023,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -955,6 +1049,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsArrayAccessible($value, $message = '')
@@ -976,6 +1072,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsCountable($value, $message = '')
@@ -990,6 +1088,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1014,6 +1114,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsCountable($value, $message = '')
@@ -1035,6 +1137,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsIterable($value, $message = '')
@@ -1049,6 +1153,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1070,6 +1176,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1097,6 +1205,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsInstanceOf($value, $class, $message = '')
@@ -1114,6 +1224,8 @@ trait Mixin
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1141,6 +1253,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsInstanceOf($value, $class, $message = '')
@@ -1164,6 +1278,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotInstanceOf($value, $class, $message = '')
@@ -1180,6 +1296,8 @@ trait Mixin
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1207,6 +1325,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotInstanceOf($value, $class, $message = '')
@@ -1229,6 +1349,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsInstanceOfAny($value, $classes, $message = '')
@@ -1244,6 +1366,8 @@ trait Mixin
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1266,6 +1390,8 @@ trait Mixin
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1293,6 +1419,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsAOf($value, $class, $message = '')
@@ -1310,6 +1438,8 @@ trait Mixin
      * @param iterable<object|string> $value
      * @param string                  $class
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1337,6 +1467,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsAOf($value, $class, $message = '')
@@ -1360,6 +1492,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsNotA($value, $class, $message = '')
@@ -1376,6 +1510,8 @@ trait Mixin
      * @param iterable<object|string> $value
      * @param string                  $class
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1404,6 +1540,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsNotA($value, $class, $message = '')
@@ -1426,6 +1564,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsAnyOf($value, $classes, $message = '')
@@ -1441,6 +1581,8 @@ trait Mixin
      * @param iterable<object|string> $value
      * @param string[]                $classes
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1466,6 +1608,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsAnyOf($value, $classes, $message = '')
@@ -1487,6 +1631,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsEmpty($value, $message = '')
@@ -1501,6 +1647,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1525,6 +1673,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsEmpty($value, $message = '')
@@ -1544,6 +1694,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotEmpty($value, $message = '')
@@ -1556,6 +1708,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1580,6 +1734,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotEmpty($value, $message = '')
@@ -1601,6 +1757,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNull($value, $message = '')
@@ -1617,6 +1775,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1641,6 +1801,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrTrue($value, $message = '')
@@ -1655,6 +1817,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1679,6 +1843,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrTrue($value, $message = '')
@@ -1700,6 +1866,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrFalse($value, $message = '')
@@ -1714,6 +1882,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1738,6 +1908,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrFalse($value, $message = '')
@@ -1757,6 +1929,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotFalse($value, $message = '')
@@ -1769,6 +1943,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1793,6 +1969,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotFalse($value, $message = '')
@@ -1810,6 +1988,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIp($value, $message = '')
@@ -1820,6 +2000,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1840,6 +2022,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIp($value, $message = '')
@@ -1857,6 +2041,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIpv4($value, $message = '')
@@ -1867,6 +2053,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1887,6 +2075,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIpv4($value, $message = '')
@@ -1904,6 +2094,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIpv6($value, $message = '')
@@ -1914,6 +2106,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1934,6 +2128,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIpv6($value, $message = '')
@@ -1951,6 +2147,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrEmail($value, $message = '')
@@ -1961,6 +2159,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -1981,6 +2181,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrEmail($value, $message = '')
@@ -1998,6 +2200,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrUniqueValues($values, $message = '')
@@ -2008,6 +2212,8 @@ trait Mixin
     /**
      * @param iterable<array> $values
      * @param string          $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2025,6 +2231,8 @@ trait Mixin
     /**
      * @param iterable<array|null> $values
      * @param string               $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2046,6 +2254,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrEq($value, $expect, $message = '')
@@ -2057,6 +2267,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2078,6 +2290,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrEq($value, $expect, $message = '')
@@ -2096,6 +2310,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotEq($value, $expect, $message = '')
@@ -2107,6 +2323,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2125,6 +2343,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2148,6 +2368,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrSame($value, $expect, $message = '')
@@ -2161,6 +2383,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2184,6 +2408,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrSame($value, $expect, $message = '')
@@ -2204,6 +2430,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotSame($value, $expect, $message = '')
@@ -2217,6 +2445,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $expect
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2240,6 +2470,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotSame($value, $expect, $message = '')
@@ -2260,6 +2492,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrGreaterThan($value, $limit, $message = '')
@@ -2273,6 +2507,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2296,6 +2532,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrGreaterThan($value, $limit, $message = '')
@@ -2316,6 +2554,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrGreaterThanEq($value, $limit, $message = '')
@@ -2329,6 +2569,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2352,6 +2594,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrGreaterThanEq($value, $limit, $message = '')
@@ -2372,6 +2616,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrLessThan($value, $limit, $message = '')
@@ -2385,6 +2631,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2408,6 +2656,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrLessThan($value, $limit, $message = '')
@@ -2428,6 +2678,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrLessThanEq($value, $limit, $message = '')
@@ -2441,6 +2693,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2461,6 +2715,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $limit
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2485,6 +2741,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrRange($value, $min, $max, $message = '')
@@ -2499,6 +2757,8 @@ trait Mixin
      * @param mixed  $min
      * @param mixed  $max
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2523,6 +2783,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrRange($value, $min, $max, $message = '')
@@ -2543,6 +2805,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrOneOf($value, $values, $message = '')
@@ -2556,6 +2820,8 @@ trait Mixin
      * @param mixed  $value
      * @param array  $values
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2579,6 +2845,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrOneOf($value, $values, $message = '')
@@ -2599,6 +2867,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrInArray($value, $values, $message = '')
@@ -2612,6 +2882,8 @@ trait Mixin
      * @param mixed  $value
      * @param array  $values
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2635,6 +2907,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrInArray($value, $values, $message = '')
@@ -2655,6 +2929,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrContains($value, $subString, $message = '')
@@ -2668,6 +2944,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $subString
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2691,6 +2969,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrContains($value, $subString, $message = '')
@@ -2711,6 +2991,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotContains($value, $subString, $message = '')
@@ -2724,6 +3006,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $subString
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2747,6 +3031,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotContains($value, $subString, $message = '')
@@ -2766,6 +3052,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotWhitespaceOnly($value, $message = '')
@@ -2778,6 +3066,8 @@ trait Mixin
      *
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2797,6 +3087,8 @@ trait Mixin
      *
      * @param iterable<string|null> $value
      * @param string                $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2820,6 +3112,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrStartsWith($value, $prefix, $message = '')
@@ -2833,6 +3127,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $prefix
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2856,6 +3152,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrStartsWith($value, $prefix, $message = '')
@@ -2876,6 +3174,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotStartsWith($value, $prefix, $message = '')
@@ -2889,6 +3189,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $prefix
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2912,6 +3214,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotStartsWith($value, $prefix, $message = '')
@@ -2931,6 +3235,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrStartsWithLetter($value, $message = '')
@@ -2943,6 +3249,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2962,6 +3270,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -2985,6 +3295,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrEndsWith($value, $suffix, $message = '')
@@ -2998,6 +3310,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $suffix
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3021,6 +3335,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrEndsWith($value, $suffix, $message = '')
@@ -3041,6 +3357,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotEndsWith($value, $suffix, $message = '')
@@ -3054,6 +3372,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $suffix
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3077,6 +3397,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotEndsWith($value, $suffix, $message = '')
@@ -3097,6 +3419,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrRegex($value, $pattern, $message = '')
@@ -3110,6 +3434,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $pattern
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3133,6 +3459,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrRegex($value, $pattern, $message = '')
@@ -3153,6 +3481,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNotRegex($value, $pattern, $message = '')
@@ -3166,6 +3496,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param string           $pattern
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3189,6 +3521,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotRegex($value, $pattern, $message = '')
@@ -3208,6 +3542,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrUnicodeLetters($value, $message = '')
@@ -3220,6 +3556,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3242,6 +3580,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrUnicodeLetters($value, $message = '')
@@ -3261,6 +3601,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrAlpha($value, $message = '')
@@ -3273,6 +3615,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3295,6 +3639,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrAlpha($value, $message = '')
@@ -3314,6 +3660,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrDigits($value, $message = '')
@@ -3326,6 +3674,8 @@ trait Mixin
      *
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3348,6 +3698,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrDigits($value, $message = '')
@@ -3367,6 +3719,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrAlnum($value, $message = '')
@@ -3379,6 +3733,8 @@ trait Mixin
      *
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3398,6 +3754,8 @@ trait Mixin
      *
      * @param iterable<string|null> $value
      * @param string                $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3422,6 +3780,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrLower($value, $message = '')
@@ -3436,6 +3796,8 @@ trait Mixin
      *
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3460,6 +3822,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrLower($value, $message = '')
@@ -3479,6 +3843,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrUpper($value, $message = '')
@@ -3491,6 +3857,8 @@ trait Mixin
      *
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3515,6 +3883,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrUpper($value, $message = '')
@@ -3535,6 +3905,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrLength($value, $length, $message = '')
@@ -3548,6 +3920,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param int              $length
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3571,6 +3945,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrLength($value, $length, $message = '')
@@ -3591,6 +3967,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrMinLength($value, $min, $message = '')
@@ -3604,6 +3982,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param int|float        $min
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3627,6 +4007,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrMinLength($value, $min, $message = '')
@@ -3647,6 +4029,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrMaxLength($value, $max, $message = '')
@@ -3660,6 +4044,8 @@ trait Mixin
      * @param iterable<string> $value
      * @param int|float        $max
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3680,6 +4066,8 @@ trait Mixin
      * @param iterable<string|null> $value
      * @param int|float             $max
      * @param string                $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3704,6 +4092,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrLengthBetween($value, $min, $max, $message = '')
@@ -3718,6 +4108,8 @@ trait Mixin
      * @param int|float        $min
      * @param int|float        $max
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3742,6 +4134,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrLengthBetween($value, $min, $max, $message = '')
@@ -3759,6 +4153,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrFileExists($value, $message = '')
@@ -3769,6 +4165,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3789,6 +4187,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrFileExists($value, $message = '')
@@ -3806,6 +4206,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrFile($value, $message = '')
@@ -3816,6 +4218,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3836,6 +4240,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrFile($value, $message = '')
@@ -3853,6 +4259,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrDirectory($value, $message = '')
@@ -3863,6 +4271,8 @@ trait Mixin
     /**
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3883,6 +4293,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrDirectory($value, $message = '')
@@ -3900,6 +4312,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrReadable($value, $message = '')
@@ -3910,6 +4324,8 @@ trait Mixin
     /**
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3930,6 +4346,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrReadable($value, $message = '')
@@ -3947,6 +4365,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrWritable($value, $message = '')
@@ -3957,6 +4377,8 @@ trait Mixin
     /**
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3974,6 +4396,8 @@ trait Mixin
     /**
      * @param iterable<string|null> $value
      * @param string                $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -3996,6 +4420,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrClassExists($value, $message = '')
@@ -4008,6 +4434,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4027,6 +4455,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4054,6 +4484,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrSubclassOf($value, $class, $message = '')
@@ -4071,6 +4503,8 @@ trait Mixin
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4098,6 +4532,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrSubclassOf($value, $class, $message = '')
@@ -4117,6 +4553,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrInterfaceExists($value, $message = '')
@@ -4129,6 +4567,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4148,6 +4588,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4175,6 +4617,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrImplementsInterface($value, $interface, $message = '')
@@ -4192,6 +4636,8 @@ trait Mixin
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4219,6 +4665,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrImplementsInterface($value, $interface, $message = '')
@@ -4241,6 +4689,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrPropertyExists($classOrObject, $property, $message = '')
@@ -4256,6 +4706,8 @@ trait Mixin
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $property
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4281,6 +4733,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrPropertyExists($classOrObject, $property, $message = '')
@@ -4303,6 +4757,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrPropertyNotExists($classOrObject, $property, $message = '')
@@ -4318,6 +4774,8 @@ trait Mixin
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $property
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4343,6 +4801,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrPropertyNotExists($classOrObject, $property, $message = '')
@@ -4365,6 +4825,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrMethodExists($classOrObject, $method, $message = '')
@@ -4380,6 +4842,8 @@ trait Mixin
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $method
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4405,6 +4869,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrMethodExists($classOrObject, $method, $message = '')
@@ -4427,6 +4893,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrMethodNotExists($classOrObject, $method, $message = '')
@@ -4442,6 +4910,8 @@ trait Mixin
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $method
      * @param string                  $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4467,6 +4937,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrMethodNotExists($classOrObject, $method, $message = '')
@@ -4487,6 +4959,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrKeyExists($array, $key, $message = '')
@@ -4500,6 +4974,8 @@ trait Mixin
      * @param iterable<array> $array
      * @param string|int      $key
      * @param string          $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4523,6 +4999,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrKeyExists($array, $key, $message = '')
@@ -4543,6 +5021,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrKeyNotExists($array, $key, $message = '')
@@ -4556,6 +5036,8 @@ trait Mixin
      * @param iterable<array> $array
      * @param string|int      $key
      * @param string          $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4576,6 +5058,8 @@ trait Mixin
      * @param iterable<array|null> $array
      * @param string|int           $key
      * @param string               $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4600,6 +5084,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrValidArrayKey($value, $message = '')
@@ -4614,6 +5100,8 @@ trait Mixin
      *
      * @param mixed  $value
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4638,6 +5126,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrValidArrayKey($value, $message = '')
@@ -4656,6 +5146,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrCount($array, $number, $message = '')
@@ -4667,6 +5159,8 @@ trait Mixin
      * @param iterable<Countable|array> $array
      * @param int                       $number
      * @param string                    $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4688,6 +5182,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrCount($array, $number, $message = '')
@@ -4706,6 +5202,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrMinCount($array, $min, $message = '')
@@ -4717,6 +5215,8 @@ trait Mixin
      * @param iterable<Countable|array> $array
      * @param int|float                 $min
      * @param string                    $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4738,6 +5238,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrMinCount($array, $min, $message = '')
@@ -4756,6 +5258,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrMaxCount($array, $max, $message = '')
@@ -4767,6 +5271,8 @@ trait Mixin
      * @param iterable<Countable|array> $array
      * @param int|float                 $max
      * @param string                    $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4785,6 +5291,8 @@ trait Mixin
      * @param iterable<Countable|array|null> $array
      * @param int|float                      $max
      * @param string                         $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4807,6 +5315,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrCountBetween($array, $min, $max, $message = '')
@@ -4819,6 +5329,8 @@ trait Mixin
      * @param int|float                 $min
      * @param int|float                 $max
      * @param string                    $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4838,6 +5350,8 @@ trait Mixin
      * @param int|float                      $min
      * @param int|float                      $max
      * @param string                         $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4862,6 +5376,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsList($array, $message = '')
@@ -4876,6 +5392,8 @@ trait Mixin
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4900,6 +5418,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsList($array, $message = '')
@@ -4921,6 +5441,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsNonEmptyList($array, $message = '')
@@ -4935,6 +5457,8 @@ trait Mixin
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4956,6 +5480,8 @@ trait Mixin
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -4982,6 +5508,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsMap($array, $message = '')
@@ -4998,6 +5526,8 @@ trait Mixin
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -5024,6 +5554,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsMap($array, $message = '')
@@ -5046,6 +5578,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsNonEmptyMap($array, $message = '')
@@ -5061,6 +5595,8 @@ trait Mixin
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -5088,6 +5624,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsNonEmptyMap($array, $message = '')
@@ -5107,6 +5645,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrUuid($value, $message = '')
@@ -5119,6 +5659,8 @@ trait Mixin
      *
      * @param iterable<string> $value
      * @param string           $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -5138,6 +5680,8 @@ trait Mixin
      *
      * @param iterable<string|null> $value
      * @param string                $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -5161,6 +5705,8 @@ trait Mixin
      *
      * @return void
      *
+     * @return void
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrThrows($expression, $class = 'Exception', $message = '')
@@ -5174,6 +5720,8 @@ trait Mixin
      * @param iterable<Closure> $expression
      * @param string            $class
      * @param string            $message
+     *
+     * @return void
      *
      * @return void
      *
@@ -5194,6 +5742,8 @@ trait Mixin
      * @param iterable<Closure|null> $expression
      * @param string                 $class
      * @param string                 $message
+     *
+     * @return void
      *
      * @return void
      *
