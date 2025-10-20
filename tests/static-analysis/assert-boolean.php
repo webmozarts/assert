@@ -32,8 +32,6 @@ function nullOrBoolean($value): ?bool
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<bool>
  */
 function allBoolean($value): iterable
 {
@@ -46,8 +44,6 @@ function allBoolean($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<bool|null>
  */
 function allNullOrBoolean($value): iterable
 {

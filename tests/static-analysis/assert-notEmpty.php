@@ -54,10 +54,8 @@ function notEmptyArray(array $value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrNotEmpty($value)
+function nullOrNotEmpty($value): mixed
 {
     Assert::nullOrNotEmpty($value);
 
@@ -68,10 +66,8 @@ function nullOrNotEmpty($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNotEmpty($value)
+function allNotEmpty($value): mixed
 {
     Assert::allNotEmpty($value);
 
@@ -82,10 +78,8 @@ function allNotEmpty($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrNotEmpty($value)
+function allNullOrNotEmpty($value): mixed
 {
     Assert::allNullOrNotEmpty($value);
 

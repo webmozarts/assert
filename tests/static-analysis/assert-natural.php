@@ -36,9 +36,7 @@ function nullOrNatural($value): ?int
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int|0>
- *
+ * *
  * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
  * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */
@@ -53,9 +51,7 @@ function allNatural($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int|0|null>
- *
+ * *
  * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
  * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */

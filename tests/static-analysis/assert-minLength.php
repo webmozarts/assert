@@ -33,8 +33,6 @@ function nullOrMinLength(?string $value, $min): ?string
  *
  * @param iterable<string> $value
  * @param int|float $min
- *
- * @return iterable<string>
  */
 function allMinLength(iterable $value, $min): iterable
 {
@@ -48,8 +46,6 @@ function allMinLength(iterable $value, $min): iterable
  *
  * @param iterable<string|null> $value
  * @param int|float $min
- *
- * @return iterable<string|null>
  */
 function allNullOrMinLength(iterable $value, $min): iterable
 {

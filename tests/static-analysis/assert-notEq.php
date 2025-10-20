@@ -7,10 +7,8 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function notEq($value, $expect)
+function notEq($value, $expect): mixed
 {
     Assert::notEq($value, $expect);
 
@@ -20,10 +18,8 @@ function notEq($value, $expect)
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function nullOrNotEq($value, $expect)
+function nullOrNotEq($value, $expect): mixed
 {
     Assert::nullOrNotEq($value, $expect);
 
@@ -33,10 +29,8 @@ function nullOrNotEq($value, $expect)
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function allNotEq($value, $expect)
+function allNotEq($value, $expect): mixed
 {
     Assert::allNotEq($value, $expect);
 
@@ -46,10 +40,8 @@ function allNotEq($value, $expect)
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function allNullOrNotEq($value, $expect)
+function allNullOrNotEq($value, $expect): mixed
 {
     Assert::allNullOrNotEq($value, $expect);
 

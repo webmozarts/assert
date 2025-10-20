@@ -9,11 +9,8 @@ use Webmozart\Assert\Assert;
  *
  * @param object|string $value
  * @param array<class-string> $classes
- *
- * @return object|string
  */
-function isAnyOf($value, array $classes)
-{
+function isAnyOf($value, array $classes): object|string {
     Assert::isAnyOf($value, $classes);
 
     return $value;
@@ -24,11 +21,8 @@ function isAnyOf($value, array $classes)
  *
  * @param null|object|string $value
  * @param array<class-string> $classes
- *
- * @return null|object|string
  */
-function nullOrIsAnyOf($value, array $classes)
-{
+function nullOrIsAnyOf($value, array $classes): null|object|string {
     Assert::nullOrIsAnyOf($value, $classes);
 
     return $value;
@@ -39,8 +33,6 @@ function nullOrIsAnyOf($value, array $classes)
  *
  * @param iterable<object|string> $value
  * @param array<class-string> $classes
- *
- * @return iterable<object|string>
  */
 function allIsAnyOf($value, array $classes): iterable
 {
@@ -54,8 +46,6 @@ function allIsAnyOf($value, array $classes): iterable
  *
  * @param iterable<object|string|null> $value
  * @param array<class-string> $classes
- *
- * @return iterable<object|string|null>
  */
 function allNullOrIsAnyOf($value, array $classes): iterable
 {

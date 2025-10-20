@@ -30,8 +30,6 @@ function nullOrClassExists($value): ?string
 
 /**
  * @param mixed $value
- *
- * @return iterable<class-string>
  */
 function allClassExists($value): iterable
 {
@@ -42,8 +40,6 @@ function allClassExists($value): iterable
 
 /**
  * @param mixed $value
- *
- * @return iterable<class-string|null>
  */
 function allNullOrClassExists($value): iterable
 {

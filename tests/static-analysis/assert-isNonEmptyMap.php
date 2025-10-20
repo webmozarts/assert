@@ -39,10 +39,8 @@ function isNonEmptyMapWithKnownType(array $value): array
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrIsNonEmptyMap($value)
+function nullOrIsNonEmptyMap($value): mixed
 {
     Assert::nullOrIsNonEmptyMap($value);
 
@@ -53,8 +51,6 @@ function nullOrIsNonEmptyMap($value)
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<mixed|array<mixed>>
  */
 function allIsNonEmptyMap(iterable $value): iterable
 {
@@ -67,8 +63,6 @@ function allIsNonEmptyMap(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<mixed|array<mixed>>
  */
 function allNullOrIsNonEmptyMap(iterable $value): iterable
 {

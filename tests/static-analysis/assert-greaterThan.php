@@ -9,10 +9,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function greaterThan($value, $limit)
+function greaterThan($value, $limit): mixed
 {
     Assert::greaterThan($value, $limit);
 
@@ -24,10 +22,8 @@ function greaterThan($value, $limit)
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function nullOrGreaterThan($value, $limit)
+function nullOrGreaterThan($value, $limit): mixed
 {
     Assert::nullOrGreaterThan($value, $limit);
 
@@ -39,10 +35,8 @@ function nullOrGreaterThan($value, $limit)
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function allGreaterThan($value, $limit)
+function allGreaterThan($value, $limit): mixed
 {
     Assert::allGreaterThan($value, $limit);
 
@@ -54,10 +48,8 @@ function allGreaterThan($value, $limit)
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function allNullOrGreaterThan($value, $limit)
+function allNullOrGreaterThan($value, $limit): mixed
 {
     Assert::allNullOrGreaterThan($value, $limit);
 

@@ -30,8 +30,6 @@ function nullOrInterfaceExists($value): ?string
 
 /**
  * @param mixed $value
- *
- * @return iterable<class-string>
  */
 function allInterfaceExists($value): iterable
 {
@@ -42,8 +40,6 @@ function allInterfaceExists($value): iterable
 
 /**
  * @param mixed $value
- *
- * @return iterable<class-string|null>
  */
 function allNullOrInterfaceExists($value): iterable
 {

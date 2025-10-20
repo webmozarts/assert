@@ -32,8 +32,6 @@ function nullOrString($value): ?string
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<string>
  */
 function allString($value): iterable
 {
@@ -46,8 +44,6 @@ function allString($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<string|null>
  */
 function allNullOrString($value): iterable
 {

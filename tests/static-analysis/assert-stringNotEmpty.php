@@ -36,8 +36,6 @@ function nullOrStringNotEmpty($value): ?string
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<non-empty-string>
  */
 function allStringNotEmpty($value): iterable
 {
@@ -50,8 +48,6 @@ function allStringNotEmpty($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<non-empty-string|null>
  */
 function allNullOrStringNotEmpty($value): iterable
 {

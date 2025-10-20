@@ -8,10 +8,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function startsWithLetter($value, string $prefix)
+function startsWithLetter($value, string $prefix): mixed
 {
     Assert::startsWithLetter($value, $prefix);
 
@@ -22,10 +20,8 @@ function startsWithLetter($value, string $prefix)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrStartsWithLetter($value, string $prefix)
+function nullOrStartsWithLetter($value, string $prefix): mixed
 {
     Assert::nullOrStartsWithLetter($value, $prefix);
 
@@ -36,10 +32,8 @@ function nullOrStartsWithLetter($value, string $prefix)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allStartsWithLetter($value, string $prefix)
+function allStartsWithLetter($value, string $prefix): mixed
 {
     Assert::allStartsWithLetter($value, $prefix);
 
@@ -50,10 +44,8 @@ function allStartsWithLetter($value, string $prefix)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrStartsWithLetter($value, string $prefix)
+function allNullOrStartsWithLetter($value, string $prefix): mixed
 {
     Assert::allNullOrStartsWithLetter($value, $prefix);
 

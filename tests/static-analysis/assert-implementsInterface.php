@@ -37,8 +37,6 @@ function nullOrImplementsInterface($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<mixed, Serializable|class-string<Serializable>>
  */
 function allImplementsInterface($value): iterable
 {
@@ -51,8 +49,6 @@ function allImplementsInterface($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<mixed, Serializable|class-string<Serializable>|null>
  */
 function allNullOrImplementsInterface($value): iterable
 {

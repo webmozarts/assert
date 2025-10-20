@@ -39,7 +39,7 @@ class AssertTest extends TestCase
         return $resource ??= tmpfile();
     }
 
-    public static function getTests()
+    public static function getTests(): array
     {
         $nanList = array('key' => 2, NAN);
         unset($nanList['key']);
@@ -592,7 +592,7 @@ class AssertTest extends TestCase
         );
     }
 
-    public static function getMethods()
+    public static function getMethods(): array
     {
         $methods = array();
 
@@ -604,7 +604,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testAssert($method, $args, $success, $multibyte = false)
+    public function testAssert($method, $args, $success, $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -619,7 +619,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testNullOr($method, $args, $success, $multibyte = false)
+    public function testNullOr($method, $args, $success, $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -634,14 +634,14 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getMethods')]
-    public function testNullOrAcceptsNull($method)
+    public function testNullOrAcceptsNull($method): void
     {
         call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, null, null);
         $this->addToAssertionCount(1);
     }
 
     #[DataProvider('getTests')]
-    public function testAllArray($method, $args, $success, $multibyte = false)
+    public function testAllArray($method, $args, $success, $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -659,7 +659,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testAllNullOrArray($method, $args, $success, $multibyte = false)
+    public function testAllNullOrArray($method, $args, $success, $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -684,7 +684,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testAllTraversable($method, $args, $success, $multibyte = false)
+    public function testAllTraversable($method, $args, $success, $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -701,7 +701,7 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public static function getStringConversions()
+    public static function getStringConversions(): array
     {
         return array(
             array('integer', array('foobar'), 'Expected an integer. Got: string'),
@@ -727,7 +727,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getStringConversions')]
-    public function testConvertValuesToStrings($method, $args, $exceptionMessage)
+    public function testConvertValuesToStrings($method, $args, $exceptionMessage): void
     {
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
@@ -735,7 +735,7 @@ class AssertTest extends TestCase
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
     }
 
-    public function testAnUnknownMethodThrowsABadMethodCall()
+    public function testAnUnknownMethodThrowsABadMethodCall(): void
     {
         $this->expectException('\BadMethodCallException');
 
@@ -811,7 +811,7 @@ class ToStringClass
         $this->value = $value;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->value;
     }

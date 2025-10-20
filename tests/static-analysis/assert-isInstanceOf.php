@@ -33,8 +33,6 @@ function nullOrIsInstanceOf($value): ?Serializable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<Serializable>
  */
 function allIsInstanceOf($value): iterable
 {
@@ -47,8 +45,6 @@ function allIsInstanceOf($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<Serializable|null>
  */
 function allNullOrIsInstanceOf($value): iterable
 {

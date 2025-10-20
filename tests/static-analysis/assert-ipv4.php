@@ -6,10 +6,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function ipv4($value)
+function ipv4($value): mixed
 {
     Assert::ipv4($value);
 
@@ -18,10 +16,8 @@ function ipv4($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrIpv4($value)
+function nullOrIpv4($value): mixed
 {
     Assert::nullOrIpv4($value);
 
@@ -30,10 +26,8 @@ function nullOrIpv4($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allIpv4($value)
+function allIpv4($value): mixed
 {
     Assert::allIpv4($value);
 
@@ -42,10 +36,8 @@ function allIpv4($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrIpv4($value)
+function allNullOrIpv4($value): mixed
 {
     Assert::allNullOrIpv4($value);
 

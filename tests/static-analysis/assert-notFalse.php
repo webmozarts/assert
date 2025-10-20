@@ -32,10 +32,8 @@ function notFalseUnion($value): string
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrNotFalse($value)
+function nullOrNotFalse($value): mixed
 {
     Assert::nullOrNotFalse($value);
 
@@ -46,10 +44,8 @@ function nullOrNotFalse($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNotFalse($value)
+function allNotFalse($value): mixed
 {
     Assert::allNotFalse($value);
 
@@ -60,10 +56,8 @@ function allNotFalse($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrNotFalse($value)
+function allNullOrNotFalse($value): mixed
 {
     Assert::allNullOrNotFalse($value);
 

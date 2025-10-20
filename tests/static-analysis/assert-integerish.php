@@ -36,8 +36,6 @@ function nullOrIntegerish($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<numeric>
  */
 function allIntegerish($value): iterable
 {
@@ -50,8 +48,6 @@ function allIntegerish($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<numeric|null>
  */
 function allNullOrIntegerish($value): iterable
 {

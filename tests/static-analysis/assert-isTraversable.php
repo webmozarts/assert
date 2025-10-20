@@ -34,8 +34,6 @@ function nullOrIsTraversable($value): ?iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<iterable>
  */
 function allIsTraversable($value): iterable
 {

@@ -32,8 +32,6 @@ function nullOrInteger($value): ?int
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<int>
  */
 function allInteger($value): iterable
 {
@@ -46,8 +44,6 @@ function allInteger($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<int|null>
  */
 function allNullOrInteger($value): iterable
 {

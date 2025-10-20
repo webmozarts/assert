@@ -32,8 +32,6 @@ function nullOrIsIterable($value): ?iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<iterable>
  */
 function allIsIterable($value): iterable
 {
@@ -46,8 +44,6 @@ function allIsIterable($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<iterable|null>
  */
 function allNullOrIsIterable($value): iterable
 {

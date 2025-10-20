@@ -46,7 +46,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function string($value, $message = '')
+    public static function string($value, $message = ''): void
     {
         if (!\is_string($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -68,7 +68,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function stringNotEmpty($value, $message = '')
+    public static function stringNotEmpty($value, $message = ''): void
     {
         static::string($value, $message);
         static::notEq($value, '', $message);
@@ -86,7 +86,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function integer($value, $message = '')
+    public static function integer($value, $message = ''): void
     {
         if (!\is_int($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -108,7 +108,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function integerish($value, $message = '')
+    public static function integerish($value, $message = ''): void
     {
         if (!\is_numeric($value) || $value != (int) $value) {
             static::reportInvalidArgument(\sprintf(
@@ -130,7 +130,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function positiveInteger($value, $message = '')
+    public static function positiveInteger($value, $message = ''): void
     {
         if (!(\is_int($value) && $value > 0)) {
             static::reportInvalidArgument(\sprintf(
@@ -152,7 +152,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function float($value, $message = '')
+    public static function float($value, $message = ''): void
     {
         if (!\is_float($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -174,7 +174,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function numeric($value, $message = '')
+    public static function numeric($value, $message = ''): void
     {
         if (!\is_numeric($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -196,7 +196,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function natural($value, $message = '')
+    public static function natural($value, $message = ''): void
     {
         if (!\is_int($value) || $value < 0) {
             static::reportInvalidArgument(\sprintf(
@@ -218,7 +218,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function boolean($value, $message = '')
+    public static function boolean($value, $message = ''): void
     {
         if (!\is_bool($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -240,7 +240,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function scalar($value, $message = '')
+    public static function scalar($value, $message = ''): void
     {
         if (!\is_scalar($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -262,7 +262,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function object($value, $message = '')
+    public static function object($value, $message = ''): void
     {
         if (!\is_object($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -285,7 +285,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function resource($value, $type = null, $message = '')
+    public static function resource($value, $type = null, $message = ''): void
     {
         if (!\is_resource($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -316,7 +316,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isCallable($value, $message = '')
+    public static function isCallable($value, $message = ''): void
     {
         if (!\is_callable($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -338,7 +338,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isArray($value, $message = '')
+    public static function isArray($value, $message = ''): void
     {
         if (!\is_array($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -362,7 +362,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isTraversable($value, $message = '')
+    public static function isTraversable($value, $message = ''): void
     {
         @\trigger_error(
             \sprintf(
@@ -392,7 +392,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isArrayAccessible($value, $message = '')
+    public static function isArrayAccessible($value, $message = ''): void
     {
         if (!\is_array($value) && !($value instanceof ArrayAccess)) {
             static::reportInvalidArgument(\sprintf(
@@ -414,7 +414,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isCountable($value, $message = '')
+    public static function isCountable($value, $message = ''): void
     {
         if (
             !\is_array($value)
@@ -441,7 +441,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isIterable($value, $message = '')
+    public static function isIterable($value, $message = ''): void
     {
         if (!\is_array($value) && !($value instanceof Traversable)) {
             static::reportInvalidArgument(\sprintf(
@@ -467,7 +467,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isInstanceOf($value, $class, $message = '')
+    public static function isInstanceOf($value, $class, $message = ''): void
     {
         if (!($value instanceof $class)) {
             static::reportInvalidArgument(\sprintf(
@@ -494,7 +494,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notInstanceOf($value, $class, $message = '')
+    public static function notInstanceOf($value, $class, $message = ''): void
     {
         if ($value instanceof $class) {
             static::reportInvalidArgument(\sprintf(
@@ -517,7 +517,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isInstanceOfAny($value, array $classes, $message = '')
+    public static function isInstanceOfAny($value, array $classes, $message = ''): void
     {
         foreach ($classes as $class) {
             if ($value instanceof $class) {
@@ -548,7 +548,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isAOf($value, $class, $message = '')
+    public static function isAOf($value, $class, $message = ''): void
     {
         static::string($class, 'Expected class as a string. Got: %s');
 
@@ -578,7 +578,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isNotA($value, $class, $message = '')
+    public static function isNotA($value, $class, $message = ''): void
     {
         static::string($class, 'Expected class as a string. Got: %s');
 
@@ -603,7 +603,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isAnyOf($value, array $classes, $message = '')
+    public static function isAnyOf($value, array $classes, $message = ''): void
     {
         foreach ($classes as $class) {
             static::string($class, 'Expected class as a string. Got: %s');
@@ -632,7 +632,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isEmpty($value, $message = '')
+    public static function isEmpty($value, $message = ''): void
     {
         if (!empty($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -654,7 +654,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notEmpty($value, $message = '')
+    public static function notEmpty($value, $message = ''): void
     {
         if (empty($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -676,7 +676,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function null($value, $message = '')
+    public static function null($value, $message = ''): void
     {
         if (null !== $value) {
             static::reportInvalidArgument(\sprintf(
@@ -698,7 +698,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notNull($value, $message = '')
+    public static function notNull($value, $message = ''): void
     {
         if (null === $value) {
             static::reportInvalidArgument(
@@ -719,7 +719,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function true($value, $message = '')
+    public static function true($value, $message = ''): void
     {
         if (true !== $value) {
             static::reportInvalidArgument(\sprintf(
@@ -741,7 +741,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function false($value, $message = '')
+    public static function false($value, $message = ''): void
     {
         if (false !== $value) {
             static::reportInvalidArgument(\sprintf(
@@ -763,7 +763,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notFalse($value, $message = '')
+    public static function notFalse($value, $message = ''): void
     {
         if (false === $value) {
             static::reportInvalidArgument(
@@ -780,7 +780,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function ip($value, $message = '')
+    public static function ip($value, $message = ''): void
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
             static::reportInvalidArgument(\sprintf(
@@ -798,7 +798,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function ipv4($value, $message = '')
+    public static function ipv4($value, $message = ''): void
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
             static::reportInvalidArgument(\sprintf(
@@ -816,7 +816,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function ipv6($value, $message = '')
+    public static function ipv6($value, $message = ''): void
     {
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(\sprintf(
@@ -834,7 +834,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function email($value, $message = '')
+    public static function email($value, $message = ''): void
     {
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
             static::reportInvalidArgument(\sprintf(
@@ -854,7 +854,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function uniqueValues(array $values, $message = '')
+    public static function uniqueValues(array $values, $message = ''): void
     {
         $allValues = \count($values);
         $uniqueValues = \count(\array_unique($values));
@@ -879,7 +879,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function eq($value, $expect, $message = '')
+    public static function eq($value, $expect, $message = ''): void
     {
         if ($expect != $value) {
             static::reportInvalidArgument(\sprintf(
@@ -899,7 +899,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notEq($value, $expect, $message = '')
+    public static function notEq($value, $expect, $message = ''): void
     {
         if ($expect == $value) {
             static::reportInvalidArgument(\sprintf(
@@ -920,7 +920,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function same($value, $expect, $message = '')
+    public static function same($value, $expect, $message = ''): void
     {
         if ($expect !== $value) {
             static::reportInvalidArgument(\sprintf(
@@ -942,7 +942,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notSame($value, $expect, $message = '')
+    public static function notSame($value, $expect, $message = ''): void
     {
         if ($expect === $value) {
             static::reportInvalidArgument(\sprintf(
@@ -963,7 +963,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function greaterThan($value, $limit, $message = '')
+    public static function greaterThan($value, $limit, $message = ''): void
     {
         if ($value <= $limit) {
             static::reportInvalidArgument(\sprintf(
@@ -985,7 +985,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function greaterThanEq($value, $limit, $message = '')
+    public static function greaterThanEq($value, $limit, $message = ''): void
     {
         if ($value < $limit) {
             static::reportInvalidArgument(\sprintf(
@@ -1007,7 +1007,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function lessThan($value, $limit, $message = '')
+    public static function lessThan($value, $limit, $message = ''): void
     {
         if ($value >= $limit) {
             static::reportInvalidArgument(\sprintf(
@@ -1029,7 +1029,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function lessThanEq($value, $limit, $message = '')
+    public static function lessThanEq($value, $limit, $message = ''): void
     {
         if ($value > $limit) {
             static::reportInvalidArgument(\sprintf(
@@ -1054,7 +1054,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function range($value, $min, $max, $message = '')
+    public static function range($value, $min, $max, $message = ''): void
     {
         if ($value < $min || $value > $max) {
             static::reportInvalidArgument(\sprintf(
@@ -1079,7 +1079,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function oneOf($value, array $values, $message = '')
+    public static function oneOf($value, array $values, $message = ''): void
     {
         static::inArray($value, $values, $message);
     }
@@ -1097,7 +1097,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function inArray($value, array $values, $message = '')
+    public static function inArray($value, array $values, $message = ''): void
     {
         if (!\in_array($value, $values, true)) {
             static::reportInvalidArgument(\sprintf(
@@ -1119,7 +1119,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function contains($value, $subString, $message = '')
+    public static function contains($value, $subString, $message = ''): void
     {
         if (false === \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
@@ -1141,7 +1141,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notContains($value, $subString, $message = '')
+    public static function notContains($value, $subString, $message = ''): void
     {
         if (false !== \strpos($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
@@ -1162,7 +1162,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notWhitespaceOnly($value, $message = '')
+    public static function notWhitespaceOnly($value, $message = ''): void
     {
         if (\preg_match('/^\s*$/', $value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1183,7 +1183,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function startsWith($value, $prefix, $message = '')
+    public static function startsWith($value, $prefix, $message = ''): void
     {
         if (0 !== \strpos($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
@@ -1205,7 +1205,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notStartsWith($value, $prefix, $message = '')
+    public static function notStartsWith($value, $prefix, $message = ''): void
     {
         if (0 === \strpos($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
@@ -1226,7 +1226,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function startsWithLetter($value, $message = '')
+    public static function startsWithLetter($value, $message = ''): void
     {
         static::string($value);
 
@@ -1258,7 +1258,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function endsWith($value, $suffix, $message = '')
+    public static function endsWith($value, $suffix, $message = ''): void
     {
         if ($suffix !== \substr($value, -\strlen($suffix))) {
             static::reportInvalidArgument(\sprintf(
@@ -1280,7 +1280,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notEndsWith($value, $suffix, $message = '')
+    public static function notEndsWith($value, $suffix, $message = ''): void
     {
         if ($suffix === \substr($value, -\strlen($suffix))) {
             static::reportInvalidArgument(\sprintf(
@@ -1302,7 +1302,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function regex($value, $pattern, $message = '')
+    public static function regex($value, $pattern, $message = ''): void
     {
         if (!\preg_match($pattern, $value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1323,7 +1323,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notRegex($value, $pattern, $message = '')
+    public static function notRegex($value, $pattern, $message = ''): void
     {
         if (\preg_match($pattern, $value, $matches, PREG_OFFSET_CAPTURE)) {
             static::reportInvalidArgument(\sprintf(
@@ -1345,7 +1345,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function unicodeLetters($value, $message = '')
+    public static function unicodeLetters($value, $message = ''): void
     {
         static::string($value);
 
@@ -1367,7 +1367,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function alpha($value, $message = '')
+    public static function alpha($value, $message = ''): void
     {
         static::string($value);
 
@@ -1394,7 +1394,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function digits($value, $message = '')
+    public static function digits($value, $message = ''): void
     {
         static::string($value);
 
@@ -1421,7 +1421,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function alnum($value, $message = '')
+    public static function alnum($value, $message = ''): void
     {
         static::string($value);
 
@@ -1450,7 +1450,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function lower($value, $message = '')
+    public static function lower($value, $message = ''): void
     {
         static::string($value);
 
@@ -1479,7 +1479,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function upper($value, $message = '')
+    public static function upper($value, $message = ''): void
     {
         static::string($value);
 
@@ -1507,7 +1507,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function length($value, $length, $message = '')
+    public static function length($value, $length, $message = ''): void
     {
         if ($length !== static::strlen($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1531,7 +1531,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function minLength($value, $min, $message = '')
+    public static function minLength($value, $min, $message = ''): void
     {
         if (static::strlen($value) < $min) {
             static::reportInvalidArgument(\sprintf(
@@ -1555,7 +1555,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function maxLength($value, $max, $message = '')
+    public static function maxLength($value, $max, $message = ''): void
     {
         if (static::strlen($value) > $max) {
             static::reportInvalidArgument(\sprintf(
@@ -1580,7 +1580,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function lengthBetween($value, $min, $max, $message = '')
+    public static function lengthBetween($value, $min, $max, $message = ''): void
     {
         $length = static::strlen($value);
 
@@ -1604,7 +1604,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function fileExists($value, $message = '')
+    public static function fileExists($value, $message = ''): void
     {
         if (!\file_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1622,7 +1622,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function file($value, $message = '')
+    public static function file($value, $message = ''): void
     {
         if (!\is_file($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1640,7 +1640,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function directory($value, $message = '')
+    public static function directory($value, $message = ''): void
     {
         if (!\is_dir($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1658,7 +1658,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function readable($value, $message = '')
+    public static function readable($value, $message = ''): void
     {
         if (!\is_readable($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1676,7 +1676,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function writable($value, $message = '')
+    public static function writable($value, $message = ''): void
     {
         if (!\is_writable($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1696,7 +1696,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function classExists($value, $message = '')
+    public static function classExists($value, $message = ''): void
     {
         if (!\class_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1722,7 +1722,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function subclassOf($value, $class, $message = '')
+    public static function subclassOf($value, $class, $message = ''): void
     {
         if (!\is_subclass_of($value, $class)) {
             static::reportInvalidArgument(\sprintf(
@@ -1743,7 +1743,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function interfaceExists($value, $message = '')
+    public static function interfaceExists($value, $message = ''): void
     {
         if (!\interface_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1769,7 +1769,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function implementsInterface($value, $interface, $message = '')
+    public static function implementsInterface($value, $interface, $message = ''): void
     {
         if (!\in_array($interface, \class_implements($value))) {
             static::reportInvalidArgument(\sprintf(
@@ -1792,7 +1792,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function propertyExists($classOrObject, $property, $message = '')
+    public static function propertyExists($classOrObject, $property, $message = ''): void
     {
         if (!\property_exists($classOrObject, $property)) {
             static::reportInvalidArgument(\sprintf(
@@ -1814,7 +1814,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function propertyNotExists($classOrObject, $property, $message = '')
+    public static function propertyNotExists($classOrObject, $property, $message = ''): void
     {
         if (\property_exists($classOrObject, $property)) {
             static::reportInvalidArgument(\sprintf(
@@ -1836,7 +1836,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function methodExists($classOrObject, $method, $message = '')
+    public static function methodExists($classOrObject, $method, $message = ''): void
     {
         if (!(\is_string($classOrObject) || \is_object($classOrObject)) || !\method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(\sprintf(
@@ -1858,7 +1858,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function methodNotExists($classOrObject, $method, $message = '')
+    public static function methodNotExists($classOrObject, $method, $message = ''): void
     {
         if ((\is_string($classOrObject) || \is_object($classOrObject)) && \method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(\sprintf(
@@ -1879,7 +1879,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function keyExists($array, $key, $message = '')
+    public static function keyExists($array, $key, $message = ''): void
     {
         if (!(isset($array[$key]) || \array_key_exists($key, $array))) {
             static::reportInvalidArgument(\sprintf(
@@ -1900,7 +1900,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function keyNotExists($array, $key, $message = '')
+    public static function keyNotExists($array, $key, $message = ''): void
     {
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
             static::reportInvalidArgument(\sprintf(
@@ -1924,7 +1924,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function validArrayKey($value, $message = '')
+    public static function validArrayKey($value, $message = ''): void
     {
         if (!(\is_int($value) || \is_string($value))) {
             static::reportInvalidArgument(\sprintf(
@@ -1945,7 +1945,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function count($array, $number, $message = '')
+    public static function count($array, $number, $message = ''): void
     {
         static::eq(
             \count($array),
@@ -1969,7 +1969,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function minCount($array, $min, $message = '')
+    public static function minCount($array, $min, $message = ''): void
     {
         if (\count($array) < $min) {
             static::reportInvalidArgument(\sprintf(
@@ -1991,7 +1991,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function maxCount($array, $max, $message = '')
+    public static function maxCount($array, $max, $message = ''): void
     {
         if (\count($array) > $max) {
             static::reportInvalidArgument(\sprintf(
@@ -2014,7 +2014,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function countBetween($array, $min, $max, $message = '')
+    public static function countBetween($array, $min, $max, $message = ''): void
     {
         $count = \count($array);
 
@@ -2040,7 +2040,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isList($array, $message = '')
+    public static function isList($array, $message = ''): void
     {
         if (!\is_array($array)) {
             static::reportInvalidArgument(
@@ -2082,7 +2082,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isNonEmptyList($array, $message = '')
+    public static function isNonEmptyList($array, $message = ''): void
     {
         static::isList($array, $message);
         static::notEmpty($array, $message);
@@ -2103,7 +2103,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isMap($array, $message = '')
+    public static function isMap($array, $message = ''): void
     {
         if (
             !\is_array($array)
@@ -2131,7 +2131,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isNonEmptyMap($array, $message = '')
+    public static function isNonEmptyMap($array, $message = ''): void
     {
         static::isMap($array, $message);
         static::notEmpty($array, $message);
@@ -2147,7 +2147,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function uuid($value, $message = '')
+    public static function uuid($value, $message = ''): void
     {
         $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
 
@@ -2175,7 +2175,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function throws(Closure $expression, $class = 'Exception', $message = '')
+    public static function throws(Closure $expression, $class = 'Exception', $message = ''): void
     {
         static::string($class);
 
@@ -2239,7 +2239,7 @@ class Assert
      *
      * @return string
      */
-    protected static function valueToString($value)
+    protected static function valueToString($value): string
     {
         if (null === $value) {
             return 'null';
@@ -2291,12 +2291,12 @@ class Assert
      *
      * @return string
      */
-    protected static function typeToString($value)
+    protected static function typeToString($value): string
     {
         return \is_object($value) ? \get_class($value) : \gettype($value);
     }
 
-    protected static function strlen($value)
+    protected static function strlen($value): int
     {
         if (!\function_exists('mb_detect_encoding')) {
             return \strlen($value);
@@ -2317,7 +2317,7 @@ class Assert
      * @psalm-return never
      * @throws InvalidArgumentException
      */
-    protected static function reportInvalidArgument($message)
+    protected static function reportInvalidArgument($message): never
     {
         throw new InvalidArgumentException($message);
     }

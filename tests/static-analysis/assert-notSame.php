@@ -9,10 +9,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function notSame($value, $expect)
+function notSame($value, $expect): mixed
 {
     Assert::notSame($value, $expect);
 
@@ -24,10 +22,8 @@ function notSame($value, $expect)
  *
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function nullOrNotSame($value, $expect)
+function nullOrNotSame($value, $expect): mixed
 {
     Assert::nullOrNotSame($value, $expect);
 
@@ -39,10 +35,8 @@ function nullOrNotSame($value, $expect)
  *
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function allNotSame($value, $expect)
+function allNotSame($value, $expect): mixed
 {
     Assert::allNotSame($value, $expect);
 
@@ -54,10 +48,8 @@ function allNotSame($value, $expect)
  *
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function allNullOrNotSame($value, $expect)
+function allNullOrNotSame($value, $expect): mixed
 {
     Assert::allNullOrNotSame($value, $expect);
 

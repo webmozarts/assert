@@ -68,8 +68,6 @@ function nullOrIsMap($value): ?array
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<array<string, mixed>>
  */
 function allIsMap(iterable $value): iterable
 {
@@ -82,8 +80,6 @@ function allIsMap(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<array<string, mixed>|null>
  */
 function allNullOrIsMap(iterable $value): iterable
 {

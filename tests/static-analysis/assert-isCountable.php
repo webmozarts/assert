@@ -9,11 +9,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return countable
  */
-function isCountable($value)
-{
+function isCountable($value): Countable {
     Assert::isCountable($value);
 
     return $value;
@@ -23,11 +20,8 @@ function isCountable($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return null|countable
  */
-function nullOrIsCountable($value)
-{
+function nullOrIsCountable($value): null|Countable {
     Assert::nullOrIsCountable($value);
 
     return $value;

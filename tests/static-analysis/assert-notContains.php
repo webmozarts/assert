@@ -28,8 +28,6 @@ function nullOrNotContains(?string $value, string $subString): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allNotContains(iterable $value, string $subString): iterable
 {
@@ -42,8 +40,6 @@ function allNotContains(iterable $value, string $subString): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrNotContains(iterable $value, string $subString): iterable
 {

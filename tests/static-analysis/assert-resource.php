@@ -9,10 +9,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  * @param null|string $type
- *
- * @return resource
  */
-function resource($value, $type)
+function resource(mixed $value, null|string $type): mixed
 {
     Assert::resource($value, $type);
 
@@ -24,10 +22,8 @@ function resource($value, $type)
  *
  * @param mixed $value
  * @param null|string $type
- *
- * @return null|resource
  */
-function nullOrResource($value, $type)
+function nullOrResource(mixed $value, null|string $type): mixed
 {
     Assert::nullOrResource($value, $type);
 
@@ -39,8 +35,6 @@ function nullOrResource($value, $type)
  *
  * @param mixed $value
  * @param null|string $type
- *
- * @return iterable<resource>
  */
 function allResource($value, $type): iterable
 {
@@ -54,8 +48,6 @@ function allResource($value, $type): iterable
  *
  * @param mixed $value
  * @param null|string $type
- *
- * @return iterable<resource|null>
  */
 function allNullOrResource($value, $type): iterable
 {

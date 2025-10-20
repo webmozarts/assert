@@ -36,8 +36,6 @@ function nullOrValidArrayKey($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array-key>
  */
 function allValidArrayKey($value): iterable
 {
@@ -50,8 +48,6 @@ function allValidArrayKey($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array-key|null>
  */
 function allNullOrValidArrayKey($value): iterable
 {

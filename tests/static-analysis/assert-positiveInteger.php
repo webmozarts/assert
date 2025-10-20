@@ -50,8 +50,6 @@ function nullOrPositiveInteger($value): ?int
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int>
  */
 function allPositiveInteger($value): iterable
 {
@@ -64,8 +62,6 @@ function allPositiveInteger($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int|null>
  */
 function allNullOrPositiveInteger($value): iterable
 {

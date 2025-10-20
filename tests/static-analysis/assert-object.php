@@ -32,8 +32,6 @@ function nullOrObject($value): ?object
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<object>
  */
 function allObject($value): iterable
 {
@@ -46,8 +44,6 @@ function allObject($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<object|null>
  */
 function allNullOrObject($value): iterable
 {

@@ -20,8 +20,6 @@ function nullOrUniqueValues(?array $values): ?array
 
 /**
  * @param iterable<array> $values
- *
- * @return iterable<array>
  */
 function allUniqueValues(iterable $values): iterable
 {
@@ -32,8 +30,6 @@ function allUniqueValues(iterable $values): iterable
 
 /**
  * @param iterable<array|null> $values
- *
- * @return iterable<array|null>
  */
 function allNullOrUniqueValues(iterable $values): iterable
 {

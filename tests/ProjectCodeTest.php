@@ -18,7 +18,7 @@ class ProjectCodeTest extends TestCase
     private static array $mixinMethodNames;
 
     #[BeforeClass]
-    public static function scanStaticContent()
+    public static function scanStaticContent(): void
     {
         self::$readmeContent = file_get_contents(__DIR__.'/../README.md');
 
@@ -35,7 +35,7 @@ class ProjectCodeTest extends TestCase
      * @param string $method
      */
     #[DataProvider('providesMethodNames')]
-    public function testHasNullOr($method)
+    public function testHasNullOr($method): void
     {
         $fullMethodName = 'nullOr'.ucfirst($method);
 
@@ -63,7 +63,7 @@ class ProjectCodeTest extends TestCase
      * @param string $method
      */
     #[DataProvider('providesMethodNames')]
-    public function testHasAll($method)
+    public function testHasAll($method): void
     {
         $fullMethodName = 'all'.ucfirst($method);
 
@@ -86,7 +86,7 @@ class ProjectCodeTest extends TestCase
      * @param string $method
      */
     #[DataProvider('providesMethodNames')]
-    public function testIsInReadme($method)
+    public function testIsInReadme($method): void
     {
         $correct = strpos((string) self::$readmeContent, $method);
 
@@ -103,7 +103,7 @@ class ProjectCodeTest extends TestCase
      * @param ReflectionMethod $method
      */
     #[DataProvider('provideMethods')]
-    public function testHasThrowsAnnotation($method)
+    public function testHasThrowsAnnotation($method): void
     {
         $doc = $method->getDocComment();
 
@@ -129,7 +129,7 @@ class ProjectCodeTest extends TestCase
      * @param ReflectionMethod $method
      */
     #[DataProvider('provideMethods')]
-    public function testHasCorrespondingStaticAnalysisFile($method)
+    public function testHasCorrespondingStaticAnalysisFile($method): void
     {
         $doc = $method->getDocComment();
 
@@ -144,7 +144,7 @@ class ProjectCodeTest extends TestCase
         );
     }
 
-    public function testMixinIsUpToDateVersion()
+    public function testMixinIsUpToDateVersion(): void
     {
         if (PHP_OS_FAMILY === 'Windows') {
             $this->markTestSkipped('mixin generator is not expected to run on Windows');
@@ -164,7 +164,7 @@ class ProjectCodeTest extends TestCase
     /**
      * @return array
      */
-    public static function providesMethodNames()
+    public static function providesMethodNames(): array
     {
         return array_map(function ($value) {
             return array($value->getName());
@@ -174,7 +174,7 @@ class ProjectCodeTest extends TestCase
     /**
      * @return array
      */
-    public static function provideMethods()
+    public static function provideMethods(): array
     {
         return array_map(function ($value) {
             return array($value);
@@ -184,7 +184,7 @@ class ProjectCodeTest extends TestCase
     /**
      * @return array
      */
-    private static function getMethods()
+    private static function getMethods(): array
     {
         static $methods;
 

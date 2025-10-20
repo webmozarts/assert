@@ -18,10 +18,8 @@ function notNull(?object $value): object
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNotNull($value)
+function allNotNull($value): mixed
 {
     Assert::allNotNull($value);
 

@@ -37,8 +37,6 @@ function nullOrSubclassOf($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<class-string<stdClass>|stdClass>
  */
 function allSubclassOf($value): iterable
 {
@@ -51,8 +49,6 @@ function allSubclassOf($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<class-string<stdClass>|stdClass|null>
  */
 function allNullOrSubclassOf($value): iterable
 {

@@ -8,10 +8,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function unicodeLetters($value)
+function unicodeLetters($value): mixed
 {
     Assert::unicodeLetters($value);
 
@@ -22,10 +20,8 @@ function unicodeLetters($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrUnicodeLetters($value)
+function nullOrUnicodeLetters($value): mixed
 {
     Assert::nullOrUnicodeLetters($value);
 
@@ -36,10 +32,8 @@ function nullOrUnicodeLetters($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allUnicodeLetters($value)
+function allUnicodeLetters($value): mixed
 {
     Assert::allUnicodeLetters($value);
 
@@ -50,10 +44,8 @@ function allUnicodeLetters($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrUnicodeLetters($value)
+function allNullOrUnicodeLetters($value): mixed
 {
     Assert::allNullOrUnicodeLetters($value);
 

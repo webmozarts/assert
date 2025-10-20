@@ -372,7 +372,7 @@ BODY;
         $indentation = str_repeat(' ', $indent);
 
         $staticFunction = $this->phpdoc($phpdocLines, $indent)."\n";
-        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $defaultValues)."\n"
+        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $defaultValues).": void\n"
             .$indentation."{\n";
 
         $firstParameter = '$'.array_shift($parameters);

@@ -28,8 +28,6 @@ function nullOrUpper(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allUpper(iterable $value): iterable
 {
@@ -42,8 +40,6 @@ function allUpper(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrUpper(iterable $value): iterable
 {

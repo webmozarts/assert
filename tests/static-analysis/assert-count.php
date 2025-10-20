@@ -7,10 +7,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @param Countable|array $value
- *
- * @return Countable|array
  */
-function count($value, int $number)
+function count(Countable|array $value, int $number): Countable|array
 {
     Assert::count($value, $number);
 
@@ -19,10 +17,8 @@ function count($value, int $number)
 
 /**
  * @param null|Countable|array $value
- *
- * @return null|Countable|array
  */
-function nullOrCount($value, int $number)
+function nullOrCount(null|Countable|array $value, int $number): null|Countable|array
 {
     Assert::nullOrCount($value, $number);
 
@@ -31,8 +27,6 @@ function nullOrCount($value, int $number)
 
 /**
  * @param iterable<Countable|array> $value
- *
- * @return iterable<Countable|array>
  */
 function allCount(iterable $value, int $number): iterable
 {
@@ -43,8 +37,6 @@ function allCount(iterable $value, int $number): iterable
 
 /**
  * @param iterable<Countable|array|null> $value
- *
- * @return iterable<Countable|array|null>
  */
 function allNullOrCount(iterable $value, int $number): iterable
 {

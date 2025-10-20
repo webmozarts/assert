@@ -32,8 +32,6 @@ function nullOrIsArray($value): ?array
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array>
  */
 function allIsArray($value): iterable
 {
@@ -46,8 +44,6 @@ function allIsArray($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array|null>
  */
 function allNullOrIsArray($value): iterable
 {
