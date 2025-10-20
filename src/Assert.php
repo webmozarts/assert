@@ -1402,6 +1402,8 @@ class Assert
      */
     public static function digits($value, $message = '')
     {
+        static::string($value);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_digit($value);
@@ -1427,6 +1429,8 @@ class Assert
      */
     public static function alnum($value, $message = '')
     {
+        static::string($value);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alnum($value);
@@ -1454,6 +1458,8 @@ class Assert
      */
     public static function lower($value, $message = '')
     {
+        static::string($value);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_lower($value);
@@ -1481,6 +1487,8 @@ class Assert
      */
     public static function upper($value, $message = '')
     {
+        static::string($value);
+
         $locale = \setlocale(LC_CTYPE, 0);
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_upper($value);

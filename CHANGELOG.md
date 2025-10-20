@@ -8,6 +8,7 @@ Changelog
 - Corrected messages and typos in various assertions.
 - Document `void` return type.
 - Prevent UUIDs with trailing newlines from validating.
+- Assert values are strings before ctype checks.
 
 ## 1.11.0
 
