@@ -11,6 +11,10 @@
         {
             "name": "Bernhard Schussek",
             "email": "bschussek@gmail.com"
+        },
+        {
+            "name": "Woody Gilk",
+            "email": "woody.gilk@gmail.com"
         }
     ],
     "require": {
