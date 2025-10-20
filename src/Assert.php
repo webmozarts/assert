@@ -456,13 +456,12 @@ class Assert
      *
      * @psalm-template ExpectedType of object
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @psalm-assert ExpectedType $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -484,13 +483,12 @@ class Assert
      *
      * @psalm-template ExpectedType of object
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @psalm-assert !ExpectedType $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -510,11 +508,10 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -540,13 +537,12 @@ class Assert
      *
      * @psalm-template ExpectedType of object
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @psalm-assert ExpectedType|class-string<ExpectedType> $value
      *
      * @param object|string $value
      * @param string        $class
      * @param string        $message
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -570,14 +566,13 @@ class Assert
      *
      * @psalm-template UnexpectedType of object
      *
-     * @psalm-param class-string<UnexpectedType> $class
-     *
      * @psalm-assert !UnexpectedType $value
      * @psalm-assert !class-string<UnexpectedType> $value
      *
      * @param object|string $value
      * @param string        $class
      * @param string        $message
+     * @psalm-param class-string<UnexpectedType> $class
      *
      * @return void
      *
@@ -599,11 +594,10 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param object|string $value
      * @param string[]      $classes
      * @param string        $message
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -1717,13 +1711,12 @@ class Assert
      *
      * @psalm-template ExpectedType of object
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1765,13 +1758,12 @@ class Assert
      *
      * @psalm-template ExpectedType of object
      *
-     * @psalm-param class-string<ExpectedType> $interface
-     *
      * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
+     * @psalm-param class-string<ExpectedType> $interface
      *
      * @return void
      *
@@ -1791,11 +1783,10 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object $classOrObject
-     *
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
+     * @psalm-param class-string|object $classOrObject
      *
      * @return void
      *
@@ -1814,11 +1805,10 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object $classOrObject
-     *
      * @param string|object $classOrObject
      * @param mixed         $property
      * @param string        $message
+     * @psalm-param class-string|object $classOrObject
      *
      * @return void
      *
@@ -1837,11 +1827,10 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object $classOrObject
-     *
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
+     * @psalm-param class-string|object $classOrObject
      *
      * @return void
      *
@@ -1860,11 +1849,10 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object $classOrObject
-     *
      * @param string|object $classOrObject
      * @param mixed         $method
      * @param string        $message
+     * @psalm-param class-string|object $classOrObject
      *
      * @return void
      *
@@ -2105,12 +2093,11 @@ class Assert
      *
      * @psalm-template T
      *
-     * @psalm-param mixed|array<T> $array
-     *
      * @psalm-assert array<string, T> $array
      *
      * @param mixed  $array
      * @param string $message
+     * @psalm-param mixed|array<T> $array
      *
      * @return void
      *
@@ -2133,13 +2120,12 @@ class Assert
      *
      * @psalm-template T
      *
-     * @psalm-param mixed|array<T> $array
-     *
      * @psalm-assert array<string, T> $array
      * @psalm-assert !empty $array
      *
      * @param mixed  $array
      * @param string $message
+     * @psalm-param mixed|array<T> $array
      *
      * @return void
      *
@@ -2180,11 +2166,10 @@ class Assert
     }
 
     /**
-     * @psalm-param class-string<Throwable> $class
-     *
      * @param Closure $expression
      * @param string  $class
      * @param string  $message
+     * @psalm-param class-string<Throwable> $class
      *
      * @return void
      *
@@ -2327,11 +2312,10 @@ class Assert
     /**
      * @param string $message
      *
-     * @throws InvalidArgumentException
-     *
      * @psalm-pure this method is not supposed to perform side-effects
      *
      * @psalm-return never
+     * @throws InvalidArgumentException
      */
     protected static function reportInvalidArgument($message)
     {

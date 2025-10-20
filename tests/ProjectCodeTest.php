@@ -2,24 +2,23 @@
 
 namespace Webmozart\Assert\Tests;
 
+use PHPUnit\Framework\Attributes\BeforeClass;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use Webmozart\Assert\Bin\MixinGenerator;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 class ProjectCodeTest extends TestCase
 {
-    private static $readmeContent;
-    private static $assertDocComment;
-    private static $mixinMethodNames;
+    private static string $readmeContent;
+    private static string $assertDocComment;
+    private static array $mixinMethodNames;
 
-    /**
-     * @beforeClass
-     */
-    public static function doSetUpBeforeClass()
+    #[BeforeClass]
+    public static function scanStaticContent()
     {
         self::$readmeContent = file_get_contents(__DIR__.'/../README.md');
 
@@ -33,10 +32,9 @@ class ProjectCodeTest extends TestCase
     }
 
     /**
-     * @dataProvider providesMethodNames
-     *
      * @param string $method
      */
+    #[DataProvider('providesMethodNames')]
     public function testHasNullOr($method)
     {
         $fullMethodName = 'nullOr'.ucfirst($method);
@@ -62,10 +60,9 @@ class ProjectCodeTest extends TestCase
     }
 
     /**
-     * @dataProvider providesMethodNames
-     *
      * @param string $method
      */
+    #[DataProvider('providesMethodNames')]
     public function testHasAll($method)
     {
         $fullMethodName = 'all'.ucfirst($method);
@@ -86,10 +83,9 @@ class ProjectCodeTest extends TestCase
     }
 
     /**
-     * @dataProvider providesMethodNames
-     *
      * @param string $method
      */
+    #[DataProvider('providesMethodNames')]
     public function testIsInReadme($method)
     {
         $correct = strpos((string) self::$readmeContent, $method);
@@ -104,10 +100,9 @@ class ProjectCodeTest extends TestCase
     }
 
     /**
-     * @dataProvider provideMethods
-     *
      * @param ReflectionMethod $method
      */
+    #[DataProvider('provideMethods')]
     public function testHasThrowsAnnotation($method)
     {
         $doc = $method->getDocComment();
@@ -131,10 +126,9 @@ class ProjectCodeTest extends TestCase
     }
 
     /**
-     * @dataProvider provideMethods
-     *
      * @param ReflectionMethod $method
      */
+    #[DataProvider('provideMethods')]
     public function testHasCorrespondingStaticAnalysisFile($method)
     {
         $doc = $method->getDocComment();
@@ -170,27 +164,27 @@ class ProjectCodeTest extends TestCase
     /**
      * @return array
      */
-    public function providesMethodNames()
+    public static function providesMethodNames()
     {
         return array_map(function ($value) {
             return array($value->getName());
-        }, $this->getMethods());
+        }, self::getMethods());
     }
 
     /**
      * @return array
      */
-    public function provideMethods()
+    public static function provideMethods()
     {
         return array_map(function ($value) {
             return array($value);
-        }, $this->getMethods());
+        }, self::getMethods());
     }
 
     /**
      * @return array
      */
-    private function getMethods()
+    private static function getMethods()
     {
         static $methods;
 

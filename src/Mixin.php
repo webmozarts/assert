@@ -1088,12 +1088,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert ExpectedType|null $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1108,12 +1109,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<ExpectedType> $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1132,12 +1134,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<ExpectedType|null> $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1156,11 +1159,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1175,11 +1179,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1198,12 +1203,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<!ExpectedType|null> $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1221,11 +1227,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     *
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -1239,11 +1245,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     *
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -1261,11 +1267,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param mixed                $value
      * @param array<object|string> $classes
      * @param string               $message
+     *
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -1284,12 +1290,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert ExpectedType|class-string<ExpectedType>|null $value
      *
      * @param object|string|null $value
      * @param string             $class
      * @param string             $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1304,12 +1311,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>> $value
      *
      * @param iterable<object|string> $value
      * @param string                  $class
      * @param string                  $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1328,12 +1336,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>|null> $value
      *
      * @param iterable<object|string|null> $value
      * @param string                       $class
      * @param string                       $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -1352,11 +1361,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template UnexpectedType of object
-     * @psalm-param class-string<UnexpectedType> $class
      *
      * @param object|string|null $value
      * @param string             $class
      * @param string             $message
+     *
+     * @psalm-param class-string<UnexpectedType> $class
      *
      * @return void
      *
@@ -1371,11 +1381,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template UnexpectedType of object
-     * @psalm-param class-string<UnexpectedType> $class
      *
      * @param iterable<object|string> $value
      * @param string                  $class
      * @param string                  $message
+     *
+     * @psalm-param class-string<UnexpectedType> $class
      *
      * @return void
      *
@@ -1394,13 +1405,14 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template UnexpectedType of object
-     * @psalm-param class-string<UnexpectedType> $class
      * @psalm-assert iterable<!UnexpectedType|null> $value
      * @psalm-assert iterable<!class-string<UnexpectedType>|null> $value
      *
      * @param iterable<object|string|null> $value
      * @param string                       $class
      * @param string                       $message
+     *
+     * @psalm-param class-string<UnexpectedType> $class
      *
      * @return void
      *
@@ -1418,11 +1430,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param object|string|null $value
      * @param string[]           $classes
      * @param string             $message
+     *
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -1436,11 +1448,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param iterable<object|string> $value
      * @param string[]                $classes
      * @param string                  $message
+     *
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -1458,11 +1470,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param array<class-string> $classes
-     *
      * @param iterable<object|string|null> $value
      * @param string[]                     $classes
      * @param string                       $message
+     *
+     * @psalm-param array<class-string> $classes
      *
      * @return void
      *
@@ -4045,12 +4057,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -4065,12 +4078,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -4089,12 +4103,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $class
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
      *
      * @param mixed         $value
      * @param string|object $class
      * @param string        $message
+     *
+     * @psalm-param class-string<ExpectedType> $class
      *
      * @return void
      *
@@ -4166,12 +4181,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $interface
      * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
+     *
+     * @psalm-param class-string<ExpectedType> $interface
      *
      * @return void
      *
@@ -4186,12 +4202,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $interface
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
      *
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
+     *
+     * @psalm-param class-string<ExpectedType> $interface
      *
      * @return void
      *
@@ -4210,12 +4227,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template ExpectedType of object
-     * @psalm-param class-string<ExpectedType> $interface
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
      *
      * @param mixed  $value
      * @param mixed  $interface
      * @param string $message
+     *
+     * @psalm-param class-string<ExpectedType> $interface
      *
      * @return void
      *
@@ -4233,11 +4251,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object|null $classOrObject
-     *
      * @param string|object|null $classOrObject
      * @param mixed              $property
      * @param string             $message
+     *
+     * @psalm-param class-string|object|null $classOrObject
      *
      * @return void
      *
@@ -4251,11 +4269,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object> $classOrObject
-     *
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $property
      * @param string                  $message
+     *
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
      * @return void
      *
@@ -4273,11 +4291,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object|null> $classOrObject
-     *
      * @param iterable<string|object|null> $classOrObject
      * @param mixed                        $property
      * @param string                       $message
+     *
+     * @psalm-param iterable<class-string|object|null> $classOrObject
      *
      * @return void
      *
@@ -4295,11 +4313,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object|null $classOrObject
-     *
      * @param string|object|null $classOrObject
      * @param mixed              $property
      * @param string             $message
+     *
+     * @psalm-param class-string|object|null $classOrObject
      *
      * @return void
      *
@@ -4313,11 +4331,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object> $classOrObject
-     *
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $property
      * @param string                  $message
+     *
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
      * @return void
      *
@@ -4335,11 +4353,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object|null> $classOrObject
-     *
      * @param iterable<string|object|null> $classOrObject
      * @param mixed                        $property
      * @param string                       $message
+     *
+     * @psalm-param iterable<class-string|object|null> $classOrObject
      *
      * @return void
      *
@@ -4357,11 +4375,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object|null $classOrObject
-     *
      * @param string|object|null $classOrObject
      * @param mixed              $method
      * @param string             $message
+     *
+     * @psalm-param class-string|object|null $classOrObject
      *
      * @return void
      *
@@ -4375,11 +4393,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object> $classOrObject
-     *
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $method
      * @param string                  $message
+     *
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
      * @return void
      *
@@ -4397,11 +4415,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object|null> $classOrObject
-     *
      * @param iterable<string|object|null> $classOrObject
      * @param mixed                        $method
      * @param string                       $message
+     *
+     * @psalm-param iterable<class-string|object|null> $classOrObject
      *
      * @return void
      *
@@ -4419,11 +4437,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param class-string|object|null $classOrObject
-     *
      * @param string|object|null $classOrObject
      * @param mixed              $method
      * @param string             $message
+     *
+     * @psalm-param class-string|object|null $classOrObject
      *
      * @return void
      *
@@ -4437,11 +4455,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object> $classOrObject
-     *
      * @param iterable<string|object> $classOrObject
      * @param mixed                   $method
      * @param string                  $message
+     *
+     * @psalm-param iterable<class-string|object> $classOrObject
      *
      * @return void
      *
@@ -4459,11 +4477,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-param iterable<class-string|object|null> $classOrObject
-     *
      * @param iterable<string|object|null> $classOrObject
      * @param mixed                        $method
      * @param string                       $message
+     *
+     * @psalm-param iterable<class-string|object|null> $classOrObject
      *
      * @return void
      *
@@ -4974,11 +4992,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template T
-     * @psalm-param mixed|array<T>|null $array
      * @psalm-assert array<string, T>|null $array
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @psalm-param mixed|array<T>|null $array
      *
      * @return void
      *
@@ -4993,11 +5012,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template T
-     * @psalm-param iterable<mixed|array<T>> $array
      * @psalm-assert iterable<array<string, T>> $array
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @psalm-param iterable<mixed|array<T>> $array
      *
      * @return void
      *
@@ -5016,11 +5036,12 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template T
-     * @psalm-param iterable<mixed|array<T>|null> $array
      * @psalm-assert iterable<array<string, T>|null> $array
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @psalm-param iterable<mixed|array<T>|null> $array
      *
      * @return void
      *
@@ -5039,10 +5060,11 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template T
-     * @psalm-param mixed|array<T>|null $array
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @psalm-param mixed|array<T>|null $array
      *
      * @return void
      *
@@ -5057,10 +5079,11 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template T
-     * @psalm-param iterable<mixed|array<T>> $array
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @psalm-param iterable<mixed|array<T>> $array
      *
      * @return void
      *
@@ -5079,12 +5102,13 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-template T
-     * @psalm-param iterable<mixed|array<T>|null> $array
      * @psalm-assert iterable<array<string, T>|null> $array
      * @psalm-assert iterable<!empty|null> $array
      *
      * @param mixed  $array
      * @param string $message
+     *
+     * @psalm-param iterable<mixed|array<T>|null> $array
      *
      * @return void
      *
@@ -5153,11 +5177,11 @@ trait Mixin
     }
 
     /**
-     * @psalm-param class-string<Throwable> $class
-     *
      * @param Closure|null $expression
      * @param string       $class
      * @param string       $message
+     *
+     * @psalm-param class-string<Throwable> $class
      *
      * @return void
      *
@@ -5169,11 +5193,11 @@ trait Mixin
     }
 
     /**
-     * @psalm-param class-string<Throwable> $class
-     *
      * @param iterable<Closure> $expression
      * @param string            $class
      * @param string            $message
+     *
+     * @psalm-param class-string<Throwable> $class
      *
      * @return void
      *
@@ -5189,11 +5213,11 @@ trait Mixin
     }
 
     /**
-     * @psalm-param class-string<Throwable> $class
-     *
      * @param iterable<Closure|null> $expression
      * @param string                 $class
      * @param string                 $message
+     *
+     * @psalm-param class-string<Throwable> $class
      *
      * @return void
      *

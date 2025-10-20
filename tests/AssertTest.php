@@ -18,6 +18,7 @@ use DateTimeImmutable;
 use Error;
 use Exception;
 use LogicException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use SimpleXMLElement;
@@ -31,29 +32,15 @@ use Webmozart\Assert\Assert;
  */
 class AssertTest extends TestCase
 {
-    private static $resource;
-
     public static function getResource()
     {
-        if (!static::$resource) {
-            static::$resource = fopen(__FILE__, 'r');
-        }
+        static $resource;
 
-        return static::$resource;
+        return $resource ??= tmpfile();
     }
 
-    /**
-     * @afterClass
-     */
-    public static function doTearDownAfterClass()
+    public static function getTests()
     {
-        @fclose(self::$resource);
-    }
-
-    public function getTests()
-    {
-        $resource = self::getResource();
-
         $nanList = array('key' => 2, NAN);
         unset($nanList['key']);
 
@@ -117,12 +104,12 @@ class AssertTest extends TestCase
             array('object', array(true), false),
             array('object', array(1), false),
             array('object', array(array()), false),
-            array('resource', array($resource), true),
-            array('resource', array($resource, 'stream'), true),
-            array('resource', array($resource, 'other'), false),
+            array('resource', array(self::getResource()), true),
+            array('resource', array(self::getResource(), 'stream'), true),
+            array('resource', array(self::getResource(), 'other'), false),
             array('resource', array(1), false),
             array('isCallable', array('strlen'), true),
-            array('isCallable', array(array($this, 'getTests')), true),
+            array('isCallable', array(array(self::class, 'getTests')), true),
             array('isCallable', array(function () {}), true),
             array('isCallable', array(1234), false),
             array('isCallable', array('foobar'), false),
@@ -552,9 +539,9 @@ class AssertTest extends TestCase
             array('throws', array(function () { throw new LogicException('test'); }, 'LogicException'), true),
             array('throws', array(function () { throw new LogicException('test'); }, 'IllogicException'), false),
             array('throws', array(function () { throw new Exception('test'); }), true),
-            array('throws', array(function () { trigger_error('test'); }, 'Throwable'), true, false, 70000),
-            array('throws', array(function () { trigger_error('test'); }, 'Unthrowable'), false, false, 70000),
-            array('throws', array(function () { throw new Error(); }, 'Throwable'), true, true, 70000),
+            array('throws', array(function () { trigger_error('test'); }, 'Throwable'), false, false),
+            array('throws', array(function () { trigger_error('test'); }, 'Unthrowable'), false, false),
+            array('throws', array(function () { throw new Error(); }, 'Throwable'), true, true),
             array('ip', array('192.168.0.1'), true),
             array('ip', array(new ToStringClass('192.168.0.1')), true),
             array('ip', array('255.255.255.255'), true),
@@ -605,27 +592,20 @@ class AssertTest extends TestCase
         );
     }
 
-    public function getMethods()
+    public static function getMethods()
     {
         $methods = array();
 
-        foreach ($this->getTests() as $params) {
+        foreach (self::getTests() as $params) {
             $methods[$params[0]] = array($params[0]);
         }
 
         return array_values($methods);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAssert($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAssert($method, $args, $success, $multibyte = false)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -638,16 +618,9 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testNullOr($method, $args, $success, $multibyte = false)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -660,25 +633,16 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getMethods
-     */
+    #[DataProvider('getMethods')]
     public function testNullOrAcceptsNull($method)
     {
         call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, null, null);
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAllArray($method, $args, $success, $multibyte = false)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -694,16 +658,9 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAllNullOrArray($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAllNullOrArray($method, $args, $success, $multibyte = false)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -726,16 +683,9 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAllTraversable($method, $args, $success, $multibyte = false)
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -751,7 +701,7 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function getStringConversions()
+    public static function getStringConversions()
     {
         return array(
             array('integer', array('foobar'), 'Expected an integer. Got: string'),
@@ -776,9 +726,7 @@ class AssertTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider getStringConversions
-     */
+    #[DataProvider('getStringConversions')]
     public function testConvertValuesToStrings($method, $args, $exceptionMessage)
     {
         $this->expectException('\InvalidArgumentException');
@@ -794,7 +742,7 @@ class AssertTest extends TestCase
         Assert::nonExistentMethod();
     }
 
-    public function getInvalidIsAOfCases(): iterable
+    public static function getInvalidIsAOfCases(): iterable
     {
         yield array(
             array('stdClass', 123),
@@ -822,9 +770,7 @@ class AssertTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider getInvalidIsAOfCases
-     */
+    #[DataProvider('getInvalidIsAOfCases')]
     public function testIsAOfExceptionMessages(array $args, string $exceptionMessage): void
     {
         $this->expectException('\InvalidArgumentException');

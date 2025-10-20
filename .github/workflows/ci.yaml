@@ -71,7 +71,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           extensions: mbstring
-          tools: phpunit:8
+          tools: phpunit:11
 
       - name: Install dependencies
         run: composer install
@@ -102,7 +102,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           extensions: mbstring
-          tools: phpunit:8
+          tools: phpunit:11
 
       - name: Install dependencies
         run: composer install

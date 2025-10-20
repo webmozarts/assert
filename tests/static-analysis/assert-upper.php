@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function upper(string $value): string
+function upper($value): string
 {
     Assert::upper($value);
 

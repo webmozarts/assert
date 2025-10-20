@@ -7,6 +7,7 @@ Changelog
 
 - **BREAKING**: Minimum PHP version is now 8.2 (was 7.2).
 - Updated CI/CD test matrix to test PHP 8.2, 8.3, 8.4, and 8.5.
+- Updated development tools (PHPUnit, Psalm, PHP-CS-Fixer) to supported versions.
 
 ## 1.12.0
 
