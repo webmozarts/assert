@@ -6,6 +6,7 @@ Changelog
 ### Fixed
 
 - Corrected messages and typos in various assertions
+- Document `void` return type
 
 ## 1.11.0
 
