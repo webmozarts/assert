@@ -15,10 +15,14 @@
     ],
     "require": {
         "php": "^7.2 || ^8.0",
-        "ext-ctype": "*"
+        "ext-ctype": "*",
+        "ext-date": "*",
+        "ext-filter": "*"
     },
     "suggest": {
-        "ext-simplexml": ""
+        "ext-intl": "",
+        "ext-simplexml": "",
+        "ext-spl": ""
     },
     "autoload": {
         "psr-4": {
