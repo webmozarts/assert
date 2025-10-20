@@ -2163,7 +2163,7 @@ class Assert
             return;
         }
 
-        if (!\preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/', $value)) {
+        if (!\preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/D', $value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Value %s is not a valid UUID.',
                 static::valueToString($value)
