@@ -618,6 +618,10 @@ class AssertTest extends TestCase
     #[DataProvider('getTests')]
     public function testNullOr(string $method, array $args, bool $success, bool $multibyte = false): void
     {
+        if (in_array($method, array('null', 'notNull'))) {
+            $this->markTestSkipped('Meaningless test of ' . $method);
+        }
+
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -633,6 +637,10 @@ class AssertTest extends TestCase
     #[DataProvider('getMethods')]
     public function testNullOrAcceptsNull(string $method): void
     {
+        if (in_array($method, array('null', 'notNull'))) {
+            $this->markTestSkipped('Meaningless test of ' . $method);
+        }
+
         call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, '', '');
         $this->addToAssertionCount(1);
     }
@@ -658,6 +666,10 @@ class AssertTest extends TestCase
     #[DataProvider('getTests')]
     public function testAllNullOrArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
+        if (in_array($method, array('null', 'notNull'))) {
+            $this->markTestSkipped('Meaningless test of ' . $method);
+        }
+
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -730,13 +742,6 @@ class AssertTest extends TestCase
         $this->expectExceptionMessage($exceptionMessage);
 
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
-    }
-
-    public function testAnUnknownMethodThrowsABadMethodCall(): void
-    {
-        $this->expectException('\BadMethodCallException');
-
-        Assert::nonExistentMethod();
     }
 
     public static function getInvalidIsAOfCases(): iterable

@@ -1744,38 +1744,6 @@ class Assert
     }
 
     /**
-     * @throws BadMethodCallException
-     */
-    public static function __callStatic(string $name, array $arguments)
-    {
-        if (\str_starts_with($name, 'nullOr')) {
-            if (null !== $arguments[0]) {
-                $method = \lcfirst(\substr($name, 6));
-                \call_user_func_array(array(static::class, $method), $arguments);
-            }
-
-            return;
-        }
-
-        if (\str_starts_with($name, 'all')) {
-            static::isIterable($arguments[0]);
-
-            $method = \lcfirst(\substr($name, 3));
-            $args = $arguments;
-
-            foreach ($arguments[0] as $entry) {
-                $args[0] = $entry;
-
-                \call_user_func_array(array(static::class, $method), $args);
-            }
-
-            return;
-        }
-
-        throw new BadMethodCallException('No such method: '.$name);
-    }
-
-    /**
      * @psalm-pure
      */
     protected static function valueToString(mixed $value): string
