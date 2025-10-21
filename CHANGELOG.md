@@ -3,6 +3,8 @@ Changelog
 
 ## UNRELEASED
 
+## 1.12.0
+
 ### Fixed
 
 - Corrected messages and typos in various assertions.
