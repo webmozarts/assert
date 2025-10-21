@@ -863,7 +863,7 @@ class Assert
         static::string($value);
         static::string($subString);
 
-        if (false === \strpos($value, $subString)) {
+        if (!\str_contains($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain %2$s. Got: %s',
                 static::valueToString($value),
@@ -882,7 +882,7 @@ class Assert
         static::string($value);
         static::string($subString);
 
-        if (false !== \strpos($value, $subString)) {
+        if (\str_contains($value, $subString)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: '%2$s was not expected to be contained in a value. Got: %s',
                 static::valueToString($value),
@@ -918,7 +918,7 @@ class Assert
         static::string($value);
         static::string($prefix);
 
-        if (0 !== \strpos($value, $prefix)) {
+        if (!\str_starts_with($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to start with %2$s. Got: %s',
                 static::valueToString($value),
@@ -937,7 +937,7 @@ class Assert
         static::string($value);
         static::string($prefix);
 
-        if (0 === \strpos($value, $prefix)) {
+        if (\str_starts_with($value, $prefix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value not to start with %2$s. Got: %s',
                 static::valueToString($value),
@@ -982,7 +982,7 @@ class Assert
         static::string($value);
         static::string($suffix);
 
-        if ($suffix !== \substr($value, -\strlen($suffix))) {
+        if (!\str_ends_with($value, $suffix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to end with %2$s. Got: %s',
                 static::valueToString($value),
@@ -1001,7 +1001,7 @@ class Assert
         static::string($value);
         static::string($suffix);
 
-        if ($suffix === \substr($value, -\strlen($suffix))) {
+        if (\str_ends_with($value, $suffix)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value not to end with %2$s. Got: %s',
                 static::valueToString($value),
@@ -1748,7 +1748,7 @@ class Assert
      */
     public static function __callStatic(string $name, array $arguments)
     {
-        if ('nullOr' === \substr($name, 0, 6)) {
+        if (\str_starts_with($name, 'nullOr')) {
             if (null !== $arguments[0]) {
                 $method = \lcfirst(\substr($name, 6));
                 \call_user_func_array(array(static::class, $method), $arguments);
@@ -1757,7 +1757,7 @@ class Assert
             return;
         }
 
-        if ('all' === \substr($name, 0, 3)) {
+        if (\str_starts_with($name, 'all')) {
             static::isIterable($arguments[0]);
 
             $method = \lcfirst(\substr($name, 3));
@@ -1805,7 +1805,7 @@ class Assert
                 return \get_class($value).': '.self::valueToString($value->format('c'));
             }
 
-            if (\function_exists('enum_exists') && \enum_exists(\get_class($value))) {
+            if (\enum_exists(\get_class($value))) {
                 return \get_class($value).'::'.$value->name;
             }
 
