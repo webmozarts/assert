@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  */
-function ip($value): mixed
+function ip(mixed $value): mixed
 {
     Assert::ip($value);
 
@@ -17,7 +17,7 @@ function ip($value): mixed
 /**
  * @param mixed $value
  */
-function nullOrIp($value): mixed
+function nullOrIp(mixed $value): mixed
 {
     Assert::nullOrIp($value);
 
@@ -27,7 +27,7 @@ function nullOrIp($value): mixed
 /**
  * @param mixed $value
  */
-function allIp($value): mixed
+function allIp(mixed $value): mixed
 {
     Assert::allIp($value);
 
@@ -37,7 +37,7 @@ function allIp($value): mixed
 /**
  * @param mixed $value
  */
-function allNullOrIp($value): mixed
+function allNullOrIp(mixed $value): mixed
 {
     Assert::allNullOrIp($value);
 

@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  *
  * @return Serializable|class-string<Serializable>
  */
-function implementsInterface($value)
+function implementsInterface(mixed $value)
 {
     Assert::implementsInterface($value, Serializable::class);
 
@@ -26,7 +26,7 @@ function implementsInterface($value)
  *
  * @return Serializable|class-string<Serializable>|null
  */
-function nullOrImplementsInterface($value)
+function nullOrImplementsInterface(mixed $value)
 {
     Assert::nullOrImplementsInterface($value, Serializable::class);
 
@@ -38,7 +38,7 @@ function nullOrImplementsInterface($value)
  *
  * @param mixed $value
  */
-function allImplementsInterface($value): iterable
+function allImplementsInterface(mixed $value): iterable
 {
     Assert::allImplementsInterface($value, Serializable::class);
 
@@ -50,7 +50,7 @@ function allImplementsInterface($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrImplementsInterface($value): iterable
+function allNullOrImplementsInterface(mixed $value): iterable
 {
     Assert::allNullOrImplementsInterface($value, Serializable::class);
 

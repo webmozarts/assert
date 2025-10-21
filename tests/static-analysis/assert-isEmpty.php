@@ -78,7 +78,7 @@ function nullOrIsEmpty(?object $value)
  *
  * @param mixed $value
  */
-function allIsEmpty($value): iterable
+function allIsEmpty(mixed $value): iterable
 {
     Assert::allIsEmpty($value);
 
@@ -90,7 +90,7 @@ function allIsEmpty($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIsEmpty($value): iterable
+function allNullOrIsEmpty(mixed $value): iterable
 {
     Assert::allNullOrIsEmpty($value);
 

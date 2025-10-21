@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return positive-int|0
  */
-function natural($value): int
+function natural(mixed $value): int
 {
     Assert::natural($value);
 
@@ -25,7 +25,7 @@ function natural($value): int
  *
  * @psalm-return positive-int|0|null
  */
-function nullOrNatural($value): ?int
+function nullOrNatural(mixed $value): ?int
 {
     Assert::nullOrNatural($value);
 
@@ -40,7 +40,7 @@ function nullOrNatural($value): ?int
  * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
  * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */
-function allNatural($value): iterable
+function allNatural(mixed $value): iterable
 {
     Assert::allNatural($value);
 
@@ -55,7 +55,7 @@ function allNatural($value): iterable
  * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
  * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */
-function allNullOrNatural($value): iterable
+function allNullOrNatural(mixed $value): iterable
 {
     Assert::allNullOrNatural($value);
 

@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isCallable($value): callable
+function isCallable(mixed $value): callable
 {
     Assert::isCallable($value);
 
@@ -21,7 +21,7 @@ function isCallable($value): callable
  *
  * @param mixed $value
  */
-function nullOrIsCallable($value): ?callable
+function nullOrIsCallable(mixed $value): ?callable
 {
     Assert::nullOrIsCallable($value);
 
@@ -33,7 +33,7 @@ function nullOrIsCallable($value): ?callable
  *
  * @param mixed $value
  */
-function allIsCallable($value): iterable
+function allIsCallable(mixed $value): iterable
 {
     Assert::allIsCallable($value);
 
@@ -45,7 +45,7 @@ function allIsCallable($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIsCallable($value): iterable
+function allNullOrIsCallable(mixed $value): iterable
 {
     Assert::allNullOrIsCallable($value);
 

@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function null($value): null {
+function null(mixed $value): null {
     Assert::null($value);
 
     return $value;
@@ -20,7 +20,7 @@ function null($value): null {
  *
  * @param mixed $value
  */
-function allNull($value): iterable
+function allNull(mixed $value): iterable
 {
     Assert::allNull($value);
 

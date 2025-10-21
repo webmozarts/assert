@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return positive-int
  */
-function positiveInteger($value): int
+function positiveInteger(mixed $value): int
 {
     Assert::positiveInteger($value);
 
@@ -25,7 +25,7 @@ function positiveInteger($value): int
  *
  * @psalm-return 1|2
  */
-function positiveIntegerFiltersOutZero($value): int
+function positiveIntegerFiltersOutZero(mixed $value): int
 {
     Assert::positiveInteger($value);
 
@@ -39,7 +39,7 @@ function positiveIntegerFiltersOutZero($value): int
  *
  * @psalm-return positive-int|null
  */
-function nullOrPositiveInteger($value): ?int
+function nullOrPositiveInteger(mixed $value): ?int
 {
     Assert::nullOrPositiveInteger($value);
 
@@ -51,7 +51,7 @@ function nullOrPositiveInteger($value): ?int
  *
  * @param mixed $value
  */
-function allPositiveInteger($value): iterable
+function allPositiveInteger(mixed $value): iterable
 {
     Assert::allPositiveInteger($value);
 
@@ -63,7 +63,7 @@ function allPositiveInteger($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrPositiveInteger($value): iterable
+function allNullOrPositiveInteger(mixed $value): iterable
 {
     Assert::allPositiveInteger($value);
 

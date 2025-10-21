@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @return class-string
  */
-function interfaceExists($value): string
+function interfaceExists(mixed $value): string
 {
     Assert::interfaceExists($value);
 
@@ -21,7 +21,7 @@ function interfaceExists($value): string
  *
  * @return null|class-string
  */
-function nullOrInterfaceExists($value): ?string
+function nullOrInterfaceExists(mixed $value): ?string
 {
     Assert::nullOrInterfaceExists($value);
 
@@ -31,7 +31,7 @@ function nullOrInterfaceExists($value): ?string
 /**
  * @param mixed $value
  */
-function allInterfaceExists($value): iterable
+function allInterfaceExists(mixed $value): iterable
 {
     Assert::allInterfaceExists($value);
 
@@ -41,7 +41,7 @@ function allInterfaceExists($value): iterable
 /**
  * @param mixed $value
  */
-function allNullOrInterfaceExists($value): iterable
+function allNullOrInterfaceExists(mixed $value): iterable
 {
     Assert::allNullOrInterfaceExists($value);
 

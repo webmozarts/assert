@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isInstanceOf($value): Serializable
+function isInstanceOf(mixed $value): Serializable
 {
     Assert::isInstanceOf($value, Serializable::class);
 
@@ -22,7 +22,7 @@ function isInstanceOf($value): Serializable
  *
  * @param mixed $value
  */
-function nullOrIsInstanceOf($value): ?Serializable
+function nullOrIsInstanceOf(mixed $value): ?Serializable
 {
     Assert::nullOrIsInstanceOf($value, Serializable::class);
 
@@ -34,7 +34,7 @@ function nullOrIsInstanceOf($value): ?Serializable
  *
  * @param mixed $value
  */
-function allIsInstanceOf($value): iterable
+function allIsInstanceOf(mixed $value): iterable
 {
     Assert::allIsInstanceOf($value, Serializable::class);
 
@@ -46,7 +46,7 @@ function allIsInstanceOf($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIsInstanceOf($value): iterable
+function allNullOrIsInstanceOf(mixed $value): iterable
 {
     Assert::allNullOrIsInstanceOf($value, Serializable::class);
 

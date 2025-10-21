@@ -21,7 +21,7 @@ function notFalseBool(bool $value): bool
  *
  * @param false|string $value
  */
-function notFalseUnion($value): string
+function notFalseUnion(mixed $value): string
 {
     Assert::notFalse($value);
 
@@ -33,7 +33,7 @@ function notFalseUnion($value): string
  *
  * @param mixed $value
  */
-function nullOrNotFalse($value): mixed
+function nullOrNotFalse(mixed $value): mixed
 {
     Assert::nullOrNotFalse($value);
 
@@ -45,7 +45,7 @@ function nullOrNotFalse($value): mixed
  *
  * @param mixed $value
  */
-function allNotFalse($value): mixed
+function allNotFalse(mixed $value): mixed
 {
     Assert::allNotFalse($value);
 
@@ -57,7 +57,7 @@ function allNotFalse($value): mixed
  *
  * @param mixed $value
  */
-function allNullOrNotFalse($value): mixed
+function allNullOrNotFalse(mixed $value): mixed
 {
     Assert::allNullOrNotFalse($value);
 

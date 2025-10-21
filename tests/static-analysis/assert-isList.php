@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  *
  * @return list<mixed>
  */
-function isList($value): array
+function isList(mixed $value): array
 {
     Assert::isList($value);
 
@@ -40,7 +40,7 @@ function isListWithKnownType(array $value): array
  *
  * @return null|list<mixed>
  */
-function nullOrIsList($value): ?array
+function nullOrIsList(mixed $value): ?array
 {
     Assert::nullOrIsList($value);
 
@@ -52,7 +52,7 @@ function nullOrIsList($value): ?array
  *
  * @param mixed $value
  */
-function allIsList($value): iterable
+function allIsList(mixed $value): iterable
 {
     Assert::allIsList($value);
 
@@ -64,7 +64,7 @@ function allIsList($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIsList($value): iterable
+function allNullOrIsList(mixed $value): iterable
 {
     Assert::allNullOrIsList($value);
 

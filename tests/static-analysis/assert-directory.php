@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  */
-function directory($value): mixed
+function directory(mixed $value): mixed
 {
     Assert::directory($value);
 
@@ -17,7 +17,7 @@ function directory($value): mixed
 /**
  * @param mixed $value
  */
-function nullOrDirectory($value): mixed
+function nullOrDirectory(mixed $value): mixed
 {
     Assert::nullOrDirectory($value);
 
@@ -27,7 +27,7 @@ function nullOrDirectory($value): mixed
 /**
  * @param mixed $value
  */
-function allDirectory($value): mixed
+function allDirectory(mixed $value): mixed
 {
     Assert::allDirectory($value);
 
@@ -37,7 +37,7 @@ function allDirectory($value): mixed
 /**
  * @param mixed $value
  */
-function allNullOrDirectory($value): mixed
+function allNullOrDirectory(mixed $value): mixed
 {
     Assert::allNullOrDirectory($value);
 

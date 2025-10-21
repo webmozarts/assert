@@ -55,7 +55,7 @@ function notEmptyArray(array $value)
  *
  * @param mixed $value
  */
-function nullOrNotEmpty($value): mixed
+function nullOrNotEmpty(mixed $value): mixed
 {
     Assert::nullOrNotEmpty($value);
 
@@ -67,7 +67,7 @@ function nullOrNotEmpty($value): mixed
  *
  * @param mixed $value
  */
-function allNotEmpty($value): mixed
+function allNotEmpty(mixed $value): mixed
 {
     Assert::allNotEmpty($value);
 
@@ -79,7 +79,7 @@ function allNotEmpty($value): mixed
  *
  * @param mixed $value
  */
-function allNullOrNotEmpty($value): mixed
+function allNullOrNotEmpty(mixed $value): mixed
 {
     Assert::allNullOrNotEmpty($value);
 

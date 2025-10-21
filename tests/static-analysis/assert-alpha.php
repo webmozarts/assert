@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function alpha($value): mixed
+function alpha(mixed $value): mixed
 {
     Assert::alpha($value);
 
@@ -21,7 +21,7 @@ function alpha($value): mixed
  *
  * @param mixed $value
  */
-function nullOrAlpha($value): mixed
+function nullOrAlpha(mixed $value): mixed
 {
     Assert::nullOrAlpha($value);
 
@@ -33,7 +33,7 @@ function nullOrAlpha($value): mixed
  *
  * @param mixed $value
  */
-function allAlpha($value): mixed
+function allAlpha(mixed $value): mixed
 {
     Assert::allAlpha($value);
 
@@ -45,7 +45,7 @@ function allAlpha($value): mixed
  *
  * @param mixed $value
  */
-function allNullOrAlpha($value): mixed
+function allNullOrAlpha(mixed $value): mixed
 {
     Assert::allNullOrAlpha($value);
 

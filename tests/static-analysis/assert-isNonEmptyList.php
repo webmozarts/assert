@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return non-empty-list<mixed>
  */
-function isNonEmptyList($value): array
+function isNonEmptyList(mixed $value): array
 {
     Assert::isNonEmptyList($value);
 
@@ -25,7 +25,7 @@ function isNonEmptyList($value): array
  *
  * @return null|non-empty-list<mixed>
  */
-function nullOrIsNonEmptyList($value): ?array
+function nullOrIsNonEmptyList(mixed $value): ?array
 {
     Assert::nullOrIsNonEmptyList($value);
 
@@ -37,7 +37,7 @@ function nullOrIsNonEmptyList($value): ?array
  *
  * @param mixed $value
  */
-function allIsNonEmptyList($value): iterable
+function allIsNonEmptyList(mixed $value): iterable
 {
     Assert::allIsNonEmptyList($value);
 
@@ -49,7 +49,7 @@ function allIsNonEmptyList($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIsNonEmptyList($value): iterable
+function allNullOrIsNonEmptyList(mixed $value): iterable
 {
     Assert::allNullOrIsNonEmptyList($value);
 

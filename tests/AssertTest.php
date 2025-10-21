@@ -512,13 +512,13 @@ class AssertTest extends TestCase
             array('isNonEmptyList', array(array(array(1), array(2))), true),
             array('isNonEmptyList', array(array(array('foo' => 'bar'), array('baz' => 'tab'))), true),
             array('isMap', array(array('key' => 1, 'foo' => 2)), true),
+            array('isMap', array(array(0 => 1, 2 => 3)), true),
             array('isMap', array(array()), true),
             array('isMap', array(array(1, 2, 3)), false),
-            array('isMap', array(array(0 => 1, 2 => 3)), false),
             array('isNonEmptyMap', array(array('key' => 1, 'foo' => 2)), true),
+            array('isNonEmptyMap', array(array(0 => 1, 2 => 3)), true),
             array('isNonEmptyMap', array(array()), false),
             array('isNonEmptyMap', array(array(1, 2, 3)), false),
-            array('isNonEmptyMap', array(array(0 => 1, 2 => 3)), false),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
             array('uuid', array('urn:ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
             array('uuid', array('uuid:{ff6f8cb0-c57d-21e1-9b21-0800200c9a66}'), true),
@@ -604,7 +604,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testAssert($method, $args, $success, $multibyte = false): void
+    public function testAssert(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -619,7 +619,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testNullOr($method, $args, $success, $multibyte = false): void
+    public function testNullOr(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -634,14 +634,14 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getMethods')]
-    public function testNullOrAcceptsNull($method): void
+    public function testNullOrAcceptsNull(string $method): void
     {
-        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, null, null);
+        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, '', '');
         $this->addToAssertionCount(1);
     }
 
     #[DataProvider('getTests')]
-    public function testAllArray($method, $args, $success, $multibyte = false): void
+    public function testAllArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -659,7 +659,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testAllNullOrArray($method, $args, $success, $multibyte = false): void
+    public function testAllNullOrArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -684,7 +684,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getTests')]
-    public function testAllTraversable($method, $args, $success, $multibyte = false): void
+    public function testAllTraversable(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
@@ -727,7 +727,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getStringConversions')]
-    public function testConvertValuesToStrings($method, $args, $exceptionMessage): void
+    public function testConvertValuesToStrings(string $method, array $args, string $exceptionMessage): void
     {
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
@@ -806,7 +806,7 @@ class ToStringClass
      */
     private $value;
 
-    public function __construct($value)
+    public function __construct(string $value)
     {
         $this->value = $value;
     }

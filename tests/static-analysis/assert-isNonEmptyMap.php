@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  *
  * @return non-empty-array<string, mixed>
  */
-function isNonEmptyMap($value): array
+function isNonEmptyMap(mixed $value): array
 {
     Assert::isNonEmptyMap($value);
 
@@ -40,7 +40,7 @@ function isNonEmptyMapWithKnownType(array $value): array
  *
  * @param mixed $value
  */
-function nullOrIsNonEmptyMap($value): mixed
+function nullOrIsNonEmptyMap(mixed $value): mixed
 {
     Assert::nullOrIsNonEmptyMap($value);
 

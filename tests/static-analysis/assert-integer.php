@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function integer($value): int
+function integer(mixed $value): int
 {
     Assert::integer($value);
 
@@ -21,7 +21,7 @@ function integer($value): int
  *
  * @param mixed $value
  */
-function nullOrInteger($value): ?int
+function nullOrInteger(mixed $value): ?int
 {
     Assert::nullOrInteger($value);
 
@@ -33,7 +33,7 @@ function nullOrInteger($value): ?int
  *
  * @param mixed $value
  */
-function allInteger($value): iterable
+function allInteger(mixed $value): iterable
 {
     Assert::allInteger($value);
 
@@ -45,7 +45,7 @@ function allInteger($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrInteger($value): iterable
+function allNullOrInteger(mixed $value): iterable
 {
     Assert::allNullOrInteger($value);
 

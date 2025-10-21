@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function float($value): float
+function float(mixed $value): float
 {
     Assert::float($value);
 
@@ -21,7 +21,7 @@ function float($value): float
  *
  * @param mixed $value
  */
-function nullOrFloat($value): ?float
+function nullOrFloat(mixed $value): ?float
 {
     Assert::nullOrFloat($value);
 
@@ -33,7 +33,7 @@ function nullOrFloat($value): ?float
  *
  * @param mixed $value
  */
-function allFloat($value): iterable
+function allFloat(mixed $value): iterable
 {
     Assert::allFloat($value);
 
@@ -45,7 +45,7 @@ function allFloat($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrFloat($value): iterable
+function allNullOrFloat(mixed $value): iterable
 {
     Assert::allNullOrFloat($value);
 

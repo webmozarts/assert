@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function unicodeLetters($value): mixed
+function unicodeLetters(mixed $value): mixed
 {
     Assert::unicodeLetters($value);
 
@@ -21,7 +21,7 @@ function unicodeLetters($value): mixed
  *
  * @param mixed $value
  */
-function nullOrUnicodeLetters($value): mixed
+function nullOrUnicodeLetters(mixed $value): mixed
 {
     Assert::nullOrUnicodeLetters($value);
 
@@ -33,7 +33,7 @@ function nullOrUnicodeLetters($value): mixed
  *
  * @param mixed $value
  */
-function allUnicodeLetters($value): mixed
+function allUnicodeLetters(mixed $value): mixed
 {
     Assert::allUnicodeLetters($value);
 
@@ -45,7 +45,7 @@ function allUnicodeLetters($value): mixed
  *
  * @param mixed $value
  */
-function allNullOrUnicodeLetters($value): mixed
+function allNullOrUnicodeLetters(mixed $value): mixed
 {
     Assert::allNullOrUnicodeLetters($value);
 

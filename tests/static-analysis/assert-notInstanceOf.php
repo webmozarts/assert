@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param stdClass|DateTime $value
  */
-function notInstanceOf($value): DateTime
+function notInstanceOf(mixed $value): DateTime
 {
     Assert::notInstanceOf($value, stdClass::class);
 

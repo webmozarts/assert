@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  *
  * @return array<string, mixed>
  */
-function isMap($value): array
+function isMap(mixed $value): array
 {
     Assert::isMap($value);
 
@@ -57,7 +57,7 @@ function isMapWithEmptyArray(array $value): array
  *
  * @return null|array<string, mixed>
  */
-function nullOrIsMap($value): ?array
+function nullOrIsMap(mixed $value): ?array
 {
     Assert::nullOrIsMap($value);
 

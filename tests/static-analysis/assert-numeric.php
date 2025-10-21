@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return numeric
  */
-function numeric($value)
+function numeric(mixed $value)
 {
     Assert::numeric($value);
 
@@ -25,7 +25,7 @@ function numeric($value)
  *
  * @return null|numeric
  */
-function nullOrNumeric($value)
+function nullOrNumeric(mixed $value)
 {
     Assert::nullOrNumeric($value);
 
@@ -37,7 +37,7 @@ function nullOrNumeric($value)
  *
  * @param mixed $value
  */
-function allNumeric($value): iterable
+function allNumeric(mixed $value): iterable
 {
     Assert::allNumeric($value);
 
@@ -49,7 +49,7 @@ function allNumeric($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrNumeric($value): iterable
+function allNullOrNumeric(mixed $value): iterable
 {
     Assert::allNullOrNumeric($value);
 

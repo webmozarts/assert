@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @return class-string
  */
-function classExists($value): string
+function classExists(mixed $value): string
 {
     Assert::classExists($value);
 
@@ -21,7 +21,7 @@ function classExists($value): string
  *
  * @return class-string|null
  */
-function nullOrClassExists($value): ?string
+function nullOrClassExists(mixed $value): ?string
 {
     Assert::nullOrClassExists($value);
 
@@ -31,7 +31,7 @@ function nullOrClassExists($value): ?string
 /**
  * @param mixed $value
  */
-function allClassExists($value): iterable
+function allClassExists(mixed $value): iterable
 {
     Assert::allClassExists($value);
 
@@ -41,7 +41,7 @@ function allClassExists($value): iterable
 /**
  * @param mixed $value
  */
-function allNullOrClassExists($value): iterable
+function allNullOrClassExists(mixed $value): iterable
 {
     Assert::allNullOrClassExists($value);
 

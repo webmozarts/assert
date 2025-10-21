@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return array-key
  */
-function validArrayKey($value)
+function validArrayKey(mixed $value)
 {
     Assert::validArrayKey($value);
 
@@ -25,7 +25,7 @@ function validArrayKey($value)
  *
  * @return null|array-key
  */
-function nullOrValidArrayKey($value)
+function nullOrValidArrayKey(mixed $value)
 {
     Assert::nullOrValidArrayKey($value);
 
@@ -37,7 +37,7 @@ function nullOrValidArrayKey($value)
  *
  * @param mixed $value
  */
-function allValidArrayKey($value): iterable
+function allValidArrayKey(mixed $value): iterable
 {
     Assert::allValidArrayKey($value);
 
@@ -49,7 +49,7 @@ function allValidArrayKey($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrValidArrayKey($value): iterable
+function allNullOrValidArrayKey(mixed $value): iterable
 {
     Assert::allNullOrValidArrayKey($value);
 

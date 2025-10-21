@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  */
-function fileExists($value): mixed
+function fileExists(mixed $value): mixed
 {
     Assert::fileExists($value);
 
@@ -17,7 +17,7 @@ function fileExists($value): mixed
 /**
  * @param mixed $value
  */
-function nullOrFileExists($value): mixed
+function nullOrFileExists(mixed $value): mixed
 {
     Assert::nullOrFileExists($value);
 
@@ -27,7 +27,7 @@ function nullOrFileExists($value): mixed
 /**
  * @param mixed $value
  */
-function allFileExists($value): mixed
+function allFileExists(mixed $value): mixed
 {
     Assert::allFileExists($value);
 
@@ -37,7 +37,7 @@ function allFileExists($value): mixed
 /**
  * @param mixed $value
  */
-function allNullOrFileExists($value): mixed
+function allNullOrFileExists(mixed $value): mixed
 {
     Assert::allNullOrFileExists($value);
 

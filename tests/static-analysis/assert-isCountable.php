@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isCountable($value): Countable {
+function isCountable(mixed $value): Countable {
     Assert::isCountable($value);
 
     return $value;
@@ -21,7 +21,7 @@ function isCountable($value): Countable {
  *
  * @param mixed $value
  */
-function nullOrIsCountable($value): null|Countable {
+function nullOrIsCountable(mixed $value): null|Countable {
     Assert::nullOrIsCountable($value);
 
     return $value;
@@ -34,7 +34,7 @@ function nullOrIsCountable($value): null|Countable {
  *
  * @return iterable<countable>
  */
-function allIsCountable($value)
+function allIsCountable(mixed $value)
 {
     Assert::allIsCountable($value);
 
@@ -48,7 +48,7 @@ function allIsCountable($value)
  *
  * @return iterable<countable|null>
  */
-function allNullOrIsCountable($value)
+function allNullOrIsCountable(mixed $value)
 {
     Assert::allNullOrIsCountable($value);
 

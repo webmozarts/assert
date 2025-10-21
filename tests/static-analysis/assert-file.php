@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  */
-function file($value): mixed
+function file(mixed $value): mixed
 {
     Assert::file($value);
 
@@ -17,7 +17,7 @@ function file($value): mixed
 /**
  * @param mixed $value
  */
-function nullOrFile($value): mixed
+function nullOrFile(mixed $value): mixed
 {
     Assert::nullOrFile($value);
 
@@ -27,7 +27,7 @@ function nullOrFile($value): mixed
 /**
  * @param mixed $value
  */
-function allFile($value): mixed
+function allFile(mixed $value): mixed
 {
     Assert::allFile($value);
 
@@ -37,7 +37,7 @@ function allFile($value): mixed
 /**
  * @param mixed $value
  */
-function allNullOrFile($value): mixed
+function allNullOrFile(mixed $value): mixed
 {
     Assert::allNullOrFile($value);
 

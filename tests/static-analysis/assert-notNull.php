@@ -19,7 +19,7 @@ function notNull(?object $value): object
  *
  * @param mixed $value
  */
-function allNotNull($value): mixed
+function allNotNull(mixed $value): mixed
 {
     Assert::allNotNull($value);
 

@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function object($value): object
+function object(mixed $value): object
 {
     Assert::object($value);
 
@@ -21,7 +21,7 @@ function object($value): object
  *
  * @param mixed $value
  */
-function nullOrObject($value): ?object
+function nullOrObject(mixed $value): ?object
 {
     Assert::nullOrObject($value);
 
@@ -33,7 +33,7 @@ function nullOrObject($value): ?object
  *
  * @param mixed $value
  */
-function allObject($value): iterable
+function allObject(mixed $value): iterable
 {
     Assert::allObject($value);
 
@@ -45,7 +45,7 @@ function allObject($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrObject($value): iterable
+function allNullOrObject(mixed $value): iterable
 {
     Assert::allNullOrObject($value);
 

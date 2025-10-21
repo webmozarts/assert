@@ -6,10 +6,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param int|float $max
  */
-function maxLength(string $value, $max): string
+function maxLength(string $value, int $max): string
 {
     Assert::maxLength($value, $max);
 
@@ -18,10 +16,8 @@ function maxLength(string $value, $max): string
 
 /**
  * @psalm-pure
- *
- * @param int|float $max
  */
-function nullOrMaxLength(?string $value, $max): ?string
+function nullOrMaxLength(?string $value, int $max): ?string
 {
     Assert::nullOrMaxLength($value, $max);
 
@@ -32,11 +28,10 @@ function nullOrMaxLength(?string $value, $max): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- * @param int|float $max
  *
  * @return iterable<string>
  */
-function allMaxLength(iterable $value, $max): iterable
+function allMaxLength(iterable $value, int $max): iterable
 {
     Assert::allMaxLength($value, $max);
 
@@ -47,11 +42,10 @@ function allMaxLength(iterable $value, $max): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- * @param int|float $max
  *
  * @return iterable<string|null>
  */
-function allNullOrMaxLength(iterable $value, $max): iterable
+function allNullOrMaxLength(iterable $value, int $max): iterable
 {
     Assert::allMaxLength($value, $max);
 

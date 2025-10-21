@@ -31,11 +31,8 @@ class ProjectCodeTest extends TestCase
         }
     }
 
-    /**
-     * @param string $method
-     */
     #[DataProvider('providesMethodNames')]
-    public function testHasNullOr($method): void
+    public function testHasNullOr(string $method): void
     {
         $fullMethodName = 'nullOr'.ucfirst($method);
 
@@ -59,11 +56,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @param string $method
-     */
     #[DataProvider('providesMethodNames')]
-    public function testHasAll($method): void
+    public function testHasAll(string $method): void
     {
         $fullMethodName = 'all'.ucfirst($method);
 
@@ -82,11 +76,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @param string $method
-     */
     #[DataProvider('providesMethodNames')]
-    public function testIsInReadme($method): void
+    public function testIsInReadme(string $method): void
     {
         $correct = strpos((string) self::$readmeContent, $method);
 
@@ -99,11 +90,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @param ReflectionMethod $method
-     */
     #[DataProvider('provideMethods')]
-    public function testHasThrowsAnnotation($method): void
+    public function testHasThrowsAnnotation(ReflectionMethod $method): void
     {
         $doc = $method->getDocComment();
 
@@ -125,11 +113,8 @@ class ProjectCodeTest extends TestCase
         );
     }
 
-    /**
-     * @param ReflectionMethod $method
-     */
     #[DataProvider('provideMethods')]
-    public function testHasCorrespondingStaticAnalysisFile($method): void
+    public function testHasCorrespondingStaticAnalysisFile(ReflectionMethod $method): void
     {
         $doc = $method->getDocComment();
 
@@ -166,7 +151,7 @@ class ProjectCodeTest extends TestCase
      */
     public static function providesMethodNames(): array
     {
-        return array_map(function ($value) {
+        return array_map(function (ReflectionMethod $value) {
             return array($value->getName());
         }, self::getMethods());
     }
@@ -176,7 +161,7 @@ class ProjectCodeTest extends TestCase
      */
     public static function provideMethods(): array
     {
-        return array_map(function ($value) {
+        return array_map(function (ReflectionMethod $value) {
             return array($value);
         }, self::getMethods());
     }

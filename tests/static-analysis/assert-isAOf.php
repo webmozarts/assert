@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return class-string<Serializable>|Serializable
  */
-function isAOf($value): mixed
+function isAOf(mixed $value): mixed
 {
     Assert::isAOf($value, Serializable::class);
 
@@ -26,7 +26,7 @@ function isAOf($value): mixed
  *
  * @psalm-return null|class-string<Serializable>|Serializable
  */
-function nullOrIsAOf($value): mixed
+function nullOrIsAOf(mixed $value): mixed
 {
     Assert::nullOrIsAOf($value, Serializable::class);
 
@@ -40,7 +40,7 @@ function nullOrIsAOf($value): mixed
  *
  * @return iterable<class-string<Serializable>|Serializable>
  */
-function allIsAOf($value): iterable
+function allIsAOf(mixed $value): iterable
 {
     Assert::allIsAOf($value, Serializable::class);
 
@@ -54,7 +54,7 @@ function allIsAOf($value): iterable
  *
  * @return iterable<class-string<Serializable>|Serializable|null>
  */
-function allNullOrIsAOf($value): iterable
+function allNullOrIsAOf(mixed $value): iterable
 {
     Assert::allNullOrIsAOf($value, Serializable::class);
 

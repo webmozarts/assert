@@ -7,7 +7,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  */
-function email($value): mixed
+function email(mixed $value): mixed
 {
     Assert::email($value);
 
@@ -17,7 +17,7 @@ function email($value): mixed
 /**
  * @param mixed $value
  */
-function nullOrEmail($value): mixed
+function nullOrEmail(mixed $value): mixed
 {
     Assert::nullOrEmail($value);
 
@@ -27,7 +27,7 @@ function nullOrEmail($value): mixed
 /**
  * @param mixed $value
  */
-function allEmail($value): mixed
+function allEmail(mixed $value): mixed
 {
     Assert::allEmail($value);
 
@@ -37,7 +37,7 @@ function allEmail($value): mixed
 /**
  * @param mixed $value
  */
-function allNullOrEmail($value): mixed
+function allNullOrEmail(mixed $value): mixed
 {
     Assert::allNullOrEmail($value);
 

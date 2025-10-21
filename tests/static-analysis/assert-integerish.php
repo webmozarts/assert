@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return numeric
  */
-function integerish($value)
+function integerish(mixed $value)
 {
     Assert::integerish($value);
 
@@ -25,7 +25,7 @@ function integerish($value)
  *
  * @return null|numeric
  */
-function nullOrIntegerish($value)
+function nullOrIntegerish(mixed $value)
 {
     Assert::nullOrIntegerish($value);
 
@@ -37,7 +37,7 @@ function nullOrIntegerish($value)
  *
  * @param mixed $value
  */
-function allIntegerish($value): iterable
+function allIntegerish(mixed $value): iterable
 {
     Assert::allIntegerish($value);
 
@@ -49,7 +49,7 @@ function allIntegerish($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIntegerish($value): iterable
+function allNullOrIntegerish(mixed $value): iterable
 {
     Assert::allNullOrIntegerish($value);
 

@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isTraversable($value): iterable
+function isTraversable(mixed $value): iterable
 {
     /** @psalm-suppress DeprecatedMethod */
     Assert::isTraversable($value);
@@ -22,7 +22,7 @@ function isTraversable($value): iterable
  *
  * @param mixed $value
  */
-function nullOrIsTraversable($value): ?iterable
+function nullOrIsTraversable(mixed $value): ?iterable
 {
     /** @psalm-suppress DeprecatedMethod */
     Assert::nullOrIsTraversable($value);
@@ -35,7 +35,7 @@ function nullOrIsTraversable($value): ?iterable
  *
  * @param mixed $value
  */
-function allIsTraversable($value): iterable
+function allIsTraversable(mixed $value): iterable
 {
     /** @psalm-suppress DeprecatedMethod */
     Assert::allIsTraversable($value);

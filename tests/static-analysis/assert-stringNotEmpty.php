@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return non-empty-string
  */
-function stringNotEmpty($value): string
+function stringNotEmpty(mixed $value): string
 {
     Assert::stringNotEmpty($value);
 
@@ -25,7 +25,7 @@ function stringNotEmpty($value): string
  *
  * @return null|non-empty-string
  */
-function nullOrStringNotEmpty($value): ?string
+function nullOrStringNotEmpty(mixed $value): ?string
 {
     Assert::nullOrStringNotEmpty($value);
 
@@ -37,7 +37,7 @@ function nullOrStringNotEmpty($value): ?string
  *
  * @param mixed $value
  */
-function allStringNotEmpty($value): iterable
+function allStringNotEmpty(mixed $value): iterable
 {
     Assert::allStringNotEmpty($value);
 
@@ -49,7 +49,7 @@ function allStringNotEmpty($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrStringNotEmpty($value): iterable
+function allNullOrStringNotEmpty(mixed $value): iterable
 {
     Assert::allNullOrStringNotEmpty($value);
 

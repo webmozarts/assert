@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isArray($value): array
+function isArray(mixed $value): array
 {
     Assert::isArray($value);
 
@@ -21,7 +21,7 @@ function isArray($value): array
  *
  * @param mixed $value
  */
-function nullOrIsArray($value): ?array
+function nullOrIsArray(mixed $value): ?array
 {
     Assert::nullOrIsArray($value);
 
@@ -33,7 +33,7 @@ function nullOrIsArray($value): ?array
  *
  * @param mixed $value
  */
-function allIsArray($value): iterable
+function allIsArray(mixed $value): iterable
 {
     Assert::allIsArray($value);
 
@@ -45,7 +45,7 @@ function allIsArray($value): iterable
  *
  * @param mixed $value
  */
-function allNullOrIsArray($value): iterable
+function allNullOrIsArray(mixed $value): iterable
 {
     Assert::allNullOrIsArray($value);
 
