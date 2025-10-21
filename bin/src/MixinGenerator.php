@@ -5,24 +5,19 @@ declare(strict_types=1);
 namespace Webmozart\Assert\Bin;
 
 use ArrayAccess;
-use Closure;
 use Countable;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionIntersectionType;
 use ReflectionMethod;
-use ReflectionNamedType;
-use ReflectionParameter;
 use ReflectionType;
 use ReflectionUnionType;
 use RuntimeException;
-use Throwable;
 use Webmozart\Assert\Assert;
 
 use function array_map;
 use function implode;
 use function rtrim;
-use function str_replace;
 
 final class MixinGenerator
 {
