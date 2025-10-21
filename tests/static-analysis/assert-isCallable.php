@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isCallable($value): callable
+function isCallable(mixed $value): callable
 {
     Assert::isCallable($value);
 
@@ -21,7 +23,7 @@ function isCallable($value): callable
  *
  * @param mixed $value
  */
-function nullOrIsCallable($value): ?callable
+function nullOrIsCallable(mixed $value): ?callable
 {
     Assert::nullOrIsCallable($value);
 
@@ -32,10 +34,8 @@ function nullOrIsCallable($value): ?callable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<callable>
  */
-function allIsCallable($value): iterable
+function allIsCallable(mixed $value): iterable
 {
     Assert::allIsCallable($value);
 
@@ -46,10 +46,8 @@ function allIsCallable($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<callable|null>
  */
-function allNullOrIsCallable($value): iterable
+function allNullOrIsCallable(mixed $value): iterable
 {
     Assert::allNullOrIsCallable($value);
 

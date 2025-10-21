@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -28,8 +30,6 @@ function nullOrAlnum(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allAlnum(iterable $value): iterable
 {
@@ -42,8 +42,6 @@ function allAlnum(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrAlnum(iterable $value): iterable
 {

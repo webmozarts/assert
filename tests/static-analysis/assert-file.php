@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function file($value)
+function file(mixed $value): mixed
 {
     Assert::file($value);
 
@@ -18,10 +18,8 @@ function file($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrFile($value)
+function nullOrFile(mixed $value): mixed
 {
     Assert::nullOrFile($value);
 
@@ -30,10 +28,8 @@ function nullOrFile($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allFile($value)
+function allFile(mixed $value): mixed
 {
     Assert::allFile($value);
 
@@ -42,10 +38,8 @@ function allFile($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrFile($value)
+function allNullOrFile(mixed $value): mixed
 {
     Assert::allNullOrFile($value);
 

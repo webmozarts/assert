@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Serializable;
@@ -12,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return class-string<Serializable>|Serializable
  */
-function isAOf($value)
+function isAOf(mixed $value): mixed
 {
     Assert::isAOf($value, Serializable::class);
 
@@ -26,7 +28,7 @@ function isAOf($value)
  *
  * @psalm-return null|class-string<Serializable>|Serializable
  */
-function nullOrIsAOf($value)
+function nullOrIsAOf(mixed $value): mixed
 {
     Assert::nullOrIsAOf($value, Serializable::class);
 
@@ -40,7 +42,7 @@ function nullOrIsAOf($value)
  *
  * @return iterable<class-string<Serializable>|Serializable>
  */
-function allIsAOf($value)
+function allIsAOf(mixed $value): iterable
 {
     Assert::allIsAOf($value, Serializable::class);
 
@@ -54,7 +56,7 @@ function allIsAOf($value)
  *
  * @return iterable<class-string<Serializable>|Serializable|null>
  */
-function allNullOrIsAOf($value)
+function allNullOrIsAOf(mixed $value): iterable
 {
     Assert::allNullOrIsAOf($value, Serializable::class);
 

@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @return null
  */
-function isEmptyNullableObject(?object $value)
-{
+function isEmptyNullableObject(?object $value): null {
     Assert::isEmpty($value);
 
     return $value;
@@ -80,10 +79,8 @@ function nullOrIsEmpty(?object $value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<empty>
  */
-function allIsEmpty($value): iterable
+function allIsEmpty(mixed $value): iterable
 {
     Assert::allIsEmpty($value);
 
@@ -94,10 +91,8 @@ function allIsEmpty($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<empty|null>
  */
-function allNullOrIsEmpty($value): iterable
+function allNullOrIsEmpty(mixed $value): iterable
 {
     Assert::allNullOrIsEmpty($value);
 

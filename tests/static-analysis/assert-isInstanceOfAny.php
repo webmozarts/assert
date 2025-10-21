@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,10 +11,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  * @param array<class-string> $classes
- *
- * @return mixed
  */
-function isInstanceOfAny($value, array $classes)
+function isInstanceOfAny($value, array $classes): mixed
 {
     Assert::isInstanceOfAny($value, $classes);
 
@@ -24,10 +24,8 @@ function isInstanceOfAny($value, array $classes)
  *
  * @param mixed $value
  * @param array<class-string> $classes
- *
- * @return mixed
  */
-function nullOrIsInstanceOfAny($value, array $classes)
+function nullOrIsInstanceOfAny($value, array $classes): mixed
 {
     Assert::nullOrIsInstanceOfAny($value, $classes);
 
@@ -39,10 +37,8 @@ function nullOrIsInstanceOfAny($value, array $classes)
  *
  * @param mixed $value
  * @param array<class-string> $classes
- *
- * @return mixed
  */
-function allIsInstanceOfAny($value, array $classes)
+function allIsInstanceOfAny($value, array $classes): mixed
 {
     Assert::allIsInstanceOfAny($value, $classes);
 
@@ -54,10 +50,8 @@ function allIsInstanceOfAny($value, array $classes)
  *
  * @param mixed $value
  * @param array<class-string> $classes
- *
- * @return mixed
  */
-function allNullOrIsInstanceOfAny($value, array $classes)
+function allNullOrIsInstanceOfAny($value, array $classes): mixed
 {
     Assert::allNullOrIsInstanceOfAny($value, $classes);
 

@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function directory($value)
+function directory(mixed $value): mixed
 {
     Assert::directory($value);
 
@@ -18,10 +18,8 @@ function directory($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrDirectory($value)
+function nullOrDirectory(mixed $value): mixed
 {
     Assert::nullOrDirectory($value);
 
@@ -30,10 +28,8 @@ function nullOrDirectory($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allDirectory($value)
+function allDirectory(mixed $value): mixed
 {
     Assert::allDirectory($value);
 
@@ -42,10 +38,8 @@ function allDirectory($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrDirectory($value)
+function allNullOrDirectory(mixed $value): mixed
 {
     Assert::allNullOrDirectory($value);
 

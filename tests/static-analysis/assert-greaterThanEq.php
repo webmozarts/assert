@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,10 +11,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function greaterThanEq($value, $limit)
+function greaterThanEq($value, $limit): mixed
 {
     Assert::greaterThanEq($value, $limit);
 
@@ -24,10 +24,8 @@ function greaterThanEq($value, $limit)
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function nullOrGreaterThanEq($value, $limit)
+function nullOrGreaterThanEq($value, $limit): mixed
 {
     Assert::nullOrGreaterThanEq($value, $limit);
 
@@ -39,10 +37,8 @@ function nullOrGreaterThanEq($value, $limit)
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function allGreaterThanEq($value, $limit)
+function allGreaterThanEq($value, $limit): mixed
 {
     Assert::allGreaterThanEq($value, $limit);
 
@@ -54,10 +50,8 @@ function allGreaterThanEq($value, $limit)
  *
  * @param mixed $value
  * @param mixed $limit
- *
- * @return mixed
  */
-function allNullOrGreaterThanEq($value, $limit)
+function allNullOrGreaterThanEq($value, $limit): mixed
 {
     Assert::allNullOrGreaterThanEq($value, $limit);
 
