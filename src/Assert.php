@@ -281,33 +281,6 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable $value
-     *
-     * @deprecated use "isIterable" or "isInstanceOf" instead
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function isTraversable(mixed $value, string $message = ''): void
-    {
-        @\trigger_error(
-            \sprintf(
-                'The "%s" assertion is deprecated. You should stop using it, as it will soon be removed in 2.0 version. Use "isIterable" or "isInstanceOf" instead.',
-                __METHOD__
-            ),
-            \E_USER_DEPRECATED
-        );
-
-        if (!\is_array($value) && !($value instanceof Traversable)) {
-            static::reportInvalidArgument(\sprintf(
-                $message ?: 'Expected a traversable. Got: %s',
-                static::typeToString($value)
-            ));
-        }
-    }
-
-    /**
-     * @psalm-pure
-     *
      * @psalm-assert array|ArrayAccess $value
      *
      * @throws InvalidArgumentException

@@ -468,9 +468,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert resource|null $value
-     *
-     * @param string|null $type type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
-     *
+     * @see https://www.php.net/manual/en/function.get-resource-type.php
      * @throws InvalidArgumentException
      */
     public static function nullOrResource(mixed $value, ?string $type = null, string $message = ''): void
@@ -482,9 +480,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<resource> $value
-     *
-     * @param string|null $type type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
-     *
+     * @see https://www.php.net/manual/en/function.get-resource-type.php
      * @throws InvalidArgumentException
      */
     public static function allResource(iterable $value, ?string $type = null, string $message = ''): void
@@ -500,9 +496,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<resource|null> $value
-     *
-     * @param string|null $type type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
-     *
+     * @see https://www.php.net/manual/en/function.get-resource-type.php
      * @throws InvalidArgumentException
      */
     public static function allNullOrResource(?iterable $value, ?string $type = null, string $message = ''): void
@@ -593,56 +587,6 @@ trait Mixin
 
         foreach ($value as $entry) {
             null === $entry || static::isArray($entry, $message);
-        }
-    }
-
-    /**
-     * @psalm-pure
-     *
-     * @psalm-assert iterable|null $value
-     *
-     * @deprecated use "isIterable" or "isInstanceOf" instead
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function nullOrIsTraversable(mixed $value, string $message = ''): void
-    {
-        null === $value || static::isTraversable($value, $message);
-    }
-
-    /**
-     * @psalm-pure
-     *
-     * @psalm-assert iterable<iterable> $value
-     *
-     * @deprecated use "isIterable" or "isInstanceOf" instead
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function allIsTraversable(iterable $value, string $message = ''): void
-    {
-        static::isIterable($value);
-
-        foreach ($value as $entry) {
-            static::isTraversable($entry, $message);
-        }
-    }
-
-    /**
-     * @psalm-pure
-     *
-     * @psalm-assert iterable<iterable|null> $value
-     *
-     * @deprecated use "isIterable" or "isInstanceOf" instead
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function allNullOrIsTraversable(?iterable $value, string $message = ''): void
-    {
-        static::isIterable($value);
-
-        foreach ($value as $entry) {
-            null === $entry || static::isTraversable($entry, $message);
         }
     }
 
@@ -1324,6 +1268,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIp(mixed $value, string $message = ''): void
@@ -1332,6 +1278,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function allIp(iterable $value, string $message = ''): void
@@ -1344,6 +1292,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIp(?iterable $value, string $message = ''): void
@@ -1356,6 +1306,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIpv4(mixed $value, string $message = ''): void
@@ -1364,6 +1316,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function allIpv4(iterable $value, string $message = ''): void
@@ -1376,6 +1330,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIpv4(?iterable $value, string $message = ''): void
@@ -1388,6 +1344,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIpv6(mixed $value, string $message = ''): void
@@ -1396,6 +1354,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function allIpv6(iterable $value, string $message = ''): void
@@ -1408,6 +1368,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIpv6(?iterable $value, string $message = ''): void

@@ -98,7 +98,6 @@ Method                                                   | Description
 `resource($value, $type = null, $message = '')`          | Check that a value is a resource
 `isCallable($value, $message = '')`                      | Check that a value is a callable
 `isArray($value, $message = '')`                         | Check that a value is an array
-`isTraversable($value, $message = '')`  (deprecated)     | Check that a value is an array or a `\Traversable`
 `isIterable($value, $message = '')`                      | Check that a value is an array or a `\Traversable`
 `isCountable($value, $message = '')`                     | Check that a value is an array or a `\Countable`
 `isInstanceOf($value, $class, $message = '')`            | Check that a value is an `instanceof` a class
