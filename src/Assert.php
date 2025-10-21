@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the webmozart/assert package.
  *
@@ -219,7 +221,7 @@ class Assert
      *
      * @psalm-assert resource $value
      *
-     * @param string|null $type    type of resource this should be. @see https://www.php.net/manual/en/function.get-resource-type.php
+     * @see https://www.php.net/manual/en/function.get-resource-type.php
      *
      * @throws InvalidArgumentException
      */
@@ -625,6 +627,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function ip(mixed $value, string $message = ''): void
@@ -638,6 +642,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function ipv4(mixed $value, string $message = ''): void
@@ -651,6 +657,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @throws InvalidArgumentException
      */
     public static function ipv6(mixed $value, string $message = ''): void
@@ -977,7 +985,7 @@ class Assert
         $valid = isset($value[0]);
 
         if ($valid) {
-            $locale = \setlocale(LC_CTYPE, 0);
+            $locale = \setlocale(LC_CTYPE, '0');
             \setlocale(LC_CTYPE, 'C');
             $valid = \ctype_alpha($value[0]);
             \setlocale(LC_CTYPE, $locale);
@@ -1093,7 +1101,7 @@ class Assert
     {
         static::string($value);
 
-        $locale = \setlocale(LC_CTYPE, 0);
+        $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alpha($value);
         \setlocale(LC_CTYPE, $locale);
@@ -1115,7 +1123,7 @@ class Assert
     {
         static::string($value);
 
-        $locale = \setlocale(LC_CTYPE, 0);
+        $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_digit($value);
         \setlocale(LC_CTYPE, $locale);
@@ -1137,7 +1145,7 @@ class Assert
     {
         static::string($value);
 
-        $locale = \setlocale(LC_CTYPE, 0);
+        $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_alnum($value);
         \setlocale(LC_CTYPE, $locale);
@@ -1161,7 +1169,7 @@ class Assert
     {
         static::string($value);
 
-        $locale = \setlocale(LC_CTYPE, 0);
+        $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_lower($value);
         \setlocale(LC_CTYPE, $locale);
@@ -1185,7 +1193,7 @@ class Assert
     {
         static::string($value);
 
-        $locale = \setlocale(LC_CTYPE, 0);
+        $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
         $valid = !\ctype_upper($value);
         \setlocale(LC_CTYPE, $locale);
@@ -1794,6 +1802,9 @@ class Assert
         throw new BadMethodCallException('No such method: '.$name);
     }
 
+    /**
+     * @psalm-pure
+     */
     protected static function valueToString(mixed $value): string
     {
         if (null === $value) {

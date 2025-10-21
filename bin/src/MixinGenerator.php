@@ -65,6 +65,8 @@ final class MixinGenerator
             <<<'PHP'
 <?php
 
+declare(strict_types=1);
+
 %s
 PHP
             ,
