@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -7,7 +9,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function upper(string $value): string
+function upper(mixed $value): string
 {
     Assert::upper($value);
 
@@ -28,8 +30,6 @@ function nullOrUpper(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allUpper(iterable $value): iterable
 {
@@ -42,8 +42,6 @@ function allUpper(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrUpper(iterable $value): iterable
 {

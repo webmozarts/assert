@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -33,8 +35,6 @@ function nullOrKeyExists(?array $array, $key): ?array
  *
  * @param iterable<array> $array
  * @param array-key $key
- *
- * @return iterable<array>
  */
 function allKeyExists(iterable $array, $key): iterable
 {
@@ -48,8 +48,6 @@ function allKeyExists(iterable $array, $key): iterable
  *
  * @param iterable<array|null> $array
  * @param array-key $key
- *
- * @return iterable<array|null>
  */
 function allNullOrKeyExists(iterable $array, $key): iterable
 {

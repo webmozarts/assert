@@ -1,4 +1,7 @@
 {
+    "require": {
+        "php": "^8.2"
+    },
     "require-dev": {
         "roave/backward-compatibility-check": "^8.10"
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isArray($value): array
+function isArray(mixed $value): array
 {
     Assert::isArray($value);
 
@@ -21,7 +23,7 @@ function isArray($value): array
  *
  * @param mixed $value
  */
-function nullOrIsArray($value): ?array
+function nullOrIsArray(mixed $value): ?array
 {
     Assert::nullOrIsArray($value);
 
@@ -32,10 +34,8 @@ function nullOrIsArray($value): ?array
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array>
  */
-function allIsArray($value): iterable
+function allIsArray(mixed $value): iterable
 {
     Assert::allIsArray($value);
 
@@ -46,10 +46,8 @@ function allIsArray($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array|null>
  */
-function allNullOrIsArray($value): iterable
+function allNullOrIsArray(mixed $value): iterable
 {
     Assert::allNullOrIsArray($value);
 

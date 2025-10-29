@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -28,8 +30,6 @@ function nullOrEndsWith(?string $value, string $suffix): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allEndsWith(iterable $value, string $suffix): iterable
 {
@@ -42,8 +42,6 @@ function allEndsWith(iterable $value, string $suffix): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrEndsWith(iterable $value, string $suffix): iterable
 {

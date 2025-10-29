@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use ArrayAccess;
@@ -9,11 +11,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return array|ArrayAccess
  */
-function isArrayAccessible($value)
-{
+function isArrayAccessible(mixed $value): array|ArrayAccess {
     Assert::isArrayAccessible($value);
 
     return $value;
@@ -23,11 +22,8 @@ function isArrayAccessible($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return null|array|ArrayAccess
  */
-function nullOrIsArrayAccessible($value)
-{
+function nullOrIsArrayAccessible(mixed $value): null|array|ArrayAccess {
     Assert::nullOrIsArrayAccessible($value);
 
     return $value;
@@ -37,10 +33,8 @@ function nullOrIsArrayAccessible($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array|ArrayAccess>
  */
-function allIsArrayAccessible($value): iterable
+function allIsArrayAccessible(mixed $value): iterable
 {
     Assert::allIsArrayAccessible($value);
 
@@ -51,10 +45,8 @@ function allIsArrayAccessible($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array|ArrayAccess|null>
  */
-function allNullOrIsArrayAccessible($value): iterable
+function allNullOrIsArrayAccessible(mixed $value): iterable
 {
     Assert::allNullOrIsArrayAccessible($value);
 

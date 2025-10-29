@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -28,8 +30,6 @@ function nullOrContains(?string $value, string $subString): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allContains(iterable $value, string $subString): iterable
 {
@@ -42,8 +42,6 @@ function allContains(iterable $value, string $subString): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrContains(iterable $value, string $subString): iterable
 {

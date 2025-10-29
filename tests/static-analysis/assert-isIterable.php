@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isIterable($value): iterable
+function isIterable(mixed $value): iterable
 {
     Assert::isIterable($value);
 
@@ -21,7 +23,7 @@ function isIterable($value): iterable
  *
  * @param mixed $value
  */
-function nullOrIsIterable($value): ?iterable
+function nullOrIsIterable(mixed $value): ?iterable
 {
     Assert::nullOrIsIterable($value);
 
@@ -32,10 +34,8 @@ function nullOrIsIterable($value): ?iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<iterable>
  */
-function allIsIterable($value): iterable
+function allIsIterable(mixed $value): iterable
 {
     Assert::allIsIterable($value);
 
@@ -46,10 +46,8 @@ function allIsIterable($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<iterable|null>
  */
-function allNullOrIsIterable($value): iterable
+function allNullOrIsIterable(mixed $value): iterable
 {
     Assert::allNullOrIsIterable($value);
 

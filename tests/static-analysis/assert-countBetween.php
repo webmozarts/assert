@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Countable;
@@ -9,11 +11,8 @@ use Webmozart\Assert\Assert;
  * @param Countable|array $value
  * @param int|float $min
  * @param int|float $max
- *
- * @return Countable|array
  */
-function countBetween($value, $min, $max)
-{
+function countBetween($value, $min, $max): Countable|array {
     Assert::countBetween($value, $min, $max);
 
     return $value;
@@ -23,11 +22,8 @@ function countBetween($value, $min, $max)
  * @param null|Countable|array $value
  * @param int|float $min
  * @param int|float $max
- *
- * @return null|Countable|array
  */
-function nullOrCountBetween($value, $min, $max)
-{
+function nullOrCountBetween($value, $min, $max): null|Countable|array {
     Assert::nullOrCountBetween($value, $min, $max);
 
     return $value;
@@ -37,8 +33,6 @@ function nullOrCountBetween($value, $min, $max)
  * @param iterable<Countable|array> $value
  * @param int|float $min
  * @param int|float $max
- *
- * @return iterable<Countable|array>
  */
 function allCountBetween(iterable $value, $min, $max): iterable
 {
@@ -51,8 +45,6 @@ function allCountBetween(iterable $value, $min, $max): iterable
  * @param iterable<Countable|array|null> $value
  * @param int|float $min
  * @param int|float $max
- *
- * @return iterable<Countable|array|null>
  */
 function allNullOrCountBetween(iterable $value, $min, $max): iterable
 {

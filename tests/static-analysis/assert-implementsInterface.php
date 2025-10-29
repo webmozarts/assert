@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Serializable;
@@ -12,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @return Serializable|class-string<Serializable>
  */
-function implementsInterface($value)
+function implementsInterface(mixed $value)
 {
     Assert::implementsInterface($value, Serializable::class);
 
@@ -26,7 +28,7 @@ function implementsInterface($value)
  *
  * @return Serializable|class-string<Serializable>|null
  */
-function nullOrImplementsInterface($value)
+function nullOrImplementsInterface(mixed $value)
 {
     Assert::nullOrImplementsInterface($value, Serializable::class);
 
@@ -37,10 +39,8 @@ function nullOrImplementsInterface($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<mixed, Serializable|class-string<Serializable>>
  */
-function allImplementsInterface($value): iterable
+function allImplementsInterface(mixed $value): iterable
 {
     Assert::allImplementsInterface($value, Serializable::class);
 
@@ -51,10 +51,8 @@ function allImplementsInterface($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<mixed, Serializable|class-string<Serializable>|null>
  */
-function allNullOrImplementsInterface($value): iterable
+function allNullOrImplementsInterface(mixed $value): iterable
 {
     Assert::allNullOrImplementsInterface($value, Serializable::class);
 

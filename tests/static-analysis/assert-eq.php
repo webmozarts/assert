@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -7,10 +9,8 @@ use Webmozart\Assert\Assert;
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function eq($value, $expect)
+function eq($value, $expect): mixed
 {
     Assert::eq($value, $expect);
 
@@ -20,10 +20,8 @@ function eq($value, $expect)
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function nullOrEq($value, $expect)
+function nullOrEq($value, $expect): mixed
 {
     Assert::nullOrEq($value, $expect);
 
@@ -33,10 +31,8 @@ function nullOrEq($value, $expect)
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function allEq($value, $expect)
+function allEq($value, $expect): mixed
 {
     Assert::allEq($value, $expect);
 
@@ -46,10 +42,8 @@ function allEq($value, $expect)
 /**
  * @param mixed $value
  * @param mixed $expect
- *
- * @return mixed
  */
-function allNullOrEq($value, $expect)
+function allNullOrEq($value, $expect): mixed
 {
     Assert::allNullOrEq($value, $expect);
 
