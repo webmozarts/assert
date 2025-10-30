@@ -18,6 +18,7 @@ use Countable;
 use DateTime;
 use DateTimeImmutable;
 use Exception;
+use ReflectionFunction;
 use ResourceBundle;
 use SimpleXMLElement;
 use Throwable;
@@ -2124,6 +2125,41 @@ class Assert
         ) {
             static::reportInvalidArgument(
                 $message ?: 'Expected map - associative array with string keys.'
+            );
+        }
+    }
+
+    /**
+     * @param Closure $closure
+     * @param string $message
+     * @return void
+     * @throws InvalidArgumentException
+     */
+    public static function isStatic(Closure $closure, $message = '')
+    {
+        $reflection = new ReflectionFunction($closure);
+
+        if (!$reflection->isStatic()) {
+            static::reportInvalidArgument(
+                $message ?: 'Closure is not static.'
+            );
+        }
+    }
+
+    /**
+     * @param Closure $closure
+     * @param string $message
+     * @return void
+     * @throws InvalidArgumentException
+     */
+    public static function isNotStatic(Closure $closure, $message = '')
+    {
+        Assert::isCallable($closure);
+        $reflection = new ReflectionFunction($closure);
+
+        if ($reflection->isStatic()) {
+            static::reportInvalidArgument(
+                $message ?: 'Closure is not static.'
             );
         }
     }
