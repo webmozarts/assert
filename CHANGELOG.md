@@ -10,6 +10,7 @@ Changelog
 - Updated development tools (PHPUnit, Psalm, PHP-CS-Fixer) to supported versions.
 - Added explicit return types and parameter types to all methods in both source code and tests.
 - Remove deprecated `isTraversable` (use `isIterable` or `isInstanceOf` instead).
+- Added `notInArray` and `notOneOf`
 
 ## 1.12.1
 
