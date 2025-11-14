@@ -11,7 +11,8 @@ use Webmozart\Assert\Assert;
  * @param Countable|array $array
  * @param int|float $max
  */
-function maxCount($array, $max): Countable|array {
+function maxCount($array, $max): Countable|array
+{
     Assert::maxCount($array, $max);
 
     return $array;
@@ -21,7 +22,8 @@ function maxCount($array, $max): Countable|array {
  * @param null|Countable|array $array
  * @param int|float $max
  */
-function nullOrMaxCount($array, $max): null|Countable|array {
+function nullOrMaxCount($array, $max): Countable|array|null
+{
     Assert::nullOrMaxCount($array, $max);
 
     return $array;

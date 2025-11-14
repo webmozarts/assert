@@ -12,7 +12,8 @@ use Webmozart\Assert\Assert;
  * @param class-string|object $classOrObject
  * @param mixed $method
  */
-function methodNotExists($classOrObject, $method): string|object {
+function methodNotExists($classOrObject, $method): string|object
+{
     Assert::methodNotExists($classOrObject, $method);
 
     return $classOrObject;
@@ -24,7 +25,8 @@ function methodNotExists($classOrObject, $method): string|object {
  * @param null|class-string|object $classOrObject
  * @param mixed $method
  */
-function nullOrMethodNotExists($classOrObject, $method): null|string|object {
+function nullOrMethodNotExists($classOrObject, $method): string|object|null
+{
     Assert::nullOrMethodNotExists($classOrObject, $method);
 
     return $classOrObject;

@@ -9,7 +9,8 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function isEmptyNullableObject(?object $value): null {
+function isEmptyNullableObject(?object $value): null
+{
     Assert::isEmpty($value);
 
     return $value;

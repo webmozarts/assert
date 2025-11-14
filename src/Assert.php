@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Webmozart\Assert;
 
 use ArrayAccess;
-use BadMethodCallException;
 use Countable;
 use DateTime;
 use DateTimeImmutable;

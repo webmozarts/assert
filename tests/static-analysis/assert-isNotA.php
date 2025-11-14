@@ -26,7 +26,8 @@ function isNotA(object $value): stdClass
  * @param null|object|string $value
  * @param class-string $class
  */
-function nullOrIsNotA($value, $class): null|object|string {
+function nullOrIsNotA($value, $class): object|string|null
+{
     Assert::nullOrIsNotA($value, $class);
 
     return $value;

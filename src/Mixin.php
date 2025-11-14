@@ -17,6 +17,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert string|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrString(mixed $value, string $message = ''): void
@@ -28,6 +29,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<string> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allString(iterable $value, string $message = ''): void
@@ -43,6 +45,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<string|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrString(?iterable $value, string $message = ''): void
@@ -58,6 +61,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert non-empty-string|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrStringNotEmpty(mixed $value, string $message = ''): void
@@ -69,6 +73,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<non-empty-string> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allStringNotEmpty(iterable $value, string $message = ''): void
@@ -84,6 +89,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<non-empty-string|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrStringNotEmpty(?iterable $value, string $message = ''): void
@@ -99,6 +105,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert int|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrInteger(mixed $value, string $message = ''): void
@@ -110,6 +117,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<int> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allInteger(iterable $value, string $message = ''): void
@@ -125,6 +133,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<int|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrInteger(?iterable $value, string $message = ''): void
@@ -140,6 +149,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert numeric|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIntegerish(mixed $value, string $message = ''): void
@@ -151,6 +161,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<numeric> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIntegerish(iterable $value, string $message = ''): void
@@ -166,6 +177,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<numeric|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIntegerish(?iterable $value, string $message = ''): void
@@ -181,6 +193,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert positive-int|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrPositiveInteger(mixed $value, string $message = ''): void
@@ -192,6 +205,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<positive-int> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allPositiveInteger(iterable $value, string $message = ''): void
@@ -207,6 +221,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<positive-int|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrPositiveInteger(?iterable $value, string $message = ''): void
@@ -222,6 +237,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert float|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrFloat(mixed $value, string $message = ''): void
@@ -233,6 +249,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<float> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allFloat(iterable $value, string $message = ''): void
@@ -248,6 +265,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<float|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrFloat(?iterable $value, string $message = ''): void
@@ -263,6 +281,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert numeric|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNumeric(mixed $value, string $message = ''): void
@@ -274,6 +293,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<numeric> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNumeric(iterable $value, string $message = ''): void
@@ -289,6 +309,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<numeric|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNumeric(?iterable $value, string $message = ''): void
@@ -304,6 +325,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert positive-int|0|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrNatural(mixed $value, string $message = ''): void
@@ -315,6 +337,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<positive-int|0> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNatural(iterable $value, string $message = ''): void
@@ -330,6 +353,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<positive-int|0|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNatural(?iterable $value, string $message = ''): void
@@ -345,6 +369,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert bool|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrBoolean(mixed $value, string $message = ''): void
@@ -356,6 +381,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<bool> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allBoolean(iterable $value, string $message = ''): void
@@ -371,6 +397,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<bool|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrBoolean(?iterable $value, string $message = ''): void
@@ -386,6 +413,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert scalar|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrScalar(mixed $value, string $message = ''): void
@@ -397,6 +425,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<scalar> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allScalar(iterable $value, string $message = ''): void
@@ -412,6 +441,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<scalar|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrScalar(?iterable $value, string $message = ''): void
@@ -427,6 +457,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert object|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrObject(mixed $value, string $message = ''): void
@@ -438,6 +469,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<object> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allObject(iterable $value, string $message = ''): void
@@ -453,6 +485,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<object|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrObject(?iterable $value, string $message = ''): void
@@ -468,7 +501,9 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert resource|null $value
+     *
      * @see https://www.php.net/manual/en/function.get-resource-type.php
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrResource(mixed $value, ?string $type = null, string $message = ''): void
@@ -480,7 +515,9 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<resource> $value
+     *
      * @see https://www.php.net/manual/en/function.get-resource-type.php
+     *
      * @throws InvalidArgumentException
      */
     public static function allResource(iterable $value, ?string $type = null, string $message = ''): void
@@ -496,7 +533,9 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<resource|null> $value
+     *
      * @see https://www.php.net/manual/en/function.get-resource-type.php
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrResource(?iterable $value, ?string $type = null, string $message = ''): void
@@ -512,6 +551,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert callable|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsCallable(mixed $value, string $message = ''): void
@@ -523,6 +563,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<callable> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsCallable(iterable $value, string $message = ''): void
@@ -538,6 +579,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<callable|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsCallable(?iterable $value, string $message = ''): void
@@ -553,6 +595,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert array|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsArray(mixed $value, string $message = ''): void
@@ -564,6 +607,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<array> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsArray(iterable $value, string $message = ''): void
@@ -579,6 +623,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<array|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsArray(?iterable $value, string $message = ''): void
@@ -594,6 +639,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert array|ArrayAccess|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsArrayAccessible(mixed $value, string $message = ''): void
@@ -605,6 +651,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<array|ArrayAccess> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsArrayAccessible(iterable $value, string $message = ''): void
@@ -620,6 +667,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<array|ArrayAccess|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsArrayAccessible(?iterable $value, string $message = ''): void
@@ -635,6 +683,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert countable|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsCountable(mixed $value, string $message = ''): void
@@ -646,6 +695,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<countable> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsCountable(iterable $value, string $message = ''): void
@@ -661,6 +711,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<countable|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsCountable(?iterable $value, string $message = ''): void
@@ -676,6 +727,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsIterable(mixed $value, string $message = ''): void
@@ -687,6 +739,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<iterable> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsIterable(iterable $value, string $message = ''): void
@@ -702,6 +755,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<iterable|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsIterable(?iterable $value, string $message = ''): void
@@ -805,6 +859,7 @@ trait Mixin
      *
      * @psalm-template ExpectedType of object
      * @psalm-assert iterable<!ExpectedType|null> $value
+     *
      * @psalm-param class-string<ExpectedType> $class
      * @throws InvalidArgumentException
      */
@@ -1041,6 +1096,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert empty $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsEmpty(mixed $value, string $message = ''): void
@@ -1052,6 +1108,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<empty> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsEmpty(iterable $value, string $message = ''): void
@@ -1067,6 +1124,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<empty|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsEmpty(?iterable $value, string $message = ''): void
@@ -1106,6 +1164,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<!empty|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotEmpty(?iterable $value, string $message = ''): void
@@ -1121,6 +1180,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNull(iterable $value, string $message = ''): void
@@ -1150,6 +1210,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert true|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrTrue(mixed $value, string $message = ''): void
@@ -1161,6 +1222,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<true> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allTrue(iterable $value, string $message = ''): void
@@ -1176,6 +1238,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<true|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrTrue(?iterable $value, string $message = ''): void
@@ -1191,6 +1254,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert false|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrFalse(mixed $value, string $message = ''): void
@@ -1202,6 +1266,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<false> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allFalse(iterable $value, string $message = ''): void
@@ -1217,6 +1282,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<false|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrFalse(?iterable $value, string $message = ''): void
@@ -1256,6 +1322,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<!false|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrNotFalse(?iterable $value, string $message = ''): void
@@ -2387,6 +2454,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert lowercase-string|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrLower(mixed $value, string $message = ''): void
@@ -2398,6 +2466,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<lowercase-string> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allLower(iterable $value, string $message = ''): void
@@ -2413,6 +2482,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<lowercase-string|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrLower(?iterable $value, string $message = ''): void
@@ -2452,6 +2522,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<!lowercase-string|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrUpper(?iterable $value, string $message = ''): void
@@ -2777,6 +2848,7 @@ trait Mixin
 
     /**
      * @psalm-assert class-string|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrClassExists(mixed $value, string $message = ''): void
@@ -2786,6 +2858,7 @@ trait Mixin
 
     /**
      * @psalm-assert iterable<class-string> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allClassExists(iterable $value, string $message = ''): void
@@ -2799,6 +2872,7 @@ trait Mixin
 
     /**
      * @psalm-assert iterable<class-string|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrClassExists(?iterable $value, string $message = ''): void
@@ -2871,6 +2945,7 @@ trait Mixin
 
     /**
      * @psalm-assert class-string|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrInterfaceExists(mixed $value, string $message = ''): void
@@ -2880,6 +2955,7 @@ trait Mixin
 
     /**
      * @psalm-assert iterable<class-string> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allInterfaceExists(iterable $value, string $message = ''): void
@@ -2893,6 +2969,7 @@ trait Mixin
 
     /**
      * @psalm-assert iterable<class-string|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrInterfaceExists(?iterable $value, string $message = ''): void
@@ -2909,6 +2986,7 @@ trait Mixin
      *
      * @psalm-template ExpectedType of object
      * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
+     *
      * @psalm-param class-string<ExpectedType> $interface
      * @throws InvalidArgumentException
      */
@@ -2922,6 +3000,7 @@ trait Mixin
      *
      * @psalm-template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
+     *
      * @psalm-param class-string<ExpectedType> $interface
      * @throws InvalidArgumentException
      */
@@ -2939,6 +3018,7 @@ trait Mixin
      *
      * @psalm-template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
+     *
      * @psalm-param class-string<ExpectedType> $interface
      * @throws InvalidArgumentException
      */
@@ -3243,6 +3323,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert array-key|null $value
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrValidArrayKey(mixed $value, string $message = ''): void
@@ -3254,6 +3335,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<array-key> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allValidArrayKey(iterable $value, string $message = ''): void
@@ -3269,6 +3351,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<array-key|null> $value
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrValidArrayKey(?iterable $value, string $message = ''): void
@@ -3412,6 +3495,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert list|null $array
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsList(mixed $array, string $message = ''): void
@@ -3423,6 +3507,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<list> $array
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsList(mixed $array, string $message = ''): void
@@ -3438,6 +3523,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<list|null> $array
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsList(mixed $array, string $message = ''): void
@@ -3453,6 +3539,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert non-empty-list|null $array
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsNonEmptyList(mixed $array, string $message = ''): void
@@ -3464,6 +3551,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<non-empty-list> $array
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsNonEmptyList(mixed $array, string $message = ''): void
@@ -3479,6 +3567,7 @@ trait Mixin
      * @psalm-pure
      *
      * @psalm-assert iterable<non-empty-list|null> $array
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsNonEmptyList(mixed $array, string $message = ''): void
@@ -3495,6 +3584,7 @@ trait Mixin
      *
      * @psalm-template T
      * @psalm-assert array<string, T>|null $array
+     *
      * @throws InvalidArgumentException
      */
     public static function nullOrIsMap(mixed $array, string $message = ''): void
@@ -3507,6 +3597,7 @@ trait Mixin
      *
      * @psalm-template T
      * @psalm-assert iterable<array<string, T>> $array
+     *
      * @throws InvalidArgumentException
      */
     public static function allIsMap(mixed $array, string $message = ''): void
@@ -3523,6 +3614,7 @@ trait Mixin
      *
      * @psalm-template T
      * @psalm-assert iterable<array<string, T>|null> $array
+     *
      * @throws InvalidArgumentException
      */
     public static function allNullOrIsMap(mixed $array, string $message = ''): void
@@ -3568,6 +3660,7 @@ trait Mixin
      * @psalm-template T
      * @psalm-assert iterable<array<string, T>|null> $array
      * @psalm-assert iterable<!empty|null> $array
+     *
      * @psalm-param iterable<mixed|array<T>|null> $array
      * @throws InvalidArgumentException
      */

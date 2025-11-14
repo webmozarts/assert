@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  * @param mixed $value
  * @param null|string $type
  */
-function resource(mixed $value, null|string $type): mixed
+function resource(mixed $value, ?string $type): mixed
 {
     Assert::resource($value, $type);
 
@@ -25,7 +25,7 @@ function resource(mixed $value, null|string $type): mixed
  * @param mixed $value
  * @param null|string $type
  */
-function nullOrResource(mixed $value, null|string $type): mixed
+function nullOrResource(mixed $value, ?string $type): mixed
 {
     Assert::nullOrResource($value, $type);
 

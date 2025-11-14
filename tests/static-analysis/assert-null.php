@@ -11,7 +11,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function null(mixed $value): null {
+function null(mixed $value): null
+{
     Assert::null($value);
 
     return $value;

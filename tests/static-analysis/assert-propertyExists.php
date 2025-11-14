@@ -12,7 +12,8 @@ use Webmozart\Assert\Assert;
  * @param class-string|object $classOrObject
  * @param mixed $property
  */
-function propertyExists($classOrObject, $property): string|object {
+function propertyExists($classOrObject, $property): string|object
+{
     Assert::propertyExists($classOrObject, $property);
 
     return $classOrObject;
@@ -24,7 +25,8 @@ function propertyExists($classOrObject, $property): string|object {
  * @param null|class-string|object $classOrObject
  * @param mixed $property
  */
-function nullOrPropertyExists($classOrObject, $property): null|string|object {
+function nullOrPropertyExists($classOrObject, $property): string|object|null
+{
     Assert::nullOrPropertyExists($classOrObject, $property);
 
     return $classOrObject;

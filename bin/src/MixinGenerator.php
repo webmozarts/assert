@@ -296,7 +296,7 @@ BODY;
                 $phpdocLines[] = trim($comment);
             }
 
-            if ('deprecated' === $key || 'psalm-pure' === $key) {
+            if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'see' === $key) {
                 $phpdocLines[] = '';
             }
         }

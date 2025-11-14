@@ -12,7 +12,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isCountable(mixed $value): Countable {
+function isCountable(mixed $value): Countable
+{
     Assert::isCountable($value);
 
     return $value;
@@ -23,7 +24,8 @@ function isCountable(mixed $value): Countable {
  *
  * @param mixed $value
  */
-function nullOrIsCountable(mixed $value): null|Countable {
+function nullOrIsCountable(mixed $value): ?Countable
+{
     Assert::nullOrIsCountable($value);
 
     return $value;

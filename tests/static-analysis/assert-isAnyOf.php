@@ -12,7 +12,8 @@ use Webmozart\Assert\Assert;
  * @param object|string $value
  * @param array<class-string> $classes
  */
-function isAnyOf($value, array $classes): object|string {
+function isAnyOf($value, array $classes): object|string
+{
     Assert::isAnyOf($value, $classes);
 
     return $value;
@@ -24,7 +25,8 @@ function isAnyOf($value, array $classes): object|string {
  * @param null|object|string $value
  * @param array<class-string> $classes
  */
-function nullOrIsAnyOf($value, array $classes): null|object|string {
+function nullOrIsAnyOf($value, array $classes): object|string|null
+{
     Assert::nullOrIsAnyOf($value, $classes);
 
     return $value;

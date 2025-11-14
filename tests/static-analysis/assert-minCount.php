@@ -11,7 +11,8 @@ use Webmozart\Assert\Assert;
  * @param Countable|array $array
  * @param int|float $min
  */
-function minCount($array, $min): Countable|array {
+function minCount($array, $min): Countable|array
+{
     Assert::minCount($array, $min);
 
     return $array;
@@ -21,7 +22,8 @@ function minCount($array, $min): Countable|array {
  * @param null|Countable|array $array
  * @param int|float $min
  */
-function nullOrMinCount($array, $min): null|Countable|array {
+function nullOrMinCount($array, $min): Countable|array|null
+{
     Assert::nullOrMinCount($array, $min);
 
     return $array;

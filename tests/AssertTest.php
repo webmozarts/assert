@@ -619,7 +619,7 @@ class AssertTest extends TestCase
     public function testNullOr(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if (in_array($method, array('null', 'notNull'))) {
-            $this->markTestSkipped('Meaningless test of ' . $method);
+            $this->markTestSkipped('Meaningless test of '.$method);
         }
 
         if ($multibyte && !function_exists('mb_strlen')) {
@@ -638,7 +638,7 @@ class AssertTest extends TestCase
     public function testNullOrAcceptsNull(string $method): void
     {
         if (in_array($method, array('null', 'notNull'))) {
-            $this->markTestSkipped('Meaningless test of ' . $method);
+            $this->markTestSkipped('Meaningless test of '.$method);
         }
 
         call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, '', '');
@@ -667,7 +667,7 @@ class AssertTest extends TestCase
     public function testAllNullOrArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
         if (in_array($method, array('null', 'notNull'))) {
-            $this->markTestSkipped('Meaningless test of ' . $method);
+            $this->markTestSkipped('Meaningless test of '.$method);
         }
 
         if ($multibyte && !function_exists('mb_strlen')) {

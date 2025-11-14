@@ -12,7 +12,8 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isArrayAccessible(mixed $value): array|ArrayAccess {
+function isArrayAccessible(mixed $value): array|ArrayAccess
+{
     Assert::isArrayAccessible($value);
 
     return $value;
@@ -23,7 +24,8 @@ function isArrayAccessible(mixed $value): array|ArrayAccess {
  *
  * @param mixed $value
  */
-function nullOrIsArrayAccessible(mixed $value): null|array|ArrayAccess {
+function nullOrIsArrayAccessible(mixed $value): array|ArrayAccess|null
+{
     Assert::nullOrIsArrayAccessible($value);
 
     return $value;
