@@ -865,6 +865,8 @@ class Assert
     }
 
     /**
+     * Check that a value is not present
+     *
      * Does strict comparison, so Assert::notInArray(3, [1, 2, 3]) will not pass
      * the assertion, but Assert::notInArray(3, ['3']) will.
      *
