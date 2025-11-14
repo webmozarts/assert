@@ -6,12 +6,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
- *
- * @return mixed
  */
-function notInArray($value, array $values)
+function notInArray(mixed $value, array $values): mixed
 {
     Assert::notInArray($value, $values);
 
@@ -20,12 +16,8 @@ function notInArray($value, array $values)
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
- *
- * @return mixed
  */
-function nullOrNotInArray($value, array $values)
+function nullOrNotInArray(mixed $value, array $values): mixed
 {
     Assert::nullOrNotInArray($value, $values);
 
@@ -34,12 +26,8 @@ function nullOrNotInArray($value, array $values)
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
- *
- * @return mixed
  */
-function allNotInArray($value, array $values)
+function allNotInArray(mixed $value, array $values): mixed
 {
     Assert::allNotInArray($value, $values);
 

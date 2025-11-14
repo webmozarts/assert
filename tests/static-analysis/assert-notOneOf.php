@@ -6,12 +6,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
- *
- * @return mixed
  */
-function notOneOf($value, array $values)
+function notOneOf(mixed $value, array $values): mixed
 {
     Assert::notOneOf($value, $values);
 
@@ -20,12 +16,8 @@ function notOneOf($value, array $values)
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
- *
- * @return mixed
  */
-function nullOrNotOneOf($value, array $values)
+function nullOrNotOneOf(mixed $value, array $values): mixed
 {
     Assert::nullOrNotOneOf($value, $values);
 
@@ -34,12 +26,8 @@ function nullOrNotOneOf($value, array $values)
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
- *
- * @return mixed
  */
-function allNotOneOf($value, array $values)
+function allNotOneOf(mixed $value, array $values): mixed
 {
     Assert::allNotOneOf($value, $values);
 
