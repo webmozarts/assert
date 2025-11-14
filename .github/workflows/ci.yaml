@@ -40,13 +40,14 @@ jobs:
         run: >-
           composer run cs-check
 
-      - name: Run backwards compatibility check
-        run: >-
-          composer run bc-check
-
       - name: Run static analysis
         run: >-
           composer run static-analysis
+
+     # Disabled for version 2.0, since there is no BC promise at this time.
+     # - name: Run backwards compatibility check
+     #   run: >-
+     #     composer run bc-check
 
   tests:
     name: Tests
