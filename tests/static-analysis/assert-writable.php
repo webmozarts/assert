@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -20,8 +22,6 @@ function nullOrWritable(?string $value): ?string
 
 /**
  * @param iterable<string> $value
- *
- * @return iterable<string>
  */
 function allWritable(iterable $value): iterable
 {
@@ -32,8 +32,6 @@ function allWritable(iterable $value): iterable
 
 /**
  * @param iterable<string|null> $value
- *
- * @return iterable<string|null>
  */
 function allNullOrWritable(iterable $value): iterable
 {

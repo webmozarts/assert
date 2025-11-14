@@ -24,7 +24,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.4'
           coverage: none
           extensions: mbstring
 
@@ -40,13 +40,14 @@ jobs:
         run: >-
           composer run cs-check
 
-      - name: Run backwards compatibility check
-        run: >-
-          composer run bc-check
-
       - name: Run static analysis
         run: >-
           composer run static-analysis
+
+     # Disabled for version 2.0, since there is no BC promise at this time.
+     # - name: Run backwards compatibility check
+     #   run: >-
+     #     composer run bc-check
 
   tests:
     name: Tests
@@ -56,11 +57,6 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.2"
-          - "7.3"
-          - "7.4"
-          - "8.0"
-          - "8.1"
           - "8.2"
           - "8.3"
           - "8.4"
@@ -76,7 +72,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           extensions: mbstring
-          tools: phpunit:8
+          tools: phpunit:11
 
       - name: Install dependencies
         run: composer install
@@ -92,7 +88,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.4"
+          - "8.2"
           - "8.3"
           - "8.4"
           - "8.5"
@@ -107,7 +103,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           extensions: mbstring
-          tools: phpunit:8
+          tools: phpunit:11
 
       - name: Install dependencies
         run: composer install

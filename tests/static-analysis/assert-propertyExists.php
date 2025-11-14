@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,10 +11,8 @@ use Webmozart\Assert\Assert;
  *
  * @param class-string|object $classOrObject
  * @param mixed $property
- *
- * @return class-string|object
  */
-function propertyExists($classOrObject, $property)
+function propertyExists($classOrObject, $property): string|object
 {
     Assert::propertyExists($classOrObject, $property);
 
@@ -24,10 +24,8 @@ function propertyExists($classOrObject, $property)
  *
  * @param null|class-string|object $classOrObject
  * @param mixed $property
- *
- * @return null|class-string|object
  */
-function nullOrPropertyExists($classOrObject, $property)
+function nullOrPropertyExists($classOrObject, $property): string|object|null
 {
     Assert::nullOrPropertyExists($classOrObject, $property);
 
@@ -39,8 +37,6 @@ function nullOrPropertyExists($classOrObject, $property)
  *
  * @param iterable<class-string|object> $classOrObject
  * @param mixed $property
- *
- * @return iterable<class-string|object>
  */
 function allPropertyExists(iterable $classOrObject, $property): iterable
 {
@@ -54,8 +50,6 @@ function allPropertyExists(iterable $classOrObject, $property): iterable
  *
  * @param iterable<class-string|object|null> $classOrObject
  * @param mixed $property
- *
- * @return iterable<class-string|object|null>
  */
 function allNullOrPropertyExists(iterable $classOrObject, $property): iterable
 {

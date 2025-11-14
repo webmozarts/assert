@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function email($value)
+function email(mixed $value): mixed
 {
     Assert::email($value);
 
@@ -18,10 +18,8 @@ function email($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrEmail($value)
+function nullOrEmail(mixed $value): mixed
 {
     Assert::nullOrEmail($value);
 
@@ -30,10 +28,8 @@ function nullOrEmail($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allEmail($value)
+function allEmail(mixed $value): mixed
 {
     Assert::allEmail($value);
 
@@ -42,10 +38,8 @@ function allEmail($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrEmail($value)
+function allNullOrEmail(mixed $value): mixed
 {
     Assert::allNullOrEmail($value);
 

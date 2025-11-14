@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the webmozart/assert package.
  *
@@ -18,6 +20,7 @@ use DateTimeImmutable;
 use Error;
 use Exception;
 use LogicException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use SimpleXMLElement;
@@ -31,29 +34,15 @@ use Webmozart\Assert\Assert;
  */
 class AssertTest extends TestCase
 {
-    private static $resource;
-
     public static function getResource()
     {
-        if (!static::$resource) {
-            static::$resource = fopen(__FILE__, 'r');
-        }
+        static $resource;
 
-        return static::$resource;
+        return $resource ??= tmpfile();
     }
 
-    /**
-     * @afterClass
-     */
-    public static function doTearDownAfterClass()
+    public static function getTests(): array
     {
-        @fclose(self::$resource);
-    }
-
-    public function getTests()
-    {
-        $resource = self::getResource();
-
         $nanList = array('key' => 2, NAN);
         unset($nanList['key']);
 
@@ -117,12 +106,12 @@ class AssertTest extends TestCase
             array('object', array(true), false),
             array('object', array(1), false),
             array('object', array(array()), false),
-            array('resource', array($resource), true),
-            array('resource', array($resource, 'stream'), true),
-            array('resource', array($resource, 'other'), false),
+            array('resource', array(self::getResource()), true),
+            array('resource', array(self::getResource(), 'stream'), true),
+            array('resource', array(self::getResource(), 'other'), false),
             array('resource', array(1), false),
             array('isCallable', array('strlen'), true),
-            array('isCallable', array(array($this, 'getTests')), true),
+            array('isCallable', array(array(self::class, 'getTests')), true),
             array('isCallable', array(function () {}), true),
             array('isCallable', array(1234), false),
             array('isCallable', array('foobar'), false),
@@ -131,11 +120,6 @@ class AssertTest extends TestCase
             array('isArray', array(new ArrayIterator(array())), false),
             array('isArray', array(123), false),
             array('isArray', array(new stdClass()), false),
-            array('isTraversable', array(array()), true),
-            array('isTraversable', array(array(1, 2, 3)), true),
-            array('isTraversable', array(new ArrayIterator(array())), true),
-            array('isTraversable', array(123), false),
-            array('isTraversable', array(new stdClass()), false),
             array('isArrayAccessible', array(array()), true),
             array('isArrayAccessible', array(array(1, 2, 3)), true),
             array('isArrayAccessible', array(new ArrayObject(array())), true),
@@ -247,8 +231,12 @@ class AssertTest extends TestCase
             array('range', array(3, 1, 2), false),
             array('oneOf', array(1, array(1, 2, 3)), true),
             array('oneOf', array(1, array('1', '2', '3')), false),
+            array('notOneOf', array(1, array(1, 2, 3)), false),
+            array('notOneOf', array(1, array('1', '2', '3')), true),
             array('inArray', array(1, array(1, 2, 3)), true),
             array('inArray', array(1, array('1', '2', '3')), false),
+            array('notInArray', array(1, array(1, 2, 3)), false),
+            array('notInArray', array(1, array('1', '2', '3')), true),
             array('contains', array('abcd', 'ab'), true),
             array('contains', array('abcd', 'bc'), true),
             array('contains', array('abcd', 'cd'), true),
@@ -525,13 +513,13 @@ class AssertTest extends TestCase
             array('isNonEmptyList', array(array(array(1), array(2))), true),
             array('isNonEmptyList', array(array(array('foo' => 'bar'), array('baz' => 'tab'))), true),
             array('isMap', array(array('key' => 1, 'foo' => 2)), true),
+            array('isMap', array(array(0 => 1, 2 => 3)), true),
             array('isMap', array(array()), true),
             array('isMap', array(array(1, 2, 3)), false),
-            array('isMap', array(array(0 => 1, 2 => 3)), false),
             array('isNonEmptyMap', array(array('key' => 1, 'foo' => 2)), true),
+            array('isNonEmptyMap', array(array(0 => 1, 2 => 3)), true),
             array('isNonEmptyMap', array(array()), false),
             array('isNonEmptyMap', array(array(1, 2, 3)), false),
-            array('isNonEmptyMap', array(array(0 => 1, 2 => 3)), false),
             array('uuid', array('00000000-0000-0000-0000-000000000000'), true),
             array('uuid', array('urn:ff6f8cb0-c57d-21e1-9b21-0800200c9a66'), true),
             array('uuid', array('uuid:{ff6f8cb0-c57d-21e1-9b21-0800200c9a66}'), true),
@@ -552,9 +540,9 @@ class AssertTest extends TestCase
             array('throws', array(function () { throw new LogicException('test'); }, 'LogicException'), true),
             array('throws', array(function () { throw new LogicException('test'); }, 'IllogicException'), false),
             array('throws', array(function () { throw new Exception('test'); }), true),
-            array('throws', array(function () { trigger_error('test'); }, 'Throwable'), true, false, 70000),
-            array('throws', array(function () { trigger_error('test'); }, 'Unthrowable'), false, false, 70000),
-            array('throws', array(function () { throw new Error(); }, 'Throwable'), true, true, 70000),
+            array('throws', array(function () { trigger_error('test'); }, 'Throwable'), false, false),
+            array('throws', array(function () { trigger_error('test'); }, 'Unthrowable'), false, false),
+            array('throws', array(function () { throw new Error(); }, 'Throwable'), true, true),
             array('ip', array('192.168.0.1'), true),
             array('ip', array(new ToStringClass('192.168.0.1')), true),
             array('ip', array('255.255.255.255'), true),
@@ -605,27 +593,20 @@ class AssertTest extends TestCase
         );
     }
 
-    public function getMethods()
+    public static function getMethods(): array
     {
         $methods = array();
 
-        foreach ($this->getTests() as $params) {
+        foreach (self::getTests() as $params) {
             $methods[$params[0]] = array($params[0]);
         }
 
         return array_values($methods);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAssert($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAssert(string $method, array $args, bool $success, bool $multibyte = false): void
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -638,16 +619,13 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testNullOr($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testNullOr(string $method, array $args, bool $success, bool $multibyte = false): void
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
+        if (in_array($method, array('null', 'notNull'))) {
+            $this->markTestSkipped('Meaningless test of '.$method);
         }
+
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -660,25 +638,20 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getMethods
-     */
-    public function testNullOrAcceptsNull($method)
+    #[DataProvider('getMethods')]
+    public function testNullOrAcceptsNull(string $method): void
     {
-        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, null, null);
+        if (in_array($method, array('null', 'notNull'))) {
+            $this->markTestSkipped('Meaningless test of '.$method);
+        }
+
+        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, '', '');
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAllArray($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAllArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -694,16 +667,13 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAllNullOrArray($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAllNullOrArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
+        if (in_array($method, array('null', 'notNull'))) {
+            $this->markTestSkipped('Meaningless test of '.$method);
         }
+
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -726,16 +696,9 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider getTests
-     */
-    public function testAllTraversable($method, $args, $success, $multibyte = false, $minVersion = null)
+    #[DataProvider('getTests')]
+    public function testAllTraversable(string $method, array $args, bool $success, bool $multibyte = false): void
     {
-        if ($minVersion && PHP_VERSION_ID < $minVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $minVersion));
-
-            return;
-        }
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -751,7 +714,7 @@ class AssertTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function getStringConversions()
+    public static function getStringConversions(): array
     {
         return array(
             array('integer', array('foobar'), 'Expected an integer. Got: string'),
@@ -776,10 +739,8 @@ class AssertTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider getStringConversions
-     */
-    public function testConvertValuesToStrings($method, $args, $exceptionMessage)
+    #[DataProvider('getStringConversions')]
+    public function testConvertValuesToStrings(string $method, array $args, string $exceptionMessage): void
     {
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
@@ -787,14 +748,7 @@ class AssertTest extends TestCase
         call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
     }
 
-    public function testAnUnknownMethodThrowsABadMethodCall()
-    {
-        $this->expectException('\BadMethodCallException');
-
-        Assert::nonExistentMethod();
-    }
-
-    public function getInvalidIsAOfCases(): iterable
+    public static function getInvalidIsAOfCases(): iterable
     {
         yield array(
             array('stdClass', 123),
@@ -822,9 +776,7 @@ class AssertTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider getInvalidIsAOfCases
-     */
+    #[DataProvider('getInvalidIsAOfCases')]
     public function testIsAOfExceptionMessages(array $args, string $exceptionMessage): void
     {
         $this->expectException('\InvalidArgumentException');
@@ -843,18 +795,10 @@ class AssertTest extends TestCase
 
     public function testEnumAssertionErrorMessage(): void
     {
-        $enumIntroductionVersion = 80100;
-
-        if (PHP_VERSION_ID < $enumIntroductionVersion) {
-            $this->markTestSkipped(sprintf('This test requires php %s or upper.', $enumIntroductionVersion));
-        }
-
-        require_once 'DummyEnum.php';
-
         $this->expectException('\InvalidArgumentException');
-        $this->expectExceptionMessage('Expected null. Got: Webmozart\Assert\Tests\TestEnum::CaseName');
+        $this->expectExceptionMessage('Expected null. Got: Webmozart\Assert\Tests\DummyEnum::CaseName');
 
-        Assert::null(TestEnum::CaseName, 'Expected null. Got: %s');
+        Assert::null(DummyEnum::CaseName, 'Expected null. Got: %s');
     }
 }
 
@@ -868,12 +812,12 @@ class ToStringClass
      */
     private $value;
 
-    public function __construct($value)
+    public function __construct(string $value)
     {
         $this->value = $value;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->value;
     }

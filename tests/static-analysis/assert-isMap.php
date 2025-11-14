@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use stdClass;
@@ -12,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @return array<string, mixed>
  */
-function isMap($value): array
+function isMap(mixed $value): array
 {
     Assert::isMap($value);
 
@@ -57,7 +59,7 @@ function isMapWithEmptyArray(array $value): array
  *
  * @return null|array<string, mixed>
  */
-function nullOrIsMap($value): ?array
+function nullOrIsMap(mixed $value): ?array
 {
     Assert::nullOrIsMap($value);
 
@@ -68,8 +70,6 @@ function nullOrIsMap($value): ?array
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<array<string, mixed>>
  */
 function allIsMap(iterable $value): iterable
 {
@@ -82,8 +82,6 @@ function allIsMap(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<array<string, mixed>|null>
  */
 function allNullOrIsMap(iterable $value): iterable
 {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Countable;
@@ -8,10 +10,8 @@ use Webmozart\Assert\Assert;
 /**
  * @param Countable|array $array
  * @param int|float $min
- *
- * @return Countable|array
  */
-function minCount($array, $min)
+function minCount($array, $min): Countable|array
 {
     Assert::minCount($array, $min);
 
@@ -21,10 +21,8 @@ function minCount($array, $min)
 /**
  * @param null|Countable|array $array
  * @param int|float $min
- *
- * @return null|Countable|array
  */
-function nullOrMinCount($array, $min)
+function nullOrMinCount($array, $min): Countable|array|null
 {
     Assert::nullOrMinCount($array, $min);
 

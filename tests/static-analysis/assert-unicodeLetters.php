@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -8,10 +10,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function unicodeLetters($value)
+function unicodeLetters(mixed $value): mixed
 {
     Assert::unicodeLetters($value);
 
@@ -22,10 +22,8 @@ function unicodeLetters($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrUnicodeLetters($value)
+function nullOrUnicodeLetters(mixed $value): mixed
 {
     Assert::nullOrUnicodeLetters($value);
 
@@ -36,10 +34,8 @@ function nullOrUnicodeLetters($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allUnicodeLetters($value)
+function allUnicodeLetters(mixed $value): mixed
 {
     Assert::allUnicodeLetters($value);
 
@@ -50,10 +46,8 @@ function allUnicodeLetters($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrUnicodeLetters($value)
+function allNullOrUnicodeLetters(mixed $value): mixed
 {
     Assert::allNullOrUnicodeLetters($value);
 

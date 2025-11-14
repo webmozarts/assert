@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @return array-key
  */
-function validArrayKey($value)
+function validArrayKey(mixed $value)
 {
     Assert::validArrayKey($value);
 
@@ -25,7 +27,7 @@ function validArrayKey($value)
  *
  * @return null|array-key
  */
-function nullOrValidArrayKey($value)
+function nullOrValidArrayKey(mixed $value)
 {
     Assert::nullOrValidArrayKey($value);
 
@@ -36,10 +38,8 @@ function nullOrValidArrayKey($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array-key>
  */
-function allValidArrayKey($value): iterable
+function allValidArrayKey(mixed $value): iterable
 {
     Assert::allValidArrayKey($value);
 
@@ -50,10 +50,8 @@ function allValidArrayKey($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<array-key|null>
  */
-function allNullOrValidArrayKey($value): iterable
+function allNullOrValidArrayKey(mixed $value): iterable
 {
     Assert::allNullOrValidArrayKey($value);
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use DateTime;
@@ -23,10 +25,8 @@ function isNotA(object $value): stdClass
  *
  * @param null|object|string $value
  * @param class-string $class
- *
- * @return null|object|string
  */
-function nullOrIsNotA($value, $class)
+function nullOrIsNotA($value, $class): object|string|null
 {
     Assert::nullOrIsNotA($value, $class);
 
@@ -38,8 +38,6 @@ function nullOrIsNotA($value, $class)
  *
  * @param iterable<object|string> $value
  * @param class-string $class
- *
- * @return iterable<object|string>
  */
 function allIsNotA($value, $class): iterable
 {
@@ -53,8 +51,6 @@ function allIsNotA($value, $class): iterable
  *
  * @param iterable<object|string|null> $value
  * @param class-string $class
- *
- * @return iterable<object|string|null>
  */
 function allNullOrIsNotA($value, $class): iterable
 {

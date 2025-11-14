@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use countable;
@@ -9,10 +11,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return countable
  */
-function isCountable($value)
+function isCountable(mixed $value): Countable
 {
     Assert::isCountable($value);
 
@@ -23,10 +23,8 @@ function isCountable($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return null|countable
  */
-function nullOrIsCountable($value)
+function nullOrIsCountable(mixed $value): ?Countable
 {
     Assert::nullOrIsCountable($value);
 
@@ -40,7 +38,7 @@ function nullOrIsCountable($value)
  *
  * @return iterable<countable>
  */
-function allIsCountable($value)
+function allIsCountable(mixed $value)
 {
     Assert::allIsCountable($value);
 
@@ -54,7 +52,7 @@ function allIsCountable($value)
  *
  * @return iterable<countable|null>
  */
-function allNullOrIsCountable($value)
+function allNullOrIsCountable(mixed $value)
 {
     Assert::allNullOrIsCountable($value);
 

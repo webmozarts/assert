@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use stdClass;
@@ -12,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @return list<mixed>
  */
-function isList($value): array
+function isList(mixed $value): array
 {
     Assert::isList($value);
 
@@ -40,7 +42,7 @@ function isListWithKnownType(array $value): array
  *
  * @return null|list<mixed>
  */
-function nullOrIsList($value): ?array
+function nullOrIsList(mixed $value): ?array
 {
     Assert::nullOrIsList($value);
 
@@ -51,10 +53,8 @@ function nullOrIsList($value): ?array
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<list<mixed>>
  */
-function allIsList($value): iterable
+function allIsList(mixed $value): iterable
 {
     Assert::allIsList($value);
 
@@ -65,10 +65,8 @@ function allIsList($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<list<mixed>|null>
  */
-function allNullOrIsList($value): iterable
+function allNullOrIsList(mixed $value): iterable
 {
     Assert::allNullOrIsList($value);
 

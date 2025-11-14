@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param int|float $min
- * @param int|float $max
  */
-function lengthBetween(string $value, $min, $max): string
+function lengthBetween(string $value, int $min, int $max): string
 {
     Assert::lengthBetween($value, $min, $max);
 
@@ -19,11 +18,8 @@ function lengthBetween(string $value, $min, $max): string
 
 /**
  * @psalm-pure
- *
- * @param int|float $min
- * @param int|float $max
  */
-function nullOrLengthBetween(?string $value, $min, $max): ?string
+function nullOrLengthBetween(?string $value, int $min, int $max): ?string
 {
     Assert::nullOrLengthBetween($value, $min, $max);
 
@@ -34,12 +30,10 @@ function nullOrLengthBetween(?string $value, $min, $max): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
- * @param int|float $min
- * @param int|float $max
  *
  * @return iterable<string>
  */
-function allLengthBetween(iterable $value, $min, $max): iterable
+function allLengthBetween(iterable $value, int $min, int $max): iterable
 {
     Assert::allLengthBetween($value, $min, $max);
 
@@ -50,12 +44,10 @@ function allLengthBetween(iterable $value, $min, $max): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
- * @param int|float $min
- * @param int|float $max
  *
  * @return iterable<string|null>
  */
-function allNullOrLengthBetween(iterable $value, $min, $max): iterable
+function allNullOrLengthBetween(iterable $value, int $min, int $max): iterable
 {
     Assert::allNullOrLengthBetween($value, $min, $max);
 

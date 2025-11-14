@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use ArrayIterator;
@@ -12,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @return string[]
  */
-function preserveContainerAllArray($value): iterable
+function preserveContainerAllArray(mixed $value): iterable
 {
     Assert::allString($value);
 
@@ -26,7 +28,7 @@ function preserveContainerAllArray($value): iterable
  *
  * @return ArrayIterator<string, string>
  */
-function preserveContainerAllArrayIterator($value)
+function preserveContainerAllArrayIterator(mixed $value)
 {
     Assert::allString($value);
 

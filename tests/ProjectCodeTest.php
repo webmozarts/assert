@@ -1,25 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests;
 
+use PHPUnit\Framework\Attributes\BeforeClass;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use Webmozart\Assert\Bin\MixinGenerator;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 class ProjectCodeTest extends TestCase
 {
-    private static $readmeContent;
-    private static $assertDocComment;
-    private static $mixinMethodNames;
+    private static string $readmeContent;
+    private static string $assertDocComment;
+    private static array $mixinMethodNames;
 
-    /**
-     * @beforeClass
-     */
-    public static function doSetUpBeforeClass()
+    #[BeforeClass]
+    public static function scanStaticContent(): void
     {
         self::$readmeContent = file_get_contents(__DIR__.'/../README.md');
 
@@ -32,12 +33,8 @@ class ProjectCodeTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider providesMethodNames
-     *
-     * @param string $method
-     */
-    public function testHasNullOr($method)
+    #[DataProvider('providesMethodNames')]
+    public function testHasNullOr(string $method): void
     {
         $fullMethodName = 'nullOr'.ucfirst($method);
 
@@ -61,12 +58,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider providesMethodNames
-     *
-     * @param string $method
-     */
-    public function testHasAll($method)
+    #[DataProvider('providesMethodNames')]
+    public function testHasAll(string $method): void
     {
         $fullMethodName = 'all'.ucfirst($method);
 
@@ -85,12 +78,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider providesMethodNames
-     *
-     * @param string $method
-     */
-    public function testIsInReadme($method)
+    #[DataProvider('providesMethodNames')]
+    public function testIsInReadme(string $method): void
     {
         $correct = strpos((string) self::$readmeContent, $method);
 
@@ -103,12 +92,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider provideMethods
-     *
-     * @param ReflectionMethod $method
-     */
-    public function testHasThrowsAnnotation($method)
+    #[DataProvider('provideMethods')]
+    public function testHasThrowsAnnotation(ReflectionMethod $method): void
     {
         $doc = $method->getDocComment();
 
@@ -130,12 +115,8 @@ class ProjectCodeTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider provideMethods
-     *
-     * @param ReflectionMethod $method
-     */
-    public function testHasCorrespondingStaticAnalysisFile($method)
+    #[DataProvider('provideMethods')]
+    public function testHasCorrespondingStaticAnalysisFile(ReflectionMethod $method): void
     {
         $doc = $method->getDocComment();
 
@@ -150,7 +131,7 @@ class ProjectCodeTest extends TestCase
         );
     }
 
-    public function testMixinIsUpToDateVersion()
+    public function testMixinIsUpToDateVersion(): void
     {
         if (PHP_OS_FAMILY === 'Windows') {
             $this->markTestSkipped('mixin generator is not expected to run on Windows');
@@ -170,27 +151,27 @@ class ProjectCodeTest extends TestCase
     /**
      * @return array
      */
-    public function providesMethodNames()
+    public static function providesMethodNames(): array
     {
-        return array_map(function ($value) {
+        return array_map(function (ReflectionMethod $value) {
             return array($value->getName());
-        }, $this->getMethods());
+        }, self::getMethods());
     }
 
     /**
      * @return array
      */
-    public function provideMethods()
+    public static function provideMethods(): array
     {
-        return array_map(function ($value) {
+        return array_map(function (ReflectionMethod $value) {
             return array($value);
-        }, $this->getMethods());
+        }, self::getMethods());
     }
 
     /**
      * @return array
      */
-    private function getMethods()
+    private static function getMethods(): array
     {
         static $methods;
 

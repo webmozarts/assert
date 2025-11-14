@@ -5,14 +5,18 @@ declare(strict_types=1);
 namespace Webmozart\Assert\Bin;
 
 use ArrayAccess;
-use Closure;
 use Countable;
 use ReflectionClass;
 use ReflectionException;
+use ReflectionIntersectionType;
 use ReflectionMethod;
+use ReflectionType;
+use ReflectionUnionType;
 use RuntimeException;
-use Throwable;
 use Webmozart\Assert\Assert;
+
+use function array_map;
+use function implode;
 use function rtrim;
 
 final class MixinGenerator
@@ -56,6 +60,8 @@ final class MixinGenerator
             <<<'PHP'
 <?php
 
+declare(strict_types=1);
+
 %s
 PHP
             ,
@@ -69,9 +75,7 @@ PHP
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
-        $namespace .= sprintf("use %s;\n", Closure::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
-        $namespace .= sprintf("use %s;\n", Throwable::class);
         $namespace .= "\n";
 
         $namespace .= $this->trait($assert);
@@ -200,6 +204,8 @@ BODY;
         $parameters = [];
         /** @psalm-var array<string, scalar|null> $parametersDefaults */
         $parametersDefaults = [];
+        /** @var array<string, string> $parameterTypes */
+        $parameterTypes = [];
         $parametersReflection = $method->getParameters();
 
         foreach ($parametersReflection as $parameterReflection) {
@@ -211,6 +217,18 @@ BODY;
                 Assert::nullOrScalar($defaultValue);
 
                 $parametersDefaults[$parameterReflection->name] = $defaultValue;
+            }
+
+            if ($parameterReflection->hasType()) {
+                if ($parameterReflection->name === 'value' && $typeTemplate) {
+                    $parameterTypes[$parameterReflection->name] = match ($typeTemplate) {
+                        '%s|null' => $this->reduceParameterType($parameterReflection->getType()),
+                        'iterable<%s>' => 'iterable',
+                        'iterable<%s|null>' => '?iterable',
+                    };
+                } else {
+                    $parameterTypes[$parameterReflection->name] = $this->reduceParameterType($parameterReflection->getType());
+                }
             }
         }
 
@@ -278,7 +296,7 @@ BODY;
                 $phpdocLines[] = trim($comment);
             }
 
-            if ('deprecated' === $key || 'psalm-pure' === $key) {
+            if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'see' === $key) {
                 $phpdocLines[] = '';
             }
         }
@@ -296,7 +314,24 @@ BODY;
             $phpdocLinesDeduplicatedEmptyLines[] = $line;
         }
 
-        return $this->staticMethod($newMethodName, $parameters, $parametersDefaults, $phpdocLinesDeduplicatedEmptyLines, $indent, $body);
+        return $this->staticMethod($newMethodName, $parameters, $parameterTypes, $parametersDefaults, $phpdocLinesDeduplicatedEmptyLines, $indent, $body);
+    }
+
+    private function reduceParameterType(ReflectionType $type): string
+    {
+        if ($type instanceof ReflectionIntersectionType) {
+            return implode('&', array_map([$this, 'reduceParameterType'], $type->getTypes()));
+        }
+
+        if ($type instanceof ReflectionUnionType) {
+            return implode('|', array_map([$this, 'reduceParameterType'], $type->getTypes()));
+        }
+
+        if ($type->getName() === 'mixed') {
+            return $type->getName();
+        }
+
+        return ($type->allowsNull() ? '?' : '') . $type->getName();
     }
 
     private function applyTypeTemplate(string $type, string $typeTemplate): string
@@ -353,26 +388,27 @@ BODY;
     }
 
     /**
-     * @psalm-param list<string> $parameters
-     * @psalm-param array<string, scalar|null> $defaultValues
-     * @psalm-param list<string> $phpdocLines
+     * @psalm-param list<string>                   $parameters
+     * @psalm-param array<string, scalar|null>     $defaults
+     * @psalm-param list<string>                   $phpdocLines
      * @psalm-param callable(string,string):string $body
      *
-     * @param string   $name
-     * @param string[] $parameters
-     * @param string[] $defaultValues
-     * @param array    $phpdocLines
-     * @param int      $indent
-     * @param callable $body
+     * @param string                               $name
+     * @param string[]                             $parameters
+     * @param array<string, string>                $types
+     * @param string[]                             $defaults
+     * @param array                                $phpdocLines
+     * @param int                                  $indent
+     * @param callable                             $body
      *
      * @return string
      */
-    private function staticMethod(string $name, array $parameters, array $defaultValues, array $phpdocLines, int $indent, callable $body): string
+    private function staticMethod(string $name, array $parameters, array $types, array $defaults, array $phpdocLines, int $indent, callable $body): string
     {
         $indentation = str_repeat(' ', $indent);
 
         $staticFunction = $this->phpdoc($phpdocLines, $indent)."\n";
-        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $defaultValues)."\n"
+        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $types, $defaults).": void\n"
             .$indentation."{\n";
 
         $firstParameter = '$'.array_shift($parameters);
@@ -387,15 +423,16 @@ BODY;
     }
 
     /**
-     * @psalm-param list<string> $parameters
-     * @psalm-param array<string, scalar|null> $defaultValues
+     * @psalm-param list<string>               $parameters
+     * @psalm-param array<string, scalar|null> $defaults
      *
-     * @param string[] $parameters
-     * @param string[] $defaultValues
+     * @param string[]                         $parameters
+     * @param array<string, string>            $types
+     * @param string[]                         $defaults
      *
      * @return string
      */
-    private function functionParameters(array $parameters, array $defaultValues): string
+    private function functionParameters(array $parameters, array $types, array $defaults): string
     {
         $result = '';
 
@@ -404,10 +441,12 @@ BODY;
                 $result .= ', ';
             }
 
-            $result .= '$'.$parameter;
+            Assert::keyExists($types, $parameter);
 
-            if (array_key_exists($parameter, $defaultValues)) {
-                $defaultValue = null === $defaultValues[$parameter] ? 'null' : var_export($defaultValues[$parameter], true);
+            $result .= $types[$parameter].' $'.$parameter;
+
+            if (array_key_exists($parameter, $defaults)) {
+                $defaultValue = null === $defaults[$parameter] ? 'null' : var_export($defaults[$parameter], true);
 
                 $result .= ' = '.$defaultValue;
             }
