@@ -1923,6 +1923,82 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
+    public static function nullOrNotOneOf(mixed $value, mixed $values, string $message = ''): void
+    {
+        null === $value || static::notOneOf($value, $values, $message);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNotOneOf(iterable $value, mixed $values, string $message = ''): void
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::notOneOf($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrNotOneOf(?iterable $value, mixed $values, string $message = ''): void
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::notOneOf($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrNotInArray(mixed $value, mixed $values, string $message = ''): void
+    {
+        null === $value || static::notInArray($value, $values, $message);
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNotInArray(iterable $value, mixed $values, string $message = ''): void
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::notInArray($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrNotInArray(?iterable $value, mixed $values, string $message = ''): void
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::notInArray($entry, $values, $message);
+        }
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
     public static function nullOrContains(mixed $value, mixed $subString, string $message = ''): void
     {
         null === $value || static::contains($value, $subString, $message);

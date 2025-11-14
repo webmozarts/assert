@@ -853,6 +853,39 @@ class Assert
     }
 
     /**
+     * A more human-readable alias of Assert::notInArray().
+     *
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notOneOf(mixed $value, mixed $values, string $message = '')
+    {
+        static::notInArray($value, $values, $message);
+    }
+
+    /**
+     * Does strict comparison, so Assert::notInArray(3, [1, 2, 3]) will not pass
+     * the assertion, but Assert::notInArray(3, ['3']) will.
+     *
+     * @psalm-pure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notInArray(mixed $value, mixed $values, string $message = '')
+    {
+        static::isArray($values);
+
+        if (\in_array($value, $values, true)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: '%2$s was not expected to contain a value. Got: %s',
+                static::valueToString($value),
+                \implode(', ', \array_map(array('static', 'valueToString'), $values))
+            ));
+        }
+    }
+
+    /**
      * @psalm-pure
      *
      * @throws InvalidArgumentException
