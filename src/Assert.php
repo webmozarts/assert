@@ -859,7 +859,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notOneOf(mixed $value, mixed $values, string $message = '')
+    public static function notOneOf(mixed $value, mixed $values, string $message = ''): void
     {
         static::notInArray($value, $values, $message);
     }
@@ -872,7 +872,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function notInArray(mixed $value, mixed $values, string $message = '')
+    public static function notInArray(mixed $value, mixed $values, string $message = ''): void
     {
         static::isArray($values);
 
