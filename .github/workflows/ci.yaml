@@ -72,13 +72,18 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           extensions: mbstring
-          tools: phpunit:11
 
       - name: Install dependencies
-        run: composer install
+        run: >-
+          composer install
+
+      - name: Install tools
+        run: >-
+          composer run install-tools
 
       - name: Run unit tests
-        run: phpunit
+        run: >-
+          composer run test
 
   windows-tests:
     name: Windows tests
@@ -103,10 +108,15 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: none
           extensions: mbstring
-          tools: phpunit:11
 
       - name: Install dependencies
-        run: composer install
+        run: >-
+          composer install
+
+      - name: Install tools
+        run: >-
+          composer run install-tools
 
       - name: Run unit tests
-        run: phpunit
+        run: >-
+          composer run test
