@@ -78,8 +78,14 @@ jobs:
           composer install
 
       - name: Install tools
+        if: ${{ matrix.php-version != '8.5' }}
         run: >-
           composer run install-tools
+
+      - name: Install tools
+        if: ${{ matrix.php-version == '8.5' }}
+        run: >-
+          composer run update-tools
 
       - name: Run unit tests
         run: >-
@@ -96,7 +102,6 @@ jobs:
           - "8.2"
           - "8.3"
           - "8.4"
-          - "8.5"
 
     steps:
       - name: Checkout
