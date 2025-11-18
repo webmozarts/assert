@@ -134,7 +134,11 @@ PHP
     private function nullOr(ReflectionMethod $method, int $indent): ?string
     {
         return $this->assertion($method, 'nullOr%s', '%s|null', $indent, function (string $firstParameter, string $parameters) use ($method) {
-            return "null === {$firstParameter} || static::{$method->name}({$firstParameter}, {$parameters});";
+            return <<<BODY
+null === {$firstParameter} || static::{$method->name}({$firstParameter}, {$parameters});
+
+return {$firstParameter};
+BODY;
         });
     }
 
@@ -155,6 +159,8 @@ static::isIterable({$firstParameter});
 foreach ({$firstParameter} as \$entry) {
     static::{$method->name}(\$entry, {$parameters});
 }
+
+return {$firstParameter};
 BODY;
         });
     }
@@ -176,6 +182,8 @@ static::isIterable({$firstParameter});
 foreach ({$firstParameter} as \$entry) {
     null === \$entry || static::{$method->name}(\$entry, {$parameters});
 }
+
+return {$firstParameter};
 BODY;
         });
     }
@@ -408,7 +416,7 @@ BODY;
         $indentation = str_repeat(' ', $indent);
 
         $staticFunction = $this->phpdoc($phpdocLines, $indent)."\n";
-        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $types, $defaults).": void\n"
+        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $types, $defaults)."\n"
             .$indentation."{\n";
 
         $firstParameter = '$'.array_shift($parameters);

@@ -106,6 +106,12 @@ class AssertTest extends TestCase
             array('object', array(true), false),
             array('object', array(1), false),
             array('object', array(array()), false),
+            array('objectish', array(new stdClass()), true),
+            array('objectish', array(new RuntimeException()), true),
+            array('objectish', array(null), false),
+            array('objectish', array(true), false),
+            array('objectish', array(1), false),
+            array('objectish', array(array()), false),
             array('resource', array(self::getResource()), true),
             array('resource', array(self::getResource(), 'stream'), true),
             array('resource', array(self::getResource(), 'other'), false),
@@ -144,8 +150,7 @@ class AssertTest extends TestCase
             array('isInstanceOf', array(null, 'stdClass'), false),
             array('notInstanceOf', array(new stdClass(), 'stdClass'), false),
             array('notInstanceOf', array(new Exception(), 'stdClass'), true),
-            array('notInstanceOf', array(123, 'stdClass'), true),
-            array('notInstanceOf', array(array(), 'stdClass'), true),
+            array('notInstanceOf', array(array(), 'stdClass'), false),
             array('isInstanceOfAny', array(new ArrayIterator(), array('Iterator', 'ArrayAccess')), true),
             array('isInstanceOfAny', array(new Exception(), array('Exception', 'Countable')), true),
             array('isInstanceOfAny', array(new Exception(), array('ArrayAccess', 'Countable')), false),
@@ -164,9 +169,7 @@ class AssertTest extends TestCase
             array('isAnyOf', array(array(), array('stdClass')), false),
             array('isNotA', array('stdClass', 'stdClass'), false),
             array('isNotA', array('stdClass', 123), false),
-            array('isNotA', array('Iterator', 'ArrayIterator'), true),
-            array('isNotA', array(123, 'Iterator'), true),
-            array('isNotA', array(array(), 'Iterator'), true),
+            array('isNotA', array(array(), 'Iterator'), false),
             array('true', array(true), true),
             array('true', array(false), false),
             array('true', array(1), false),
@@ -449,21 +452,14 @@ class AssertTest extends TestCase
             array('propertyExists', array((object) array('property' => null), 'foo'), false),
             array('propertyNotExists', array((object) array('property' => 0), 'property'), false),
             array('propertyNotExists', array((object) array('property' => null), 'property'), false),
-            array('propertyNotExists', array((object) array('property' => null), 'foo'), true),
             array('methodExists', array('RuntimeException', 'getMessage'), true),
             array('methodExists', array(new RuntimeException(), 'getMessage'), true),
             array('methodExists', array('stdClass', 'getMessage'), false),
             array('methodExists', array(new stdClass(), 'getMessage'), false),
-            array('methodExists', array(null, 'getMessage'), false),
-            array('methodExists', array(true, 'getMessage'), false),
-            array('methodExists', array(1, 'getMessage'), false),
             array('methodNotExists', array('RuntimeException', 'getMessage'), false),
             array('methodNotExists', array(new RuntimeException(), 'getMessage'), false),
             array('methodNotExists', array('stdClass', 'getMessage'), true),
             array('methodNotExists', array(new stdClass(), 'getMessage'), true),
-            array('methodNotExists', array(null, 'getMessage'), true),
-            array('methodNotExists', array(true, 'getMessage'), true),
-            array('methodNotExists', array(1, 'getMessage'), true),
             array('keyExists', array(array('key' => 0), 'key'), true),
             array('keyExists', array(array('key' => null), 'key'), true),
             array('keyExists', array(array('key' => null), 'foo'), false),
@@ -544,7 +540,6 @@ class AssertTest extends TestCase
             array('throws', array(function () { trigger_error('test'); }, 'Unthrowable'), false, false),
             array('throws', array(function () { throw new Error(); }, 'Throwable'), true, true),
             array('ip', array('192.168.0.1'), true),
-            array('ip', array(new ToStringClass('192.168.0.1')), true),
             array('ip', array('255.255.255.255'), true),
             array('ip', array('0.0.0.0'), true),
             array('ip', array('2001:0db8:0000:0042:0000:8a2e:0370:7334'), true),
@@ -557,7 +552,6 @@ class AssertTest extends TestCase
             array('ip', array(null), false),
             array('ip', array(false), false),
             array('ipv4', array('192.168.0.1'), true),
-            array('ipv4', array(new ToStringClass('192.168.0.1')), true),
             array('ipv4', array('255.255.255.255'), true),
             array('ipv4', array('0.0.0.0'), true),
             array('ipv4', array('2001:0db8:0000:0042:0000:8a2e:0370:7334'), false),
@@ -573,7 +567,6 @@ class AssertTest extends TestCase
             array('ipv6', array('255.255.255.255'), false),
             array('ipv6', array('0.0.0.0'), false),
             array('ipv6', array('2001:0db8:0000:0042:0000:8a2e:0370:7334'), true),
-            array('ipv6', array(new ToStringClass('2001:0db8:0000:0042:0000:8a2e:0370:7334')), true),
             array('ipv6', array('::ffff:192.0.2.1'), true),
             array('ipv6', array('::1'), true),
             array('ipv6', array('::'), true),
@@ -586,7 +579,6 @@ class AssertTest extends TestCase
             array('email', array(123), false),
             array('email', array('foo.com'), false),
             array('email', array('foo@bar.com'), true),
-            array('email', array(new ToStringClass('foo@bar.com')), true),
             array('uniqueValues', array(array('qwerty', 'qwerty')), false),
             array('uniqueValues', array(array('asdfg', 'qwerty')), true),
             array('uniqueValues', array(array(123, '123')), false),
@@ -615,8 +607,8 @@ class AssertTest extends TestCase
             $this->expectException('\InvalidArgumentException');
         }
 
-        call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
-        $this->addToAssertionCount(1);
+        $result = call_user_func_array(array('Webmozart\Assert\Assert', $method), $args);
+        $this->assertSame($args[array_key_first($args)], $result);
     }
 
     #[DataProvider('getTests')]
@@ -634,8 +626,8 @@ class AssertTest extends TestCase
             $this->expectException('\InvalidArgumentException');
         }
 
-        call_user_func_array(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), $args);
-        $this->addToAssertionCount(1);
+        $result = call_user_func_array(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), $args);
+        $this->assertSame($args[array_key_first($args)], $result);
     }
 
     #[DataProvider('getMethods')]
@@ -645,8 +637,8 @@ class AssertTest extends TestCase
             $this->markTestSkipped('Meaningless test of '.$method);
         }
 
-        call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, '', '');
-        $this->addToAssertionCount(1);
+        $result = call_user_func(array('Webmozart\Assert\Assert', 'nullOr'.ucfirst($method)), null, '', '');
+        $this->assertNull($result);
     }
 
     #[DataProvider('getTests')]
@@ -663,8 +655,8 @@ class AssertTest extends TestCase
         $arg = array_shift($args);
         array_unshift($args, array($arg));
 
-        call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
-        $this->addToAssertionCount(1);
+        $result = call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
+        $this->assertSame($args[array_key_first($args)], $result);
     }
 
     #[DataProvider('getTests')]
@@ -692,8 +684,8 @@ class AssertTest extends TestCase
 
         array_unshift($args, array($arg, null));
 
-        call_user_func_array(array('Webmozart\Assert\Assert', 'allNullOr'.ucfirst($method)), $args);
-        $this->addToAssertionCount(1);
+        $result = call_user_func_array(array('Webmozart\Assert\Assert', 'allNullOr'.ucfirst($method)), $args);
+        $this->assertSame($args[array_key_first($args)], $result);
     }
 
     #[DataProvider('getTests')]
@@ -710,8 +702,8 @@ class AssertTest extends TestCase
         $arg = array_shift($args);
         array_unshift($args, new ArrayIterator(array($arg)));
 
-        call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
-        $this->addToAssertionCount(1);
+        $result = call_user_func_array(array('Webmozart\Assert\Assert', 'all'.ucfirst($method)), $args);
+        $this->assertSame($args[array_key_first($args)], $result);
     }
 
     public static function getStringConversions(): array

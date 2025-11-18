@@ -17,7 +17,6 @@ use ArrayAccess;
 use Countable;
 use DateTime;
 use DateTimeImmutable;
-use Exception;
 use Throwable;
 use Traversable;
 
@@ -94,7 +93,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function integerish(mixed $value, string $message = ''): float|string
+    public static function integerish(mixed $value, string $message = ''): int|float|string
     {
         if (!\is_numeric($value) || $value != (int) $value) {
             static::reportInvalidArgument(\sprintf(
@@ -246,6 +245,34 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @psalm-assert object|string $value
+     *
+     * @psalm-return object|string
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function objectish(mixed $value, string $message = ''): object|string
+    {
+        if (!\is_object($value) && !is_string($value)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected an objectish value. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+
+        if (is_string($value) && !\class_exists($value)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected class to be defined. Got: %s',
+                $value
+            ));
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @psalm-assert resource $value
      *
      * @see https://www.php.net/manual/en/function.get-resource-type.php
@@ -254,7 +281,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function resource(mixed $value, ?string $type = null, string $message = '')
+    public static function resource(mixed $value, ?string $type = null, string $message = ''): mixed
     {
         if (!\is_resource($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -271,6 +298,8 @@ class Assert
                 $type
             ));
         }
+
+        return $value;
     }
 
     /**
@@ -337,7 +366,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isCountable(mixed $value, string $message = ''): mixed
+    public static function isCountable(mixed $value, string $message = ''): array|Countable
     {
         if (!\is_array($value) && !($value instanceof Countable)) {
             static::reportInvalidArgument(\sprintf(
@@ -371,12 +400,15 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template ExpectedType of object
      * @psalm-template ExpectedType of object
      *
      * @psalm-assert ExpectedType $value
      *
+     * @param class-string<ExpectedType> $class
      * @psalm-param class-string<ExpectedType> $class
      *
+     * @return ExpectedType
      * @psalm-return ExpectedType
      *
      * @throws InvalidArgumentException
@@ -399,18 +431,22 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template ExpectedType of object
      * @psalm-template ExpectedType of object
      *
      * @psalm-assert !ExpectedType $value
      *
+     * @param class-string<ExpectedType> $class
      * @psalm-param class-string<ExpectedType> $class
      *
+     * @return !ExpectedType
      * @psalm-return !ExpectedType
      *
      * @throws InvalidArgumentException
      */
-    public static function notInstanceOf(mixed $value, mixed $class, string $message = ''): mixed
+    public static function notInstanceOf(mixed $value, mixed $class, string $message = ''): object
     {
+        static::object($value);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if ($value instanceof $class) {
@@ -432,8 +468,9 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isInstanceOfAny(mixed $value, mixed $classes, string $message = ''): object|string
+    public static function isInstanceOfAny(mixed $value, mixed $classes, string $message = ''): object
     {
+        static::object($value);
         static::isIterable($classes);
 
         foreach ($classes as $class) {
@@ -452,13 +489,17 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template ExpectedType of object
      * @psalm-template ExpectedType of object
      *
      * @psalm-assert ExpectedType|class-string<ExpectedType> $value
      *
-     * @param object|string $value
+     * @param ExpectedType|class-string<ExpectedType> $value
+     * @param class-string<ExpectedType> $class
+     * @psalm-param ExpectedType|class-string<ExpectedType> $value
      * @psalm-param class-string<ExpectedType> $class
      *
+     * @return ExpectedType|class-string<ExpectedType>
      * @psalm-return ExpectedType|class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
@@ -481,20 +522,23 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template UnexpectedType of object
      * @psalm-template UnexpectedType of object
      *
      * @psalm-assert !UnexpectedType $value
      * @psalm-assert !class-string<UnexpectedType> $value
      *
      * @param object|string $value
+     * @param class-string<UnexpectedType> $class
      * @psalm-param class-string<UnexpectedType> $class
      *
      * @psalm-return !UnexpectedType
      *
      * @throws InvalidArgumentException
      */
-    public static function isNotA(mixed $value, mixed $class, string $message = ''): mixed
+    public static function isNotA(mixed $value, mixed $class, string $message = ''): object|string
     {
+        static::objectish($value);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if (\is_a($value, $class, \is_string($value))) {
@@ -522,6 +566,7 @@ class Assert
         static::isIterable($classes);
 
         foreach ($classes as $class) {
+            static::objectish($value);
             static::string($class, 'Expected class as a string. Got: %s');
 
             if (\is_a($value, $class, \is_string($value))) {
@@ -676,10 +721,14 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @psalm-param string $value
+     *
      * @throws InvalidArgumentException
      */
-    public static function ip(mixed $value, string $message = ''): mixed
+    public static function ip(mixed $value, string $message = ''): string
     {
+        static::string($value);
+
         if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IP. Got: %s',
@@ -693,10 +742,14 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @psalm-param string $value
+     *
      * @throws InvalidArgumentException
      */
-    public static function ipv4(mixed $value, string $message = ''): mixed
+    public static function ipv4(mixed $value, string $message = ''): string
     {
+        static::string($value);
+
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv4. Got: %s',
@@ -710,10 +763,14 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @psalm-param string $value
+     *
      * @throws InvalidArgumentException
      */
-    public static function ipv6(mixed $value, string $message = ''): mixed
+    public static function ipv6(mixed $value, string $message = ''): string
     {
+        static::string($value);
+
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be an IPv6. Got: %s',
@@ -725,10 +782,16 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
+     * @psalm-param string $value
+     *
      * @throws InvalidArgumentException
      */
-    public static function email(mixed $value, string $message = ''): mixed
+    public static function email(mixed $value, string $message = ''): string
     {
+        static::string($value);
+
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be a valid e-mail address. Got: %s',
@@ -1559,12 +1622,16 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template ExpectedType of object
      * @psalm-template ExpectedType of object
      *
      * @psalm-assert class-string<ExpectedType> $value
      *
      * @param class-string<ExpectedType> $class
      * @psalm-param class-string<ExpectedType> $class
+     *
+     * @return class-string<ExpectedType>
+     * @psalm-return class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -1606,16 +1673,22 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template ExpectedType of object
      * @psalm-template ExpectedType of object
      *
      * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
+     * @param class-string<ExpectedType>|ExpectedType $value
+     * @param class-string<ExpectedType> $interface
+     * @psalm-param class-string<ExpectedType>|ExpectedType $value
      * @psalm-param class-string<ExpectedType> $interface
      *
      * @throws InvalidArgumentException
      */
     public static function implementsInterface(mixed $value, mixed $interface, string $message = ''): object|string
     {
+        static::objectish($value);
+
         if (!\in_array($interface, \class_implements($value), true)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an implementation of %2$s. Got: %s',
@@ -1677,7 +1750,9 @@ class Assert
      */
     public static function methodExists(mixed $classOrObject, mixed $method, string $message = ''): object|string
     {
-        if (!(\is_string($classOrObject) || \is_object($classOrObject)) || !\method_exists($classOrObject, $method)) {
+        static::objectish($classOrObject);
+
+        if (!\method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the method %s to exist.',
                 static::valueToString($method)
@@ -1697,7 +1772,9 @@ class Assert
      */
     public static function methodNotExists(mixed $classOrObject, mixed $method, string $message = ''): mixed
     {
-        if ((\is_string($classOrObject) || \is_object($classOrObject)) && \method_exists($classOrObject, $method)) {
+        static::objectish($classOrObject);
+
+        if (\method_exists($classOrObject, $method)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the method %s to not exist.',
                 static::valueToString($method)
@@ -1773,7 +1850,7 @@ class Assert
     /**
      * @throws InvalidArgumentException
      */
-    public static function count(mixed $array, mixed $number, string $message = ''): mixed
+    public static function count(mixed $array, mixed $number, string $message = ''): array|Countable
     {
         static::isCountable($array);
         static::integerish($number);
@@ -1794,7 +1871,7 @@ class Assert
     /**
      * @throws InvalidArgumentException
      */
-    public static function minCount(mixed $array, mixed $min, string $message = ''): mixed
+    public static function minCount(mixed $array, mixed $min, string $message = ''): array|Countable
     {
         static::isCountable($array);
         static::integerish($min);
@@ -1813,7 +1890,7 @@ class Assert
     /**
      * @throws InvalidArgumentException
      */
-    public static function maxCount(mixed $array, mixed $max, string $message = ''): array
+    public static function maxCount(mixed $array, mixed $max, string $message = ''): array|Countable
     {
         static::isCountable($array);
         static::integerish($max);
@@ -1832,7 +1909,7 @@ class Assert
     /**
      * @throws InvalidArgumentException
      */
-    public static function countBetween(mixed $array, mixed $min, mixed $max, string $message = ''): mixed
+    public static function countBetween(mixed $array, mixed $min, mixed $max, string $message = ''): array|Countable
     {
         static::isCountable($array);
         static::integerish($min);
@@ -1857,9 +1934,11 @@ class Assert
      *
      * @psalm-assert list $array
      *
+     * @psalm-return list
+     *
      * @throws InvalidArgumentException
      */
-    public static function isList(mixed $array, string $message = ''): mixed
+    public static function isList(mixed $array, string $message = ''): array
     {
         if (!\is_array($array) || !\array_is_list($array)) {
             static::reportInvalidArgument(
@@ -1875,9 +1954,11 @@ class Assert
      *
      * @psalm-assert non-empty-list $array
      *
+     * @psalm-return non-empty-list
+     *
      * @throws InvalidArgumentException
      */
-    public static function isNonEmptyList(mixed $array, string $message = ''): mixed
+    public static function isNonEmptyList(mixed $array, string $message = ''): array
     {
         static::isList($array, $message);
         static::notEmpty($array, $message);
@@ -1888,9 +1969,16 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template T
      * @psalm-template T
      *
      * @psalm-assert array<string, T> $array
+     *
+     * @param array<string, T> $array
+     * @psalm-param array<string, T> $array
+     *
+     * @return array<string, T>
+     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -1910,12 +1998,17 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template T
      * @psalm-template T
      *
      * @psalm-assert array<string, T> $array
      * @psalm-assert !empty $array
      *
-     * @psalm-param mixed|array<T> $array
+     * @param array<string, T> $array
+     * @psalm-param array<string, T> $array
+     *
+     * @return array<string, T>
+     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -1936,12 +2029,13 @@ class Assert
     {
         static::string($value, $message);
 
+        $originalValue = $value;
         $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
 
         // The nil UUID is special form of UUID that is specified to have all
         // 128 bits set to zero.
         if ('00000000-0000-0000-0000-000000000000' === $value) {
-            return $value;
+            return $originalValue;
         }
 
         if (!\preg_match('/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$/D', $value)) {
@@ -1951,7 +2045,7 @@ class Assert
             ));
         }
 
-        return $value;
+        return $originalValue;
     }
 
     /**
@@ -1959,7 +2053,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function throws(mixed $expression, string $class = Exception::class, string $message = ''): callable
+    public static function throws(mixed $expression, string $class = Throwable::class, string $message = ''): callable
     {
         static::string($class);
         static::isCallable($expression);
