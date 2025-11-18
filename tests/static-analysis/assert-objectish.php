@@ -23,7 +23,7 @@ function objectish(mixed $value): object|string
  *
  * @param mixed $value
  */
-function nullOrObjectish(mixed $value): null|object|string
+function nullOrObjectish(mixed $value): object|string|null
 {
     Assert::nullOrObjectish($value);
 

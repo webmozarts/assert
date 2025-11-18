@@ -253,14 +253,14 @@ class Assert
      */
     public static function objectish(mixed $value, string $message = ''): object|string
     {
-        if (!\is_object($value) && !is_string($value)) {
+        if (!\is_object($value) && !\is_string($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an objectish value. Got: %s',
                 static::typeToString($value)
             ));
         }
 
-        if (is_string($value) && !\class_exists($value)) {
+        if (\is_string($value) && !\class_exists($value)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected class to be defined. Got: %s',
                 $value
@@ -401,15 +401,12 @@ class Assert
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @psalm-assert ExpectedType $value
      *
      * @param class-string<ExpectedType> $class
-     * @psalm-param class-string<ExpectedType> $class
      *
      * @return ExpectedType
-     * @psalm-return ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -432,15 +429,12 @@ class Assert
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @psalm-assert !ExpectedType $value
      *
      * @param class-string<ExpectedType> $class
-     * @psalm-param class-string<ExpectedType> $class
      *
      * @return !ExpectedType
-     * @psalm-return !ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -490,17 +484,13 @@ class Assert
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @psalm-assert ExpectedType|class-string<ExpectedType> $value
      *
      * @param ExpectedType|class-string<ExpectedType> $value
      * @param class-string<ExpectedType> $class
-     * @psalm-param ExpectedType|class-string<ExpectedType> $value
-     * @psalm-param class-string<ExpectedType> $class
      *
      * @return ExpectedType|class-string<ExpectedType>
-     * @psalm-return ExpectedType|class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -523,14 +513,12 @@ class Assert
      * @psalm-pure
      *
      * @template UnexpectedType of object
-     * @psalm-template UnexpectedType of object
      *
      * @psalm-assert !UnexpectedType $value
      * @psalm-assert !class-string<UnexpectedType> $value
      *
      * @param object|string $value
      * @param class-string<UnexpectedType> $class
-     * @psalm-param class-string<UnexpectedType> $class
      *
      * @psalm-return !UnexpectedType
      *
@@ -1623,15 +1611,12 @@ class Assert
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @psalm-assert class-string<ExpectedType> $value
      *
      * @param class-string<ExpectedType> $class
-     * @psalm-param class-string<ExpectedType> $class
      *
      * @return class-string<ExpectedType>
-     * @psalm-return class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -1674,14 +1659,11 @@ class Assert
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
      * @param class-string<ExpectedType>|ExpectedType $value
      * @param class-string<ExpectedType> $interface
-     * @psalm-param class-string<ExpectedType>|ExpectedType $value
-     * @psalm-param class-string<ExpectedType> $interface
      *
      * @throws InvalidArgumentException
      */
@@ -1704,13 +1686,14 @@ class Assert
      * @psalm-pure
      *
      * @param string|object $classOrObject
-     * @psalm-param class-string|object $classOrObject
      *
      * @throws InvalidArgumentException
      */
     public static function propertyExists(mixed $classOrObject, mixed $property, string $message = ''): object|string
     {
-        if (!(\is_string($classOrObject) || \is_object($classOrObject)) || !\property_exists($classOrObject, $property)) {
+        static::objectish($classOrObject);
+
+        if (!\property_exists($classOrObject, $property)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected the property %s to exist.',
                 static::valueToString($property)
@@ -1970,15 +1953,12 @@ class Assert
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      *
      * @psalm-assert array<string, T> $array
      *
      * @param array<string, T> $array
-     * @psalm-param array<string, T> $array
      *
      * @return array<string, T>
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -1999,16 +1979,13 @@ class Assert
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      *
      * @psalm-assert array<string, T> $array
      * @psalm-assert !empty $array
      *
      * @param array<string, T> $array
-     * @psalm-param array<string, T> $array
      *
      * @return array<string, T>
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
