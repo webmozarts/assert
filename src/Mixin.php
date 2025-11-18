@@ -938,16 +938,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert ExpectedType|null $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return ExpectedType
-     *
-     * @psalm-return ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -962,16 +957,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<ExpectedType> $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return ExpectedType
-     *
-     * @psalm-return ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -990,16 +980,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<ExpectedType|null> $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return ExpectedType
-     *
-     * @psalm-return ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -1018,15 +1003,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return !ExpectedType
-     *
-     * @psalm-return !ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -1041,15 +1021,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return !ExpectedType
-     *
-     * @psalm-return !ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -1068,16 +1043,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<!ExpectedType|null> $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return !ExpectedType
-     *
-     * @psalm-return !ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -1152,18 +1122,12 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert ExpectedType|class-string<ExpectedType>|null $value
      *
      * @param ExpectedType|class-string<ExpectedType>|null $value
      * @param class-string<ExpectedType>                   $class
      *
-     * @psalm-param ExpectedType|class-string<ExpectedType>|null $value
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return ExpectedType|class-string<ExpectedType>
-     *
-     * @psalm-return ExpectedType|class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -1178,18 +1142,12 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>> $value
      *
      * @param iterable<ExpectedType|class-string<ExpectedType>> $value
      * @param class-string<ExpectedType>                        $class
      *
-     * @psalm-param iterable<ExpectedType|class-string<ExpectedType>> $value
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return ExpectedType|class-string<ExpectedType>
-     *
-     * @psalm-return ExpectedType|class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -1208,18 +1166,12 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>|null> $value
      *
      * @param iterable<ExpectedType|class-string<ExpectedType>|null> $value
      * @param class-string<ExpectedType>                             $class
      *
-     * @psalm-param iterable<ExpectedType|class-string<ExpectedType>|null> $value
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return ExpectedType|class-string<ExpectedType>
-     *
-     * @psalm-return ExpectedType|class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -1238,12 +1190,9 @@ trait Mixin
      * @psalm-pure
      *
      * @template UnexpectedType of object
-     * @psalm-template UnexpectedType of object
      *
      * @param object|string|null           $value
      * @param class-string<UnexpectedType> $class
-     *
-     * @psalm-param class-string<UnexpectedType> $class
      *
      * @psalm-return !UnexpectedType
      *
@@ -1260,12 +1209,9 @@ trait Mixin
      * @psalm-pure
      *
      * @template UnexpectedType of object
-     * @psalm-template UnexpectedType of object
      *
      * @param iterable<object|string>      $value
      * @param class-string<UnexpectedType> $class
-     *
-     * @psalm-param class-string<UnexpectedType> $class
      *
      * @psalm-return !UnexpectedType
      *
@@ -1286,14 +1232,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template UnexpectedType of object
-     * @psalm-template UnexpectedType of object
      * @psalm-assert iterable<!UnexpectedType|null> $value
      * @psalm-assert iterable<!class-string<UnexpectedType>|null> $value
      *
      * @param iterable<object|string|null> $value
      * @param class-string<UnexpectedType> $class
-     *
-     * @psalm-param class-string<UnexpectedType> $class
      *
      * @psalm-return !UnexpectedType
      *
@@ -3564,16 +3507,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert class-string<ExpectedType>|null $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return class-string<ExpectedType>
-     *
-     * @psalm-return class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -3588,16 +3526,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>> $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return class-string<ExpectedType>
-     *
-     * @psalm-return class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -3616,16 +3549,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|null> $value
      *
      * @param class-string<ExpectedType> $class
      *
-     * @psalm-param class-string<ExpectedType> $class
-     *
      * @return class-string<ExpectedType>
-     *
-     * @psalm-return class-string<ExpectedType>
      *
      * @throws InvalidArgumentException
      */
@@ -3688,14 +3616,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
      * @param class-string<ExpectedType>|ExpectedType|null $value
      * @param class-string<ExpectedType>                   $interface
-     *
-     * @psalm-param class-string<ExpectedType>|ExpectedType|null $value
-     * @psalm-param class-string<ExpectedType> $interface
      *
      * @throws InvalidArgumentException
      */
@@ -3710,14 +3634,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
      *
      * @param iterable<class-string<ExpectedType>|ExpectedType> $value
      * @param class-string<ExpectedType>                        $interface
-     *
-     * @psalm-param iterable<class-string<ExpectedType>|ExpectedType> $value
-     * @psalm-param class-string<ExpectedType> $interface
      *
      * @throws InvalidArgumentException
      */
@@ -3736,14 +3656,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template ExpectedType of object
-     * @psalm-template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
      *
      * @param iterable<class-string<ExpectedType>|ExpectedType|null> $value
      * @param class-string<ExpectedType>                             $interface
-     *
-     * @psalm-param iterable<class-string<ExpectedType>|ExpectedType|null> $value
-     * @psalm-param class-string<ExpectedType> $interface
      *
      * @throws InvalidArgumentException
      */
@@ -3763,8 +3679,6 @@ trait Mixin
      *
      * @param string|object|null $classOrObject
      *
-     * @psalm-param class-string|object|null $classOrObject
-     *
      * @throws InvalidArgumentException
      */
     public static function nullOrPropertyExists(mixed $classOrObject, mixed $property, string $message = '')
@@ -3778,8 +3692,6 @@ trait Mixin
      * @psalm-pure
      *
      * @param iterable<string|object> $classOrObject
-     *
-     * @psalm-param iterable<class-string|object> $classOrObject
      *
      * @throws InvalidArgumentException
      */
@@ -3798,8 +3710,6 @@ trait Mixin
      * @psalm-pure
      *
      * @param iterable<string|object|null> $classOrObject
-     *
-     * @psalm-param iterable<class-string|object|null> $classOrObject
      *
      * @throws InvalidArgumentException
      */
@@ -4394,16 +4304,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      * @psalm-assert array<string, T>|null $array
      *
      * @param array<string, T>|null $array
      *
-     * @psalm-param array<string, T>|null $array
-     *
      * @return array<string, T>
-     *
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -4418,16 +4323,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      * @psalm-assert iterable<array<string, T>> $array
      *
      * @param iterable<array<string, T>> $array
      *
-     * @psalm-param iterable<array<string, T>> $array
-     *
      * @return array<string, T>
-     *
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -4446,16 +4346,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      * @psalm-assert iterable<array<string, T>|null> $array
      *
      * @param iterable<array<string, T>|null> $array
      *
-     * @psalm-param iterable<array<string, T>|null> $array
-     *
      * @return array<string, T>
-     *
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -4474,15 +4369,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      *
      * @param array<string, T>|null $array
      *
-     * @psalm-param array<string, T>|null $array
-     *
      * @return array<string, T>
-     *
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -4497,15 +4387,10 @@ trait Mixin
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      *
      * @param iterable<array<string, T>> $array
      *
-     * @psalm-param iterable<array<string, T>> $array
-     *
      * @return array<string, T>
-     *
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
@@ -4524,17 +4409,12 @@ trait Mixin
      * @psalm-pure
      *
      * @template T
-     * @psalm-template T
      * @psalm-assert iterable<array<string, T>|null> $array
      * @psalm-assert iterable<!empty|null> $array
      *
      * @param iterable<array<string, T>|null> $array
      *
-     * @psalm-param iterable<array<string, T>|null> $array
-     *
      * @return array<string, T>
-     *
-     * @psalm-return array<string, T>
      *
      * @throws InvalidArgumentException
      */
