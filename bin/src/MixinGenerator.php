@@ -278,7 +278,7 @@ BODY;
                 }
             }
 
-            if ('psalm-return' === $key) {
+            if ('psalm-return' === $key || 'return' === $key) {
                 continue;
             }
 

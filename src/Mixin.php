@@ -1035,8 +1035,6 @@ trait Mixin
      *
      * @param class-string<ExpectedType> $class
      *
-     * @return ExpectedType
-     *
      * @return ExpectedType|null
      *
      * @throws InvalidArgumentException
@@ -1055,8 +1053,6 @@ trait Mixin
      * @psalm-assert iterable<ExpectedType> $value
      *
      * @param class-string<ExpectedType> $class
-     *
-     * @return ExpectedType
      *
      * @return iterable<ExpectedType>
      *
@@ -1081,8 +1077,6 @@ trait Mixin
      *
      * @param class-string<ExpectedType> $class
      *
-     * @return ExpectedType
-     *
      * @return iterable<ExpectedType|null>
      *
      * @throws InvalidArgumentException
@@ -1105,8 +1099,6 @@ trait Mixin
      *
      * @param class-string<ExpectedType> $class
      *
-     * @return !ExpectedType
-     *
      * @return mixed
      *
      * @throws InvalidArgumentException
@@ -1124,8 +1116,6 @@ trait Mixin
      * @template ExpectedType of object
      *
      * @param class-string<ExpectedType> $class
-     *
-     * @return !ExpectedType
      *
      * @return mixed
      *
@@ -1149,8 +1139,6 @@ trait Mixin
      * @psalm-assert iterable<!ExpectedType|null> $value
      *
      * @param class-string<ExpectedType> $class
-     *
-     * @return !ExpectedType
      *
      * @return iterable<!ExpectedType|null>
      *
@@ -1238,8 +1226,6 @@ trait Mixin
      * @param ExpectedType|class-string<ExpectedType>|null $value
      * @param class-string<ExpectedType>                   $class
      *
-     * @return ExpectedType|class-string<ExpectedType>
-     *
      * @return ExpectedType|class-string<ExpectedType>|null
      *
      * @throws InvalidArgumentException
@@ -1259,8 +1245,6 @@ trait Mixin
      *
      * @param iterable<ExpectedType|class-string<ExpectedType>> $value
      * @param class-string<ExpectedType>                        $class
-     *
-     * @return ExpectedType|class-string<ExpectedType>
      *
      * @return iterable<ExpectedType|class-string<ExpectedType>>
      *
@@ -1285,8 +1269,6 @@ trait Mixin
      *
      * @param iterable<ExpectedType|class-string<ExpectedType>|null> $value
      * @param class-string<ExpectedType>                             $class
-     *
-     * @return ExpectedType|class-string<ExpectedType>
      *
      * @return iterable<ExpectedType|class-string<ExpectedType>|null>
      *
@@ -3925,8 +3907,6 @@ trait Mixin
      *
      * @param class-string<ExpectedType> $class
      *
-     * @return class-string<ExpectedType>
-     *
      * @return class-string<ExpectedType>|null
      *
      * @throws InvalidArgumentException
@@ -3945,8 +3925,6 @@ trait Mixin
      * @psalm-assert iterable<class-string<ExpectedType>> $value
      *
      * @param class-string<ExpectedType> $class
-     *
-     * @return class-string<ExpectedType>
      *
      * @return iterable<class-string<ExpectedType>>
      *
@@ -3970,8 +3948,6 @@ trait Mixin
      * @psalm-assert iterable<class-string<ExpectedType>|null> $value
      *
      * @param class-string<ExpectedType> $class
-     *
-     * @return class-string<ExpectedType>
      *
      * @return iterable<class-string<ExpectedType>|null>
      *
@@ -4812,8 +4788,6 @@ trait Mixin
      *
      * @param array<string, T>|null $array
      *
-     * @return array<string, T>
-     *
      * @return array<string, T>|null
      *
      * @throws InvalidArgumentException
@@ -4832,8 +4806,6 @@ trait Mixin
      * @psalm-assert iterable<array<string, T>> $array
      *
      * @param iterable<array<string, T>> $array
-     *
-     * @return array<string, T>
      *
      * @return iterable<array<string, T>>
      *
@@ -4858,8 +4830,6 @@ trait Mixin
      *
      * @param iterable<array<string, T>|null> $array
      *
-     * @return array<string, T>
-     *
      * @return iterable<array<string, T>|null>
      *
      * @throws InvalidArgumentException
@@ -4882,8 +4852,6 @@ trait Mixin
      *
      * @param array<string, T>|null $array
      *
-     * @return array<string, T>
-     *
      * @return mixed
      *
      * @throws InvalidArgumentException
@@ -4901,8 +4869,6 @@ trait Mixin
      * @template T
      *
      * @param iterable<array<string, T>> $array
-     *
-     * @return array<string, T>
      *
      * @return mixed
      *
@@ -4927,8 +4893,6 @@ trait Mixin
      * @psalm-assert iterable<!empty|null> $array
      *
      * @param iterable<array<string, T>|null> $array
-     *
-     * @return array<string, T>
      *
      * @return iterable<!empty|null>
      *
