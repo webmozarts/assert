@@ -1331,13 +1331,11 @@ trait Mixin
      * @psalm-pure
      *
      * @template UnexpectedType of object
-     * @psalm-assert iterable<!UnexpectedType|null> $value
-     * @psalm-assert iterable<!class-string<UnexpectedType>|null> $value
      *
      * @param iterable<object|string|null> $value
      * @param class-string<UnexpectedType> $class
      *
-     * @return iterable<!class-string<UnexpectedType>|null>
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */

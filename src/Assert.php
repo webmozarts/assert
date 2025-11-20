@@ -514,9 +514,6 @@ class Assert
      *
      * @template UnexpectedType of object
      *
-     * @psalm-assert !UnexpectedType $value
-     * @psalm-assert !class-string<UnexpectedType> $value
-     *
      * @param object|string $value
      * @param class-string<UnexpectedType> $class
      *
