@@ -95,6 +95,7 @@ Method                                                   | Description
 `boolean($value, $message = '')`                         | Check that a value is a boolean
 `scalar($value, $message = '')`                          | Check that a value is a scalar
 `object($value, $message = '')`                          | Check that a value is an object
+`objectish($value, $message = '')`                       | Check that a value is an object or a string of a class that exists
 `resource($value, $type = null, $message = '')`          | Check that a value is a resource
 `isCallable($value, $message = '')`                      | Check that a value is a callable
 `isArray($value, $message = '')`                         | Check that a value is an array

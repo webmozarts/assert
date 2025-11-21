@@ -24,7 +24,7 @@ function isNotA(object $value): stdClass
  * @psalm-pure
  *
  * @param null|object|string $value
- * @param class-string $class
+ * @param class-string<object> $class
  */
 function nullOrIsNotA($value, $class): object|string|null
 {
@@ -37,7 +37,7 @@ function nullOrIsNotA($value, $class): object|string|null
  * @psalm-pure
  *
  * @param iterable<object|string> $value
- * @param class-string $class
+ * @param class-string<object> $class
  */
 function allIsNotA($value, $class): iterable
 {
@@ -50,7 +50,7 @@ function allIsNotA($value, $class): iterable
  * @psalm-pure
  *
  * @param iterable<object|string|null> $value
- * @param class-string $class
+ * @param class-string<object> $class
  */
 function allNullOrIsNotA($value, $class): iterable
 {
