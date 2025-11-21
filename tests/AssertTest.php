@@ -34,6 +34,22 @@ use Webmozart\Assert\Assert;
  */
 class AssertTest extends TestCase
 {
+    private array $skipTestNullOr = array(
+        'isInitialized',
+    );
+
+    private array $skipTestAllArray = array(
+        'isInitialized',
+    );
+
+    private array $skipTestAllNullOrArray = array(
+        'isInitialized',
+    );
+
+    private array $skipTestAllTraversable = array(
+        'isInitialized',
+    );
+
     public static function getResource()
     {
         static $resource;
@@ -116,6 +132,20 @@ class AssertTest extends TestCase
             array('resource', array(self::getResource(), 'stream'), true),
             array('resource', array(self::getResource(), 'other'), false),
             array('resource', array(1), false),
+            array('isInitialized', array(new class {
+                public mixed $a = null;
+            }, 'a'), true),
+            array('isInitialized', array(new class {
+                public mixed $a;
+            }, 'a'), false),
+            array('isInitialized', array(new class {
+                public mixed $a;
+                public mixed $b = true;
+            }, 'a'), false),
+            array('isInitialized', array(new class {
+                public mixed $a;
+                public mixed $b = true;
+            }, 'b'), true),
             array('isCallable', array('strlen'), true),
             array('isCallable', array(array(self::class, 'getTests')), true),
             array('isCallable', array(function () {}), true),
@@ -614,6 +644,10 @@ class AssertTest extends TestCase
     #[DataProvider('getTests')]
     public function testNullOr(string $method, array $args, bool $success, bool $multibyte = false): void
     {
+        if (in_array($method, $this->skipTestNullOr, true)) {
+            $this->markTestSkipped('The method nullOr'.ucfirst($method).' is unsupported.');
+        }
+
         if (in_array($method, array('null', 'notNull'))) {
             $this->markTestSkipped('Meaningless test of '.$method);
         }
@@ -633,6 +667,10 @@ class AssertTest extends TestCase
     #[DataProvider('getMethods')]
     public function testNullOrAcceptsNull(string $method): void
     {
+        if (in_array($method, $this->skipTestNullOr, true)) {
+            $this->markTestSkipped('The method nullOr'.ucfirst($method).' is unsupported.');
+        }
+
         if (in_array($method, array('null', 'notNull'))) {
             $this->markTestSkipped('Meaningless test of '.$method);
         }
@@ -644,6 +682,10 @@ class AssertTest extends TestCase
     #[DataProvider('getTests')]
     public function testAllArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
+        if (in_array($method, $this->skipTestAllArray, true)) {
+            $this->markTestSkipped('The method all'.ucfirst($method).' is unsupported.');
+        }
+
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
@@ -662,6 +704,10 @@ class AssertTest extends TestCase
     #[DataProvider('getTests')]
     public function testAllNullOrArray(string $method, array $args, bool $success, bool $multibyte = false): void
     {
+        if (in_array($method, $this->skipTestAllNullOrArray, true)) {
+            $this->markTestSkipped('The method nullOr'.ucfirst($method).' is unsupported.');
+        }
+
         if (in_array($method, array('null', 'notNull'))) {
             $this->markTestSkipped('Meaningless test of '.$method);
         }
@@ -691,6 +737,10 @@ class AssertTest extends TestCase
     #[DataProvider('getTests')]
     public function testAllTraversable(string $method, array $args, bool $success, bool $multibyte = false): void
     {
+        if (in_array($method, $this->skipTestAllTraversable, true)) {
+            $this->markTestSkipped('The method all'.ucfirst($method).' is unsupported.');
+        }
+
         if ($multibyte && !function_exists('mb_strlen')) {
             $this->markTestSkipped('The function mb_strlen() is not available');
         }
