@@ -26,7 +26,7 @@ final class MixinGenerator
      *
      * @var string[]
      */
-    private $unsupportedMethods = [
+    private array $psalmPhpdocUnsupportedMethods = [
         'nullOrNotInstanceOf',  // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'allNotInstanceOf',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'nullOrNotEmpty',       // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
@@ -40,6 +40,10 @@ final class MixinGenerator
         'allUpper',             // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'nullOrIsNonEmptyMap',  // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
         'allIsNonEmptyMap',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
+    ];
+
+    private array $skipGenerateForMethods = [
+        'isInitialized',
     ];
 
     /**
@@ -367,7 +371,7 @@ BODY;
 
     private function shouldSkipAnnotation(string $newMethodName, string $key): bool
     {
-        if (!in_array($newMethodName, $this->unsupportedMethods, true)) {
+        if (!in_array($newMethodName, $this->psalmPhpdocUnsupportedMethods, true)) {
             return false;
         }
 
@@ -568,6 +572,10 @@ BODY;
         $staticMethods = $assert->getMethods(ReflectionMethod::IS_STATIC);
 
         foreach ($staticMethods as $staticMethod) {
+            if (in_array($staticMethod->name, $this->skipGenerateForMethods)) {
+                continue;
+            }
+
             $modifiers = $staticMethod->getModifiers();
             if (0 === ($modifiers & ReflectionMethod::IS_PUBLIC)) {
                 continue;
