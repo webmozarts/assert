@@ -19,10 +19,12 @@ class ProjectCodeTest extends TestCase
     private static string $assertDocComment;
     private static array $mixinMethodNames;
 
+    /** @var string[] */
     private array $methodDoesNotHaveNullOrMixin = array(
         'isInitialized',
     );
 
+    /** @var string[] */
     private array $methodDoesNotHaveAllMixin = array(
         'isInitialized',
     );

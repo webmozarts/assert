@@ -26,7 +26,7 @@ final class MixinGenerator
      *
      * @var string[]
      */
-    private array $psalmPhpdocUnsupportedMethods = [
+    private $unsupportedMethods = [
         'nullOrNotInstanceOf',  // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'allNotInstanceOf',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'nullOrNotEmpty',       // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
@@ -371,7 +371,7 @@ BODY;
 
     private function shouldSkipAnnotation(string $newMethodName, string $key): bool
     {
-        if (!in_array($newMethodName, $this->psalmPhpdocUnsupportedMethods, true)) {
+        if (!in_array($newMethodName, $this->unsupportedMethods, true)) {
             return false;
         }
 
