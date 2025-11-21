@@ -19,6 +19,16 @@ class ProjectCodeTest extends TestCase
     private static string $assertDocComment;
     private static array $mixinMethodNames;
 
+    /** @var string[] */
+    private array $methodDoesNotHaveNullOrMixin = array(
+        'isInitialized',
+    );
+
+    /** @var string[] */
+    private array $methodDoesNotHaveAllMixin = array(
+        'isInitialized',
+    );
+
     #[BeforeClass]
     public static function scanStaticContent(): void
     {
@@ -36,6 +46,10 @@ class ProjectCodeTest extends TestCase
     #[DataProvider('providesMethodNames')]
     public function testHasNullOr(string $method): void
     {
+        if (in_array($method, $this->methodDoesNotHaveNullOrMixin)) {
+            $this->markTestSkipped("The method $method does not have nullOr Mixin.");
+        }
+
         $fullMethodName = 'nullOr'.ucfirst($method);
 
         if ($method === 'notNull' || $method === 'null') {
@@ -61,6 +75,10 @@ class ProjectCodeTest extends TestCase
     #[DataProvider('providesMethodNames')]
     public function testHasAll(string $method): void
     {
+        if (in_array($method, $this->methodDoesNotHaveAllMixin)) {
+            $this->markTestSkipped("The method $method does not have all Mixin.");
+        }
+
         $fullMethodName = 'all'.ucfirst($method);
 
         $correct = strpos((string) self::$assertDocComment, '@method static void '.$fullMethodName);

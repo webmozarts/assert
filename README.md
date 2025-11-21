@@ -97,6 +97,7 @@ Method                                                   | Description
 `object($value, $message = '')`                          | Check that a value is an object
 `objectish($value, $message = '')`                       | Check that a value is an object or a string of a class that exists
 `resource($value, $type = null, $message = '')`          | Check that a value is a resource
+`isInitialized($value, $property, $message = '')`        | Check that a value has an initialized property
 `isCallable($value, $message = '')`                      | Check that a value is a callable
 `isArray($value, $message = '')`                         | Check that a value is an array
 `isIterable($value, $message = '')`                      | Check that a value is an array or a `\Traversable`

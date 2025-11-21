@@ -42,6 +42,10 @@ final class MixinGenerator
         'allIsNonEmptyMap',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
     ];
 
+    private array $skipGenerateForMethods = [
+        'isInitialized',
+    ];
+
     /**
      * @psalm-var list<string>
      *
@@ -568,6 +572,10 @@ BODY;
         $staticMethods = $assert->getMethods(ReflectionMethod::IS_STATIC);
 
         foreach ($staticMethods as $staticMethod) {
+            if (in_array($staticMethod->name, $this->skipGenerateForMethods)) {
+                continue;
+            }
+
             $modifiers = $staticMethod->getModifiers();
             if (0 === ($modifiers & ReflectionMethod::IS_PUBLIC)) {
                 continue;

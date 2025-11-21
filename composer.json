@@ -57,6 +57,7 @@
             "composer --working-dir=tools/psalm update",
             "composer --working-dir=tools/roave-bc-check update"
         ],
+        "generate-mixin": "php bin/generate.php",
         "bc-check": "./tools/roave-bc-check/vendor/bin/roave-backward-compatibility-check",
         "cs-check" : "./tools/php-cs-fixer/vendor/bin/php-cs-fixer check",
         "cs-fix": "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix",

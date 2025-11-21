@@ -17,6 +17,7 @@ use ArrayAccess;
 use Countable;
 use DateTime;
 use DateTimeImmutable;
+use ReflectionProperty;
 use Throwable;
 use Traversable;
 
@@ -296,6 +297,29 @@ class Assert
                 $message ?: 'Expected a resource of type %2$s. Got: %s',
                 static::typeToString($value),
                 $type
+            ));
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert object $value
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isInitialized(mixed $value, string $property, string $message = ''): object
+    {
+        Assert::object($value);
+
+        $reflectionProperty = new ReflectionProperty($value, $property);
+
+        if (!$reflectionProperty->isInitialized($value)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected property %s to be initialized.',
+                $property,
             ));
         }
 
