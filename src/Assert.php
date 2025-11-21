@@ -310,7 +310,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function isInitialized(mixed $value, string $property, string $message = ''): mixed
+    public static function isInitialized(mixed $value, string $property, string $message = ''): object
     {
         Assert::object($value);
 

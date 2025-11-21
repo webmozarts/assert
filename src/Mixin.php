@@ -750,6 +750,62 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @psalm-assert object|null $value
+     *
+     * @return object|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrIsInitialized(mixed $value, string $property, string $message = ''): mixed
+    {
+        null === $value || static::isInitialized($value, $property, $message);
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert iterable<object> $value
+     *
+     * @return iterable<object>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allIsInitialized(iterable $value, string $property, string $message = ''): iterable
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::isInitialized($entry, $property, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert iterable<object|null> $value
+     *
+     * @return iterable<object|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrIsInitialized(?iterable $value, string $property, string $message = ''): ?iterable
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::isInitialized($entry, $property, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @psalm-assert callable|null $value
      *
      * @return callable|null
