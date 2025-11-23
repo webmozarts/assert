@@ -801,7 +801,7 @@ class Assert
     {
         static::string($value);
 
-        if (false === \filter_var($value, FILTER_VALIDATE_EMAIL)) {
+        if (false === \filter_var($value, FILTER_VALIDATE_EMAIL, FILTER_FLAG_EMAIL_UNICODE)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to be a valid e-mail address. Got: %s',
                 static::valueToString($value)

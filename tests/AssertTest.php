@@ -597,6 +597,7 @@ class AssertTest extends TestCase
             array('email', array(123), false),
             array('email', array('foo.com'), false),
             array('email', array('foo@bar.com'), true),
+            array('email', array('föö@bar.com'), true),
             array('uniqueValues', array(array('qwerty', 'qwerty')), false),
             array('uniqueValues', array(array('asdfg', 'qwerty')), true),
             array('uniqueValues', array(array(123, '123')), false),
