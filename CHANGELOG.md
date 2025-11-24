@@ -5,12 +5,21 @@ Changelog
 
 ### Changed
 
-- **BREAKING**: Minimum PHP version is now 8.2 (was 7.2).
+- **BREAKING** Minimum PHP version is now 8.2 (was 7.2).
+- **BREAKING** Remove deprecated `isTraversable`, use `isIterable` or `isInstanceOf` instead.
 - Updated CI/CD test matrix to test PHP 8.2, 8.3, 8.4, and 8.5.
 - Updated development tools (PHPUnit, Psalm, PHP-CS-Fixer) to supported versions.
 - Added explicit return types and parameter types to all methods in both source code and tests.
-- Remove deprecated `isTraversable` (use `isIterable` or `isInstanceOf` instead).
-- Added `notInArray` and `notOneOf`
+
+### Added
+
+- All assertion methods now return the checked value.
+- Added `notInArray` and `notOneOf`.
+- Added `isInitialized`, to check if a class property is initialized.
+
+### Fixed
+
+- Corrected validation of emails with unicode characters.
 
 ## 1.12.1
 
