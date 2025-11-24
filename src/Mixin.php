@@ -5003,4 +5003,22 @@ trait Mixin
 
         return $expression;
     }
+
+    public static function nullOrAllUuid($value, $message = '')
+    {
+        static::isIterableOrNull($value);
+
+        foreach ($value ?? [] as $entry) {
+            null === $entry || static::uuid($entry, $message);
+        }
+    }
+
+    public static function nullOrAllIsInstanceOf($value, $class, $message = '')
+    {
+        static::isIterableOrNull($value);
+
+        foreach ($value ?? [] as $entry) {
+            static::isInstanceOf($entry, $class, $message);
+        }
+    }
 }

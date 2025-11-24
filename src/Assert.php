@@ -421,6 +421,16 @@ class Assert
         return $value;
     }
 
+    public static function isIterableOrNull($value, $message = '')
+    {
+        if (!\is_array($value) && !($value instanceof Traversable) && $value !== null) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected an iterable or null. Got: %s',
+                static::typeToString($value)
+            ));
+        }
+    }
+
     /**
      * @psalm-pure
      *
