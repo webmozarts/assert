@@ -20,14 +20,14 @@ class ProjectCodeTest extends TestCase
     private static array $mixinMethodNames;
 
     /** @var string[] */
-    private array $methodDoesNotHaveNullOrMixin = array(
+    private array $methodDoesNotHaveNullOrMixin = [
         'isInitialized',
-    );
+    ];
 
     /** @var string[] */
-    private array $methodDoesNotHaveAllMixin = array(
+    private array $methodDoesNotHaveAllMixin = [
         'isInitialized',
-    );
+    ];
 
     #[BeforeClass]
     public static function scanStaticContent(): void
@@ -37,7 +37,7 @@ class ProjectCodeTest extends TestCase
         $rc = new ReflectionClass('\Webmozart\Assert\Mixin');
         self::$assertDocComment = $rc->getDocComment();
 
-        self::$mixinMethodNames = array();
+        self::$mixinMethodNames = [];
         foreach ($rc->getMethods() as $method) {
             self::$mixinMethodNames[] = $method->name;
         }
@@ -172,7 +172,7 @@ class ProjectCodeTest extends TestCase
     public static function providesMethodNames(): array
     {
         return array_map(function (ReflectionMethod $value) {
-            return array($value->getName());
+            return [$value->getName()];
         }, self::getMethods());
     }
 
@@ -182,7 +182,7 @@ class ProjectCodeTest extends TestCase
     public static function provideMethods(): array
     {
         return array_map(function (ReflectionMethod $value) {
-            return array($value);
+            return [$value];
         }, self::getMethods());
     }
 
@@ -198,7 +198,7 @@ class ProjectCodeTest extends TestCase
         }
 
         $rc = new ReflectionClass('\Webmozart\Assert\Assert');
-        $methods = array();
+        $methods = [];
 
         $rcMethods = $rc->getMethods(ReflectionMethod::IS_PUBLIC);
 

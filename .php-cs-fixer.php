@@ -11,7 +11,7 @@ return (new PhpCsFixer\Config())
         '@PSR2' => true,
         '@Symfony' => true,
         'ordered_imports' => true,
-        'array_syntax' => ['syntax' => 'long'],
+        'array_syntax' => ['syntax' => 'short'],
         'fully_qualified_strict_types' => false,
         'global_namespace_import' => true,
         'no_superfluous_phpdoc_tags' => false,

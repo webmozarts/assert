@@ -500,7 +500,7 @@ class Assert
         static::reportInvalidArgument(\sprintf(
             $message ?: 'Expected an instance of any of %2$s. Got: %s',
             static::typeToString($value),
-            \implode(', ', \array_map(array(static::class, 'valueToString'), \iterator_to_array($classes)))
+            \implode(', ', \array_map([static::class, 'valueToString'], \iterator_to_array($classes)))
         ));
     }
 
@@ -1024,7 +1024,7 @@ class Assert
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected one of: %2$s. Got: %s',
                 static::valueToString($value),
-                \implode(', ', \array_map(array(static::class, 'valueToString'), $values))
+                \implode(', ', \array_map([static::class, 'valueToString'], $values))
             ));
         }
 
@@ -1063,7 +1063,7 @@ class Assert
             static::reportInvalidArgument(\sprintf(
                 $message ?: '%2$s was not expected to contain a value. Got: %s',
                 static::valueToString($value),
-                \implode(', ', \array_map(array('static', 'valueToString'), $values))
+                \implode(', ', \array_map(['static', 'valueToString'], $values))
             ));
         }
 
@@ -2028,7 +2028,7 @@ class Assert
         static::string($value, $message);
 
         $originalValue = $value;
-        $value = \str_replace(array('urn:', 'uuid:', '{', '}'), '', $value);
+        $value = \str_replace(['urn:', 'uuid:', '{', '}'], '', $value);
 
         // The nil UUID is special form of UUID that is specified to have all
         // 128 bits set to zero.
