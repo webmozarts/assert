@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @return false
  */
-function false($value): bool
+function false(mixed $value): bool
 {
     Assert::false($value);
 
@@ -25,7 +27,7 @@ function false($value): bool
  *
  * @return null|false
  */
-function nullOrFalse($value): ?bool
+function nullOrFalse(mixed $value): ?bool
 {
     Assert::nullOrFalse($value);
 
@@ -36,10 +38,8 @@ function nullOrFalse($value): ?bool
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<false>
  */
-function allFalse($value): iterable
+function allFalse(mixed $value): iterable
 {
     Assert::allFalse($value);
 
@@ -50,10 +50,8 @@ function allFalse($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<false|null>
  */
-function allNullOrFalse($value): iterable
+function allNullOrFalse(mixed $value): iterable
 {
     Assert::allFalse($value);
 

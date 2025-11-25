@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Closure;
@@ -29,8 +31,6 @@ function nullOrThrows(?Closure $value, $class): ?Closure
 /**
  * @param iterable<Closure> $value
  * @param class-string<Throwable> $class
- *
- * @return iterable<Closure>
  */
 function allThrows(iterable $value, $class): iterable
 {
@@ -41,8 +41,6 @@ function allThrows(iterable $value, $class): iterable
 /**
  * @param iterable<Closure|null> $value
  * @param class-string<Throwable> $class
- *
- * @return iterable<Closure>
  */
 function allNullOrThrows(iterable $value, $class): iterable
 {

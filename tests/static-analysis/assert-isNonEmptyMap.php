@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
+use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
@@ -11,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @return non-empty-array<string, mixed>
  */
-function isNonEmptyMap($value): array
+function isNonEmptyMap(mixed $value): array
 {
     Assert::isNonEmptyMap($value);
 
@@ -23,9 +26,9 @@ function isNonEmptyMap($value): array
  *
  * @psalm-pure
  *
- * @param array<int|string, \stdClass> $value
+ * @param array<int|string, stdClass> $value
  *
- * @return array<string, \stdClass>
+ * @return array<string, stdClass>
  */
 function isNonEmptyMapWithKnownType(array $value): array
 {
@@ -38,10 +41,8 @@ function isNonEmptyMapWithKnownType(array $value): array
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrIsNonEmptyMap($value)
+function nullOrIsNonEmptyMap(mixed $value): mixed
 {
     Assert::nullOrIsNonEmptyMap($value);
 
@@ -52,8 +53,6 @@ function nullOrIsNonEmptyMap($value)
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<mixed|array<mixed>>
  */
 function allIsNonEmptyMap(iterable $value): iterable
 {
@@ -66,8 +65,6 @@ function allIsNonEmptyMap(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<mixed|array<mixed>> $value
- *
- * @return iterable<mixed|array<mixed>>
  */
 function allNullOrIsNonEmptyMap(iterable $value): iterable
 {

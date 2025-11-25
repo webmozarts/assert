@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -8,10 +10,8 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return null
  */
-function null($value)
+function null(mixed $value): null
 {
     Assert::null($value);
 
@@ -22,10 +22,8 @@ function null($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<null>
  */
-function allNull($value): iterable
+function allNull(mixed $value): iterable
 {
     Assert::allNull($value);
 

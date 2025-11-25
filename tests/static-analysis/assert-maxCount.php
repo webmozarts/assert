@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Countable;
@@ -8,10 +10,8 @@ use Webmozart\Assert\Assert;
 /**
  * @param Countable|array $array
  * @param int|float $max
- *
- * @return Countable|array
  */
-function maxCount($array, $max)
+function maxCount($array, $max): Countable|array
 {
     Assert::maxCount($array, $max);
 
@@ -21,10 +21,8 @@ function maxCount($array, $max)
 /**
  * @param null|Countable|array $array
  * @param int|float $max
- *
- * @return null|Countable|array
  */
-function nullOrMaxCount($array, $max)
+function nullOrMaxCount($array, $max): Countable|array|null
 {
     Assert::nullOrMaxCount($array, $max);
 
@@ -34,8 +32,6 @@ function nullOrMaxCount($array, $max)
 /**
  * @param iterable<Countable|array> $array
  * @param int|float $max
- *
- * @return iterable<Countable|array>
  */
 function allMaxCount(iterable $array, $max): iterable
 {
@@ -47,8 +43,6 @@ function allMaxCount(iterable $array, $max): iterable
 /**
  * @param iterable<Countable|array|null> $array
  * @param int|float $max
- *
- * @return iterable<Countable|array|null>
  */
 function allNullOrMaxCount(iterable $array, $max): iterable
 {

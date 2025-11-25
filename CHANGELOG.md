@@ -1,14 +1,47 @@
 Changelog
 =========
 
-## UNRELEASED
+## 2.0.0 (UNRELEASED)
 * Added `Assert::nonNegativeInteger()` and `Assert::negativeInteger()`
+
+### Changed
+
+- **BREAKING** Minimum PHP version is now 8.2 (was 7.2).
+- **BREAKING** Remove deprecated `isTraversable`, use `isIterable` or `isInstanceOf` instead.
+- Updated CI/CD test matrix to test PHP 8.2, 8.3, 8.4, and 8.5.
+- Updated development tools (PHPUnit, Psalm, PHP-CS-Fixer) to supported versions.
+- Added explicit return types and parameter types to all methods in both source code and tests.
+
+### Added
+
+- All assertion methods now return the checked value.
+- Added `notInArray` and `notOneOf`.
+- Added `isInitialized`, to check if a class property is initialized.
+
+### Fixed
+
+- Corrected validation of emails with unicode characters.
+
+## 1.12.1
+
+### Fixed
+
+- Exclude tools from export.
+
+## 1.12.0
+
+### Fixed
+
+- Corrected messages and typos in various assertions.
+- Document `void` return type.
+- Prevent UUIDs with trailing newlines from validating.
+- Assert values are strings before ctype checks.
 
 ## 1.11.0
 
 ### Added
 
-* Added explicit (non magic) `allNullOr*` methods, with `@psalm-assert` annotations, for better Psalm support.
+* Added explicit (non-magic) `allNullOr*` methods, with `@psalm-assert` annotations, for better Psalm support.
 
 ### Changed
 
@@ -18,7 +51,7 @@ Changelog
 
 ### Removed
 
-* Removed `symfony/polyfill-ctype` as a dependency, and require `ext-cytpe` instead.
+* Removed `symfony/polyfill-ctype` as a dependency, and require `ext-ctype` instead.
   * You can still require the `symfony/polyfill-ctype` in your project if you need it, as it provides `ext-ctype`
 
 ## 1.10.0
@@ -52,7 +85,7 @@ Changelog
 ## Changed
 
 * the `all*` & `nullOr*` methods are now declared on an interface, instead of `@method` annotations.
-This interface is linked to the `Assert` class with a `@mixin` annotation. Most IDE's have supported this
+This interface is linked to the `Assert` class with a `@mixin` annotation. Most IDEs have supported this
 for a long time, and you should not lose any autocompletion capabilities. PHPStan has supported this since
 version `0.12.20`. This package is marked incompatible (with a composer conflict) with phpstan version prior to that.
 If you do not use PHPStan than this does not matter.

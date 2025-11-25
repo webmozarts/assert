@@ -1,17 +1,13 @@
 <?xml version="1.0"?>
 <psalm
-    totallyTyped="true"
+    errorLevel="8"
+    resolveFromConfigFile="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config ci/vendor/vimeo/psalm/config.xsd"
-    phpVersion="7.3"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 >
     <projectFiles>
-        <directory name="bin" />
+        <directory name="bin"/>
         <directory name="tests/static-analysis" />
-        <ignoreFiles>
-            <directory name="ci"/>
-        </ignoreFiles>
     </projectFiles>
-
 </psalm>

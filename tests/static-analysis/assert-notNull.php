@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -18,10 +20,8 @@ function notNull(?object $value): object
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNotNull($value)
+function allNotNull(mixed $value): mixed
 {
     Assert::allNotNull($value);
 

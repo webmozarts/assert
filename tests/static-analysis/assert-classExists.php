@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @return class-string
  */
-function classExists($value): string
+function classExists(mixed $value): string
 {
     Assert::classExists($value);
 
@@ -21,7 +23,7 @@ function classExists($value): string
  *
  * @return class-string|null
  */
-function nullOrClassExists($value): ?string
+function nullOrClassExists(mixed $value): ?string
 {
     Assert::nullOrClassExists($value);
 
@@ -30,10 +32,8 @@ function nullOrClassExists($value): ?string
 
 /**
  * @param mixed $value
- *
- * @return iterable<class-string>
  */
-function allClassExists($value): iterable
+function allClassExists(mixed $value): iterable
 {
     Assert::allClassExists($value);
 
@@ -42,10 +42,8 @@ function allClassExists($value): iterable
 
 /**
  * @param mixed $value
- *
- * @return iterable<class-string|null>
  */
-function allNullOrClassExists($value): iterable
+function allNullOrClassExists(mixed $value): iterable
 {
     Assert::allNullOrClassExists($value);
 

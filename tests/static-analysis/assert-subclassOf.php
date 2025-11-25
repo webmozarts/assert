@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use stdClass;
@@ -12,7 +14,7 @@ use Webmozart\Assert\Assert;
  *
  * @return class-string<stdClass>|stdClass
  */
-function subclassOf($value)
+function subclassOf(mixed $value)
 {
     Assert::subclassOf($value, stdClass::class);
 
@@ -26,7 +28,7 @@ function subclassOf($value)
  *
  * @return null|class-string<stdClass>|stdClass
  */
-function nullOrSubclassOf($value)
+function nullOrSubclassOf(mixed $value)
 {
     Assert::nullOrSubclassOf($value, stdClass::class);
 
@@ -37,10 +39,8 @@ function nullOrSubclassOf($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<class-string<stdClass>|stdClass>
  */
-function allSubclassOf($value): iterable
+function allSubclassOf(mixed $value): iterable
 {
     Assert::allSubclassOf($value, stdClass::class);
 
@@ -51,10 +51,8 @@ function allSubclassOf($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<class-string<stdClass>|stdClass|null>
  */
-function allNullOrSubclassOf($value): iterable
+function allNullOrSubclassOf(mixed $value): iterable
 {
     Assert::allNullOrSubclassOf($value, stdClass::class);
 

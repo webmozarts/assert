@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return positive-int|0
  */
-function natural($value): int
+function natural(mixed $value): int
 {
     Assert::natural($value);
 
@@ -25,7 +27,7 @@ function natural($value): int
  *
  * @psalm-return positive-int|0|null
  */
-function nullOrNatural($value): ?int
+function nullOrNatural(mixed $value): ?int
 {
     Assert::nullOrNatural($value);
 
@@ -36,13 +38,11 @@ function nullOrNatural($value): ?int
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int|0>
- *
+ * *
  * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
  * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */
-function allNatural($value): iterable
+function allNatural(mixed $value): iterable
 {
     Assert::allNatural($value);
 
@@ -53,13 +53,11 @@ function allNatural($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int|0|null>
- *
+ * *
  * @psalm-suppress MixedInferredReturnType https://github.com/vimeo/psalm/issues/5052
  * @psalm-suppress MixedReturnStatement https://github.com/vimeo/psalm/issues/5052
  */
-function allNullOrNatural($value): iterable
+function allNullOrNatural(mixed $value): iterable
 {
     Assert::allNullOrNatural($value);
 

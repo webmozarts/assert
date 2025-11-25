@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Serializable;
@@ -10,7 +12,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function isInstanceOf($value): Serializable
+function isInstanceOf(mixed $value): Serializable
 {
     Assert::isInstanceOf($value, Serializable::class);
 
@@ -22,7 +24,7 @@ function isInstanceOf($value): Serializable
  *
  * @param mixed $value
  */
-function nullOrIsInstanceOf($value): ?Serializable
+function nullOrIsInstanceOf(mixed $value): ?Serializable
 {
     Assert::nullOrIsInstanceOf($value, Serializable::class);
 
@@ -33,10 +35,8 @@ function nullOrIsInstanceOf($value): ?Serializable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<Serializable>
  */
-function allIsInstanceOf($value): iterable
+function allIsInstanceOf(mixed $value): iterable
 {
     Assert::allIsInstanceOf($value, Serializable::class);
 
@@ -47,10 +47,8 @@ function allIsInstanceOf($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<Serializable|null>
  */
-function allNullOrIsInstanceOf($value): iterable
+function allNullOrIsInstanceOf(mixed $value): iterable
 {
     Assert::allNullOrIsInstanceOf($value, Serializable::class);
 

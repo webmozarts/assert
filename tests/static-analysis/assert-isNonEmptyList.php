@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @return non-empty-list<mixed>
  */
-function isNonEmptyList($value): array
+function isNonEmptyList(mixed $value): array
 {
     Assert::isNonEmptyList($value);
 
@@ -25,7 +27,7 @@ function isNonEmptyList($value): array
  *
  * @return null|non-empty-list<mixed>
  */
-function nullOrIsNonEmptyList($value): ?array
+function nullOrIsNonEmptyList(mixed $value): ?array
 {
     Assert::nullOrIsNonEmptyList($value);
 
@@ -36,10 +38,8 @@ function nullOrIsNonEmptyList($value): ?array
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<non-empty-list<mixed>>
  */
-function allIsNonEmptyList($value): iterable
+function allIsNonEmptyList(mixed $value): iterable
 {
     Assert::allIsNonEmptyList($value);
 
@@ -50,10 +50,8 @@ function allIsNonEmptyList($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<non-empty-list<mixed>|null>
  */
-function allNullOrIsNonEmptyList($value): iterable
+function allNullOrIsNonEmptyList(mixed $value): iterable
 {
     Assert::allNullOrIsNonEmptyList($value);
 

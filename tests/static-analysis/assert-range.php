@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -10,10 +12,8 @@ use Webmozart\Assert\Assert;
  * @param mixed $value
  * @param mixed $min
  * @param mixed $max
- *
- * @return mixed
  */
-function range($value, $min, $max)
+function range($value, $min, $max): mixed
 {
     Assert::range($value, $min, $max);
 
@@ -26,10 +26,8 @@ function range($value, $min, $max)
  * @param mixed $value
  * @param mixed $min
  * @param mixed $max
- *
- * @return mixed
  */
-function nullOrRange($value, $min, $max)
+function nullOrRange($value, $min, $max): mixed
 {
     Assert::nullOrRange($value, $min, $max);
 
@@ -42,10 +40,8 @@ function nullOrRange($value, $min, $max)
  * @param mixed $value
  * @param mixed $min
  * @param mixed $max
- *
- * @return mixed
  */
-function allRange($value, $min, $max)
+function allRange($value, $min, $max): mixed
 {
     Assert::allRange($value, $min, $max);
 
@@ -58,10 +54,8 @@ function allRange($value, $min, $max)
  * @param mixed $value
  * @param mixed $min
  * @param mixed $max
- *
- * @return mixed
  */
-function allNullOrRange($value, $min, $max)
+function allNullOrRange($value, $min, $max): mixed
 {
     Assert::allNullOrRange($value, $min, $max);
 

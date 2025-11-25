@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function ip($value)
+function ip(mixed $value): mixed
 {
     Assert::ip($value);
 
@@ -18,10 +18,8 @@ function ip($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrIp($value)
+function nullOrIp(mixed $value): mixed
 {
     Assert::nullOrIp($value);
 
@@ -30,10 +28,8 @@ function nullOrIp($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allIp($value)
+function allIp(mixed $value): mixed
 {
     Assert::allIp($value);
 
@@ -42,10 +38,8 @@ function allIp($value)
 
 /**
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrIp($value)
+function allNullOrIp(mixed $value): mixed
 {
     Assert::allNullOrIp($value);
 

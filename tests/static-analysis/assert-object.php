@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -9,7 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param mixed $value
  */
-function object($value): object
+function object(mixed $value): object
 {
     Assert::object($value);
 
@@ -21,7 +23,7 @@ function object($value): object
  *
  * @param mixed $value
  */
-function nullOrObject($value): ?object
+function nullOrObject(mixed $value): ?object
 {
     Assert::nullOrObject($value);
 
@@ -32,10 +34,8 @@ function nullOrObject($value): ?object
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<object>
  */
-function allObject($value): iterable
+function allObject(mixed $value): iterable
 {
     Assert::allObject($value);
 
@@ -46,10 +46,8 @@ function allObject($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<object|null>
  */
-function allNullOrObject($value): iterable
+function allNullOrObject(mixed $value): iterable
 {
     Assert::allNullOrObject($value);
 

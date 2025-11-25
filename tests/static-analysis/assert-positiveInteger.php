@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return positive-int
  */
-function positiveInteger($value): int
+function positiveInteger(mixed $value): int
 {
     Assert::positiveInteger($value);
 
@@ -25,7 +27,7 @@ function positiveInteger($value): int
  *
  * @psalm-return 1|2
  */
-function positiveIntegerFiltersOutZero($value): int
+function positiveIntegerFiltersOutZero(mixed $value): int
 {
     Assert::positiveInteger($value);
 
@@ -39,7 +41,7 @@ function positiveIntegerFiltersOutZero($value): int
  *
  * @psalm-return positive-int|null
  */
-function nullOrPositiveInteger($value): ?int
+function nullOrPositiveInteger(mixed $value): ?int
 {
     Assert::nullOrPositiveInteger($value);
 
@@ -50,10 +52,8 @@ function nullOrPositiveInteger($value): ?int
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int>
  */
-function allPositiveInteger($value): iterable
+function allPositiveInteger(mixed $value): iterable
 {
     Assert::allPositiveInteger($value);
 
@@ -64,10 +64,8 @@ function allPositiveInteger($value): iterable
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return iterable<positive-int|null>
  */
-function allNullOrPositiveInteger($value): iterable
+function allNullOrPositiveInteger(mixed $value): iterable
 {
     Assert::allPositiveInteger($value);
 

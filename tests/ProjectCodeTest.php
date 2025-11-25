@@ -1,44 +1,55 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests;
 
+use PHPUnit\Framework\Attributes\BeforeClass;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use Webmozart\Assert\Bin\MixinGenerator;
 
-/**
- * @coversNothing
- */
+#[CoversNothing]
 class ProjectCodeTest extends TestCase
 {
-    private static $readmeContent;
-    private static $assertDocComment;
-    private static $mixinMethodNames;
+    private static string $readmeContent;
+    private static string $assertDocComment;
+    private static array $mixinMethodNames;
 
-    /**
-     * @beforeClass
-     */
-    public static function doSetUpBeforeClass()
+    /** @var string[] */
+    private array $methodDoesNotHaveNullOrMixin = [
+        'isInitialized',
+    ];
+
+    /** @var string[] */
+    private array $methodDoesNotHaveAllMixin = [
+        'isInitialized',
+    ];
+
+    #[BeforeClass]
+    public static function scanStaticContent(): void
     {
         self::$readmeContent = file_get_contents(__DIR__.'/../README.md');
 
         $rc = new ReflectionClass('\Webmozart\Assert\Mixin');
         self::$assertDocComment = $rc->getDocComment();
 
-        self::$mixinMethodNames = array();
+        self::$mixinMethodNames = [];
         foreach ($rc->getMethods() as $method) {
             self::$mixinMethodNames[] = $method->name;
         }
     }
 
-    /**
-     * @dataProvider providesMethodNames
-     *
-     * @param string $method
-     */
-    public function testHasNullOr($method)
+    #[DataProvider('providesMethodNames')]
+    public function testHasNullOr(string $method): void
     {
+        if (in_array($method, $this->methodDoesNotHaveNullOrMixin)) {
+            $this->markTestSkipped("The method $method does not have nullOr Mixin.");
+        }
+
         $fullMethodName = 'nullOr'.ucfirst($method);
 
         if ($method === 'notNull' || $method === 'null') {
@@ -61,13 +72,13 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider providesMethodNames
-     *
-     * @param string $method
-     */
-    public function testHasAll($method)
+    #[DataProvider('providesMethodNames')]
+    public function testHasAll(string $method): void
     {
+        if (in_array($method, $this->methodDoesNotHaveAllMixin)) {
+            $this->markTestSkipped("The method $method does not have all Mixin.");
+        }
+
         $fullMethodName = 'all'.ucfirst($method);
 
         $correct = strpos((string) self::$assertDocComment, '@method static void '.$fullMethodName);
@@ -85,12 +96,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider providesMethodNames
-     *
-     * @param string $method
-     */
-    public function testIsInReadme($method)
+    #[DataProvider('providesMethodNames')]
+    public function testIsInReadme(string $method): void
     {
         $correct = strpos((string) self::$readmeContent, $method);
 
@@ -103,12 +110,8 @@ class ProjectCodeTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    /**
-     * @dataProvider provideMethods
-     *
-     * @param ReflectionMethod $method
-     */
-    public function testHasThrowsAnnotation($method)
+    #[DataProvider('provideMethods')]
+    public function testHasThrowsAnnotation(ReflectionMethod $method): void
     {
         $doc = $method->getDocComment();
 
@@ -130,12 +133,8 @@ class ProjectCodeTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider provideMethods
-     *
-     * @param ReflectionMethod $method
-     */
-    public function testHasCorrespondingStaticAnalysisFile($method)
+    #[DataProvider('provideMethods')]
+    public function testHasCorrespondingStaticAnalysisFile(ReflectionMethod $method): void
     {
         $doc = $method->getDocComment();
 
@@ -150,10 +149,10 @@ class ProjectCodeTest extends TestCase
         );
     }
 
-    public function testMixinIsUpToDateVersion()
+    public function testMixinIsUpToDateVersion(): void
     {
-        if (version_compare(PHP_VERSION, '7.2.0') < 0) {
-            $this->markTestSkipped('mixin generator is implemented using php 7.2 features');
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('mixin generator is not expected to run on Windows');
 
             return;
         }
@@ -170,27 +169,27 @@ class ProjectCodeTest extends TestCase
     /**
      * @return array
      */
-    public function providesMethodNames()
+    public static function providesMethodNames(): array
     {
-        return array_map(function ($value) {
-            return array($value->getName());
-        }, $this->getMethods());
+        return array_map(function (ReflectionMethod $value) {
+            return [$value->getName()];
+        }, self::getMethods());
     }
 
     /**
      * @return array
      */
-    public function provideMethods()
+    public static function provideMethods(): array
     {
-        return array_map(function ($value) {
-            return array($value);
-        }, $this->getMethods());
+        return array_map(function (ReflectionMethod $value) {
+            return [$value];
+        }, self::getMethods());
     }
 
     /**
      * @return array
      */
-    private function getMethods()
+    private static function getMethods(): array
     {
         static $methods;
 
@@ -199,7 +198,7 @@ class ProjectCodeTest extends TestCase
         }
 
         $rc = new ReflectionClass('\Webmozart\Assert\Assert');
-        $methods = array();
+        $methods = [];
 
         $rcMethods = $rc->getMethods(ReflectionMethod::IS_PUBLIC);
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use DateTime;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @param stdClass|DateTime $value
  */
-function notInstanceOf($value): DateTime
+function notInstanceOf(mixed $value): DateTime
 {
     Assert::notInstanceOf($value, stdClass::class);
 
@@ -20,14 +22,13 @@ function notInstanceOf($value): DateTime
 
 /**
  * @psalm-pure
+ *
  * @psalm-template T of object
  *
  * @param mixed $value
  * @param class-string<T> $class
- *
- * @return mixed
  */
-function nullOrNotInstanceOf($value, $class)
+function nullOrNotInstanceOf($value, $class): mixed
 {
     Assert::nullOrNotInstanceOf($value, $class);
 
@@ -36,14 +37,13 @@ function nullOrNotInstanceOf($value, $class)
 
 /**
  * @psalm-pure
+ *
  * @psalm-template T of object
  *
  * @param mixed $value
  * @param class-string<T> $class
- *
- * @return mixed
  */
-function allNotInstanceOf($value, $class)
+function allNotInstanceOf($value, $class): mixed
 {
     Assert::allNotInstanceOf($value, $class);
 
@@ -52,14 +52,13 @@ function allNotInstanceOf($value, $class)
 
 /**
  * @psalm-pure
+ *
  * @psalm-template T of object
  *
  * @param mixed $value
  * @param class-string<T> $class
- *
- * @return mixed
  */
-function allNullOrNotInstanceOf($value, $class)
+function allNullOrNotInstanceOf($value, $class): mixed
 {
     Assert::allNullOrNotInstanceOf($value, $class);
 

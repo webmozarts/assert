@@ -5,14 +5,19 @@ declare(strict_types=1);
 namespace Webmozart\Assert\Bin;
 
 use ArrayAccess;
-use Closure;
 use Countable;
 use ReflectionClass;
 use ReflectionException;
+use ReflectionIntersectionType;
 use ReflectionMethod;
+use ReflectionType;
+use ReflectionUnionType;
 use RuntimeException;
-use Throwable;
 use Webmozart\Assert\Assert;
+
+use function array_map;
+use function implode;
+use function rtrim;
 
 final class MixinGenerator
 {
@@ -37,6 +42,10 @@ final class MixinGenerator
         'allIsNonEmptyMap',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3444)
     ];
 
+    private array $skipGenerateForMethods = [
+        'isInitialized',
+    ];
+
     /**
      * @psalm-var list<string>
      *
@@ -55,6 +64,8 @@ final class MixinGenerator
             <<<'PHP'
 <?php
 
+declare(strict_types=1);
+
 %s
 PHP
             ,
@@ -68,9 +79,7 @@ PHP
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
-        $namespace .= sprintf("use %s;\n", Closure::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
-        $namespace .= sprintf("use %s;\n", Throwable::class);
         $namespace .= "\n";
 
         $namespace .= $this->trait($assert);
@@ -104,7 +113,7 @@ PHP
         return \sprintf(
             <<<'PHP'
 /**
- * This trait provides nurllOr*, all* and allNullOr* variants of assertion base methods.
+ * This trait provides nullOr*, all* and allNullOr* variants of assertion base methods.
  * Do not use this trait directly: it will change, and is not designed for reuse.
  */
 trait Mixin
@@ -129,7 +138,11 @@ PHP
     private function nullOr(ReflectionMethod $method, int $indent): ?string
     {
         return $this->assertion($method, 'nullOr%s', '%s|null', $indent, function (string $firstParameter, string $parameters) use ($method) {
-            return "null === {$firstParameter} || static::{$method->name}({$firstParameter}, {$parameters});";
+            return <<<BODY
+null === {$firstParameter} || static::{$method->name}({$firstParameter}, {$parameters});
+
+return {$firstParameter};
+BODY;
         });
     }
 
@@ -150,6 +163,8 @@ static::isIterable({$firstParameter});
 foreach ({$firstParameter} as \$entry) {
     static::{$method->name}(\$entry, {$parameters});
 }
+
+return {$firstParameter};
 BODY;
         });
     }
@@ -171,6 +186,8 @@ static::isIterable({$firstParameter});
 foreach ({$firstParameter} as \$entry) {
     null === \$entry || static::{$method->name}(\$entry, {$parameters});
 }
+
+return {$firstParameter};
 BODY;
         });
     }
@@ -199,6 +216,8 @@ BODY;
         $parameters = [];
         /** @psalm-var array<string, scalar|null> $parametersDefaults */
         $parametersDefaults = [];
+        /** @var array<string, string> $parameterTypes */
+        $parameterTypes = [];
         $parametersReflection = $method->getParameters();
 
         foreach ($parametersReflection as $parameterReflection) {
@@ -211,6 +230,18 @@ BODY;
 
                 $parametersDefaults[$parameterReflection->name] = $defaultValue;
             }
+
+            if ($parameterReflection->hasType()) {
+                if ($parameterReflection->name === 'value' && $typeTemplate) {
+                    $parameterTypes[$parameterReflection->name] = match ($typeTemplate) {
+                        '%s|null' => $this->reduceParameterType($parameterReflection->getType()),
+                        'iterable<%s>' => 'iterable',
+                        'iterable<%s|null>' => '?iterable',
+                    };
+                } else {
+                    $parameterTypes[$parameterReflection->name] = $this->reduceParameterType($parameterReflection->getType());
+                }
+            }
         }
 
         if (in_array($newMethodName, $this->skipMethods, true)) {
@@ -218,6 +249,9 @@ BODY;
         }
 
         $paramsAdded = false;
+
+        $nativeReturnType = reset($parameterTypes) ?? 'mixed';
+        $phpdocReturnType = 'mixed';
 
         $phpdocLines = [];
         foreach ($parsedComment as $key => $values) {
@@ -248,6 +282,10 @@ BODY;
                 }
             }
 
+            if ('psalm-return' === $key || 'return' === $key) {
+                continue;
+            }
+
             if ('param' === $key) {
                 [$longestType, $longestName] = $this->findLongestTypeAndName($values);
             }
@@ -258,6 +296,8 @@ BODY;
 
                 if ('psalm-assert' === $key) {
                     $type = $this->applyTypeTemplate($type, $typeTemplate);
+
+                    $phpdocReturnType = $type;
                 }
 
                 if ('param' === $key) {
@@ -277,10 +317,13 @@ BODY;
                 $phpdocLines[] = trim($comment);
             }
 
-            if ('deprecated' === $key) {
+            if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'see' === $key) {
                 $phpdocLines[] = '';
             }
         }
+
+        $phpdocLines[] = '@return '.$phpdocReturnType;
+        $phpdocLines[] = '';
 
         $phpdocLinesDeduplicatedEmptyLines = [];
         foreach ($phpdocLines as $line) {
@@ -295,7 +338,24 @@ BODY;
             $phpdocLinesDeduplicatedEmptyLines[] = $line;
         }
 
-        return $this->staticMethod($newMethodName, $parameters, $parametersDefaults, $phpdocLinesDeduplicatedEmptyLines, $indent, $body);
+        return $this->staticMethod($newMethodName, $parameters, $parameterTypes, $parametersDefaults, $phpdocLinesDeduplicatedEmptyLines, $indent, $body, $nativeReturnType);
+    }
+
+    private function reduceParameterType(ReflectionType $type): string
+    {
+        if ($type instanceof ReflectionIntersectionType) {
+            return implode('&', array_map([$this, 'reduceParameterType'], $type->getTypes()));
+        }
+
+        if ($type instanceof ReflectionUnionType) {
+            return implode('|', array_map([$this, 'reduceParameterType'], $type->getTypes()));
+        }
+
+        if ($type->getName() === 'mixed') {
+            return $type->getName();
+        }
+
+        return ($type->allowsNull() ? '?' : '') . $type->getName();
     }
 
     private function applyTypeTemplate(string $type, string $typeTemplate): string
@@ -315,7 +375,7 @@ BODY;
             return false;
         }
 
-        return 'psalm-assert' === $key;
+        return 'psalm-assert' === $key || 'psalm-return' === $key;
     }
 
     /**
@@ -352,26 +412,28 @@ BODY;
     }
 
     /**
-     * @psalm-param list<string> $parameters
-     * @psalm-param array<string, scalar|null> $defaultValues
-     * @psalm-param list<string> $phpdocLines
+     * @psalm-param list<string>                   $parameters
+     * @psalm-param array<string, scalar|null>     $defaults
+     * @psalm-param list<string>                   $phpdocLines
      * @psalm-param callable(string,string):string $body
      *
-     * @param string   $name
-     * @param string[] $parameters
-     * @param string[] $defaultValues
-     * @param array    $phpdocLines
-     * @param int      $indent
-     * @param callable $body
+     * @param string                               $name
+     * @param string[]                             $parameters
+     * @param array<string, string>                $types
+     * @param string[]                             $defaults
+     * @param array                                $phpdocLines
+     * @param int                                  $indent
+     * @param callable                             $body
+     * @param string                               $returnType
      *
      * @return string
      */
-    private function staticMethod(string $name, array $parameters, array $defaultValues, array $phpdocLines, int $indent, callable $body): string
+    private function staticMethod(string $name, array $parameters, array $types, array $defaults, array $phpdocLines, int $indent, callable $body, string $returnType): string
     {
         $indentation = str_repeat(' ', $indent);
 
         $staticFunction = $this->phpdoc($phpdocLines, $indent)."\n";
-        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $defaultValues)."\n"
+        $staticFunction .= $indentation.'public static function '.$name.$this->functionParameters($parameters, $types, $defaults).": {$returnType}\n"
             .$indentation."{\n";
 
         $firstParameter = '$'.array_shift($parameters);
@@ -386,15 +448,16 @@ BODY;
     }
 
     /**
-     * @psalm-param list<string> $parameters
-     * @psalm-param array<string, scalar|null> $defaultValues
+     * @psalm-param list<string>               $parameters
+     * @psalm-param array<string, scalar|null> $defaults
      *
-     * @param string[] $parameters
-     * @param string[] $defaultValues
+     * @param string[]                         $parameters
+     * @param array<string, string>            $types
+     * @param string[]                         $defaults
      *
      * @return string
      */
-    private function functionParameters(array $parameters, array $defaultValues): string
+    private function functionParameters(array $parameters, array $types, array $defaults): string
     {
         $result = '';
 
@@ -403,10 +466,12 @@ BODY;
                 $result .= ', ';
             }
 
-            $result .= '$'.$parameter;
+            Assert::keyExists($types, $parameter);
 
-            if (array_key_exists($parameter, $defaultValues)) {
-                $defaultValue = null === $defaultValues[$parameter] ? 'null' : var_export($defaultValues[$parameter], true);
+            $result .= $types[$parameter].' $'.$parameter;
+
+            if (array_key_exists($parameter, $defaults)) {
+                $defaultValue = null === $defaults[$parameter] ? 'null' : var_export($defaults[$parameter], true);
 
                 $result .= ' = '.$defaultValue;
             }
@@ -428,14 +493,21 @@ BODY;
         $indentation = str_repeat(' ', $indent);
 
         $phpdoc = $indentation.'/**';
+        $throws = '';
 
         foreach ($lines as $line) {
-            $phpdoc .= "\n".$indentation.rtrim(' * '.$line);
+            if (strpos($line, '@throws') === 0) {
+                $throws .= "\n".$indentation.rtrim(' * '.$line);
+            } else {
+                $phpdoc .= "\n".$indentation.rtrim(' * '.$line);
+            }
         }
 
-        $phpdoc .= "\n".$indentation.' *'
-            . "\n".$indentation.' * @return void'
-            . "\n".$indentation.' */';
+        if (strlen($throws) > 0) {
+            $phpdoc .= $throws;
+        }
+
+        $phpdoc .= "\n".$indentation.' */';
 
         return $phpdoc;
     }
@@ -500,6 +572,10 @@ BODY;
         $staticMethods = $assert->getMethods(ReflectionMethod::IS_STATIC);
 
         foreach ($staticMethods as $staticMethod) {
+            if (in_array($staticMethod->name, $this->skipGenerateForMethods)) {
+                continue;
+            }
+
             $modifiers = $staticMethod->getModifiers();
             if (0 === ($modifiers & ReflectionMethod::IS_PUBLIC)) {
                 continue;

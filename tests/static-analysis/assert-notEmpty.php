@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -54,10 +56,8 @@ function notEmptyArray(array $value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function nullOrNotEmpty($value)
+function nullOrNotEmpty(mixed $value): mixed
 {
     Assert::nullOrNotEmpty($value);
 
@@ -68,10 +68,8 @@ function nullOrNotEmpty($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNotEmpty($value)
+function allNotEmpty(mixed $value): mixed
 {
     Assert::allNotEmpty($value);
 
@@ -82,10 +80,8 @@ function allNotEmpty($value)
  * @psalm-pure
  *
  * @param mixed $value
- *
- * @return mixed
  */
-function allNullOrNotEmpty($value)
+function allNullOrNotEmpty(mixed $value): mixed
 {
     Assert::allNullOrNotEmpty($value);
 
