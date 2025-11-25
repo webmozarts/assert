@@ -131,12 +131,11 @@ class Assert
      * @psalm-pure
      * @psalm-assert non-negative-int $value
      *
-     * @param mixed $value
-     * @param string $message
+     * @psalm-return non-negative-int
      *
      * @throws InvalidArgumentException
      */
-    public static function nonNegativeInteger($value, $message = '')
+    public static function nonNegativeInteger(mixed $value, string $message = ''): int
     {
         if (!(\is_int($value) && $value >= 0)) {
             static::reportInvalidArgument(\sprintf(
@@ -144,18 +143,19 @@ class Assert
                 static::valueToString($value)
             ));
         }
+
+        return $value;
     }
 
     /**
      * @psalm-pure
-     * @psalm-assert non-negative-int $value
+     * @psalm-assert negative-int $value
      *
-     * @param mixed $value
-     * @param string $message
+     * @psalm-return negative-int
      *
      * @throws InvalidArgumentException
      */
-    public static function negativeInteger($value, $message = '')
+    public static function negativeInteger(mixed $value, string $message = ''): int
     {
         if (!(\is_int($value) && $value < 0)) {
             static::reportInvalidArgument(\sprintf(
@@ -163,6 +163,8 @@ class Assert
                 static::valueToString($value)
             ));
         }
+
+        return $value;
     }
 
     /**
@@ -1779,7 +1781,7 @@ class Assert
             ));
         }
 
-        return $value;
+        return $classOrObject;
     }
 
     /**

@@ -295,9 +295,10 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|non-negative-int $value
      *
-     * @psalm-return null|non-negative-int
+     * @psalm-assert non-negative-int|null $value
+     *
+     * @return non-negative-int|null
      *
      * @throws InvalidArgumentException
      */
@@ -310,9 +311,10 @@ trait Mixin
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert iterable<non-negative-int> $value
      *
-     * @psalm-return iterable<non-negative-int>
+     * @return iterable<non-negative-int>
      *
      * @throws InvalidArgumentException
      */
@@ -329,9 +331,10 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert iterable<null|non-negative-int> $value
      *
-     * @psalm-return iterable<null|non-negative-int>
+     * @psalm-assert iterable<non-negative-int|null> $value
+     *
+     * @return iterable<non-negative-int|null>
      *
      * @throws InvalidArgumentException
      */
@@ -348,9 +351,10 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert null|negative-int $value
      *
-     * @psalm-return null|negative-int
+     * @psalm-assert negative-int|null $value
+     *
+     * @return negative-int|null
      *
      * @throws InvalidArgumentException
      */
@@ -363,9 +367,10 @@ trait Mixin
 
     /**
      * @psalm-pure
+     *
      * @psalm-assert iterable<negative-int> $value
      *
-     * @psalm-return iterable<negative-int>
+     * @return iterable<negative-int>
      *
      * @throws InvalidArgumentException
      */
@@ -382,9 +387,10 @@ trait Mixin
 
     /**
      * @psalm-pure
-     * @psalm-assert iterable<null|negative-int> $value
      *
-     * @psalm-return iterable<null|negative-int>
+     * @psalm-assert iterable<negative-int|null> $value
+     *
+     * @return iterable<negative-int|null>
      *
      * @throws InvalidArgumentException
      */
@@ -395,6 +401,8 @@ trait Mixin
         foreach ($value as $entry) {
             null === $entry || static::negativeInteger($entry, $message);
         }
+
+        return $value;
     }
 
     /**
