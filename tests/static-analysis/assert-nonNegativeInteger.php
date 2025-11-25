@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
@@ -11,7 +13,7 @@ use Webmozart\Assert\Assert;
  *
  * @psalm-return non-negative-int
  */
-function nonNegativeInteger($value): int
+function nonNegativeInteger(mixed $value): int
 {
     Assert::nonNegativeInteger($value);
 
@@ -27,7 +29,7 @@ function nonNegativeInteger($value): int
  *
  * @psalm-return non-negative-int|null
  */
-function nullOrNonNegativeInteger($value): ?int
+function nullOrNonNegativeInteger(mixed $value): ?int
 {
     Assert::nullOrNonNegativeInteger($value);
 
@@ -41,7 +43,7 @@ function nullOrNonNegativeInteger($value): ?int
  *
  * @return iterable<non-negative-int>
  */
-function allNonNegativeInteger($value): iterable
+function allNonNegativeInteger(mixed $value): iterable
 {
     Assert::allNonNegativeInteger($value);
 
@@ -55,7 +57,7 @@ function allNonNegativeInteger($value): iterable
  *
  * @return iterable<non-negative-int|null>
  */
-function allNullOrNonNegativeInteger($value): iterable
+function allNullOrNonNegativeInteger(mixed $value): iterable
 {
     Assert::allNullOrPositiveInteger($value);
 
