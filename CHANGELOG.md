@@ -2,6 +2,7 @@ Changelog
 =========
 
 ## 2.0.0 (UNRELEASED)
+* Added `Assert::nonNegativeInteger()` and `Assert::negativeInteger()`
 
 ### Changed
 

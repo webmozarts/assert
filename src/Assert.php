@@ -129,6 +129,46 @@ class Assert
 
     /**
      * @psalm-pure
+     * @psalm-assert non-negative-int $value
+     *
+     * @psalm-return non-negative-int
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nonNegativeInteger(mixed $value, string $message = ''): int
+    {
+        if (!(\is_int($value) && $value >= 0)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a non negative integer. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert negative-int $value
+     *
+     * @psalm-return negative-int
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function negativeInteger(mixed $value, string $message = ''): int
+    {
+        if (!(\is_int($value) && $value < 0)) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a negative integer. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
      *
      * @psalm-assert float $value
      *
@@ -1741,7 +1781,7 @@ class Assert
             ));
         }
 
-        return $value;
+        return $classOrObject;
     }
 
     /**
