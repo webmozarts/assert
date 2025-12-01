@@ -117,9 +117,55 @@ class Assert
      */
     public static function positiveInteger(mixed $value, string $message = ''): int
     {
-        if (!(\is_int($value) && $value > 0)) {
+        self::integer($value);
+
+        if ($value < 1) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a positive integer. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert non-negative-int $value
+     *
+     * @psalm-return non-negative-int
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notNegativeInteger(mixed $value, string $message = ''): int
+    {
+        self::integer($value);
+
+        if ($value < 0) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a non negative integer. Got: %s',
+                static::valueToString($value)
+            ));
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     * @psalm-assert negative-int $value
+     *
+     * @psalm-return negative-int
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function negativeInteger(mixed $value, string $message = ''): int
+    {
+        self::integer($value);
+
+        if ($value >= 0) {
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected a negative integer. Got: %s',
                 static::valueToString($value)
             ));
         }

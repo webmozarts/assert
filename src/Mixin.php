@@ -296,6 +296,118 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @psalm-assert non-negative-int|null $value
+     *
+     * @return non-negative-int|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrNotNegativeInteger(mixed $value, string $message = ''): mixed
+    {
+        null === $value || static::notNegativeInteger($value, $message);
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert iterable<non-negative-int> $value
+     *
+     * @return iterable<non-negative-int>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNotNegativeInteger(iterable $value, string $message = ''): iterable
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::notNegativeInteger($entry, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert iterable<non-negative-int|null> $value
+     *
+     * @return iterable<non-negative-int|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrNotNegativeInteger(?iterable $value, string $message = ''): ?iterable
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::notNegativeInteger($entry, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert negative-int|null $value
+     *
+     * @return negative-int|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrNegativeInteger(mixed $value, string $message = ''): mixed
+    {
+        null === $value || static::negativeInteger($value, $message);
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert iterable<negative-int> $value
+     *
+     * @return iterable<negative-int>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNegativeInteger(iterable $value, string $message = ''): iterable
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            static::negativeInteger($entry, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @psalm-assert iterable<negative-int|null> $value
+     *
+     * @return iterable<negative-int|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrNegativeInteger(?iterable $value, string $message = ''): ?iterable
+    {
+        static::isIterable($value);
+
+        foreach ($value as $entry) {
+            null === $entry || static::negativeInteger($entry, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @psalm-assert float|null $value
      *
      * @return float|null
