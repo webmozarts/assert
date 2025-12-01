@@ -117,7 +117,9 @@ class Assert
      */
     public static function positiveInteger(mixed $value, string $message = ''): int
     {
-        if (!(\is_int($value) && $value > 0)) {
+        self::integer($value);
+
+        if ($value < 1) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a positive integer. Got: %s',
                 static::valueToString($value)
@@ -137,7 +139,9 @@ class Assert
      */
     public static function nonNegativeInteger(mixed $value, string $message = ''): int
     {
-        if (!(\is_int($value) && $value >= 0)) {
+        self::integer($value);
+
+        if ($value < 0) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a non negative integer. Got: %s',
                 static::valueToString($value)
@@ -157,7 +161,9 @@ class Assert
      */
     public static function negativeInteger(mixed $value, string $message = ''): int
     {
-        if (!(\is_int($value) && $value < 0)) {
+        self::integer($value);
+
+        if ($value >= 0) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a negative integer. Got: %s',
                 static::valueToString($value)

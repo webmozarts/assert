@@ -2,7 +2,6 @@ Changelog
 =========
 
 ## 2.0.0 (UNRELEASED)
-* Added `Assert::nonNegativeInteger()` and `Assert::negativeInteger()`
 
 ### Changed
 
@@ -14,6 +13,7 @@ Changelog
 
 ### Added
 
+- Added `Assert::nonNegativeInteger()` and `Assert::negativeInteger()`
 - All assertion methods now return the checked value.
 - Added `notInArray` and `notOneOf`.
 - Added `isInitialized`, to check if a class property is initialized.
