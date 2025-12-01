@@ -15,7 +15,7 @@ use Webmozart\Assert\Assert;
  */
 function nonNegativeInteger(mixed $value): int
 {
-    Assert::nonNegativeInteger($value);
+    Assert::notNegativeInteger($value);
 
     $value *= -1;
 
@@ -31,7 +31,7 @@ function nonNegativeInteger(mixed $value): int
  */
 function nullOrNonNegativeInteger(mixed $value): ?int
 {
-    Assert::nullOrNonNegativeInteger($value);
+    Assert::nullOrNotNegativeInteger($value);
 
     return $value;
 }
@@ -45,7 +45,7 @@ function nullOrNonNegativeInteger(mixed $value): ?int
  */
 function allNonNegativeInteger(mixed $value): iterable
 {
-    Assert::allNonNegativeInteger($value);
+    Assert::allNotNegativeInteger($value);
 
     return $value;
 }

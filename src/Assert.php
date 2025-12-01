@@ -137,7 +137,7 @@ class Assert
      *
      * @throws InvalidArgumentException
      */
-    public static function nonNegativeInteger(mixed $value, string $message = ''): int
+    public static function notNegativeInteger(mixed $value, string $message = ''): int
     {
         self::integer($value);
 

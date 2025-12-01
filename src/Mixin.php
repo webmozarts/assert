@@ -302,9 +302,9 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNonNegativeInteger(mixed $value, string $message = ''): mixed
+    public static function nullOrNotNegativeInteger(mixed $value, string $message = ''): mixed
     {
-        null === $value || static::nonNegativeInteger($value, $message);
+        null === $value || static::notNegativeInteger($value, $message);
 
         return $value;
     }
@@ -318,12 +318,12 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNonNegativeInteger(iterable $value, string $message = ''): iterable
+    public static function allNotNegativeInteger(iterable $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            static::nonNegativeInteger($entry, $message);
+            static::notNegativeInteger($entry, $message);
         }
 
         return $value;
@@ -338,12 +338,12 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNonNegativeInteger(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNotNegativeInteger(?iterable $value, string $message = ''): ?iterable
     {
         static::isIterable($value);
 
         foreach ($value as $entry) {
-            null === $entry || static::nonNegativeInteger($entry, $message);
+            null === $entry || static::notNegativeInteger($entry, $message);
         }
 
         return $value;
