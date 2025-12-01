@@ -1741,7 +1741,7 @@ class Assert
             ));
         }
 
-        return $value;
+        return $classOrObject;
     }
 
     /**
