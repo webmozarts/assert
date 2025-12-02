@@ -4959,100 +4959,106 @@ trait Mixin
      * @param Closure|null $closure
      * @param string       $message
      *
-     * @return void
-     * @return void
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsStatic($closure, $message = '')
+    public static function nullOrIsStatic(mixed $closure, string $message = ''): mixed
     {
         null === $closure || static::isStatic($closure, $message);
+
+        return $closure;
     }
 
     /**
      * @param iterable<Closure> $closure
      * @param string            $message
      *
-     * @return void
-     * @return void
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsStatic($closure, $message = '')
+    public static function allIsStatic(mixed $closure, string $message = ''): mixed
     {
         static::isIterable($closure);
 
         foreach ($closure as $entry) {
             static::isStatic($entry, $message);
         }
+
+        return $closure;
     }
 
     /**
      * @param iterable<Closure|null> $closure
      * @param string                 $message
      *
-     * @return void
-     * @return void
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsStatic($closure, $message = '')
+    public static function allNullOrIsStatic(mixed $closure, string $message = ''): mixed
     {
         static::isIterable($closure);
 
         foreach ($closure as $entry) {
             null === $entry || static::isStatic($entry, $message);
         }
+
+        return $closure;
     }
 
     /**
      * @param Closure|null $closure
      * @param string       $message
      *
-     * @return void
-     * @return void
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsNotStatic($closure, $message = '')
+    public static function nullOrIsNotStatic(mixed $closure, string $message = ''): mixed
     {
         null === $closure || static::isNotStatic($closure, $message);
+
+        return $closure;
     }
 
     /**
      * @param iterable<Closure> $closure
      * @param string            $message
      *
-     * @return void
-     * @return void
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsNotStatic($closure, $message = '')
+    public static function allIsNotStatic(mixed $closure, string $message = ''): mixed
     {
         static::isIterable($closure);
 
         foreach ($closure as $entry) {
             static::isNotStatic($entry, $message);
         }
+
+        return $closure;
     }
 
     /**
      * @param iterable<Closure|null> $closure
      * @param string                 $message
      *
-     * @return void
-     * @return void
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsNotStatic($closure, $message = '')
+    public static function allNullOrIsNotStatic(mixed $closure, string $message = ''): mixed
     {
         static::isIterable($closure);
 
         foreach ($closure as $entry) {
             null === $entry || static::isNotStatic($entry, $message);
         }
+
+        return $closure;
     }
 
     /**
