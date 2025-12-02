@@ -4961,7 +4961,7 @@ trait Mixin
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException|ReflectionException
      */
     public static function nullOrIsStatic(mixed $closure, string $message = ''): mixed
     {
@@ -4976,7 +4976,7 @@ trait Mixin
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException|ReflectionException
      */
     public static function allIsStatic(mixed $closure, string $message = ''): mixed
     {
@@ -4995,7 +4995,7 @@ trait Mixin
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException|ReflectionException
      */
     public static function allNullOrIsStatic(mixed $closure, string $message = ''): mixed
     {
@@ -5014,7 +5014,7 @@ trait Mixin
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException|ReflectionException
      */
     public static function nullOrIsNotStatic(mixed $closure, string $message = ''): mixed
     {
@@ -5029,7 +5029,7 @@ trait Mixin
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException|ReflectionException
      */
     public static function allIsNotStatic(mixed $closure, string $message = ''): mixed
     {
@@ -5048,7 +5048,7 @@ trait Mixin
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException
+     * @throws InvalidArgumentException|ReflectionException
      */
     public static function allNullOrIsNotStatic(mixed $closure, string $message = ''): mixed
     {
