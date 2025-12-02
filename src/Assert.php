@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Webmozart\Assert;
 
 use ArrayAccess;
+use Closure;
 use Countable;
 use DateTime;
 use DateTimeImmutable;
@@ -2049,8 +2050,9 @@ class Assert
      * @return void
      * @throws InvalidArgumentException
      */
-    public static function isStatic(Closure $closure, $message = '')
+    public static function isStatic(mixed $closure, $message = '')
     {
+        static::isCallable($closure, $message);
         $reflection = new ReflectionFunction($closure);
 
         if (!$reflection->isStatic()) {
@@ -2066,9 +2068,9 @@ class Assert
      * @return void
      * @throws InvalidArgumentException
      */
-    public static function isNotStatic(Closure $closure, $message = '')
+    public static function isNotStatic(mixed $closure, $message = '')
     {
-        Assert::isCallable($closure);
+        static::isCallable($closure, $message);
         $reflection = new ReflectionFunction($closure);
 
         if ($reflection->isStatic()) {
