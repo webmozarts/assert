@@ -5,9 +5,10 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Closure;
 use Webmozart\Assert\Assert;
 
-function notStatic(Closure $closure): Closure
+/**
+ * @return Closure|callable-string
+ */
+function notStatic(mixed $closure): Closure|string
 {
-    Assert::notStatic($closure);
-
-    return $closure;
+    return Assert::notStatic($closure);
 }
