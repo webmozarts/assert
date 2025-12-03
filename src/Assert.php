@@ -14,9 +14,11 @@ declare(strict_types=1);
 namespace Webmozart\Assert;
 
 use ArrayAccess;
+use Closure;
 use Countable;
 use DateTime;
 use DateTimeImmutable;
+use ReflectionFunction;
 use ReflectionProperty;
 use Throwable;
 use Traversable;
@@ -2040,6 +2042,56 @@ class Assert
         }
 
         return $array;
+    }
+
+    /**
+     * @param Closure $closure
+     *
+     * @psalm-pure
+     *
+     * @psalm-assert static Closure $closure
+     *
+     * @psalm-return static Closure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isStatic(mixed $closure, string $message = ''): Closure
+    {
+        static::isCallable($closure, $message);
+        $reflection = new ReflectionFunction($closure);
+
+        if (!$reflection->isStatic()) {
+            static::reportInvalidArgument(
+                $message ?: 'Closure is not static.'
+            );
+        }
+
+        return $closure;
+    }
+
+    /**
+     * @param Closure $closure
+     *
+     * @psalm-pure
+     *
+     * @psalm-assert Closure $closure
+     *
+     * @psalm-return Closure
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notStatic(mixed $closure, string $message = ''): Closure
+    {
+        static::isCallable($closure, $message);
+        $reflection = new ReflectionFunction($closure);
+
+        if ($reflection->isStatic()) {
+            static::reportInvalidArgument(
+                $message ?: 'Closure is not static.'
+            );
+        }
+
+        return $closure;
     }
 
     /**

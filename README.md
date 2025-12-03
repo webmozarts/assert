@@ -212,9 +212,11 @@ Method                                             | Description
 
 ### Function Assertions
 
-Method                                      | Description
-------------------------------------------- | -----------------------------------------------------------------------------------------------------
-`throws($closure, $class, $message = '')`   | Check that a function throws a certain exception. Subclasses of the exception class will be accepted.
+Method                                    | Description
+------------------------------------------| -----------------------------------------------------------------------------------------------------
+`throws($closure, $class, $message = '')` | Check that a function throws a certain exception. Subclasses of the exception class will be accepted.
+`isStatic($closure, $message = '')`       | Check that a function is static.
+`notStatic($closure, $message = '')`    | Check that a function is not static.
 
 ### Collection Assertions
 
