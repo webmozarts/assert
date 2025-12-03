@@ -2045,20 +2045,21 @@ class Assert
     }
 
     /**
-     * @param Closure $closure
+     * @psalm-assert callable $callable
      *
-     * @psalm-pure
+     * @param Closure|callable $callable
      *
-     * @psalm-assert static Closure $closure
-     *
-     * @psalm-return static Closure
+     * @return Closure|callable-string
      *
      * @throws InvalidArgumentException
      */
-    public static function isStatic(mixed $closure, string $message = ''): Closure
+    public static function isStatic(mixed $callable, string $message = ''): Closure|string
     {
-        static::isCallable($closure, $message);
-        $reflection = new ReflectionFunction($closure);
+        static::isCallable($callable, $message);
+
+        $callable = static::callableToClosure($callable);
+
+        $reflection = new ReflectionFunction($callable);
 
         if (!$reflection->isStatic()) {
             static::reportInvalidArgument(
@@ -2066,24 +2067,25 @@ class Assert
             );
         }
 
-        return $closure;
+        return $callable;
     }
 
     /**
-     * @param Closure $closure
+     * @psalm-assert callable $callable
      *
-     * @psalm-pure
+     * @param Closure|callable $callable
      *
-     * @psalm-assert Closure $closure
-     *
-     * @psalm-return Closure
+     * @return Closure|callable-string
      *
      * @throws InvalidArgumentException
      */
-    public static function notStatic(mixed $closure, string $message = ''): Closure
+    public static function notStatic(mixed $callable, string $message = ''): Closure|string
     {
-        static::isCallable($closure, $message);
-        $reflection = new ReflectionFunction($closure);
+        static::isCallable($callable, $message);
+
+        $callable = static::callableToClosure($callable);
+
+        $reflection = new ReflectionFunction($callable);
 
         if ($reflection->isStatic()) {
             static::reportInvalidArgument(
@@ -2091,7 +2093,7 @@ class Assert
             );
         }
 
-        return $closure;
+        return $callable;
     }
 
     /**
@@ -2170,6 +2172,24 @@ class Assert
             $class,
             $actual
         ));
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @return Closure|callable-string
+     */
+    protected static function callableToClosure(callable $callable): Closure|string
+    {
+        if (\is_string($callable) && \function_exists($callable)) {
+            return $callable;
+        }
+
+        if ($callable instanceof Closure) {
+            return $callable;
+        }
+
+        return $callable(...);
     }
 
     /**

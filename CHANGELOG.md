@@ -16,7 +16,8 @@ Changelog
 - All assertion methods now return the checked value.
 - Added `notInArray` and `notOneOf`.
 - Added `isInitialized`, to check if a class property is initialized.
-- Added `notNegativeInteger` and `negativeInteger`
+- Added `negativeInteger` and `notNegativeInteger`
+- Added `isStatic` and `notStatic`
 
 ### Fixed
 

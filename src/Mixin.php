@@ -4956,127 +4956,115 @@ trait Mixin
     }
 
     /**
-     * @param Closure|null $closure
+     * @psalm-assert callable|null $callable
      *
-     * @psalm-pure
+     * @param Closure|callable|null $callable
      *
-     * @psalm-assert static Closure|null $closure
-     *
-     * @return static Closure|null
+     * @return callable|null
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsStatic(mixed $closure, string $message = ''): mixed
+    public static function nullOrIsStatic(mixed $callable, string $message = ''): mixed
     {
-        null === $closure || static::isStatic($closure, $message);
+        null === $callable || static::isStatic($callable, $message);
 
-        return $closure;
+        return $callable;
     }
 
     /**
-     * @param iterable<Closure> $closure
+     * @psalm-assert iterable<callable> $callable
      *
-     * @psalm-pure
+     * @param iterable<Closure|callable> $callable
      *
-     * @psalm-assert iterable<static Closure> $closure
-     *
-     * @return iterable<static Closure>
+     * @return iterable<callable>
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsStatic(mixed $closure, string $message = ''): mixed
+    public static function allIsStatic(mixed $callable, string $message = ''): mixed
     {
-        static::isIterable($closure);
+        static::isIterable($callable);
 
-        foreach ($closure as $entry) {
+        foreach ($callable as $entry) {
             static::isStatic($entry, $message);
         }
 
-        return $closure;
+        return $callable;
     }
 
     /**
-     * @param iterable<Closure|null> $closure
+     * @psalm-assert iterable<callable|null> $callable
      *
-     * @psalm-pure
+     * @param iterable<Closure|callable|null> $callable
      *
-     * @psalm-assert iterable<static Closure|null> $closure
-     *
-     * @return iterable<static Closure|null>
+     * @return iterable<callable|null>
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsStatic(mixed $closure, string $message = ''): mixed
+    public static function allNullOrIsStatic(mixed $callable, string $message = ''): mixed
     {
-        static::isIterable($closure);
+        static::isIterable($callable);
 
-        foreach ($closure as $entry) {
+        foreach ($callable as $entry) {
             null === $entry || static::isStatic($entry, $message);
         }
 
-        return $closure;
+        return $callable;
     }
 
     /**
-     * @param Closure|null $closure
+     * @psalm-assert callable|null $callable
      *
-     * @psalm-pure
+     * @param Closure|callable|null $callable
      *
-     * @psalm-assert Closure|null $closure
-     *
-     * @return Closure|null
+     * @return callable|null
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotStatic(mixed $closure, string $message = ''): mixed
+    public static function nullOrNotStatic(mixed $callable, string $message = ''): mixed
     {
-        null === $closure || static::notStatic($closure, $message);
+        null === $callable || static::notStatic($callable, $message);
 
-        return $closure;
+        return $callable;
     }
 
     /**
-     * @param iterable<Closure> $closure
+     * @psalm-assert iterable<callable> $callable
      *
-     * @psalm-pure
+     * @param iterable<Closure|callable> $callable
      *
-     * @psalm-assert iterable<Closure> $closure
-     *
-     * @return iterable<Closure>
+     * @return iterable<callable>
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotStatic(mixed $closure, string $message = ''): mixed
+    public static function allNotStatic(mixed $callable, string $message = ''): mixed
     {
-        static::isIterable($closure);
+        static::isIterable($callable);
 
-        foreach ($closure as $entry) {
+        foreach ($callable as $entry) {
             static::notStatic($entry, $message);
         }
 
-        return $closure;
+        return $callable;
     }
 
     /**
-     * @param iterable<Closure|null> $closure
+     * @psalm-assert iterable<callable|null> $callable
      *
-     * @psalm-pure
+     * @param iterable<Closure|callable|null> $callable
      *
-     * @psalm-assert iterable<Closure|null> $closure
-     *
-     * @return iterable<Closure|null>
+     * @return iterable<callable|null>
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotStatic(mixed $closure, string $message = ''): mixed
+    public static function allNullOrNotStatic(mixed $callable, string $message = ''): mixed
     {
-        static::isIterable($closure);
+        static::isIterable($callable);
 
-        foreach ($closure as $entry) {
+        foreach ($callable as $entry) {
             null === $entry || static::notStatic($entry, $message);
         }
 
-        return $closure;
+        return $callable;
     }
 
     /**
