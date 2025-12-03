@@ -18,7 +18,6 @@ use Closure;
 use Countable;
 use DateTime;
 use DateTimeImmutable;
-use ReflectionException;
 use ReflectionFunction;
 use ReflectionProperty;
 use Throwable;
@@ -2047,8 +2046,14 @@ class Assert
 
     /**
      * @param Closure $closure
-     * @param string $message
-     * @throws InvalidArgumentException|ReflectionException
+     *
+     * @psalm-pure
+     *
+     * @psalm-assert static Closure $closure
+     *
+     * @psalm-return static Closure
+     *
+     * @throws InvalidArgumentException
      */
     public static function isStatic(mixed $closure, string $message = ''): Closure
     {
@@ -2066,10 +2071,16 @@ class Assert
 
     /**
      * @param Closure $closure
-     * @param string $message
-     * @throws InvalidArgumentException|ReflectionException
+     *
+     * @psalm-pure
+     *
+     * @psalm-assert Closure $closure
+     *
+     * @psalm-return Closure
+     *
+     * @throws InvalidArgumentException
      */
-    public static function isNotStatic(mixed $closure, string $message = ''): Closure
+    public static function notStatic(mixed $closure, string $message = ''): Closure
     {
         static::isCallable($closure, $message);
         $reflection = new ReflectionFunction($closure);

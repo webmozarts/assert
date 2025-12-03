@@ -623,8 +623,8 @@ class AssertTest extends TestCase
             ['uniqueValues', [[123, '123']], false],
             ['isStatic', [static function () {}], true],
             ['isStatic', [function () {}], false],
-            ['isNotStatic', [static function () {}], false],
-            ['isNotStatic', [function () {}], true],
+            ['notStatic', [static function () {}], false],
+            ['notStatic', [function () {}], true],
         ];
     }
 

@@ -216,7 +216,7 @@ Method                                    | Description
 ------------------------------------------| -----------------------------------------------------------------------------------------------------
 `throws($closure, $class, $message = '')` | Check that a function throws a certain exception. Subclasses of the exception class will be accepted.
 `isStatic($closure, $message = '')`       | Check that a function is static.
-`isNotStatic($closure, $message = '')`    | Check that a function is not static.
+`notStatic($closure, $message = '')`    | Check that a function is not static.
 
 ### Collection Assertions
 

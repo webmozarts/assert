@@ -4957,11 +4957,14 @@ trait Mixin
 
     /**
      * @param Closure|null $closure
-     * @param string       $message
      *
-     * @return mixed
+     * @psalm-pure
      *
-     * @throws InvalidArgumentException|ReflectionException
+     * @psalm-assert static Closure|null $closure
+     *
+     * @return static Closure|null
+     *
+     * @throws InvalidArgumentException
      */
     public static function nullOrIsStatic(mixed $closure, string $message = ''): mixed
     {
@@ -4972,11 +4975,14 @@ trait Mixin
 
     /**
      * @param iterable<Closure> $closure
-     * @param string            $message
      *
-     * @return mixed
+     * @psalm-pure
      *
-     * @throws InvalidArgumentException|ReflectionException
+     * @psalm-assert iterable<static Closure> $closure
+     *
+     * @return iterable<static Closure>
+     *
+     * @throws InvalidArgumentException
      */
     public static function allIsStatic(mixed $closure, string $message = ''): mixed
     {
@@ -4991,11 +4997,14 @@ trait Mixin
 
     /**
      * @param iterable<Closure|null> $closure
-     * @param string                 $message
      *
-     * @return mixed
+     * @psalm-pure
      *
-     * @throws InvalidArgumentException|ReflectionException
+     * @psalm-assert iterable<static Closure|null> $closure
+     *
+     * @return iterable<static Closure|null>
+     *
+     * @throws InvalidArgumentException
      */
     public static function allNullOrIsStatic(mixed $closure, string $message = ''): mixed
     {
@@ -5010,33 +5019,39 @@ trait Mixin
 
     /**
      * @param Closure|null $closure
-     * @param string       $message
      *
-     * @return mixed
+     * @psalm-pure
      *
-     * @throws InvalidArgumentException|ReflectionException
+     * @psalm-assert Closure|null $closure
+     *
+     * @return Closure|null
+     *
+     * @throws InvalidArgumentException
      */
-    public static function nullOrIsNotStatic(mixed $closure, string $message = ''): mixed
+    public static function nullOrNotStatic(mixed $closure, string $message = ''): mixed
     {
-        null === $closure || static::isNotStatic($closure, $message);
+        null === $closure || static::notStatic($closure, $message);
 
         return $closure;
     }
 
     /**
      * @param iterable<Closure> $closure
-     * @param string            $message
      *
-     * @return mixed
+     * @psalm-pure
      *
-     * @throws InvalidArgumentException|ReflectionException
+     * @psalm-assert iterable<Closure> $closure
+     *
+     * @return iterable<Closure>
+     *
+     * @throws InvalidArgumentException
      */
-    public static function allIsNotStatic(mixed $closure, string $message = ''): mixed
+    public static function allNotStatic(mixed $closure, string $message = ''): mixed
     {
         static::isIterable($closure);
 
         foreach ($closure as $entry) {
-            static::isNotStatic($entry, $message);
+            static::notStatic($entry, $message);
         }
 
         return $closure;
@@ -5044,18 +5059,21 @@ trait Mixin
 
     /**
      * @param iterable<Closure|null> $closure
-     * @param string                 $message
      *
-     * @return mixed
+     * @psalm-pure
      *
-     * @throws InvalidArgumentException|ReflectionException
+     * @psalm-assert iterable<Closure|null> $closure
+     *
+     * @return iterable<Closure|null>
+     *
+     * @throws InvalidArgumentException
      */
-    public static function allNullOrIsNotStatic(mixed $closure, string $message = ''): mixed
+    public static function allNullOrNotStatic(mixed $closure, string $message = ''): mixed
     {
         static::isIterable($closure);
 
         foreach ($closure as $entry) {
-            null === $entry || static::isNotStatic($entry, $message);
+            null === $entry || static::notStatic($entry, $message);
         }
 
         return $closure;
