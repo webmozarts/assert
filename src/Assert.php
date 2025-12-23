@@ -2025,7 +2025,7 @@ class Assert
      *
      * @psalm-assert array<string, T> $array
      *
-     * @param array<string, T> $array
+     * @param mixed|array<array-key, T> $array
      *
      * @return array<string, T>
      *
