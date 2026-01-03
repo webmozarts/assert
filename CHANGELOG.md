@@ -1,6 +1,12 @@
 Changelog
 =========
 
+## 2.1.0
+
+### Fixed
+
+- Corrected `@param` declaration for `isMap`.
+
 ## 2.0.0
 
 ### Changed
