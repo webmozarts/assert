@@ -4896,7 +4896,7 @@ trait Mixin
      * @template T
      * @psalm-assert array<string, T>|null $array
      *
-     * @param array<string, T>|null $array
+     * @param mixed|array<array-key, T>|null $array
      *
      * @return array<string, T>|null
      *
@@ -4915,7 +4915,7 @@ trait Mixin
      * @template T
      * @psalm-assert iterable<array<string, T>> $array
      *
-     * @param iterable<array<string, T>> $array
+     * @param iterable<mixed|array<array-key, T>> $array
      *
      * @return iterable<array<string, T>>
      *
@@ -4938,7 +4938,7 @@ trait Mixin
      * @template T
      * @psalm-assert iterable<array<string, T>|null> $array
      *
-     * @param iterable<array<string, T>|null> $array
+     * @param iterable<mixed|array<array-key, T>|null> $array
      *
      * @return iterable<array<string, T>|null>
      *
