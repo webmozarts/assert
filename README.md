@@ -207,6 +207,7 @@ Method                                             | Description
 `countBetween($array, $min, $max, $message = '')`  | Check that an array has a count in the given range
 `isList($array, $message = '')`                    | Check that an array is a non-associative list
 `isNonEmptyList($array, $message = '')`            | Check that an array is a non-associative list, and not empty
+`notList($array, $message = '')`                   | Check that an array is associative
 `isMap($array, $message = '')`                     | Check that an array is associative and has strings as keys
 `isNonEmptyMap($array, $message = '')`             | Check that an array is associative and has strings as keys, and is not empty
 
