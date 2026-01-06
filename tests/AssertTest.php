@@ -855,6 +855,121 @@ class AssertTest extends TestCase
 
         Assert::null(DummyEnum::CaseName, 'Expected null. Got: %s');
     }
+
+    #[DataProvider('getMethodsThatUseOtherMethods')]
+    public function testMessageIsPassedToInternalCalls(string $method, array $args,string $exceptionMessage): void
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage($exceptionMessage);
+
+        call_user_func_array(['Webmozart\Assert\Assert', $method], $args);
+    }
+
+    public static function getMethodsThatUseOtherMethods(): array
+    {
+        return [
+            [
+                'method' => 'positiveInteger',
+                'args' => ['not-integer', 'Value must be a positive integer. Got: %s'],
+                'exceptionMessage' => 'Value must be a positive integer. Got: string',
+            ],
+            [
+                'method' => 'notNegativeInteger',
+                'args' => ['not-integer', 'Value must be a non-negative integer. Got: %s'],
+                'exceptionMessage' => 'Value must be a non-negative integer. Got: string',
+            ],
+            [
+                'method' => 'negativeInteger',
+                'args' => ['not-integer', 'Value must be a negative integer. Got: %s'],
+                'exceptionMessage' => 'Value must be a negative integer. Got: string',
+            ],
+            [
+                'method' => 'ip',
+                'args' => [127001, 'Value must be a valid IP. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid IP. Got: integer',
+            ],
+            [
+                'method' => 'ipv4',
+                'args' => [127001, 'Value must be a valid IPv4. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid IPv4. Got: integer',
+            ],
+            [
+                'method' => 'ipv6',
+                'args' => [127001, 'Value must be a valid IPv6. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid IPv6. Got: integer',
+            ],
+            [
+                'method' => 'email',
+                'args' => [111111, 'Value must be a valid email. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid email. Got: integer',
+            ],
+            [
+                'method' => 'unicodeLetters',
+                'args' => [111, 'Value must be a string with valid unicode characters. Got: %s'],
+                'exceptionMessage' => 'Value must be a string with valid unicode characters. Got: integer',
+            ],
+            [
+                'method' => 'alpha',
+                'args' => [111, 'Value must be a string with only alphabetic characters. Got: %s'],
+                'exceptionMessage' => 'Value must be a string with only alphabetic characters. Got: integer',
+            ],
+            [
+                'method' => 'digits',
+                'args' => [111, 'Value must be a string with only digits. Got: %s'],
+                'exceptionMessage' => 'Value must be a string with only digits. Got: integer',
+            ],
+            [
+                'method' => 'alnum',
+                'args' => [111, 'Value must be a string with only alphanumeric characters. Got: %s'],
+                'exceptionMessage' => 'Value must be a string with only alphanumeric characters. Got: integer',
+            ],
+            [
+                'method' => 'lower',
+                'args' => [111, 'Value must be a string with only lowercase characters. Got: %s'],
+                'exceptionMessage' => 'Value must be a string with only lowercase characters. Got: integer',
+            ],
+            [
+                'method' => 'upper',
+                'args' => [111, 'Value must be a string with only uppercase characters. Got: %s'],
+                'exceptionMessage' => 'Value must be a string with only uppercase characters. Got: integer',
+            ],
+            [
+                'method' => 'fileExists',
+                'args' => [111, 'Value must be a valid path string. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid path string. Got: integer',
+            ],
+            [
+                'method' => 'file',
+                'args' => [111, 'Value must be a valid path string to a file. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid path string to a file. Got: integer',
+            ],
+            [
+                'method' => 'directory',
+                'args' => [111, 'Value must be a valid path string to a directory. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid path string to a directory. Got: integer',
+            ],
+            [
+                'method' => 'readable',
+                'args' => [111, 'Value must be a valid path string. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid path string. Got: integer',
+            ],
+            [
+                'method' => 'writable',
+                'args' => [111, 'Value must be a valid path string. Got: %s'],
+                'exceptionMessage' => 'Value must be a valid path string. Got: integer',
+            ],
+            [
+                'method' => 'keyExists',
+                'args' => [111, 'test', 'Value must be an array with key test. Got: %s'],
+                'exceptionMessage' => 'Value must be an array with key test. Got: integer',
+            ],
+            [
+                'method' => 'keyNotExists',
+                'args' => [111, 'test', 'Value must be an array without key test. Got: %s'],
+                'exceptionMessage' => 'Value must be an array without key test. Got: integer',
+            ],
+        ];
+    }
 }
 
 /**

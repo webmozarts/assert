@@ -119,7 +119,7 @@ class Assert
      */
     public static function positiveInteger(mixed $value, string $message = ''): int
     {
-        self::integer($value);
+        self::integer($value, $message);
 
         if ($value < 1) {
             static::reportInvalidArgument(\sprintf(
@@ -141,7 +141,7 @@ class Assert
      */
     public static function notNegativeInteger(mixed $value, string $message = ''): int
     {
-        self::integer($value);
+        self::integer($value, $message);
 
         if ($value < 0) {
             static::reportInvalidArgument(\sprintf(
@@ -163,7 +163,7 @@ class Assert
      */
     public static function negativeInteger(mixed $value, string $message = ''): int
     {
-        self::integer($value);
+        self::integer($value, $message);
 
         if ($value >= 0) {
             static::reportInvalidArgument(\sprintf(
@@ -784,7 +784,7 @@ class Assert
      */
     public static function ip(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (false === \filter_var($value, \FILTER_VALIDATE_IP)) {
             static::reportInvalidArgument(\sprintf(
@@ -805,7 +805,7 @@ class Assert
      */
     public static function ipv4(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV4)) {
             static::reportInvalidArgument(\sprintf(
@@ -826,7 +826,7 @@ class Assert
      */
     public static function ipv6(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (false === \filter_var($value, \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
             static::reportInvalidArgument(\sprintf(
@@ -847,7 +847,7 @@ class Assert
      */
     public static function email(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (false === \filter_var($value, FILTER_VALIDATE_EMAIL, FILTER_FLAG_EMAIL_UNICODE)) {
             static::reportInvalidArgument(\sprintf(
@@ -1340,7 +1340,7 @@ class Assert
      */
     public static function unicodeLetters(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\preg_match('/^\p{L}+$/u', $value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1359,7 +1359,7 @@ class Assert
      */
     public static function alpha(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
@@ -1383,7 +1383,7 @@ class Assert
      */
     public static function digits(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
@@ -1407,7 +1407,7 @@ class Assert
      */
     public static function alnum(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
@@ -1433,7 +1433,7 @@ class Assert
      */
     public static function lower(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
@@ -1459,7 +1459,7 @@ class Assert
      */
     public static function upper(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         $locale = \setlocale(LC_CTYPE, '0');
         \setlocale(LC_CTYPE, 'C');
@@ -1577,7 +1577,7 @@ class Assert
      */
     public static function fileExists(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\file_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1594,7 +1594,7 @@ class Assert
      */
     public static function file(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\is_file($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1611,7 +1611,7 @@ class Assert
      */
     public static function directory(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\is_dir($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1628,7 +1628,7 @@ class Assert
      */
     public static function readable(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\is_readable($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1645,7 +1645,7 @@ class Assert
      */
     public static function writable(mixed $value, string $message = ''): string
     {
-        static::string($value);
+        static::string($value, $message);
 
         if (!\is_writable($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1845,7 +1845,7 @@ class Assert
      */
     public static function keyExists(mixed $array, string|int $key, string $message = ''): array
     {
-        static::isArray($array);
+        static::isArray($array, $message);
 
         if (!(isset($array[$key]) || \array_key_exists($key, $array))) {
             static::reportInvalidArgument(\sprintf(
@@ -1866,7 +1866,7 @@ class Assert
      */
     public static function keyNotExists(mixed $array, string|int $key, string $message = ''): array
     {
-        static::isArray($array);
+        static::isArray($array, $message);
 
         if (isset($array[$key]) || \array_key_exists($key, $array)) {
             static::reportInvalidArgument(\sprintf(
