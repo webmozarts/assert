@@ -857,7 +857,7 @@ class AssertTest extends TestCase
     }
 
     #[DataProvider('getMethodsThatUseOtherMethods')]
-    public function testMessageIsPassedToInternalCalls(string $method, array $args,string $exceptionMessage): void
+    public function testMessageIsPassedToInternalCalls(string $method, array $args, string $exceptionMessage): void
     {
         $this->expectException('\InvalidArgumentException');
         $this->expectExceptionMessage($exceptionMessage);
