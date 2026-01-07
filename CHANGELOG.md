@@ -3,17 +3,14 @@ Changelog
 
 ## [Unreleased]
 
-## 2.1.1
-
-### Changed
-
-- Pass custom message to internal assertion calls.
+-
 
 ## 2.1.0
 
 ### Fixed
 
 - Corrected `@param` declaration for `isMap`.
+- Pass custom message to internal assertion calls.
 
 ## 2.0.0
 
