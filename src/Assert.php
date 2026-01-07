@@ -119,7 +119,7 @@ class Assert
      */
     public static function positiveInteger(mixed $value, string $message = ''): int
     {
-        self::integer($value, $message);
+        static::integer($value, $message);
 
         if ($value < 1) {
             static::reportInvalidArgument(\sprintf(
@@ -141,7 +141,7 @@ class Assert
      */
     public static function notNegativeInteger(mixed $value, string $message = ''): int
     {
-        self::integer($value, $message);
+        static::integer($value, $message);
 
         if ($value < 0) {
             static::reportInvalidArgument(\sprintf(
@@ -163,7 +163,7 @@ class Assert
      */
     public static function negativeInteger(mixed $value, string $message = ''): int
     {
-        self::integer($value, $message);
+        static::integer($value, $message);
 
         if ($value >= 0) {
             static::reportInvalidArgument(\sprintf(
