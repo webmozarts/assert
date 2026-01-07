@@ -3,9 +3,11 @@ Changelog
 
 ## [Unreleased]
 
+## 2.1.1
+
 ### Changed
 
-- Pass custom message argument to assertions called inside
+- Pass custom message to internal assertion calls.
 
 ## 2.1.0
 
