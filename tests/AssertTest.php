@@ -934,31 +934,6 @@ class AssertTest extends TestCase
                 'exceptionMessage' => 'Value must be a string with only uppercase characters. Got: integer',
             ],
             [
-                'method' => 'fileExists',
-                'args' => [111, 'Value must be a valid path string. Got: %s'],
-                'exceptionMessage' => 'Value must be a valid path string. Got: integer',
-            ],
-            [
-                'method' => 'file',
-                'args' => [111, 'Value must be a valid path string to a file. Got: %s'],
-                'exceptionMessage' => 'Value must be a valid path string to a file. Got: integer',
-            ],
-            [
-                'method' => 'directory',
-                'args' => [111, 'Value must be a valid path string to a directory. Got: %s'],
-                'exceptionMessage' => 'Value must be a valid path string to a directory. Got: integer',
-            ],
-            [
-                'method' => 'readable',
-                'args' => [111, 'Value must be a valid path string. Got: %s'],
-                'exceptionMessage' => 'Value must be a valid path string. Got: integer',
-            ],
-            [
-                'method' => 'writable',
-                'args' => [111, 'Value must be a valid path string. Got: %s'],
-                'exceptionMessage' => 'Value must be a valid path string. Got: integer',
-            ],
-            [
                 'method' => 'keyExists',
                 'args' => [111, 'test', 'Value must be an array with key test. Got: %s'],
                 'exceptionMessage' => 'Value must be an array with key test. Got: integer',

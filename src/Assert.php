@@ -1577,7 +1577,7 @@ class Assert
      */
     public static function fileExists(mixed $value, string $message = ''): string
     {
-        static::string($value, $message);
+        static::string($value);
 
         if (!\file_exists($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1594,7 +1594,7 @@ class Assert
      */
     public static function file(mixed $value, string $message = ''): string
     {
-        static::string($value, $message);
+        static::string($value);
 
         if (!\is_file($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1611,7 +1611,7 @@ class Assert
      */
     public static function directory(mixed $value, string $message = ''): string
     {
-        static::string($value, $message);
+        static::string($value);
 
         if (!\is_dir($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1628,7 +1628,7 @@ class Assert
      */
     public static function readable(mixed $value, string $message = ''): string
     {
-        static::string($value, $message);
+        static::string($value);
 
         if (!\is_readable($value)) {
             static::reportInvalidArgument(\sprintf(
@@ -1645,7 +1645,7 @@ class Assert
      */
     public static function writable(mixed $value, string $message = ''): string
     {
-        static::string($value, $message);
+        static::string($value);
 
         if (!\is_writable($value)) {
             static::reportInvalidArgument(\sprintf(
