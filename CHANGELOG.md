@@ -3,6 +3,10 @@ Changelog
 
 ## [Unreleased]
 
+- ...
+
+## 2.1.1
+
 ### Fixed
 
 - Optimized `stringNotEmpty` by internally using `notSame`.
