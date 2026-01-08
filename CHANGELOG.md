@@ -3,7 +3,9 @@ Changelog
 
 ## [Unreleased]
 
--
+### Fixed
+
+- Optimized `stringNotEmpty` by internally using `notSame`.
 
 ## 2.1.0
 
