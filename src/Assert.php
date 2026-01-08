@@ -65,7 +65,7 @@ class Assert
     public static function stringNotEmpty(mixed $value, string $message = ''): string
     {
         static::string($value, $message);
-        static::notEq($value, '', $message);
+        static::notSame($value, '', $message);
 
         return $value;
     }
