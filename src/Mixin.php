@@ -38,7 +38,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allString(iterable $value, string $message = ''): iterable
+    public static function allString(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -58,7 +58,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrString(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrString(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -94,7 +94,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allStringNotEmpty(iterable $value, string $message = ''): iterable
+    public static function allStringNotEmpty(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -114,7 +114,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrStringNotEmpty(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrStringNotEmpty(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -150,7 +150,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allInteger(iterable $value, string $message = ''): iterable
+    public static function allInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -170,7 +170,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrInteger(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -206,7 +206,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIntegerish(iterable $value, string $message = ''): iterable
+    public static function allIntegerish(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -226,7 +226,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIntegerish(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIntegerish(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -262,7 +262,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allPositiveInteger(iterable $value, string $message = ''): iterable
+    public static function allPositiveInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -282,7 +282,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrPositiveInteger(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrPositiveInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -318,7 +318,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotNegativeInteger(iterable $value, string $message = ''): iterable
+    public static function allNotNegativeInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -338,7 +338,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotNegativeInteger(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNotNegativeInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -374,7 +374,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNegativeInteger(iterable $value, string $message = ''): iterable
+    public static function allNegativeInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -394,7 +394,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNegativeInteger(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNegativeInteger(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -430,7 +430,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allFloat(iterable $value, string $message = ''): iterable
+    public static function allFloat(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -450,7 +450,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrFloat(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrFloat(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -486,7 +486,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNumeric(iterable $value, string $message = ''): iterable
+    public static function allNumeric(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -506,7 +506,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNumeric(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNumeric(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -542,7 +542,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNatural(iterable $value, string $message = ''): iterable
+    public static function allNatural(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -562,7 +562,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNatural(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNatural(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -598,7 +598,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allBoolean(iterable $value, string $message = ''): iterable
+    public static function allBoolean(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -618,7 +618,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrBoolean(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrBoolean(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -654,7 +654,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allScalar(iterable $value, string $message = ''): iterable
+    public static function allScalar(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -674,7 +674,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrScalar(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrScalar(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -710,7 +710,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allObject(iterable $value, string $message = ''): iterable
+    public static function allObject(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -730,7 +730,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrObject(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrObject(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -766,7 +766,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allObjectish(iterable $value, string $message = ''): iterable
+    public static function allObjectish(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -786,7 +786,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrObjectish(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrObjectish(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -826,7 +826,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allResource(iterable $value, ?string $type = null, string $message = ''): iterable
+    public static function allResource(mixed $value, ?string $type = null, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -848,7 +848,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrResource(?iterable $value, ?string $type = null, string $message = ''): ?iterable
+    public static function allNullOrResource(mixed $value, ?string $type = null, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -884,7 +884,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsCallable(iterable $value, string $message = ''): iterable
+    public static function allIsCallable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -904,7 +904,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsCallable(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIsCallable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -940,7 +940,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsArray(iterable $value, string $message = ''): iterable
+    public static function allIsArray(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -960,7 +960,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsArray(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIsArray(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -996,7 +996,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsArrayAccessible(iterable $value, string $message = ''): iterable
+    public static function allIsArrayAccessible(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1016,7 +1016,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsArrayAccessible(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIsArrayAccessible(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1052,7 +1052,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsCountable(iterable $value, string $message = ''): iterable
+    public static function allIsCountable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1072,7 +1072,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsCountable(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIsCountable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1108,7 +1108,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsIterable(iterable $value, string $message = ''): iterable
+    public static function allIsIterable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1128,7 +1128,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsIterable(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIsIterable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1170,7 +1170,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsInstanceOf(iterable $value, mixed $class, string $message = ''): iterable
+    public static function allIsInstanceOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1193,7 +1193,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsInstanceOf(?iterable $value, mixed $class, string $message = ''): ?iterable
+    public static function allNullOrIsInstanceOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1233,7 +1233,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotInstanceOf(iterable $value, mixed $class, string $message = ''): iterable
+    public static function allNotInstanceOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1256,7 +1256,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotInstanceOf(?iterable $value, mixed $class, string $message = ''): ?iterable
+    public static function allNullOrNotInstanceOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1296,7 +1296,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsInstanceOfAny(iterable $value, mixed $classes, string $message = ''): iterable
+    public static function allIsInstanceOfAny(mixed $value, mixed $classes, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1318,7 +1318,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsInstanceOfAny(?iterable $value, mixed $classes, string $message = ''): ?iterable
+    public static function allNullOrIsInstanceOfAny(mixed $value, mixed $classes, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1362,7 +1362,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsAOf(iterable $value, mixed $class, string $message = ''): iterable
+    public static function allIsAOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1386,7 +1386,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsAOf(?iterable $value, mixed $class, string $message = ''): ?iterable
+    public static function allNullOrIsAOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1428,7 +1428,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsNotA(iterable $value, mixed $class, string $message = ''): iterable
+    public static function allIsNotA(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1451,7 +1451,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsNotA(?iterable $value, mixed $class, string $message = ''): ?iterable
+    public static function allNullOrIsNotA(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1493,7 +1493,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsAnyOf(iterable $value, mixed $classes, string $message = ''): iterable
+    public static function allIsAnyOf(mixed $value, mixed $classes, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1516,7 +1516,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsAnyOf(?iterable $value, mixed $classes, string $message = ''): ?iterable
+    public static function allNullOrIsAnyOf(mixed $value, mixed $classes, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1552,7 +1552,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIsEmpty(iterable $value, string $message = ''): iterable
+    public static function allIsEmpty(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1572,7 +1572,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIsEmpty(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIsEmpty(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1604,7 +1604,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotEmpty(iterable $value, string $message = ''): iterable
+    public static function allNotEmpty(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1624,7 +1624,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotEmpty(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNotEmpty(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1644,7 +1644,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNull(iterable $value, string $message = ''): iterable
+    public static function allNull(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1662,7 +1662,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotNull(iterable $value, string $message = ''): iterable
+    public static function allNotNull(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1698,7 +1698,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allTrue(iterable $value, string $message = ''): iterable
+    public static function allTrue(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1718,7 +1718,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrTrue(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrTrue(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1754,7 +1754,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allFalse(iterable $value, string $message = ''): iterable
+    public static function allFalse(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1774,7 +1774,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrFalse(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrFalse(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1806,7 +1806,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotFalse(iterable $value, string $message = ''): iterable
+    public static function allNotFalse(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1826,7 +1826,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotFalse(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNotFalse(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1860,7 +1860,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIp(iterable $value, string $message = ''): iterable
+    public static function allIp(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1879,7 +1879,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIp(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIp(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1913,7 +1913,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIpv4(iterable $value, string $message = ''): iterable
+    public static function allIpv4(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1932,7 +1932,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIpv4(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIpv4(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1966,7 +1966,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allIpv6(iterable $value, string $message = ''): iterable
+    public static function allIpv6(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -1985,7 +1985,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrIpv6(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrIpv6(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2019,7 +2019,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allEmail(iterable $value, string $message = ''): iterable
+    public static function allEmail(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2038,7 +2038,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrEmail(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrEmail(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2110,7 +2110,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allEq(iterable $value, mixed $expect, string $message = ''): iterable
+    public static function allEq(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2126,7 +2126,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrEq(?iterable $value, mixed $expect, string $message = ''): ?iterable
+    public static function allNullOrEq(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2154,7 +2154,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotEq(iterable $value, mixed $expect, string $message = ''): iterable
+    public static function allNotEq(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2170,7 +2170,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotEq(?iterable $value, mixed $expect, string $message = ''): ?iterable
+    public static function allNullOrNotEq(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2202,7 +2202,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allSame(iterable $value, mixed $expect, string $message = ''): iterable
+    public static function allSame(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2220,7 +2220,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrSame(?iterable $value, mixed $expect, string $message = ''): ?iterable
+    public static function allNullOrSame(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2252,7 +2252,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotSame(iterable $value, mixed $expect, string $message = ''): iterable
+    public static function allNotSame(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2270,7 +2270,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotSame(?iterable $value, mixed $expect, string $message = ''): ?iterable
+    public static function allNullOrNotSame(mixed $value, mixed $expect, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2302,7 +2302,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allGreaterThan(iterable $value, mixed $limit, string $message = ''): iterable
+    public static function allGreaterThan(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2320,7 +2320,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrGreaterThan(?iterable $value, mixed $limit, string $message = ''): ?iterable
+    public static function allNullOrGreaterThan(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2352,7 +2352,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allGreaterThanEq(iterable $value, mixed $limit, string $message = ''): iterable
+    public static function allGreaterThanEq(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2370,7 +2370,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrGreaterThanEq(?iterable $value, mixed $limit, string $message = ''): ?iterable
+    public static function allNullOrGreaterThanEq(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2402,7 +2402,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allLessThan(iterable $value, mixed $limit, string $message = ''): iterable
+    public static function allLessThan(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2420,7 +2420,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrLessThan(?iterable $value, mixed $limit, string $message = ''): ?iterable
+    public static function allNullOrLessThan(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2452,7 +2452,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allLessThanEq(iterable $value, mixed $limit, string $message = ''): iterable
+    public static function allLessThanEq(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2470,7 +2470,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrLessThanEq(?iterable $value, mixed $limit, string $message = ''): ?iterable
+    public static function allNullOrLessThanEq(mixed $value, mixed $limit, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2502,7 +2502,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allRange(iterable $value, mixed $min, mixed $max, string $message = ''): iterable
+    public static function allRange(mixed $value, mixed $min, mixed $max, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2520,7 +2520,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrRange(?iterable $value, mixed $min, mixed $max, string $message = ''): ?iterable
+    public static function allNullOrRange(mixed $value, mixed $min, mixed $max, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2552,7 +2552,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allOneOf(iterable $value, mixed $values, string $message = ''): iterable
+    public static function allOneOf(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2570,7 +2570,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrOneOf(?iterable $value, mixed $values, string $message = ''): ?iterable
+    public static function allNullOrOneOf(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2602,7 +2602,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allInArray(iterable $value, mixed $values, string $message = ''): iterable
+    public static function allInArray(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2620,7 +2620,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrInArray(?iterable $value, mixed $values, string $message = ''): ?iterable
+    public static function allNullOrInArray(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2652,7 +2652,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotOneOf(iterable $value, mixed $values, string $message = ''): iterable
+    public static function allNotOneOf(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2670,7 +2670,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotOneOf(?iterable $value, mixed $values, string $message = ''): ?iterable
+    public static function allNullOrNotOneOf(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2702,7 +2702,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotInArray(iterable $value, mixed $values, string $message = ''): iterable
+    public static function allNotInArray(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2720,7 +2720,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotInArray(?iterable $value, mixed $values, string $message = ''): ?iterable
+    public static function allNullOrNotInArray(mixed $value, mixed $values, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2752,7 +2752,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allContains(iterable $value, mixed $subString, string $message = ''): iterable
+    public static function allContains(mixed $value, mixed $subString, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2770,7 +2770,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrContains(?iterable $value, mixed $subString, string $message = ''): ?iterable
+    public static function allNullOrContains(mixed $value, mixed $subString, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2802,7 +2802,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotContains(iterable $value, mixed $subString, string $message = ''): iterable
+    public static function allNotContains(mixed $value, mixed $subString, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2820,7 +2820,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotContains(?iterable $value, mixed $subString, string $message = ''): ?iterable
+    public static function allNullOrNotContains(mixed $value, mixed $subString, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2852,7 +2852,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotWhitespaceOnly(iterable $value, string $message = ''): iterable
+    public static function allNotWhitespaceOnly(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2870,7 +2870,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotWhitespaceOnly(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrNotWhitespaceOnly(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2902,7 +2902,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allStartsWith(iterable $value, mixed $prefix, string $message = ''): iterable
+    public static function allStartsWith(mixed $value, mixed $prefix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2920,7 +2920,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrStartsWith(?iterable $value, mixed $prefix, string $message = ''): ?iterable
+    public static function allNullOrStartsWith(mixed $value, mixed $prefix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2952,7 +2952,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotStartsWith(iterable $value, mixed $prefix, string $message = ''): iterable
+    public static function allNotStartsWith(mixed $value, mixed $prefix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -2970,7 +2970,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotStartsWith(?iterable $value, mixed $prefix, string $message = ''): ?iterable
+    public static function allNullOrNotStartsWith(mixed $value, mixed $prefix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3002,7 +3002,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allStartsWithLetter(iterable $value, string $message = ''): iterable
+    public static function allStartsWithLetter(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3020,7 +3020,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrStartsWithLetter(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrStartsWithLetter(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3052,7 +3052,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allEndsWith(iterable $value, mixed $suffix, string $message = ''): iterable
+    public static function allEndsWith(mixed $value, mixed $suffix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3070,7 +3070,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrEndsWith(?iterable $value, mixed $suffix, string $message = ''): ?iterable
+    public static function allNullOrEndsWith(mixed $value, mixed $suffix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3102,7 +3102,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotEndsWith(iterable $value, mixed $suffix, string $message = ''): iterable
+    public static function allNotEndsWith(mixed $value, mixed $suffix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3120,7 +3120,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotEndsWith(?iterable $value, mixed $suffix, string $message = ''): ?iterable
+    public static function allNullOrNotEndsWith(mixed $value, mixed $suffix, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3152,7 +3152,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allRegex(iterable $value, mixed $pattern, string $message = ''): iterable
+    public static function allRegex(mixed $value, mixed $pattern, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3170,7 +3170,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrRegex(?iterable $value, mixed $pattern, string $message = ''): ?iterable
+    public static function allNullOrRegex(mixed $value, mixed $pattern, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3202,7 +3202,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNotRegex(iterable $value, mixed $pattern, string $message = ''): iterable
+    public static function allNotRegex(mixed $value, mixed $pattern, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3220,7 +3220,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrNotRegex(?iterable $value, mixed $pattern, string $message = ''): ?iterable
+    public static function allNullOrNotRegex(mixed $value, mixed $pattern, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3252,7 +3252,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allUnicodeLetters(iterable $value, string $message = ''): iterable
+    public static function allUnicodeLetters(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3270,7 +3270,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrUnicodeLetters(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrUnicodeLetters(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3302,7 +3302,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allAlpha(iterable $value, string $message = ''): iterable
+    public static function allAlpha(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3320,7 +3320,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrAlpha(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrAlpha(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3352,7 +3352,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allDigits(iterable $value, string $message = ''): iterable
+    public static function allDigits(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3370,7 +3370,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrDigits(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrDigits(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3402,7 +3402,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allAlnum(iterable $value, string $message = ''): iterable
+    public static function allAlnum(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3420,7 +3420,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrAlnum(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrAlnum(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3456,7 +3456,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allLower(iterable $value, string $message = ''): iterable
+    public static function allLower(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3476,7 +3476,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrLower(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrLower(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3508,7 +3508,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allUpper(iterable $value, string $message = ''): iterable
+    public static function allUpper(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3528,7 +3528,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrUpper(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrUpper(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3560,7 +3560,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allLength(iterable $value, mixed $length, string $message = ''): iterable
+    public static function allLength(mixed $value, mixed $length, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3578,7 +3578,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrLength(?iterable $value, mixed $length, string $message = ''): ?iterable
+    public static function allNullOrLength(mixed $value, mixed $length, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3610,7 +3610,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allMinLength(iterable $value, mixed $min, string $message = ''): iterable
+    public static function allMinLength(mixed $value, mixed $min, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3628,7 +3628,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrMinLength(?iterable $value, mixed $min, string $message = ''): ?iterable
+    public static function allNullOrMinLength(mixed $value, mixed $min, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3660,7 +3660,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allMaxLength(iterable $value, mixed $max, string $message = ''): iterable
+    public static function allMaxLength(mixed $value, mixed $max, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3678,7 +3678,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrMaxLength(?iterable $value, mixed $max, string $message = ''): ?iterable
+    public static function allNullOrMaxLength(mixed $value, mixed $max, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3710,7 +3710,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allLengthBetween(iterable $value, mixed $min, mixed $max, string $message = ''): iterable
+    public static function allLengthBetween(mixed $value, mixed $min, mixed $max, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3728,7 +3728,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrLengthBetween(?iterable $value, mixed $min, mixed $max, string $message = ''): ?iterable
+    public static function allNullOrLengthBetween(mixed $value, mixed $min, mixed $max, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3756,7 +3756,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allFileExists(iterable $value, string $message = ''): iterable
+    public static function allFileExists(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3772,7 +3772,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrFileExists(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrFileExists(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3800,7 +3800,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allFile(iterable $value, string $message = ''): iterable
+    public static function allFile(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3816,7 +3816,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrFile(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrFile(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3844,7 +3844,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allDirectory(iterable $value, string $message = ''): iterable
+    public static function allDirectory(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3860,7 +3860,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrDirectory(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrDirectory(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3888,7 +3888,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allReadable(iterable $value, string $message = ''): iterable
+    public static function allReadable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3904,7 +3904,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrReadable(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrReadable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3932,7 +3932,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allWritable(iterable $value, string $message = ''): iterable
+    public static function allWritable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3948,7 +3948,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrWritable(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrWritable(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3980,7 +3980,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allClassExists(iterable $value, string $message = ''): iterable
+    public static function allClassExists(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -3998,7 +3998,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrClassExists(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrClassExists(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4040,7 +4040,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allSubclassOf(iterable $value, mixed $class, string $message = ''): iterable
+    public static function allSubclassOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4063,7 +4063,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrSubclassOf(?iterable $value, mixed $class, string $message = ''): ?iterable
+    public static function allNullOrSubclassOf(mixed $value, mixed $class, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4095,7 +4095,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allInterfaceExists(iterable $value, string $message = ''): iterable
+    public static function allInterfaceExists(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4113,7 +4113,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrInterfaceExists(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrInterfaceExists(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4157,7 +4157,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allImplementsInterface(iterable $value, mixed $interface, string $message = ''): iterable
+    public static function allImplementsInterface(mixed $value, mixed $interface, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4181,7 +4181,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrImplementsInterface(?iterable $value, mixed $interface, string $message = ''): ?iterable
+    public static function allNullOrImplementsInterface(mixed $value, mixed $interface, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4571,7 +4571,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allValidArrayKey(iterable $value, string $message = ''): iterable
+    public static function allValidArrayKey(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -4591,7 +4591,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrValidArrayKey(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrValidArrayKey(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -5152,7 +5152,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allUuid(iterable $value, string $message = ''): iterable
+    public static function allUuid(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
@@ -5170,7 +5170,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function allNullOrUuid(?iterable $value, string $message = ''): ?iterable
+    public static function allNullOrUuid(mixed $value, string $message = ''): iterable
     {
         static::isIterable($value);
 
