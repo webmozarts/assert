@@ -15,6 +15,10 @@ Changelog
 
 ## 2.1.0
 
+### Added
+
+- Added `notList` to check if an array is associative, with string _or_ integer keys.
+
 ### Fixed
 
 - Corrected `@param` declaration for `isMap`.

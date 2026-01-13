@@ -1984,9 +1984,13 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert list $array
+     * @template T
      *
-     * @psalm-return list
+     * @psalm-assert list<T> $array
+     *
+     * @param mixed|array<array-key, T> $array
+     *
+     * @return list<T>
      *
      * @throws InvalidArgumentException
      */
@@ -2023,6 +2027,32 @@ class Assert
      *
      * @template T
      *
+     * @psalm-assert array<array-key, T> $array
+     *
+     * @param mixed|array<array-key, T> $array
+     *
+     * @return array<array-key, T>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function notList(mixed $array, string $message = ''): array
+    {
+        static::isArray($array, $message);
+
+        if (\array_is_list($array)) {
+            static::reportInvalidArgument(
+                $message ?: 'Expected non-list - associative array.'
+            );
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T
+     *
      * @psalm-assert array<string, T> $array
      *
      * @param mixed|array<array-key, T> $array
@@ -2034,6 +2064,7 @@ class Assert
     public static function isMap(mixed $array, string $message = ''): array
     {
         static::isArray($array, $message);
+        static::allString(array_keys($array), $message);
 
         if (\count($array) > 0 && \array_is_list($array)) {
             static::reportInvalidArgument(
