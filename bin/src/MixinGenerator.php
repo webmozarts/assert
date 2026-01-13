@@ -216,6 +216,7 @@ BODY;
         /** @var array<string, string> $parameterTypes */
         $parameterTypes = [];
         $parametersReflection = $method->getParameters();
+        $nativeReturnType = 'mixed';
 
         foreach ($parametersReflection as $parameterReflection) {
             $parameters[] = $parameterReflection->name;
@@ -228,11 +229,13 @@ BODY;
             }
 
             if ($parameterReflection->hasType()) {
-                if ($parameterReflection->name === 'value' && $typeTemplate) {
-                    $parameterTypes[$parameterReflection->name] = match ($typeTemplate) {
+                if ($parameterReflection->name === 'value') {
+                    $parameterTypes[$parameterReflection->name] = 'mixed';
+
+                    $nativeReturnType = match ($typeTemplate) {
                         '%s|null' => $this->reduceParameterType($parameterReflection->getType()),
                         'iterable<%s>' => 'iterable',
-                        'iterable<%s|null>' => '?iterable',
+                        'iterable<%s|null>' => 'iterable',
                     };
                 } else {
                     $parameterTypes[$parameterReflection->name] = $this->reduceParameterType($parameterReflection->getType());
@@ -246,7 +249,6 @@ BODY;
 
         $paramsAdded = false;
 
-        $nativeReturnType = $parameterTypes ? $parameterTypes[\array_key_first($parameterTypes)] : 'mixed';
         $phpdocReturnType = 'mixed';
 
         $phpdocLines = [];
