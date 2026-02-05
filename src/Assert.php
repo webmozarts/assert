@@ -1111,7 +1111,7 @@ class Assert
             static::reportInvalidArgument(\sprintf(
                 $message ?: '%2$s was not expected to contain a value. Got: %s',
                 static::valueToString($value),
-                \implode(', ', \array_map(['static', 'valueToString'], $values))
+                \implode(', ', \array_map(static::valueToString(...), $values))
             ));
         }
 
