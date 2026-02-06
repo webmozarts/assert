@@ -4781,9 +4781,12 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert list|null $array
+     * @template T
+     * @psalm-assert list<T>|null $array
      *
-     * @return list|null
+     * @param mixed|array<array-key, T>|null $array
+     *
+     * @return list<T>|null
      *
      * @throws InvalidArgumentException
      */
@@ -4797,9 +4800,12 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<list> $array
+     * @template T
+     * @psalm-assert iterable<list<T>> $array
      *
-     * @return iterable<list>
+     * @param iterable<mixed|array<array-key, T>> $array
+     *
+     * @return iterable<list<T>>
      *
      * @throws InvalidArgumentException
      */
@@ -4817,9 +4823,12 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<list|null> $array
+     * @template T
+     * @psalm-assert iterable<list<T>|null> $array
      *
-     * @return iterable<list|null>
+     * @param iterable<mixed|array<array-key, T>|null> $array
+     *
+     * @return iterable<list<T>|null>
      *
      * @throws InvalidArgumentException
      */
@@ -4885,6 +4894,71 @@ trait Mixin
 
         foreach ($array as $entry) {
             null === $entry || static::isNonEmptyList($entry, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T
+     * @psalm-assert array<array-key, T>|null $array
+     *
+     * @param mixed|array<array-key, T>|null $array
+     *
+     * @return array<array-key, T>|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrNotList(mixed $array, string $message = ''): mixed
+    {
+        null === $array || static::notList($array, $message);
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T
+     * @psalm-assert iterable<array<array-key, T>> $array
+     *
+     * @param iterable<mixed|array<array-key, T>> $array
+     *
+     * @return iterable<array<array-key, T>>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNotList(mixed $array, string $message = ''): mixed
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::notList($entry, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T
+     * @psalm-assert iterable<array<array-key, T>|null> $array
+     *
+     * @param iterable<mixed|array<array-key, T>|null> $array
+     *
+     * @return iterable<array<array-key, T>|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrNotList(mixed $array, string $message = ''): mixed
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            null === $entry || static::notList($entry, $message);
         }
 
         return $array;
