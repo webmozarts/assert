@@ -4493,6 +4493,62 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param list<int|string> $keys
+     *
+     * @return mixed
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrKeysExist(mixed $array, array $keys, string $message = ''): mixed
+    {
+        null === $array || static::KeysExist($array, $keys, $message);
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param list<int|string> $keys
+     *
+     * @return mixed
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allKeysExist(mixed $array, array $keys, string $message = ''): mixed
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::KeysExist($entry, $keys, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param list<int|string> $keys
+     *
+     * @return mixed
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrKeysExist(mixed $array, array $keys, string $message = ''): mixed
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            null === $entry || static::KeysExist($entry, $keys, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|int $key
      *
      * @return mixed
