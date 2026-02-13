@@ -6,6 +6,7 @@ namespace Webmozart\Assert;
 
 use ArrayAccess;
 use Countable;
+use Throwable;
 
 /**
  * This trait provides nullOr*, all* and allNullOr* variants of assertion base methods.
