@@ -6,6 +6,7 @@ Changelog
 ### Fixed
 
 - Corrected `isList` type documentation
+- Corrected `isAOf` type documentation
 
 ## 2.1.2
 

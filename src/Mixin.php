@@ -1143,12 +1143,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
-     * @psalm-assert ExpectedType|null $value
+     * @template T of object
+     * @psalm-assert T|null $value
      *
-     * @param class-string<ExpectedType> $class
-     *
-     * @return ExpectedType|null
+     * @psalm-param class-string<T> $class
+     * @return T|null
      *
      * @throws InvalidArgumentException
      */
@@ -1162,12 +1161,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
-     * @psalm-assert iterable<ExpectedType> $value
+     * @template T of object
+     * @psalm-assert iterable<T> $value
      *
-     * @param class-string<ExpectedType> $class
-     *
-     * @return iterable<ExpectedType>
+     * @psalm-param class-string<T> $class
+     * @return iterable<T>
      *
      * @throws InvalidArgumentException
      */
@@ -1185,12 +1183,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
-     * @psalm-assert iterable<ExpectedType|null> $value
+     * @template T of object
+     * @psalm-assert iterable<T|null> $value
      *
-     * @param class-string<ExpectedType> $class
-     *
-     * @return iterable<ExpectedType|null>
+     * @psalm-param class-string<T> $class
+     * @return iterable<T|null>
      *
      * @throws InvalidArgumentException
      */
@@ -1206,12 +1203,8 @@ trait Mixin
     }
 
     /**
-     * @psalm-pure
-     *
-     * @template ExpectedType of object
-     *
-     * @param class-string<ExpectedType> $class
-     *
+     * @template T of object
+     * @psalm-param class-string<T> $class
      * @return mixed
      *
      * @throws InvalidArgumentException
@@ -1224,12 +1217,8 @@ trait Mixin
     }
 
     /**
-     * @psalm-pure
-     *
-     * @template ExpectedType of object
-     *
-     * @param class-string<ExpectedType> $class
-     *
+     * @template T of object
+     * @psalm-param class-string<T> $class
      * @return mixed
      *
      * @throws InvalidArgumentException
@@ -1246,14 +1235,11 @@ trait Mixin
     }
 
     /**
-     * @psalm-pure
+     * @template T of object
+     * @psalm-assert iterable<object|null> $value
      *
-     * @template ExpectedType of object
-     * @psalm-assert iterable<!ExpectedType|null> $value
-     *
-     * @param class-string<ExpectedType> $class
-     *
-     * @return iterable<!ExpectedType|null>
+     * @psalm-param class-string<T> $class
+     * @return iterable<object|null>
      *
      * @throws InvalidArgumentException
      */
@@ -1269,13 +1255,12 @@ trait Mixin
     }
 
     /**
-     * @psalm-pure
+     * @template T of object
+     * @psalm-assert T|null $value
      *
-     * @param array<object|string> $classes
+     * @param T|null $value
      *
-     * @psalm-param array<class-string> $classes
-     *
-     * @return mixed
+     * @return T|null
      *
      * @throws InvalidArgumentException
      */
@@ -1287,13 +1272,12 @@ trait Mixin
     }
 
     /**
-     * @psalm-pure
+     * @template T of object
+     * @psalm-assert iterable<T> $value
      *
-     * @param array<object|string> $classes
+     * @param iterable<T> $value
      *
-     * @psalm-param array<class-string> $classes
-     *
-     * @return mixed
+     * @return iterable<T>
      *
      * @throws InvalidArgumentException
      */
@@ -1309,13 +1293,12 @@ trait Mixin
     }
 
     /**
-     * @psalm-pure
+     * @template T of object
+     * @psalm-assert iterable<T|null> $value
      *
-     * @param array<object|string> $classes
+     * @param iterable<T|null> $value
      *
-     * @psalm-param array<class-string> $classes
-     *
-     * @return mixed
+     * @return iterable<T|null>
      *
      * @throws InvalidArgumentException
      */
@@ -1333,13 +1316,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
-     * @psalm-assert ExpectedType|class-string<ExpectedType>|null $value
+     * @template T of object
+     * @psalm-assert T|class-string<T>|null $value
      *
-     * @param ExpectedType|class-string<ExpectedType>|null $value
-     * @param class-string<ExpectedType>                   $class
-     *
-     * @return ExpectedType|class-string<ExpectedType>|null
+     * @return T|class-string<T>|null
      *
      * @throws InvalidArgumentException
      */
@@ -1353,13 +1333,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
-     * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>> $value
+     * @template T of object
+     * @psalm-assert iterable<T|class-string<T>> $value
      *
-     * @param iterable<ExpectedType|class-string<ExpectedType>> $value
-     * @param class-string<ExpectedType>                        $class
-     *
-     * @return iterable<ExpectedType|class-string<ExpectedType>>
+     * @return iterable<T|class-string<T>>
      *
      * @throws InvalidArgumentException
      */
@@ -1377,13 +1354,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
-     * @psalm-assert iterable<ExpectedType|class-string<ExpectedType>|null> $value
+     * @template T of object
+     * @psalm-assert iterable<T|class-string<T>|null> $value
      *
-     * @param iterable<ExpectedType|class-string<ExpectedType>|null> $value
-     * @param class-string<ExpectedType>                             $class
-     *
-     * @return iterable<ExpectedType|class-string<ExpectedType>|null>
+     * @return iterable<T|class-string<T>|null>
      *
      * @throws InvalidArgumentException
      */
@@ -1401,10 +1375,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template UnexpectedType of object
+     * @template T
      *
-     * @param object|string|null           $value
-     * @param class-string<UnexpectedType> $class
+     * @param T|null $value
      *
      * @return mixed
      *
@@ -1420,10 +1393,9 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template UnexpectedType of object
+     * @template T
      *
-     * @param iterable<object|string>      $value
-     * @param class-string<UnexpectedType> $class
+     * @param iterable<T> $value
      *
      * @return mixed
      *
@@ -1443,12 +1415,12 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @template UnexpectedType of object
+     * @template T
+     * @psalm-assert iterable<object|class-string|null> $value
      *
-     * @param iterable<object|string|null> $value
-     * @param class-string<UnexpectedType> $class
+     * @param iterable<T|null> $value
      *
-     * @return mixed
+     * @return iterable<object|class-string|null>
      *
      * @throws InvalidArgumentException
      */

@@ -472,18 +472,19 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
+     * @template T of object
      *
-     * @psalm-assert ExpectedType $value
+     * @psalm-assert T $value
      *
-     * @param class-string<ExpectedType> $class
+     * @psalm-param class-string<T> $class
      *
-     * @return ExpectedType
+     * @return T
      *
      * @throws InvalidArgumentException
      */
     public static function isInstanceOf(mixed $value, mixed $class, string $message = ''): object
     {
+        static::object($value);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if (!($value instanceof $class)) {
@@ -498,15 +499,12 @@ class Assert
     }
 
     /**
-     * @psalm-pure
+     * @template T of object
      *
-     * @template ExpectedType of object
+     * @psalm-assert object $value
+     * @psalm-param class-string<T> $class
      *
-     * @psalm-assert !ExpectedType $value
-     *
-     * @param class-string<ExpectedType> $class
-     *
-     * @return !ExpectedType
+     * @return !T
      *
      * @throws InvalidArgumentException
      */
@@ -527,10 +525,13 @@ class Assert
     }
 
     /**
-     * @psalm-pure
+     * @template T of object
      *
-     * @param array<object|string> $classes
-     * @psalm-param array<class-string> $classes
+     * @psalm-assert T $value
+     *
+     * @param T $value
+     *
+     * @return T
      *
      * @throws InvalidArgumentException
      */
@@ -540,6 +541,8 @@ class Assert
         static::isIterable($classes);
 
         foreach ($classes as $class) {
+            static::string($class, 'Expected class as a string. Got: %s');
+
             if ($value instanceof $class) {
                 return $value;
             }
@@ -555,14 +558,11 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @template ExpectedType of object
+     * @template T of object
      *
-     * @psalm-assert ExpectedType|class-string<ExpectedType> $value
+     * @psalm-assert T|class-string<T> $value
      *
-     * @param ExpectedType|class-string<ExpectedType> $value
-     * @param class-string<ExpectedType> $class
-     *
-     * @return ExpectedType|class-string<ExpectedType>
+     * @return T
      *
      * @throws InvalidArgumentException
      */
@@ -584,12 +584,13 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @template UnexpectedType of object
+     * @template T
      *
-     * @param object|string $value
-     * @param class-string<UnexpectedType> $class
+     * @psalm-assert object|class-string $value
      *
-     * @psalm-return !UnexpectedType
+     * @param T $value
+     *
+     * @return T
      *
      * @throws InvalidArgumentException
      */
@@ -620,10 +621,10 @@ class Assert
      */
     public static function isAnyOf(mixed $value, mixed $classes, string $message = ''): object|string
     {
+        static::objectish($value);
         static::isIterable($classes);
 
         foreach ($classes as $class) {
-            static::objectish($value);
             static::string($class, 'Expected class as a string. Got: %s');
 
             if (\is_a($value, $class, \is_string($value))) {
