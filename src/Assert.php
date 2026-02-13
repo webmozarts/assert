@@ -548,7 +548,7 @@ class Assert
         static::reportInvalidArgument(\sprintf(
             $message ?: 'Expected an instance of any of %2$s. Got: %s',
             static::typeToString($value),
-            \implode(', ', \array_map([static::class, 'valueToString'], \iterator_to_array($classes)))
+            \implode(', ', \array_map(static::valueToString(...), \iterator_to_array($classes)))
         ));
     }
 
@@ -1072,7 +1072,7 @@ class Assert
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected one of: %2$s. Got: %s',
                 static::valueToString($value),
-                \implode(', ', \array_map([static::class, 'valueToString'], $values))
+                \implode(', ', \array_map(static::valueToString(...), $values))
             ));
         }
 
