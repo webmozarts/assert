@@ -9,8 +9,6 @@ use stdClass;
 use Webmozart\Assert\Assert;
 
 /**
- * @psalm-pure
- *
  * @param stdClass|DateTime $value
  */
 function notInstanceOf(mixed $value): DateTime
@@ -21,8 +19,6 @@ function notInstanceOf(mixed $value): DateTime
 }
 
 /**
- * @psalm-pure
- *
  * @psalm-template T of object
  *
  * @param mixed $value
@@ -36,8 +32,6 @@ function nullOrNotInstanceOf($value, $class): mixed
 }
 
 /**
- * @psalm-pure
- *
  * @psalm-template T of object
  *
  * @param mixed $value
@@ -51,8 +45,6 @@ function allNotInstanceOf($value, $class): mixed
 }
 
 /**
- * @psalm-pure
- *
  * @psalm-template T of object
  *
  * @param mixed $value
