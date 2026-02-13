@@ -1984,9 +1984,11 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert list $array
+     * @psalm-assert list<T> $array
      *
-     * @psalm-return list
+     * @psalm-return list<T>
+     *
+     * @template T
      *
      * @throws InvalidArgumentException
      */
@@ -2004,9 +2006,11 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert non-empty-list $array
+     * @psalm-assert non-empty-list<T> $array
      *
-     * @psalm-return non-empty-list
+     * @psalm-return non-empty-list<T>
+     *
+     * @template T
      *
      * @throws InvalidArgumentException
      */

@@ -14,6 +14,7 @@ use ReflectionNamedType;
 use ReflectionType;
 use ReflectionUnionType;
 use RuntimeException;
+use Throwable;
 use Webmozart\Assert\Assert;
 
 final class MixinGenerator
@@ -77,6 +78,7 @@ PHP
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
+        $namespace .= sprintf("use %s;\n", Throwable::class);
         $namespace .= "\n";
 
         $namespace .= $this->trait($assert);
