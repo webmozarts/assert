@@ -1740,7 +1740,11 @@ class Assert
     {
         static::objectish($value);
 
-        if (!\in_array($interface, \class_implements($value), true)) {
+        $implements = \class_implements($value);
+
+        static::isArray($implements);
+
+        if (!\in_array($interface, $implements, true)) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an implementation of %2$s. Got: %s',
                 static::valueToString($value),
