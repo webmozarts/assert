@@ -1,6 +1,12 @@
 Changelog
 =========
 
+## 2.1.3
+
+### Fixed
+
+- Corrected `isList` type documentation
+
 ## 2.1.2
 
 ### Fixed

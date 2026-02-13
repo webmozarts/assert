@@ -4782,9 +4782,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert list|null $array
+     * @psalm-assert list<T>|null $array
      *
-     * @return list|null
+     * @template T
+     * @return list<T>|null
      *
      * @throws InvalidArgumentException
      */
@@ -4798,9 +4799,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<list> $array
+     * @psalm-assert iterable<list<T>> $array
      *
-     * @return iterable<list>
+     * @template T
+     * @return iterable<list<T>>
      *
      * @throws InvalidArgumentException
      */
@@ -4818,9 +4820,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<list|null> $array
+     * @psalm-assert iterable<list<T>|null> $array
      *
-     * @return iterable<list|null>
+     * @template T
+     * @return iterable<list<T>|null>
      *
      * @throws InvalidArgumentException
      */
@@ -4838,9 +4841,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert non-empty-list|null $array
+     * @psalm-assert non-empty-list<T>|null $array
      *
-     * @return non-empty-list|null
+     * @template T
+     * @return non-empty-list<T>|null
      *
      * @throws InvalidArgumentException
      */
@@ -4854,9 +4858,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<non-empty-list> $array
+     * @psalm-assert iterable<non-empty-list<T>> $array
      *
-     * @return iterable<non-empty-list>
+     * @template T
+     * @return iterable<non-empty-list<T>>
      *
      * @throws InvalidArgumentException
      */
@@ -4874,9 +4879,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<non-empty-list|null> $array
+     * @psalm-assert iterable<non-empty-list<T>|null> $array
      *
-     * @return iterable<non-empty-list|null>
+     * @template T
+     * @return iterable<non-empty-list<T>|null>
      *
      * @throws InvalidArgumentException
      */
