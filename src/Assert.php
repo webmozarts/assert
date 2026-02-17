@@ -484,7 +484,7 @@ class Assert
      */
     public static function isInstanceOf(mixed $value, mixed $class, string $message = ''): object
     {
-        static::object($value);
+        static::object($value, $message);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if (!($value instanceof $class)) {
@@ -510,7 +510,7 @@ class Assert
      */
     public static function notInstanceOf(mixed $value, mixed $class, string $message = ''): object
     {
-        static::object($value);
+        static::object($value, $message);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if ($value instanceof $class) {
@@ -537,7 +537,7 @@ class Assert
      */
     public static function isInstanceOfAny(mixed $value, mixed $classes, string $message = ''): object
     {
-        static::object($value);
+        static::object($value, $message);
         static::isIterable($classes);
 
         foreach ($classes as $class) {
@@ -596,7 +596,7 @@ class Assert
      */
     public static function isNotA(mixed $value, mixed $class, string $message = ''): object|string
     {
-        static::objectish($value);
+        static::objectish($value, $message);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if (\is_a($value, $class, \is_string($value))) {
@@ -621,7 +621,7 @@ class Assert
      */
     public static function isAnyOf(mixed $value, mixed $classes, string $message = ''): object|string
     {
-        static::objectish($value);
+        static::objectish($value, $message);
         static::isIterable($classes);
 
         foreach ($classes as $class) {
