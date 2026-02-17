@@ -943,6 +943,31 @@ class AssertTest extends TestCase
                 'args' => [111, 'test', 'Value must be an array without key test. Got: %s'],
                 'exceptionMessage' => 'Value must be an array without key test. Got: integer',
             ],
+            [
+                'method' => 'isInstanceOf',
+                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
+            ],
+            [
+                'method' => 'notInstanceOf',
+                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
+            ],
+            [
+                'method' => 'isInstanceOfAny',
+                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
+            ],
+            [
+                'method' => 'isNotA',
+                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
+            ],
+            [
+                'method' => 'isAnyOf',
+                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
+            ],
         ];
     }
 }
