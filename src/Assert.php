@@ -484,7 +484,6 @@ class Assert
      */
     public static function isInstanceOf(mixed $value, mixed $class, string $message = ''): object
     {
-        static::object($value, $message);
         static::string($class, 'Expected class as a string. Got: %s');
 
         if (!($value instanceof $class)) {
@@ -510,10 +509,9 @@ class Assert
      */
     public static function notInstanceOf(mixed $value, mixed $class, string $message = ''): object
     {
-        static::object($value, $message);
         static::string($class, 'Expected class as a string. Got: %s');
 
-        if ($value instanceof $class) {
+        if (!\is_object($value) || $value instanceof $class) {
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected an instance other than %2$s. Got: %s',
                 static::typeToString($value),
@@ -537,7 +535,6 @@ class Assert
      */
     public static function isInstanceOfAny(mixed $value, mixed $classes, string $message = ''): object
     {
-        static::object($value, $message);
         static::isIterable($classes);
 
         foreach ($classes as $class) {

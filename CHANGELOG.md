@@ -1,6 +1,12 @@
 Changelog
 =========
 
+## 2.1.5
+
+### Fixed
+
+- Fixed regression of `instanceOf` messages
+
 ## 2.1.4
 
 ### Fixed
