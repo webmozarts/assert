@@ -188,7 +188,9 @@ class AssertTest extends TestCase
             ['isInstanceOf', [null, 'stdClass'], false],
             ['notInstanceOf', [new stdClass(), 'stdClass'], false],
             ['notInstanceOf', [new Exception(), 'stdClass'], true],
+            ['notInstanceOf', [123, 'stdClass'], false],
             ['notInstanceOf', [[], 'stdClass'], false],
+            ['notInstanceOf', [null, 'stdClass'], false],
             ['isInstanceOfAny', [new ArrayIterator(), ['Iterator', 'ArrayAccess']], true],
             ['isInstanceOfAny', [new Exception(), ['Exception', 'Countable']], true],
             ['isInstanceOfAny', [new Exception(), ['ArrayAccess', 'Countable']], false],
@@ -803,6 +805,38 @@ class AssertTest extends TestCase
         call_user_func_array(['Webmozart\Assert\Assert', $method], $args);
     }
 
+    public static function getInvalidInstanceOfCases(): iterable
+    {
+        yield [
+            [null, 'stdClass'],
+            'Expected an instance of stdClass. Got: NULL',
+        ];
+
+        yield [
+            [123, 'stdClass'],
+            'Expected an instance of stdClass. Got: integer',
+        ];
+
+        yield [
+            [[], 'Iterator'],
+            'Expected an instance of Iterator. Got: array',
+        ];
+
+        yield [
+            [new stdClass(), 'Iterator'],
+            'Expected an instance of Iterator. Got: stdClass',
+        ];
+    }
+
+    #[DataProvider('getInvalidInstanceOfCases')]
+    public function testInstanceOfExceptionMessages(array $args, string $exceptionMessage): void
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage($exceptionMessage);
+
+        call_user_func_array(['Webmozart\Assert\Assert', 'isInstanceOf'], $args);
+    }
+
     public static function getInvalidIsAOfCases(): iterable
     {
         yield [
@@ -955,7 +989,7 @@ class AssertTest extends TestCase
             ],
             [
                 'method' => 'isInstanceOfAny',
-                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'args' => [111, ['stdClass'], 'Value must be an instance of stdClass. Got: %s'],
                 'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
             ],
             [
@@ -965,7 +999,7 @@ class AssertTest extends TestCase
             ],
             [
                 'method' => 'isAnyOf',
-                'args' => [111, 'stdClass', 'Value must be an instance of stdClass. Got: %s'],
+                'args' => [111, ['stdClass'], 'Value must be an instance of stdClass. Got: %s'],
                 'exceptionMessage' => 'Value must be an instance of stdClass. Got: integer',
             ],
         ];
