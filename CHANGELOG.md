@@ -1,6 +1,12 @@
 Changelog
 =========
 
+## 2.1.6
+
+### Fixed
+
+- Corrected docblocks for `list*` methods.
+
 ## 2.1.5
 
 ### Fixed
@@ -11,14 +17,14 @@ Changelog
 
 ### Fixed
 
-- Use custom message for more internal calls
+- Use custom message for more internal calls.
 
 ## 2.1.3
 
 ### Fixed
 
-- Corrected `isList` type documentation
-- Corrected `isAOf`, `isInstanceOf`, etc type documentation
+- Corrected `isList` type documentation.
+- Corrected `isAOf`, `isInstanceOf`, etc type documentation.
 
 ## 2.1.2
 
