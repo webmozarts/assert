@@ -22,6 +22,18 @@ function isNonEmptyList(mixed $value): array
 
 /**
  * @psalm-pure
+ */
+function isNonEmptyListWithRange(): mixed
+{
+    $value = range(1, 100);
+
+    Assert::isNonEmptyList($value);
+
+    return $value[0];
+}
+
+/**
+ * @psalm-pure
  *
  * @param mixed $value
  *

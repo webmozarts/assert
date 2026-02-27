@@ -1986,11 +1986,9 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert list<T> $array
+     * @psalm-assert list<mixed> $array
      *
-     * @psalm-return list<T>
-     *
-     * @template T
+     * @psalm-return list<mixed>
      *
      * @throws InvalidArgumentException
      */
@@ -2008,11 +2006,9 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert non-empty-list<T> $array
+     * @psalm-assert non-empty-list<mixed> $array
      *
-     * @psalm-return non-empty-list<T>
-     *
-     * @template T
+     * @psalm-return non-empty-list<mixed>
      *
      * @throws InvalidArgumentException
      */
