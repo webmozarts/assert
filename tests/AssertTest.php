@@ -38,6 +38,13 @@ class AssertTest extends TestCase
         'isInitialized',
     ];
 
+    private const SKIP_CUSTOM_MESSAGE_TESTS = [
+        'isAOf',
+        'isAnyOf',
+        'isNotA',
+        'startsWithLetter',
+    ];
+
     public static function getResource()
     {
         static $resource;
@@ -680,6 +687,65 @@ class AssertTest extends TestCase
 
         $result = call_user_func_array(['Webmozart\Assert\Assert', $method], $args);
         $this->assertSame($args[array_key_first($args)], $result);
+    }
+
+    #[DataProvider('getTests')]
+    public function testCustomMessage(string $method, array $args, bool $success, bool $multibyte = false): void
+    {
+        if (in_array($method, self::SKIP_CUSTOM_MESSAGE_TESTS)) {
+            $this->markTestSkipped("The method $method could have specific message handling instead of custom message.");
+        }
+
+        if ($args === []) {
+            $this->addToAssertionCount(1);
+
+            return;
+        }
+
+        if ($multibyte && !function_exists('mb_strlen')) {
+            $this->markTestSkipped('The function mb_strlen() is not available');
+        }
+
+        if (!$success) {
+            $this->expectException('\InvalidArgumentException');
+            $this->expectExceptionMessage('Custom error message');
+        }
+
+        $args['message'] = 'Custom error message';
+        $result = Assert::$method(...$args);
+
+        $this->assertSame($args[array_key_first($args)], $result);
+    }
+
+    #[DataProvider('getTests')]
+    public function testLazyMessageCallbackCalled(string $method, array $args, bool $success, bool $multibyte = false): void
+    {
+        if ($args === []) {
+            $this->addToAssertionCount(1);
+
+            return;
+        }
+
+        if ($multibyte && !function_exists('mb_strlen')) {
+            $this->markTestSkipped('The function mb_strlen() is not available');
+        }
+
+        if (!$success) {
+            $this->expectException('\InvalidArgumentException');
+        }
+
+        $called = 0;
+
+        $args['message'] = function () use (&$called) {
+            ++$called;
+
+            return 'Custom error message number';
+        };
+
+        Assert::$method(...$args);
+
+        $expectedCalled = $success ? 0 : 1;
+        $this->assertSame($expectedCalled, $called, sprintf('The lazy message callback should be called exactly %d times.', $expectedCalled));
     }
 
     #[DataProvider('getTests')]
