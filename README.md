@@ -237,11 +237,6 @@ assertion only if the value is not `null`:
 Assert::nullOrString($middleName, 'The middle name must be a string or null. Got: %s');
 ```
 
-### Extending Assert
-
-The `Assert` class comes with a few methods, which can be overridden to change the class behaviour. You can also extend it to
-add your own assertions.
-
 ### Lazy assertion messages
 
 Assertion messages can be provided as callables to avoid unnecessary computation when the assertion passes:
@@ -251,6 +246,12 @@ Assert::string($value, fn() => expensiveMessage());
 ```
 
 The callable will only be executed if the assertion fails.
+
+### Extending Assert
+
+The `Assert` class comes with a few methods, which can be overridden to change the class behaviour. You can also extend it to
+add your own assertions.
+
 
 #### Overriding methods
 
