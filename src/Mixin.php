@@ -5139,6 +5139,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5153,6 +5155,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5171,6 +5175,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5189,6 +5195,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5203,6 +5211,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5221,6 +5231,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5239,6 +5251,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5253,6 +5267,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5271,6 +5287,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5289,6 +5307,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5303,6 +5323,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
@@ -5321,6 +5343,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return mixed
