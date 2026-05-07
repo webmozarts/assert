@@ -567,8 +567,6 @@ class Assert
      * @param string|callable():string $message
      * @psalm-param class-string<T> $class
      *
-     * @return !T
-     *
      * @throws InvalidArgumentException
      */
     public static function notInstanceOf(mixed $value, mixed $class, string|callable $message = ''): object
@@ -659,8 +657,9 @@ class Assert
      * @psalm-assert T|class-string<T> $value
      *
      * @param string|callable():string $message
+     * @psalm-param class-string<T> $class
      *
-     * @return T
+     * @psalm-return T|class-string<T>
      *
      * @throws InvalidArgumentException
      */
@@ -690,7 +689,7 @@ class Assert
      * @param T $value
      * @param string|callable():string $message
      *
-     * @return T
+     * @psalm-return object|class-string
      *
      * @throws InvalidArgumentException
      */
@@ -773,8 +772,6 @@ class Assert
      *
      * @param string|callable():string $message
      *
-     * @psalm-return !empty
-     *
      * @throws InvalidArgumentException
      */
     public static function notEmpty(mixed $value, string|callable $message = ''): mixed
@@ -818,8 +815,6 @@ class Assert
      * @psalm-assert !null $value
      *
      * @param string|callable():string $message
-     *
-     * @psalm-return !null
      *
      * @throws InvalidArgumentException
      */
@@ -1647,6 +1642,8 @@ class Assert
      *
      * @param string|callable():string $message
      *
+     * @psalm-return lowercase-string
+     *
      * @throws InvalidArgumentException
      */
     public static function lower(mixed $value, string|callable $message = ''): string
@@ -1911,6 +1908,8 @@ class Assert
      *
      * @param string|callable():string $message
      *
+     * @psalm-return class-string
+     *
      * @throws InvalidArgumentException
      */
     public static function classExists(mixed $value, string|callable $message = ''): string
@@ -1964,6 +1963,8 @@ class Assert
      *
      * @param string|callable():string $message
      *
+     * @psalm-return class-string
+     *
      * @throws InvalidArgumentException
      */
     public static function interfaceExists(mixed $value, string|callable $message = ''): string
@@ -1988,9 +1989,10 @@ class Assert
      *
      * @psalm-assert class-string<ExpectedType>|ExpectedType $value
      *
-     * @param class-string<ExpectedType>|ExpectedType $value
      * @param class-string<ExpectedType> $interface
      * @param string|callable():string $message
+     *
+     * @psalm-return class-string<ExpectedType>|ExpectedType
      *
      * @throws InvalidArgumentException
      */
@@ -2407,7 +2409,7 @@ class Assert
      * @param array<string, T> $array
      * @param string|callable():string $message
      *
-     * @return array<string, T>
+     * @psalm-return non-empty-array<string, T>
      *
      * @throws InvalidArgumentException
      */
