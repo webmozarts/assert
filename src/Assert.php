@@ -816,7 +816,10 @@ class Assert
      *
      * @param string|callable():string $message
      *
+     * @template T
+     * @param T|null $input
      * @throws InvalidArgumentException
+     * @return T
      */
     public static function notNull(mixed $value, string|callable $message = ''): mixed
     {
@@ -881,7 +884,10 @@ class Assert
      *
      * @param string|callable():string $message
      *
+     * @template T
+     * @param T|false $input
      * @throws InvalidArgumentException
+     * @return T
      */
     public static function notFalse(mixed $value, string|callable $message = ''): mixed
     {
