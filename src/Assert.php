@@ -817,7 +817,7 @@ class Assert
      * @param string|callable():string $message
      *
      * @template T
-     * @param T|null $input
+     * @param T|null $value
      * @throws InvalidArgumentException
      * @return T
      */
@@ -885,7 +885,7 @@ class Assert
      * @param string|callable():string $message
      *
      * @template T
-     * @param T|false $input
+     * @param T|false $value
      * @throws InvalidArgumentException
      * @return T
      */
