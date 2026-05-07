@@ -1526,6 +1526,8 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
+     * @psalm-param class-string<T> $class
+     *
      * @return T|class-string<T>|null
      *
      * @throws InvalidArgumentException
@@ -1544,6 +1546,8 @@ trait Mixin
      * @psalm-assert iterable<T|class-string<T>> $value
      *
      * @param string|callable():string $message
+     *
+     * @psalm-param class-string<T> $class
      *
      * @return iterable<T|class-string<T>>
      *
@@ -1567,6 +1571,8 @@ trait Mixin
      * @psalm-assert iterable<T|class-string<T>|null> $value
      *
      * @param string|callable():string $message
+     *
+     * @psalm-param class-string<T> $class
      *
      * @return iterable<T|class-string<T>|null>
      *
@@ -1863,6 +1869,10 @@ trait Mixin
      * @psalm-pure
      *
      * @param string|callable():string $message
+     * @param iterable<T|null>         $value
+     *
+     * @template T
+     *
      *
      * @return mixed
      *
@@ -2007,6 +2017,10 @@ trait Mixin
      * @psalm-pure
      *
      * @param string|callable():string $message
+     * @param T|false|null             $value
+     *
+     * @template T
+     *
      *
      * @return mixed
      *
@@ -2023,6 +2037,10 @@ trait Mixin
      * @psalm-pure
      *
      * @param string|callable():string $message
+     * @param iterable<T|false>        $value
+     *
+     * @template T
+     *
      *
      * @return mixed
      *
@@ -2045,6 +2063,10 @@ trait Mixin
      * @psalm-assert iterable<!false|null> $value
      *
      * @param string|callable():string $message
+     * @param iterable<T|false|null>   $value
+     *
+     * @template T
+     *
      *
      * @return iterable<!false|null>
      *
@@ -4639,9 +4661,8 @@ trait Mixin
      * @template ExpectedType of object
      * @psalm-assert class-string<ExpectedType>|ExpectedType|null $value
      *
-     * @param class-string<ExpectedType>|ExpectedType|null $value
-     * @param class-string<ExpectedType>                   $interface
-     * @param string|callable():string                     $message
+     * @param class-string<ExpectedType> $interface
+     * @param string|callable():string   $message
      *
      * @return class-string<ExpectedType>|ExpectedType|null
      *
@@ -4660,9 +4681,8 @@ trait Mixin
      * @template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType> $value
      *
-     * @param iterable<class-string<ExpectedType>|ExpectedType> $value
-     * @param class-string<ExpectedType>                        $interface
-     * @param string|callable():string                          $message
+     * @param class-string<ExpectedType> $interface
+     * @param string|callable():string   $message
      *
      * @return iterable<class-string<ExpectedType>|ExpectedType>
      *
@@ -4685,9 +4705,8 @@ trait Mixin
      * @template ExpectedType of object
      * @psalm-assert iterable<class-string<ExpectedType>|ExpectedType|null> $value
      *
-     * @param iterable<class-string<ExpectedType>|ExpectedType|null> $value
-     * @param class-string<ExpectedType>                             $interface
-     * @param string|callable():string                               $message
+     * @param class-string<ExpectedType> $interface
+     * @param string|callable():string   $message
      *
      * @return iterable<class-string<ExpectedType>|ExpectedType|null>
      *
