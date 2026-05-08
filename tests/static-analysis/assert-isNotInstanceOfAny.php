@@ -7,45 +7,37 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @param mixed $value
+ * 
  * @param array<class-string> $classes
  */
 function isNotInstanceOfAny($value, array $classes): mixed
 {
-    Assert::isNotInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::isNotInstanceOfAny($value, $classes);
 }
 
 /**
- * @param mixed $value
+ * 
  * @param array<class-string> $classes
  */
 function nullOrIsNotInstanceOfAny($value, array $classes): mixed
 {
-    Assert::nullOrIsNotInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::nullOrIsNotInstanceOfAny($value, $classes);
 }
 
 /**
- * @param mixed $value
+ * @param iterable<mixed> $value
  * @param array<class-string> $classes
  */
-function allIsNotInstanceOfAny($value, array $classes): mixed
+function allIsNotInstanceOfAny(iterable $value, array $classes): iterable
 {
-    Assert::allIsNotInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::allIsNotInstanceOfAny($value, $classes);
 }
 
 /**
- * @param mixed $value
+ * @param iterable<mixed|null> $value
  * @param array<class-string> $classes
  */
-function allNullOrIsNotInstanceOfAny($value, array $classes): mixed
+function allNullOrIsNotInstanceOfAny(iterable $value, array $classes): iterable
 {
-    Assert::allNullOrIsNotInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::allNullOrIsNotInstanceOfAny($value, $classes);
 }

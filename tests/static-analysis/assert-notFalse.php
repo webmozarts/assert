@@ -13,9 +13,7 @@ use Webmozart\Assert\Assert;
  */
 function notFalseBool(bool $value): bool
 {
-    Assert::notFalse($value);
-
-    return $value;
+    return Assert::notFalse($value);
 }
 
 /**
@@ -25,43 +23,33 @@ function notFalseBool(bool $value): bool
  */
 function notFalseUnion(mixed $value): string
 {
-    Assert::notFalse($value);
-
-    return $value;
+    return Assert::notFalse($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrNotFalse(mixed $value): mixed
 {
-    Assert::nullOrNotFalse($value);
-
-    return $value;
+    return Assert::nullOrNotFalse($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param iterable<mixed> $value
  */
-function allNotFalse(mixed $value): mixed
+function allNotFalse(iterable $value): iterable
 {
-    Assert::allNotFalse($value);
-
-    return $value;
+    return Assert::allNotFalse($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param iterable<mixed|null> $value
  */
-function allNullOrNotFalse(mixed $value): mixed
+function allNullOrNotFalse(iterable $value): iterable
 {
-    Assert::allNullOrNotFalse($value);
-
-    return $value;
+    return Assert::allNullOrNotFalse($value);
 }

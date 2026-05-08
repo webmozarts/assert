@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function endsWith(string $value, string $suffix): string
 {
-    Assert::endsWith($value, $suffix);
-
-    return $value;
+    return Assert::endsWith($value, $suffix);
 }
 
 /**
@@ -21,9 +19,7 @@ function endsWith(string $value, string $suffix): string
  */
 function nullOrEndsWith(?string $value, string $suffix): ?string
 {
-    Assert::nullOrEndsWith($value, $suffix);
-
-    return $value;
+    return Assert::nullOrEndsWith($value, $suffix);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrEndsWith(?string $value, string $suffix): ?string
  */
 function allEndsWith(iterable $value, string $suffix): iterable
 {
-    Assert::allEndsWith($value, $suffix);
-
-    return $value;
+    return Assert::allEndsWith($value, $suffix);
 }
 
 /**
@@ -45,7 +39,5 @@ function allEndsWith(iterable $value, string $suffix): iterable
  */
 function allNullOrEndsWith(iterable $value, string $suffix): iterable
 {
-    Assert::allNullOrEndsWith($value, $suffix);
-
-    return $value;
+    return Assert::allNullOrEndsWith($value, $suffix);
 }

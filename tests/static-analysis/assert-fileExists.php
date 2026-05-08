@@ -7,41 +7,33 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @param mixed $value
+ * 
  */
 function fileExists(mixed $value): mixed
 {
-    Assert::fileExists($value);
-
-    return $value;
+    return Assert::fileExists($value);
 }
 
 /**
- * @param mixed $value
+ * 
  */
 function nullOrFileExists(mixed $value): mixed
 {
-    Assert::nullOrFileExists($value);
-
-    return $value;
+    return Assert::nullOrFileExists($value);
 }
 
 /**
- * @param mixed $value
+ * 
  */
 function allFileExists(mixed $value): mixed
 {
-    Assert::allFileExists($value);
-
-    return $value;
+    return Assert::allFileExists($value);
 }
 
 /**
- * @param mixed $value
+ * 
  */
 function allNullOrFileExists(mixed $value): mixed
 {
-    Assert::allNullOrFileExists($value);
-
-    return $value;
+    return Assert::allNullOrFileExists($value);
 }

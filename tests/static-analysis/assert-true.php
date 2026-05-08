@@ -9,51 +9,35 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @return true
  */
 function true(mixed $value): bool
 {
-    Assert::true($value);
-
-    return $value;
+    return Assert::true($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  *
  * @return null|true
  */
 function nullOrTrue(mixed $value): ?bool
 {
-    Assert::nullOrTrue($value);
-
-    return $value;
+    return Assert::nullOrTrue($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allTrue(mixed $value): iterable
 {
-    Assert::allTrue($value);
-
-    return $value;
+    return Assert::allTrue($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrTrue(mixed $value): iterable
 {
-    Assert::allNullOrTrue($value);
-
-    return $value;
+    return Assert::allNullOrTrue($value);
 }

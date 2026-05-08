@@ -9,63 +9,45 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @return non-empty-list<mixed>
  */
 function isNonEmptyList(mixed $value): array
 {
-    Assert::isNonEmptyList($value);
-
-    return $value;
-}
-
-/**
- * @psalm-pure
- */
-function isNonEmptyListWithRange(): mixed
-{
-    $value = range(1, 100);
-
-    Assert::isNonEmptyList($value);
-
-    return $value[0];
+    return Assert::isNonEmptyList($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param array<int> $value
+ */
+function isNonEmptyListWithRange(array $value): array
+{
+    return Assert::isNonEmptyList($value);
+}
+
+/**
+ * @psalm-pure
  *
  * @return null|non-empty-list<mixed>
  */
 function nullOrIsNonEmptyList(mixed $value): ?array
 {
-    Assert::nullOrIsNonEmptyList($value);
-
-    return $value;
+    return Assert::nullOrIsNonEmptyList($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allIsNonEmptyList(mixed $value): iterable
 {
-    Assert::allIsNonEmptyList($value);
-
-    return $value;
+    return Assert::allIsNonEmptyList($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrIsNonEmptyList(mixed $value): iterable
 {
-    Assert::allNullOrIsNonEmptyList($value);
-
-    return $value;
+    return Assert::allNullOrIsNonEmptyList($value);
 }

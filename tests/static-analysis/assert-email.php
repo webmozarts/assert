@@ -6,42 +6,28 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-/**
- * @param mixed $value
- */
-function email(mixed $value): mixed
+function email(mixed $value): string
 {
-    Assert::email($value);
+    return Assert::email($value);
+}
 
-    return $value;
+function nullOrEmail(mixed $value): ?string
+{
+    return Assert::nullOrEmail($value);
 }
 
 /**
- * @param mixed $value
+ * @return iterable<string>
  */
-function nullOrEmail(mixed $value): mixed
+function allEmail(mixed $value): iterable
 {
-    Assert::nullOrEmail($value);
-
-    return $value;
+    return Assert::allEmail($value);
 }
 
 /**
- * @param mixed $value
+ * @return iterable<string|null>
  */
-function allEmail(mixed $value): mixed
+function allNullOrEmail(mixed $value): iterable
 {
-    Assert::allEmail($value);
-
-    return $value;
-}
-
-/**
- * @param mixed $value
- */
-function allNullOrEmail(mixed $value): mixed
-{
-    Assert::allNullOrEmail($value);
-
-    return $value;
+    return Assert::allNullOrEmail($value);
 }

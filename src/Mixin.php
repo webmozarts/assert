@@ -1398,7 +1398,7 @@ trait Mixin
      * @template T of object
      * @psalm-assert T|null $value
      *
-     * @param T|null                   $value
+     * @param array<class-string<T>>   $classes
      * @param string|callable():string $message
      *
      * @return T|null
@@ -1416,7 +1416,7 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T> $value
      *
-     * @param iterable<T>              $value
+     * @param array<class-string<T>>   $classes
      * @param string|callable():string $message
      *
      * @return iterable<T>
@@ -1438,7 +1438,7 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T|null> $value
      *
-     * @param iterable<T|null>         $value
+     * @param array<class-string<T>>   $classes
      * @param string|callable():string $message
      *
      * @return iterable<T|null>
@@ -1458,12 +1458,12 @@ trait Mixin
 
     /**
      * @template T
-     * @psalm-assert T|null $value
+     * @psalm-assert object|class-string|null $value
      *
      * @param T|null                   $value
      * @param string|callable():string $message
      *
-     * @return T|null
+     * @return object|class-string|null
      *
      * @throws InvalidArgumentException
      */
@@ -1476,12 +1476,11 @@ trait Mixin
 
     /**
      * @template T
-     * @psalm-assert iterable<T> $value
      *
      * @param iterable<T>              $value
      * @param string|callable():string $message
      *
-     * @return iterable<T>
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
@@ -1498,12 +1497,11 @@ trait Mixin
 
     /**
      * @template T
-     * @psalm-assert iterable<T|null> $value
      *
      * @param iterable<T|null>         $value
      * @param string|callable():string $message
      *
-     * @return iterable<T|null>
+     * @return mixed
      *
      * @throws InvalidArgumentException
      */
@@ -1658,13 +1656,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param object|string|null       $value
-     * @param string[]                 $classes
+     * @psalm-assert T|null $value
+     *
+     * @template T as object
+     *
+     * @param array<class-string<T>>   $classes
      * @param string|callable():string $message
      *
-     * @psalm-param array<class-string> $classes
-     *
-     * @return mixed
+     * @return T|null
      *
      * @throws InvalidArgumentException
      */
@@ -1678,13 +1677,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<object|string>  $value
-     * @param string[]                 $classes
+     * @psalm-assert iterable<T> $value
+     *
+     * @template T as object
+     *
+     * @param array<class-string<T>>   $classes
      * @param string|callable():string $message
      *
-     * @psalm-param array<class-string> $classes
-     *
-     * @return mixed
+     * @return iterable<T>
      *
      * @throws InvalidArgumentException
      */
@@ -1702,13 +1702,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param iterable<object|string|null> $value
-     * @param string[]                     $classes
-     * @param string|callable():string     $message
+     * @psalm-assert iterable<T|null> $value
      *
-     * @psalm-param array<class-string> $classes
+     * @template T as object
      *
-     * @return mixed
+     * @param array<class-string<T>>   $classes
+     * @param string|callable():string $message
+     *
+     * @return iterable<T|null>
      *
      * @throws InvalidArgumentException
      */
@@ -1873,7 +1874,6 @@ trait Mixin
      *
      * @template T
      *
-     *
      * @return mixed
      *
      * @throws InvalidArgumentException
@@ -2021,7 +2021,6 @@ trait Mixin
      *
      * @template T
      *
-     *
      * @return mixed
      *
      * @throws InvalidArgumentException
@@ -2040,7 +2039,6 @@ trait Mixin
      * @param iterable<T|false>        $value
      *
      * @template T
-     *
      *
      * @return mixed
      *
@@ -2067,7 +2065,6 @@ trait Mixin
      *
      * @template T
      *
-     *
      * @return iterable<!false|null>
      *
      * @throws InvalidArgumentException
@@ -2088,9 +2085,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param string|null $value
+     * @psalm-assert string|null $value
      *
-     * @return mixed
+     * @return string|null
      *
      * @throws InvalidArgumentException
      */
@@ -2106,9 +2103,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string> $value
+     * @psalm-assert iterable<string> $value
      *
-     * @return mixed
+     * @return iterable<string>
      *
      * @throws InvalidArgumentException
      */
@@ -2128,9 +2125,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string|null> $value
+     * @psalm-assert iterable<string|null> $value
      *
-     * @return mixed
+     * @return iterable<string|null>
      *
      * @throws InvalidArgumentException
      */
@@ -2150,9 +2147,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param string|null $value
+     * @psalm-assert string|null $value
      *
-     * @return mixed
+     * @return string|null
      *
      * @throws InvalidArgumentException
      */
@@ -2168,9 +2165,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string> $value
+     * @psalm-assert iterable<string> $value
      *
-     * @return mixed
+     * @return iterable<string>
      *
      * @throws InvalidArgumentException
      */
@@ -2190,9 +2187,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string|null> $value
+     * @psalm-assert iterable<string|null> $value
      *
-     * @return mixed
+     * @return iterable<string|null>
      *
      * @throws InvalidArgumentException
      */
@@ -2212,9 +2209,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param string|null $value
+     * @psalm-assert string|null $value
      *
-     * @return mixed
+     * @return string|null
      *
      * @throws InvalidArgumentException
      */
@@ -2230,9 +2227,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string> $value
+     * @psalm-assert iterable<string> $value
      *
-     * @return mixed
+     * @return iterable<string>
      *
      * @throws InvalidArgumentException
      */
@@ -2252,9 +2249,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string|null> $value
+     * @psalm-assert iterable<string|null> $value
      *
-     * @return mixed
+     * @return iterable<string|null>
      *
      * @throws InvalidArgumentException
      */
@@ -2274,9 +2271,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param string|null $value
+     * @psalm-assert string|null $value
      *
-     * @return mixed
+     * @return string|null
      *
      * @throws InvalidArgumentException
      */
@@ -2292,9 +2289,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string> $value
+     * @psalm-assert iterable<string> $value
      *
-     * @return mixed
+     * @return iterable<string>
      *
      * @throws InvalidArgumentException
      */
@@ -2314,9 +2311,9 @@ trait Mixin
      *
      * @param string|callable():string $message
      *
-     * @psalm-param iterable<string|null> $value
+     * @psalm-assert iterable<string|null> $value
      *
-     * @return mixed
+     * @return iterable<string|null>
      *
      * @throws InvalidArgumentException
      */
@@ -5552,7 +5549,6 @@ trait Mixin
     /**
      * @psalm-assert callable|null $callable
      *
-     * @param Closure|callable|null    $callable
      * @param string|callable():string $message
      *
      * @return callable|null
@@ -5569,8 +5565,7 @@ trait Mixin
     /**
      * @psalm-assert iterable<callable> $callable
      *
-     * @param iterable<Closure|callable> $callable
-     * @param string|callable():string   $message
+     * @param string|callable():string $message
      *
      * @return iterable<callable>
      *
@@ -5590,8 +5585,7 @@ trait Mixin
     /**
      * @psalm-assert iterable<callable|null> $callable
      *
-     * @param iterable<Closure|callable|null> $callable
-     * @param string|callable():string        $message
+     * @param string|callable():string $message
      *
      * @return iterable<callable|null>
      *
@@ -5611,7 +5605,6 @@ trait Mixin
     /**
      * @psalm-assert callable|null $callable
      *
-     * @param Closure|callable|null    $callable
      * @param string|callable():string $message
      *
      * @return callable|null
@@ -5628,8 +5621,7 @@ trait Mixin
     /**
      * @psalm-assert iterable<callable> $callable
      *
-     * @param iterable<Closure|callable> $callable
-     * @param string|callable():string   $message
+     * @param string|callable():string $message
      *
      * @return iterable<callable>
      *
@@ -5649,8 +5641,7 @@ trait Mixin
     /**
      * @psalm-assert iterable<callable|null> $callable
      *
-     * @param iterable<Closure|callable|null> $callable
-     * @param string|callable():string        $message
+     * @param string|callable():string $message
      *
      * @return iterable<callable|null>
      *

@@ -14,9 +14,7 @@ use Webmozart\Assert\Assert;
  */
 function methodExists($classOrObject, $method): string|object
 {
-    Assert::methodExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::methodExists($classOrObject, $method);
 }
 
 /**
@@ -27,9 +25,7 @@ function methodExists($classOrObject, $method): string|object
  */
 function nullOrMethodExists($classOrObject, $method): string|object|null
 {
-    Assert::nullOrMethodExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::nullOrMethodExists($classOrObject, $method);
 }
 
 /**
@@ -40,9 +36,7 @@ function nullOrMethodExists($classOrObject, $method): string|object|null
  */
 function allMethodExists(iterable $classOrObject, $method): iterable
 {
-    Assert::allMethodExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::allMethodExists($classOrObject, $method);
 }
 
 /**
@@ -53,7 +47,5 @@ function allMethodExists(iterable $classOrObject, $method): iterable
  */
 function allNullOrMethodExists(iterable $classOrObject, $method): iterable
 {
-    Assert::allNullOrMethodExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::allNullOrMethodExists($classOrObject, $method);
 }

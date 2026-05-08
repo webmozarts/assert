@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function regex(string $value, string $pattern): string
 {
-    Assert::regex($value, $pattern);
-
-    return $value;
+    return Assert::regex($value, $pattern);
 }
 
 /**
@@ -21,9 +19,7 @@ function regex(string $value, string $pattern): string
  */
 function nullOrRegex(?string $value, string $pattern): ?string
 {
-    Assert::nullOrRegex($value, $pattern);
-
-    return $value;
+    return Assert::nullOrRegex($value, $pattern);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrRegex(?string $value, string $pattern): ?string
  */
 function allRegex(iterable $value, string $pattern): iterable
 {
-    Assert::allRegex($value, $pattern);
-
-    return $value;
+    return Assert::allRegex($value, $pattern);
 }
 
 /**
@@ -45,7 +39,5 @@ function allRegex(iterable $value, string $pattern): iterable
  */
 function allNullOrRegex(iterable $value, string $pattern): iterable
 {
-    Assert::allRegex($value, $pattern);
-
-    return $value;
+    return Assert::allRegex($value, $pattern);
 }

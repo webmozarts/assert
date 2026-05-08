@@ -16,9 +16,7 @@ use Webmozart\Assert\Assert;
  */
 function isAOf(mixed $value): mixed
 {
-    Assert::isAOf($value, Serializable::class);
-
-    return $value;
+    return Assert::isAOf($value, Serializable::class);
 }
 
 /**
@@ -30,9 +28,7 @@ function isAOf(mixed $value): mixed
  */
 function nullOrIsAOf(mixed $value): mixed
 {
-    Assert::nullOrIsAOf($value, Serializable::class);
-
-    return $value;
+    return Assert::nullOrIsAOf($value, Serializable::class);
 }
 
 /**
@@ -44,9 +40,7 @@ function nullOrIsAOf(mixed $value): mixed
  */
 function allIsAOf(mixed $value): iterable
 {
-    Assert::allIsAOf($value, Serializable::class);
-
-    return $value;
+    return Assert::allIsAOf($value, Serializable::class);
 }
 
 /**
@@ -58,7 +52,5 @@ function allIsAOf(mixed $value): iterable
  */
 function allNullOrIsAOf(mixed $value): iterable
 {
-    Assert::allNullOrIsAOf($value, Serializable::class);
-
-    return $value;
+    return Assert::allNullOrIsAOf($value, Serializable::class);
 }

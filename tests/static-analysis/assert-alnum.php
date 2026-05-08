@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function alnum(string $value): string
 {
-    Assert::alnum($value);
-
-    return $value;
+    return Assert::alnum($value);
 }
 
 /**
@@ -21,9 +19,7 @@ function alnum(string $value): string
  */
 function nullOrAlnum(?string $value): ?string
 {
-    Assert::nullOrAlnum($value);
-
-    return $value;
+    return Assert::nullOrAlnum($value);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrAlnum(?string $value): ?string
  */
 function allAlnum(iterable $value): iterable
 {
-    Assert::allAlnum($value);
-
-    return $value;
+    return Assert::allAlnum($value);
 }
 
 /**
@@ -45,7 +39,5 @@ function allAlnum(iterable $value): iterable
  */
 function allNullOrAlnum(iterable $value): iterable
 {
-    Assert::allNullOrAlnum($value);
-
-    return $value;
+    return Assert::allNullOrAlnum($value);
 }

@@ -8,16 +8,12 @@ use Webmozart\Assert\Assert;
 
 function uniqueValues(array $values): array
 {
-    Assert::uniqueValues($values);
-
-    return $values;
+    return Assert::uniqueValues($values);
 }
 
 function nullOrUniqueValues(?array $values): ?array
 {
-    Assert::nullOrUniqueValues($values);
-
-    return $values;
+    return Assert::nullOrUniqueValues($values);
 }
 
 /**
@@ -25,9 +21,7 @@ function nullOrUniqueValues(?array $values): ?array
  */
 function allUniqueValues(iterable $values): iterable
 {
-    Assert::allUniqueValues($values);
-
-    return $values;
+    return Assert::allUniqueValues($values);
 }
 
 /**
@@ -35,7 +29,5 @@ function allUniqueValues(iterable $values): iterable
  */
 function allNullOrUniqueValues(iterable $values): iterable
 {
-    Assert::allNullOrUniqueValues($values);
-
-    return $values;
+    return Assert::allNullOrUniqueValues($values);
 }

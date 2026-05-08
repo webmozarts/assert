@@ -14,9 +14,7 @@ use Webmozart\Assert\Assert;
  */
 function countBetween($value, $min, $max): Countable|array
 {
-    Assert::countBetween($value, $min, $max);
-
-    return $value;
+    return Assert::countBetween($value, $min, $max);
 }
 
 /**
@@ -26,9 +24,7 @@ function countBetween($value, $min, $max): Countable|array
  */
 function nullOrCountBetween($value, $min, $max): Countable|array|null
 {
-    Assert::nullOrCountBetween($value, $min, $max);
-
-    return $value;
+    return Assert::nullOrCountBetween($value, $min, $max);
 }
 
 /**
@@ -38,9 +34,7 @@ function nullOrCountBetween($value, $min, $max): Countable|array|null
  */
 function allCountBetween(iterable $value, $min, $max): iterable
 {
-    Assert::allCountBetween($value, $min, $max);
-
-    return $value;
+    return Assert::allCountBetween($value, $min, $max);
 }
 
 /**
@@ -50,7 +44,5 @@ function allCountBetween(iterable $value, $min, $max): iterable
  */
 function allNullOrCountBetween(iterable $value, $min, $max): iterable
 {
-    Assert::allNullOrCountBetween($value, $min, $max);
-
-    return $value;
+    return Assert::allNullOrCountBetween($value, $min, $max);
 }

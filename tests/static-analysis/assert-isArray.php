@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function isArray(mixed $value): array
 {
-    Assert::isArray($value);
-
-    return $value;
+    return Assert::isArray($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrIsArray(mixed $value): ?array
 {
-    Assert::nullOrIsArray($value);
-
-    return $value;
+    return Assert::nullOrIsArray($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allIsArray(mixed $value): iterable
 {
-    Assert::allIsArray($value);
-
-    return $value;
+    return Assert::allIsArray($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrIsArray(mixed $value): iterable
 {
-    Assert::allNullOrIsArray($value);
-
-    return $value;
+    return Assert::allNullOrIsArray($value);
 }

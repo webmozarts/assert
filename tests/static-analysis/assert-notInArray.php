@@ -9,9 +9,7 @@ use Webmozart\Assert\Assert;
  */
 function notInArray(mixed $value, array $values): mixed
 {
-    Assert::notInArray($value, $values);
-
-    return $value;
+    return Assert::notInArray($value, $values);
 }
 
 /**
@@ -19,9 +17,7 @@ function notInArray(mixed $value, array $values): mixed
  */
 function nullOrNotInArray(mixed $value, array $values): mixed
 {
-    Assert::nullOrNotInArray($value, $values);
-
-    return $value;
+    return Assert::nullOrNotInArray($value, $values);
 }
 
 /**
@@ -29,7 +25,5 @@ function nullOrNotInArray(mixed $value, array $values): mixed
  */
 function allNotInArray(mixed $value, array $values): mixed
 {
-    Assert::allNotInArray($value, $values);
-
-    return $value;
+    return Assert::allNotInArray($value, $values);
 }

@@ -13,9 +13,7 @@ use Webmozart\Assert\Assert;
  */
 function minCount($array, $min): Countable|array
 {
-    Assert::minCount($array, $min);
-
-    return $array;
+    return Assert::minCount($array, $min);
 }
 
 /**
@@ -24,9 +22,7 @@ function minCount($array, $min): Countable|array
  */
 function nullOrMinCount($array, $min): Countable|array|null
 {
-    Assert::nullOrMinCount($array, $min);
-
-    return $array;
+    return Assert::nullOrMinCount($array, $min);
 }
 
 /**
@@ -37,9 +33,7 @@ function nullOrMinCount($array, $min): Countable|array|null
  */
 function allMinCount($array, $min)
 {
-    Assert::allMinCount($array, $min);
-
-    return $array;
+    return Assert::allMinCount($array, $min);
 }
 
 /**
@@ -50,7 +44,5 @@ function allMinCount($array, $min)
  */
 function allNullOrMinCount($array, $min)
 {
-    Assert::allNullOrMinCount($array, $min);
-
-    return $array;
+    return Assert::allNullOrMinCount($array, $min);
 }

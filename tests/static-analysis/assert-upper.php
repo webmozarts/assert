@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function upper(mixed $value): string
 {
-    Assert::upper($value);
-
-    return $value;
+    return Assert::upper($value);
 }
 
 /**
@@ -21,9 +19,7 @@ function upper(mixed $value): string
  */
 function nullOrUpper(?string $value): ?string
 {
-    Assert::nullOrUpper($value);
-
-    return $value;
+    return Assert::nullOrUpper($value);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrUpper(?string $value): ?string
  */
 function allUpper(iterable $value): iterable
 {
-    Assert::allUpper($value);
-
-    return $value;
+    return Assert::allUpper($value);
 }
 
 /**
@@ -45,7 +39,5 @@ function allUpper(iterable $value): iterable
  */
 function allNullOrUpper(iterable $value): iterable
 {
-    Assert::allNullOrUpper($value);
-
-    return $value;
+    return Assert::allNullOrUpper($value);
 }

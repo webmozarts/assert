@@ -8,52 +8,36 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param null|string $type
  */
 function resource(mixed $value, ?string $type): mixed
 {
-    Assert::resource($value, $type);
-
-    return $value;
+    return Assert::resource($value, $type);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param null|string $type
  */
 function nullOrResource(mixed $value, ?string $type): mixed
 {
-    Assert::nullOrResource($value, $type);
-
-    return $value;
+    return Assert::nullOrResource($value, $type);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param null|string $type
  */
 function allResource($value, $type): iterable
 {
-    Assert::allResource($value, $type);
-
-    return $value;
+    return Assert::allResource($value, $type);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param null|string $type
  */
 function allNullOrResource($value, $type): iterable
 {
-    Assert::allNullOrResource($value, $type);
-
-    return $value;
+    return Assert::allNullOrResource($value, $type);
 }

@@ -590,7 +590,7 @@ class Assert
      *
      * @psalm-assert T $value
      *
-     * @param T $value
+     * @param array<class-string<T>> $classes
      * @param string|callable():string $message
      *
      * @return T
@@ -620,7 +620,7 @@ class Assert
     /**
      * @template T
      *
-     * @psalm-assert T $value
+     * @psalm-assert object|class-string $value
      *
      * @param T $value
      * @param string|callable():string $message
@@ -713,11 +713,14 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param object|string $value
-     * @param string[]      $classes
+     * @psalm-assert T $value
+     * 
+     * @template T as object
+     * 
+     * @param array<class-string<T>> $classes
      * @param string|callable():string $message
-     * @psalm-param array<class-string> $classes
      *
+     * @return T
      * @throws InvalidArgumentException
      */
     public static function isAnyOf(mixed $value, mixed $classes, string|callable $message = ''): object|string
@@ -818,8 +821,8 @@ class Assert
      *
      * @template T
      * @param T|null $value
-     * @throws InvalidArgumentException
      * @return T
+     * @throws InvalidArgumentException
      */
     public static function notNull(mixed $value, string|callable $message = ''): mixed
     {
@@ -886,8 +889,8 @@ class Assert
      *
      * @template T
      * @param T|false $value
-     * @throws InvalidArgumentException
      * @return T
+     * @throws InvalidArgumentException
      */
     public static function notFalse(mixed $value, string|callable $message = ''): mixed
     {
@@ -905,7 +908,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-param string $value
+     * @psalm-assert string $value
      *
      * @throws InvalidArgumentException
      */
@@ -928,7 +931,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-param string $value
+     * @psalm-assert string $value
      *
      * @throws InvalidArgumentException
      */
@@ -951,7 +954,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-param string $value
+     * @psalm-assert string $value
      *
      * @throws InvalidArgumentException
      */
@@ -974,7 +977,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-param string $value
+     * @psalm-assert string $value
      *
      * @throws InvalidArgumentException
      */
@@ -2351,7 +2354,6 @@ class Assert
     /**
      * @psalm-assert callable $callable
      *
-     * @param Closure|callable $callable
      * @param string|callable():string $message
      *
      * @return Closure|callable-string
@@ -2379,7 +2381,6 @@ class Assert
     /**
      * @psalm-assert callable $callable
      *
-     * @param Closure|callable $callable
      * @param string|callable():string $message
      *
      * @return Closure|callable-string

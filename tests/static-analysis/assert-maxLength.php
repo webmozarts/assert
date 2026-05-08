@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function maxLength(string $value, int $max): string
 {
-    Assert::maxLength($value, $max);
-
-    return $value;
+    return Assert::maxLength($value, $max);
 }
 
 /**
@@ -21,9 +19,7 @@ function maxLength(string $value, int $max): string
  */
 function nullOrMaxLength(?string $value, int $max): ?string
 {
-    Assert::nullOrMaxLength($value, $max);
-
-    return $value;
+    return Assert::nullOrMaxLength($value, $max);
 }
 
 /**
@@ -35,9 +31,7 @@ function nullOrMaxLength(?string $value, int $max): ?string
  */
 function allMaxLength(iterable $value, int $max): iterable
 {
-    Assert::allMaxLength($value, $max);
-
-    return $value;
+    return Assert::allMaxLength($value, $max);
 }
 
 /**
@@ -49,7 +43,5 @@ function allMaxLength(iterable $value, int $max): iterable
  */
 function allNullOrMaxLength(iterable $value, int $max): iterable
 {
-    Assert::allMaxLength($value, $max);
-
-    return $value;
+    return Assert::allMaxLength($value, $max);
 }

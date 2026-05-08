@@ -16,9 +16,7 @@ use Webmozart\Assert\Assert;
  */
 function preserveContainerAllArray(mixed $value): iterable
 {
-    Assert::allString($value);
-
-    return $value;
+    return Assert::allString($value);
 }
 
 /**
@@ -30,7 +28,5 @@ function preserveContainerAllArray(mixed $value): iterable
  */
 function preserveContainerAllArrayIterator(mixed $value)
 {
-    Assert::allString($value);
-
-    return $value;
+    return Assert::allString($value);
 }

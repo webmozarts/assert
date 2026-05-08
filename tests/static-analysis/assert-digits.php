@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function digits(string $value): string
 {
-    Assert::digits($value);
-
-    return $value;
+    return Assert::digits($value);
 }
 
 /**
@@ -21,9 +19,7 @@ function digits(string $value): string
  */
 function nullOrDigits(?string $value): ?string
 {
-    Assert::nullOrDigits($value);
-
-    return $value;
+    return Assert::nullOrDigits($value);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrDigits(?string $value): ?string
  */
 function allDigits(iterable $value): iterable
 {
-    Assert::allDigits($value);
-
-    return $value;
+    return Assert::allDigits($value);
 }
 
 /**
@@ -45,7 +39,5 @@ function allDigits(iterable $value): iterable
  */
 function allNullOrDigits(iterable $value): iterable
 {
-    Assert::allNullOrDigits($value);
-
-    return $value;
+    return Assert::allNullOrDigits($value);
 }

@@ -8,24 +8,16 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function null(mixed $value): null
 {
-    Assert::null($value);
-
-    return $value;
+    return Assert::null($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNull(mixed $value): iterable
 {
-    Assert::allNull($value);
-
-    return $value;
+    return Assert::allNull($value);
 }

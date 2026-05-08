@@ -7,45 +7,37 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @param mixed $value
+ * 
  *
  * @return class-string
  */
 function classExists(mixed $value): string
 {
-    Assert::classExists($value);
-
-    return $value;
+    return Assert::classExists($value);
 }
 
 /**
- * @param mixed $value
+ * 
  *
  * @return class-string|null
  */
 function nullOrClassExists(mixed $value): ?string
 {
-    Assert::nullOrClassExists($value);
-
-    return $value;
+    return Assert::nullOrClassExists($value);
 }
 
 /**
- * @param mixed $value
+ * 
  */
 function allClassExists(mixed $value): iterable
 {
-    Assert::allClassExists($value);
-
-    return $value;
+    return Assert::allClassExists($value);
 }
 
 /**
- * @param mixed $value
+ * 
  */
 function allNullOrClassExists(mixed $value): iterable
 {
-    Assert::allNullOrClassExists($value);
-
-    return $value;
+    return Assert::allNullOrClassExists($value);
 }

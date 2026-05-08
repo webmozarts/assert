@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function isCallable(mixed $value): callable
 {
-    Assert::isCallable($value);
-
-    return $value;
+    return Assert::isCallable($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrIsCallable(mixed $value): ?callable
 {
-    Assert::nullOrIsCallable($value);
-
-    return $value;
+    return Assert::nullOrIsCallable($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allIsCallable(mixed $value): iterable
 {
-    Assert::allIsCallable($value);
-
-    return $value;
+    return Assert::allIsCallable($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrIsCallable(mixed $value): iterable
 {
-    Assert::allNullOrIsCallable($value);
-
-    return $value;
+    return Assert::allNullOrIsCallable($value);
 }

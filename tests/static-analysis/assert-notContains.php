@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function notContains(string $value, string $subString): string
 {
-    Assert::notContains($value, $subString);
-
-    return $value;
+    return Assert::notContains($value, $subString);
 }
 
 /**
@@ -21,9 +19,7 @@ function notContains(string $value, string $subString): string
  */
 function nullOrNotContains(?string $value, string $subString): ?string
 {
-    Assert::nullOrNotContains($value, $subString);
-
-    return $value;
+    return Assert::nullOrNotContains($value, $subString);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrNotContains(?string $value, string $subString): ?string
  */
 function allNotContains(iterable $value, string $subString): iterable
 {
-    Assert::allNotContains($value, $subString);
-
-    return $value;
+    return Assert::allNotContains($value, $subString);
 }
 
 /**
@@ -45,7 +39,5 @@ function allNotContains(iterable $value, string $subString): iterable
  */
 function allNullOrNotContains(iterable $value, string $subString): iterable
 {
-    Assert::allNullOrNotContains($value, $subString);
-
-    return $value;
+    return Assert::allNullOrNotContains($value, $subString);
 }

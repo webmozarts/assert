@@ -27,6 +27,8 @@ final class MixinGenerator
     private array $unsupportedMethods = [
         'nullOrNotInstanceOf',  // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'allNotInstanceOf',     // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
+        'allIsNotInstanceOfAny',
+        'allNullOrIsNotInstanceOfAny',
         'nullOrNotEmpty',       // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'allNotEmpty',          // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
         'allNotNull',           // not supported by psalm (https://github.com/vimeo/psalm/issues/3443)
@@ -351,7 +353,13 @@ BODY;
             return \implode('|', \array_map([$this, 'reduceParameterType'], $type->getTypes()));
         }
 
-        $type = Assert::isInstanceOf($type, ReflectionNamedType::class);
+        if (!$type instanceof ReflectionNamedType) {
+            throw new RuntimeException(sprintf(
+                'Expected a "%s" instance, got "%s".',
+                ReflectionNamedType::class,
+                get_debug_type($type)
+            ));
+        }
 
         if ($type->getName() === 'mixed') {
             return $type->getName();

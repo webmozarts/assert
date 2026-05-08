@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function notRegex(string $value, string $pattern): string
 {
-    Assert::notRegex($value, $pattern);
-
-    return $value;
+    return Assert::notRegex($value, $pattern);
 }
 
 /**
@@ -21,9 +19,7 @@ function notRegex(string $value, string $pattern): string
  */
 function nullOrNotRegex(?string $value, string $pattern): ?string
 {
-    Assert::nullOrNotRegex($value, $pattern);
-
-    return $value;
+    return Assert::nullOrNotRegex($value, $pattern);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrNotRegex(?string $value, string $pattern): ?string
  */
 function allNotRegex(iterable $value, string $pattern): iterable
 {
-    Assert::allNotRegex($value, $pattern);
-
-    return $value;
+    return Assert::allNotRegex($value, $pattern);
 }
 
 /**
@@ -45,7 +39,5 @@ function allNotRegex(iterable $value, string $pattern): iterable
  */
 function allNullOrNotRegex(iterable $value, string $pattern): iterable
 {
-    Assert::allNotRegex($value, $pattern);
-
-    return $value;
+    return Assert::allNotRegex($value, $pattern);
 }

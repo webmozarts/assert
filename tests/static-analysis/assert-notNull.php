@@ -11,19 +11,15 @@ use Webmozart\Assert\Assert;
  */
 function notNull(?object $value): object
 {
-    Assert::notNull($value);
-
-    return $value;
+    return Assert::notNull($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param iterable<mixed|null> $value
  */
-function allNotNull(mixed $value): mixed
+function allNotNull(iterable $value): iterable
 {
-    Assert::allNotNull($value);
-
-    return $value;
+    return Assert::allNotNull($value);
 }

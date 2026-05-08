@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use Webmozart\Assert\Bin\MixinGenerator;
+use Webmozart\Assert\Bin\StaticAnalysisNonReturnGenerator;
 
 #[CoversNothing]
 class ProjectCodeTest extends TestCase
@@ -149,6 +150,21 @@ class ProjectCodeTest extends TestCase
         );
     }
 
+    #[DataProvider('provideMethods')]
+    public function testHasCorrespondingStaticAnalysisReturnTest(ReflectionMethod $method): void
+    {
+        $file = __DIR__.'/static-analysis/assert-'.$method->getName().'.php';
+
+        $this->assertFileExists($file);
+
+        $contents = file_get_contents($file);
+        $this->assertIsString($contents);
+        $this->assertMatchesRegularExpression(
+            '/return Assert::'.preg_quote($method->getName(), '/').'\(/',
+            $contents
+        );
+    }
+
     public function testMixinIsUpToDateVersion(): void
     {
         if (PHP_OS_FAMILY === 'Windows') {
@@ -164,6 +180,31 @@ class ProjectCodeTest extends TestCase
         $actual = file_get_contents(__DIR__.'/../src/Mixin.php');
 
         $this->assertEquals($generator->generate(), $actual, 'please regenerate Mixin with `php bin/generate.php` command in the project root');
+    }
+
+    public function testNonReturnStaticAnalysisTestsAreUpToDate(): void
+    {
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('non-return static analysis generator is not expected to run on Windows');
+
+            return;
+        }
+
+        require_once __DIR__.'/../bin/src/StaticAnalysisNonReturnGenerator.php';
+
+        $generator = new StaticAnalysisNonReturnGenerator(__DIR__.'/static-analysis');
+
+        foreach ($generator->generatedFiles() as $targetFile => $expectedContent) {
+            $this->assertFileExists($targetFile);
+
+            $actualContent = file_get_contents($targetFile);
+            $this->assertIsString($actualContent);
+            $this->assertEquals(
+                $expectedContent,
+                $actualContent,
+                'please regenerate static analysis tests with `php bin/generate.php` command in the project root'
+            );
+        }
     }
 
     /**

@@ -8,52 +8,36 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $limit
  */
 function lessThanEq($value, $limit): mixed
 {
-    Assert::lessThanEq($value, $limit);
-
-    return $value;
+    return Assert::lessThanEq($value, $limit);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $limit
  */
 function nullOrLessThanEq($value, $limit): mixed
 {
-    Assert::nullOrLessThanEq($value, $limit);
-
-    return $value;
+    return Assert::nullOrLessThanEq($value, $limit);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $limit
  */
 function allLessThanEq($value, $limit): mixed
 {
-    Assert::allLessThanEq($value, $limit);
-
-    return $value;
+    return Assert::allLessThanEq($value, $limit);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $limit
  */
 function allNullOrLessThanEq($value, $limit): mixed
 {
-    Assert::allNullOrLessThanEq($value, $limit);
-
-    return $value;
+    return Assert::allNullOrLessThanEq($value, $limit);
 }

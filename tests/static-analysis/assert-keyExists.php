@@ -13,9 +13,7 @@ use Webmozart\Assert\Assert;
  */
 function keyExists(array $array, $key): array
 {
-    Assert::keyExists($array, $key);
-
-    return $array;
+    return Assert::keyExists($array, $key);
 }
 
 /**
@@ -25,9 +23,7 @@ function keyExists(array $array, $key): array
  */
 function nullOrKeyExists(?array $array, $key): ?array
 {
-    Assert::nullOrKeyExists($array, $key);
-
-    return $array;
+    return Assert::nullOrKeyExists($array, $key);
 }
 
 /**
@@ -38,9 +34,7 @@ function nullOrKeyExists(?array $array, $key): ?array
  */
 function allKeyExists(iterable $array, $key): iterable
 {
-    Assert::allKeyExists($array, $key);
-
-    return $array;
+    return Assert::allKeyExists($array, $key);
 }
 
 /**
@@ -51,7 +45,5 @@ function allKeyExists(iterable $array, $key): iterable
  */
 function allNullOrKeyExists(iterable $array, $key): iterable
 {
-    Assert::allNullOrKeyExists($array, $key);
-
-    return $array;
+    return Assert::allNullOrKeyExists($array, $key);
 }
