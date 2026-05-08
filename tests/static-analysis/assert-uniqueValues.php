@@ -6,18 +6,18 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-function uniqueValues(array $values): array
+function uniqueValues(mixed $values): array
 {
     return Assert::uniqueValues($values);
 }
 
-function nullOrUniqueValues(?array $values): ?array
+function nullOrUniqueValues(mixed $values): ?array
 {
     return Assert::nullOrUniqueValues($values);
 }
 
 /**
- * @param iterable<array> $values
+ * @return iterable<array>
  */
 function allUniqueValues(iterable $values): iterable
 {
@@ -25,7 +25,7 @@ function allUniqueValues(iterable $values): iterable
 }
 
 /**
- * @param iterable<array|null> $values
+ * @return iterable<array|null>
  */
 function allNullOrUniqueValues(iterable $values): iterable
 {
