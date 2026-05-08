@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  * @param class-string|object $classOrObject
  * @param mixed $method
  */
-function methodExists($classOrObject, $method): string|object
+function methodExists(mixed $classOrObject, $method): string|object
 {
     return Assert::methodExists($classOrObject, $method);
 }
@@ -23,7 +23,7 @@ function methodExists($classOrObject, $method): string|object
  * @param null|class-string|object $classOrObject
  * @param mixed $method
  */
-function nullOrMethodExists($classOrObject, $method): string|object|null
+function nullOrMethodExists(mixed $classOrObject, $method): string|object|null
 {
     return Assert::nullOrMethodExists($classOrObject, $method);
 }

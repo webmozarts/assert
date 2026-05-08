@@ -19,7 +19,7 @@ function notInstanceOf(mixed $value): object
  * @psalm-template T of object
  * @param class-string<T> $class
  */
-function nullOrNotInstanceOf($value, $class): mixed
+function nullOrNotInstanceOf(mixed $value, $class): mixed
 {
     return Assert::nullOrNotInstanceOf($value, $class);
 }
@@ -28,7 +28,7 @@ function nullOrNotInstanceOf($value, $class): mixed
  * @psalm-template T of object
  * @param class-string<T> $class
  */
-function allNotInstanceOf($value, $class): mixed
+function allNotInstanceOf(mixed $value, $class): mixed
 {
     return Assert::allNotInstanceOf($value, $class);
 }
@@ -37,7 +37,7 @@ function allNotInstanceOf($value, $class): mixed
  * @psalm-template T of object
  * @param class-string<T> $class
  */
-function allNullOrNotInstanceOf($value, $class): mixed
+function allNullOrNotInstanceOf(mixed $value, $class): mixed
 {
     return Assert::allNullOrNotInstanceOf($value, $class);
 }

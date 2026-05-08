@@ -23,7 +23,7 @@ function isNotA(mixed $value): object|string
  * @param null|object|string $value
  * @param class-string $class
  */
-function nullOrIsNotA($value, $class): object|string|null
+function nullOrIsNotA(mixed $value, $class): object|string|null
 {
     return Assert::nullOrIsNotA($value, $class);
 }
@@ -34,7 +34,7 @@ function nullOrIsNotA($value, $class): object|string|null
  * @param iterable<object|string> $value
  * @param class-string $class
  */
-function allIsNotA($value, $class): iterable
+function allIsNotA(mixed $value, $class): iterable
 {
     return Assert::allIsNotA($value, $class);
 }
@@ -45,7 +45,7 @@ function allIsNotA($value, $class): iterable
  * @param iterable<object|string|null> $value
  * @param class-string $class
  */
-function allNullOrIsNotA($value, $class): iterable
+function allNullOrIsNotA(mixed $value, $class): iterable
 {
     return Assert::allNullOrIsNotA($value, $class);
 }

@@ -28,7 +28,7 @@ function nullOrResource(mixed $value, ?string $type): mixed
  * @psalm-pure
  * @param null|string $type
  */
-function allResource($value, $type): iterable
+function allResource(mixed $value, $type): iterable
 {
     return Assert::allResource($value, $type);
 }
@@ -37,7 +37,7 @@ function allResource($value, $type): iterable
  * @psalm-pure
  * @param null|string $type
  */
-function allNullOrResource($value, $type): iterable
+function allNullOrResource(mixed $value, $type): iterable
 {
     return Assert::allNullOrResource($value, $type);
 }

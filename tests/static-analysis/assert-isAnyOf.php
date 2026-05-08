@@ -12,7 +12,7 @@ use Webmozart\Assert\Assert;
  * @param object|string $value
  * @param array<class-string> $classes
  */
-function isAnyOf($value, array $classes): object|string
+function isAnyOf(mixed $value, array $classes): object|string
 {
     return Assert::isAnyOf($value, $classes);
 }
@@ -23,7 +23,7 @@ function isAnyOf($value, array $classes): object|string
  * @param null|object|string $value
  * @param array<class-string> $classes
  */
-function nullOrIsAnyOf($value, array $classes): object|string|null
+function nullOrIsAnyOf(mixed $value, array $classes): object|string|null
 {
     return Assert::nullOrIsAnyOf($value, $classes);
 }
@@ -34,7 +34,7 @@ function nullOrIsAnyOf($value, array $classes): object|string|null
  * @param iterable<object|string> $value
  * @param array<class-string> $classes
  */
-function allIsAnyOf($value, array $classes): iterable
+function allIsAnyOf(mixed $value, array $classes): iterable
 {
     return Assert::allIsAnyOf($value, $classes);
 }
@@ -45,7 +45,7 @@ function allIsAnyOf($value, array $classes): iterable
  * @param iterable<object|string|null> $value
  * @param array<class-string> $classes
  */
-function allNullOrIsAnyOf($value, array $classes): iterable
+function allNullOrIsAnyOf(mixed $value, array $classes): iterable
 {
     return Assert::allNullOrIsAnyOf($value, $classes);
 }

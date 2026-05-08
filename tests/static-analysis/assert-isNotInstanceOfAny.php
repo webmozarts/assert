@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
  * 
  * @param array<class-string> $classes
  */
-function isNotInstanceOfAny($value, array $classes): mixed
+function isNotInstanceOfAny(mixed $value, array $classes): mixed
 {
     return Assert::isNotInstanceOfAny($value, $classes);
 }
@@ -19,7 +19,7 @@ function isNotInstanceOfAny($value, array $classes): mixed
  * 
  * @param array<class-string> $classes
  */
-function nullOrIsNotInstanceOfAny($value, array $classes): mixed
+function nullOrIsNotInstanceOfAny(mixed $value, array $classes): mixed
 {
     return Assert::nullOrIsNotInstanceOfAny($value, $classes);
 }

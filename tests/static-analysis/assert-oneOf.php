@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function oneOf($value, array $values): mixed
+function oneOf(mixed $value, array $values): mixed
 {
     return Assert::oneOf($value, $values);
 }
@@ -17,7 +17,7 @@ function oneOf($value, array $values): mixed
 /**
  * @psalm-pure
  */
-function nullOrOneOf($value, array $values): mixed
+function nullOrOneOf(mixed $value, array $values): mixed
 {
     return Assert::nullOrOneOf($value, $values);
 }
@@ -25,7 +25,7 @@ function nullOrOneOf($value, array $values): mixed
 /**
  * @psalm-pure
  */
-function allOneOf($value, array $values): mixed
+function allOneOf(mixed $value, array $values): mixed
 {
     return Assert::allOneOf($value, $values);
 }
@@ -33,7 +33,7 @@ function allOneOf($value, array $values): mixed
 /**
  * @psalm-pure
  */
-function allNullOrOneOf($value, array $values): mixed
+function allNullOrOneOf(mixed $value, array $values): mixed
 {
     return Assert::allNullOrOneOf($value, $values);
 }

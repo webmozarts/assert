@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  * @param mixed $expect
  */
-function same($value, $expect): mixed
+function same(mixed $value, $expect): mixed
 {
     return Assert::same($value, $expect);
 }
@@ -19,7 +19,7 @@ function same($value, $expect): mixed
  * @psalm-pure
  * @param mixed $expect
  */
-function nullOrSame($value, $expect): mixed
+function nullOrSame(mixed $value, $expect): mixed
 {
     return Assert::nullOrSame($value, $expect);
 }
@@ -28,7 +28,7 @@ function nullOrSame($value, $expect): mixed
  * @psalm-pure
  * @param mixed $expect
  */
-function allSame($value, $expect): mixed
+function allSame(mixed $value, $expect): mixed
 {
     return Assert::allSame($value, $expect);
 }
@@ -37,7 +37,7 @@ function allSame($value, $expect): mixed
  * @psalm-pure
  * @param mixed $expect
  */
-function allNullOrSame($value, $expect): mixed
+function allNullOrSame(mixed $value, $expect): mixed
 {
     return Assert::allNullOrSame($value, $expect);
 }

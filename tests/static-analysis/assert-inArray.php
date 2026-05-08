@@ -9,7 +9,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  */
-function inArray($value, array $values): mixed
+function inArray(mixed $value, array $values): mixed
 {
     return Assert::inArray($value, $values);
 }
@@ -17,7 +17,7 @@ function inArray($value, array $values): mixed
 /**
  * @psalm-pure
  */
-function nullOrInArray($value, array $values): mixed
+function nullOrInArray(mixed $value, array $values): mixed
 {
     return Assert::nullOrInArray($value, $values);
 }
@@ -25,7 +25,7 @@ function nullOrInArray($value, array $values): mixed
 /**
  * @psalm-pure
  */
-function allInArray($value, array $values): mixed
+function allInArray(mixed $value, array $values): mixed
 {
     return Assert::allInArray($value, $values);
 }
@@ -33,7 +33,7 @@ function allInArray($value, array $values): mixed
 /**
  * @psalm-pure
  */
-function allNullOrInArray($value, array $values): mixed
+function allNullOrInArray(mixed $value, array $values): mixed
 {
     return Assert::allNullOrInArray($value, $values);
 }
