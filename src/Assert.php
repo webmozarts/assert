@@ -1680,7 +1680,7 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @psalm-assert !lowercase-string $value
+     * @psalm-assert string $value
      *
      * @param string|callable():string $message
      *

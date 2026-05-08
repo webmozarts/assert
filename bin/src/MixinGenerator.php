@@ -248,6 +248,12 @@ BODY;
             }
         }
 
+        // Ensure @template comes before @param, and @param values match function signature order
+        $parsedComment = $this->reorderAnnotations($parsedComment);
+        if (isset($parsedComment['param'])) {
+            $parsedComment['param'] = $this->reorderParamsBySignature($parsedComment['param'], $parameters);
+        }
+
         if (in_array($newMethodName, $this->skipMethods, true)) {
             return null;
         }
@@ -601,6 +607,70 @@ BODY;
         }
 
         return [trim($matches[1]), $matches[2], $matches[3] ?? null];
+    }
+
+    /**
+     * Ensures @template annotations appear before @param annotations.
+     *
+     * @param array<string, list<string>> $annotations
+     *
+     * @return array<string, list<string>>
+     */
+    private function reorderAnnotations(array $annotations): array
+    {
+        $keys = array_keys($annotations);
+        $templatePos = array_search('template', $keys, true);
+        $paramPos = array_search('param', $keys, true);
+
+        if ($templatePos === false || $paramPos === false || $templatePos < $paramPos) {
+            return $annotations;
+        }
+
+        $result = [];
+        foreach ($annotations as $key => $values) {
+            if ($key === 'param') {
+                $result['template'] = $annotations['template'];
+            }
+            if ($key !== 'template') {
+                $result[$key] = $values;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Reorders @param doc entries to match the function signature parameter order.
+     *
+     * @param list<string> $paramDocs
+     * @param list<string> $parameterNames
+     *
+     * @return list<string>
+     */
+    private function reorderParamsBySignature(array $paramDocs, array $parameterNames): array
+    {
+        $byVarName = [];
+        $withoutVarName = [];
+
+        foreach ($paramDocs as $doc) {
+            $parts = $this->splitDocLine($doc);
+            if (isset($parts[1])) {
+                $byVarName[$parts[1]] = $doc;
+            } else {
+                $withoutVarName[] = $doc;
+            }
+        }
+
+        $ordered = [];
+        foreach ($parameterNames as $name) {
+            $key = '$'.$name;
+            if (isset($byVarName[$key])) {
+                $ordered[] = $byVarName[$key];
+                unset($byVarName[$key]);
+            }
+        }
+
+        return array_merge($ordered, array_values($byVarName), $withoutVarName);
     }
 
     /**

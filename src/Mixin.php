@@ -1267,8 +1267,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert T|null $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return T|null
      *
@@ -1287,8 +1287,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T> $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return iterable<T>
      *
@@ -1311,8 +1311,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T|null> $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return iterable<T|null>
      *
@@ -1332,8 +1332,8 @@ trait Mixin
     /**
      * @template T of object
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return object|null
      *
@@ -1349,8 +1349,8 @@ trait Mixin
     /**
      * @template T of object
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return iterable<object>
      *
@@ -1371,8 +1371,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<object|null> $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return iterable<object|null>
      *
@@ -1517,8 +1517,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert T|class-string<T>|null $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return T|class-string<T>|null
      *
@@ -1537,8 +1537,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T|class-string<T>> $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return iterable<T|class-string<T>>
      *
@@ -1561,8 +1561,8 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T|class-string<T>|null> $value
      *
-     * @param string|callable():string $message
      * @param class-string<T>          $class
+     * @param string|callable():string $message
      *
      * @return iterable<T|class-string<T>|null>
      *
@@ -1861,10 +1861,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
-     * @param iterable<T|null>         $value
-     *
      * @template T
+     *
+     * @param iterable<T|null>         $value
+     * @param string|callable():string $message
      *
      * @return iterable<T>
      *
@@ -2008,10 +2008,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
-     * @param T|false|null             $value
-     *
      * @template T
+     *
+     * @param T|false|null             $value
+     * @param string|callable():string $message
      *
      * @return T|null
      *
@@ -2027,10 +2027,10 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
-     * @param iterable<T|false>        $value
-     *
      * @template T
+     *
+     * @param iterable<T|false>        $value
+     * @param string|callable():string $message
      *
      * @return iterable<T>
      *
@@ -2052,10 +2052,10 @@ trait Mixin
      *
      * @psalm-assert iterable<!false|null> $value
      *
-     * @param string|callable():string $message
-     * @param iterable<T|false|null>   $value
-     *
      * @template T
+     *
+     * @param iterable<T|false|null>   $value
+     * @param string|callable():string $message
      *
      * @return iterable<T|null>
      *
@@ -2075,8 +2075,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return string|null
      *
@@ -2092,8 +2092,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return iterable<string>
      *
@@ -2113,8 +2113,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string|null>    $value
+     * @param string|callable():string $message
      *
      * @return iterable<string|null>
      *
@@ -2134,8 +2134,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return string|null
      *
@@ -2151,8 +2151,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return iterable<string>
      *
@@ -2172,8 +2172,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string|null>    $value
+     * @param string|callable():string $message
      *
      * @return iterable<string|null>
      *
@@ -2193,8 +2193,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return string|null
      *
@@ -2210,8 +2210,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return iterable<string>
      *
@@ -2231,8 +2231,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string|null>    $value
+     * @param string|callable():string $message
      *
      * @return iterable<string|null>
      *
@@ -2252,8 +2252,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param string|null              $value
+     * @param string|callable():string $message
      *
      * @return string|null
      *
@@ -2269,8 +2269,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string>         $value
+     * @param string|callable():string $message
      *
      * @return iterable<string>
      *
@@ -2290,8 +2290,8 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
      * @param iterable<string|null>    $value
+     * @param string|callable():string $message
      *
      * @return iterable<string|null>
      *
@@ -3965,11 +3965,11 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @psalm-assert iterable<!lowercase-string|null> $value
+     * @psalm-assert iterable<string|null> $value
      *
      * @param string|callable():string $message
      *
-     * @return iterable<!lowercase-string|null>
+     * @return iterable<string|null>
      *
      * @throws InvalidArgumentException
      */
@@ -5744,8 +5744,8 @@ trait Mixin
     }
 
     /**
-     * @param string|callable():string $message
      * @param class-string<Throwable>  $class
+     * @param string|callable():string $message
      *
      * @return callable|null
      *
@@ -5759,8 +5759,8 @@ trait Mixin
     }
 
     /**
-     * @param string|callable():string $message
      * @param class-string<Throwable>  $class
+     * @param string|callable():string $message
      *
      * @return iterable<callable>
      *
@@ -5778,8 +5778,8 @@ trait Mixin
     }
 
     /**
-     * @param string|callable():string $message
      * @param class-string<Throwable>  $class
+     * @param string|callable():string $message
      *
      * @return iterable<callable|null>
      *
