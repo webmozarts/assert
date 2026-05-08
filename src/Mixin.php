@@ -25,7 +25,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrString(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrString(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::string($value, $message);
 
@@ -87,7 +87,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrStringNotEmpty(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrStringNotEmpty(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::stringNotEmpty($value, $message);
 
@@ -149,7 +149,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrInteger(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrInteger(mixed $value, callable|string $message = ''): int|null
     {
         null === $value || static::integer($value, $message);
 
@@ -211,7 +211,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIntegerish(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIntegerish(mixed $value, callable|string $message = ''): string|int|float|null
     {
         null === $value || static::integerish($value, $message);
 
@@ -273,7 +273,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrPositiveInteger(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrPositiveInteger(mixed $value, callable|string $message = ''): int|null
     {
         null === $value || static::positiveInteger($value, $message);
 
@@ -335,7 +335,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotNegativeInteger(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrNotNegativeInteger(mixed $value, callable|string $message = ''): int|null
     {
         null === $value || static::notNegativeInteger($value, $message);
 
@@ -397,7 +397,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNegativeInteger(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrNegativeInteger(mixed $value, callable|string $message = ''): int|null
     {
         null === $value || static::negativeInteger($value, $message);
 
@@ -459,7 +459,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrFloat(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrFloat(mixed $value, callable|string $message = ''): float|null
     {
         null === $value || static::float($value, $message);
 
@@ -521,7 +521,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNumeric(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrNumeric(mixed $value, callable|string $message = ''): string|int|float|null
     {
         null === $value || static::numeric($value, $message);
 
@@ -583,7 +583,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNatural(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrNatural(mixed $value, callable|string $message = ''): int|null
     {
         null === $value || static::natural($value, $message);
 
@@ -645,7 +645,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrBoolean(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrBoolean(mixed $value, callable|string $message = ''): bool|null
     {
         null === $value || static::boolean($value, $message);
 
@@ -707,7 +707,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrScalar(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrScalar(mixed $value, callable|string $message = ''): string|int|float|bool|null
     {
         null === $value || static::scalar($value, $message);
 
@@ -769,7 +769,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrObject(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrObject(mixed $value, callable|string $message = ''): object|null
     {
         null === $value || static::object($value, $message);
 
@@ -831,7 +831,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrObjectish(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrObjectish(mixed $value, callable|string $message = ''): object|string|null
     {
         null === $value || static::objectish($value, $message);
 
@@ -961,7 +961,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsCallable(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIsCallable(mixed $value, callable|string $message = ''): callable|null
     {
         null === $value || static::isCallable($value, $message);
 
@@ -1023,7 +1023,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsArray(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIsArray(mixed $value, callable|string $message = ''): array|null
     {
         null === $value || static::isArray($value, $message);
 
@@ -1085,7 +1085,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsArrayAccessible(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIsArrayAccessible(mixed $value, callable|string $message = ''): ArrayAccess|array|null
     {
         null === $value || static::isArrayAccessible($value, $message);
 
@@ -1147,7 +1147,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsCountable(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIsCountable(mixed $value, callable|string $message = ''): Countable|array|null
     {
         null === $value || static::isCountable($value, $message);
 
@@ -1209,7 +1209,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsIterable(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIsIterable(mixed $value, callable|string $message = ''): iterable|null
     {
         null === $value || static::isIterable($value, $message);
 
@@ -1274,7 +1274,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsInstanceOf(mixed $value, mixed $class, callable|string $message = ''): mixed
+    public static function nullOrIsInstanceOf(mixed $value, mixed $class, callable|string $message = ''): object|null
     {
         null === $value || static::isInstanceOf($value, $class, $message);
 
@@ -1342,7 +1342,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotInstanceOf(mixed $value, mixed $class, callable|string $message = ''): mixed
+    public static function nullOrNotInstanceOf(mixed $value, mixed $class, callable|string $message = ''): object|null
     {
         null === $value || static::notInstanceOf($value, $class, $message);
 
@@ -1405,7 +1405,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsInstanceOfAny(mixed $value, mixed $classes, callable|string $message = ''): mixed
+    public static function nullOrIsInstanceOfAny(mixed $value, mixed $classes, callable|string $message = ''): object|null
     {
         null === $value || static::isInstanceOfAny($value, $classes, $message);
 
@@ -1530,7 +1530,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsAOf(mixed $value, mixed $class, callable|string $message = ''): mixed
+    public static function nullOrIsAOf(mixed $value, mixed $class, callable|string $message = ''): object|string|null
     {
         null === $value || static::isAOf($value, $class, $message);
 
@@ -1599,7 +1599,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsNotA(mixed $value, mixed $class, callable|string $message = ''): mixed
+    public static function nullOrIsNotA(mixed $value, mixed $class, callable|string $message = ''): object|string|null
     {
         null === $value || static::isNotA($value, $class, $message);
 
@@ -1667,7 +1667,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIsAnyOf(mixed $value, mixed $classes, callable|string $message = ''): mixed
+    public static function nullOrIsAnyOf(mixed $value, mixed $classes, callable|string $message = ''): object|string|null
     {
         null === $value || static::isAnyOf($value, $classes, $message);
 
@@ -1900,7 +1900,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrTrue(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrTrue(mixed $value, callable|string $message = ''): true|null
     {
         null === $value || static::true($value, $message);
 
@@ -1962,7 +1962,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrFalse(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrFalse(mixed $value, callable|string $message = ''): false|null
     {
         null === $value || static::false($value, $message);
 
@@ -2091,7 +2091,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIp(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIp(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::ip($value, $message);
 
@@ -2153,7 +2153,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIpv4(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIpv4(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::ipv4($value, $message);
 
@@ -2215,7 +2215,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrIpv6(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrIpv6(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::ipv6($value, $message);
 
@@ -2277,7 +2277,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrEmail(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrEmail(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::email($value, $message);
 
@@ -3103,7 +3103,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrContains(mixed $value, mixed $subString, callable|string $message = ''): mixed
+    public static function nullOrContains(mixed $value, mixed $subString, callable|string $message = ''): string|null
     {
         null === $value || static::contains($value, $subString, $message);
 
@@ -3159,7 +3159,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotContains(mixed $value, mixed $subString, callable|string $message = ''): mixed
+    public static function nullOrNotContains(mixed $value, mixed $subString, callable|string $message = ''): string|null
     {
         null === $value || static::notContains($value, $subString, $message);
 
@@ -3215,7 +3215,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotWhitespaceOnly(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrNotWhitespaceOnly(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::notWhitespaceOnly($value, $message);
 
@@ -3271,7 +3271,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrStartsWith(mixed $value, mixed $prefix, callable|string $message = ''): mixed
+    public static function nullOrStartsWith(mixed $value, mixed $prefix, callable|string $message = ''): string|null
     {
         null === $value || static::startsWith($value, $prefix, $message);
 
@@ -3327,7 +3327,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotStartsWith(mixed $value, mixed $prefix, callable|string $message = ''): mixed
+    public static function nullOrNotStartsWith(mixed $value, mixed $prefix, callable|string $message = ''): string|null
     {
         null === $value || static::notStartsWith($value, $prefix, $message);
 
@@ -3383,7 +3383,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrStartsWithLetter(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrStartsWithLetter(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::startsWithLetter($value, $message);
 
@@ -3439,7 +3439,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrEndsWith(mixed $value, mixed $suffix, callable|string $message = ''): mixed
+    public static function nullOrEndsWith(mixed $value, mixed $suffix, callable|string $message = ''): string|null
     {
         null === $value || static::endsWith($value, $suffix, $message);
 
@@ -3495,7 +3495,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotEndsWith(mixed $value, mixed $suffix, callable|string $message = ''): mixed
+    public static function nullOrNotEndsWith(mixed $value, mixed $suffix, callable|string $message = ''): string|null
     {
         null === $value || static::notEndsWith($value, $suffix, $message);
 
@@ -3551,7 +3551,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrRegex(mixed $value, mixed $pattern, callable|string $message = ''): mixed
+    public static function nullOrRegex(mixed $value, mixed $pattern, callable|string $message = ''): string|null
     {
         null === $value || static::regex($value, $pattern, $message);
 
@@ -3607,7 +3607,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrNotRegex(mixed $value, mixed $pattern, callable|string $message = ''): mixed
+    public static function nullOrNotRegex(mixed $value, mixed $pattern, callable|string $message = ''): string|null
     {
         null === $value || static::notRegex($value, $pattern, $message);
 
@@ -3663,7 +3663,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrUnicodeLetters(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrUnicodeLetters(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::unicodeLetters($value, $message);
 
@@ -3719,7 +3719,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrAlpha(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrAlpha(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::alpha($value, $message);
 
@@ -3775,7 +3775,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrDigits(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrDigits(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::digits($value, $message);
 
@@ -3831,7 +3831,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrAlnum(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrAlnum(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::alnum($value, $message);
 
@@ -3889,7 +3889,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrLower(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrLower(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::lower($value, $message);
 
@@ -3949,7 +3949,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrUpper(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrUpper(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::upper($value, $message);
 
@@ -4007,7 +4007,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrLength(mixed $value, mixed $length, callable|string $message = ''): mixed
+    public static function nullOrLength(mixed $value, mixed $length, callable|string $message = ''): string|null
     {
         null === $value || static::length($value, $length, $message);
 
@@ -4063,7 +4063,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrMinLength(mixed $value, mixed $min, callable|string $message = ''): mixed
+    public static function nullOrMinLength(mixed $value, mixed $min, callable|string $message = ''): string|null
     {
         null === $value || static::minLength($value, $min, $message);
 
@@ -4119,7 +4119,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrMaxLength(mixed $value, mixed $max, callable|string $message = ''): mixed
+    public static function nullOrMaxLength(mixed $value, mixed $max, callable|string $message = ''): string|null
     {
         null === $value || static::maxLength($value, $max, $message);
 
@@ -4175,7 +4175,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrLengthBetween(mixed $value, mixed $min, mixed $max, callable|string $message = ''): mixed
+    public static function nullOrLengthBetween(mixed $value, mixed $min, mixed $max, callable|string $message = ''): string|null
     {
         null === $value || static::lengthBetween($value, $min, $max, $message);
 
@@ -4229,7 +4229,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrFileExists(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrFileExists(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::fileExists($value, $message);
 
@@ -4279,7 +4279,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrFile(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrFile(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::file($value, $message);
 
@@ -4329,7 +4329,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrDirectory(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrDirectory(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::directory($value, $message);
 
@@ -4379,7 +4379,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrReadable(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrReadable(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::readable($value, $message);
 
@@ -4429,7 +4429,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrWritable(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrWritable(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::writable($value, $message);
 
@@ -4481,7 +4481,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrClassExists(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrClassExists(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::classExists($value, $message);
 
@@ -4541,7 +4541,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrSubclassOf(mixed $value, mixed $class, callable|string $message = ''): mixed
+    public static function nullOrSubclassOf(mixed $value, mixed $class, callable|string $message = ''): string|null
     {
         null === $value || static::subclassOf($value, $class, $message);
 
@@ -4605,7 +4605,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrInterfaceExists(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrInterfaceExists(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::interfaceExists($value, $message);
 
@@ -4665,7 +4665,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrImplementsInterface(mixed $value, mixed $interface, callable|string $message = ''): mixed
+    public static function nullOrImplementsInterface(mixed $value, mixed $interface, callable|string $message = ''): object|string|null
     {
         null === $value || static::implementsInterface($value, $interface, $message);
 
@@ -5103,7 +5103,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrValidArrayKey(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrValidArrayKey(mixed $value, callable|string $message = ''): string|int|null
     {
         null === $value || static::validArrayKey($value, $message);
 
@@ -5734,7 +5734,7 @@ trait Mixin
      *
      * @throws InvalidArgumentException
      */
-    public static function nullOrUuid(mixed $value, callable|string $message = ''): mixed
+    public static function nullOrUuid(mixed $value, callable|string $message = ''): string|null
     {
         null === $value || static::uuid($value, $message);
 

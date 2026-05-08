@@ -237,7 +237,7 @@ BODY;
                     $parameterTypes[$parameterReflection->name] = 'mixed';
 
                     $nativeReturnType = match ($typeTemplate) {
-                        '%s|null' => $this->reduceParameterType($parameterReflection->getType()),
+                        '%s|null' => $this->nullableReturnType($method->getReturnType()),
                         'iterable<%s>' => 'iterable',
                         'iterable<%s|null>' => 'iterable',
                     };
@@ -366,6 +366,19 @@ BODY;
         }
 
         return ($type->allowsNull() ? '?' : '') . $type->getName();
+    }
+
+    private function nullableReturnType(?ReflectionType $type): string
+    {
+        if ($type === null) {
+            return 'mixed';
+        }
+        $typeStr = $this->reduceParameterType($type);
+        if ($typeStr === 'mixed') {
+            return 'mixed';
+        }
+
+        return $typeStr.'|null';
     }
 
     private function applyTypeTemplate(string $type, string $typeTemplate): string
