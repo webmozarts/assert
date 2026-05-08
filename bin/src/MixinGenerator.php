@@ -78,6 +78,7 @@ PHP
         $assert = new ReflectionClass(Assert::class);
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
+        $namespace .= sprintf("use %s;\n", \Closure::class);
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
         $namespace .= sprintf("use %s;\n", Throwable::class);
@@ -233,7 +234,7 @@ BODY;
             }
 
             if ($parameterReflection->hasType()) {
-                if ($parameterReflection->name === 'value') {
+                if (count($parameters) === 1) {
                     $parameterTypes[$parameterReflection->name] = 'mixed';
 
                     $nativeReturnType = match ($typeTemplate) {
