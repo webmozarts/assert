@@ -908,7 +908,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-assert string $value
+     * @psalm-param string $value
      *
      * @throws InvalidArgumentException
      */
@@ -931,7 +931,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-assert string $value
+     * @psalm-param string $value
      *
      * @throws InvalidArgumentException
      */
@@ -954,7 +954,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-assert string $value
+     * @psalm-param string $value
      *
      * @throws InvalidArgumentException
      */
@@ -977,7 +977,7 @@ class Assert
      * @psalm-pure
      *
      * @param string|callable():string $message
-     * @psalm-assert string $value
+     * @psalm-param string $value
      *
      * @throws InvalidArgumentException
      */
@@ -2352,7 +2352,7 @@ class Assert
     }
 
     /**
-     * @psalm-assert callable $callable
+     * @psalm-param callable $callable
      *
      * @param string|callable():string $message
      *
@@ -2379,7 +2379,7 @@ class Assert
     }
 
     /**
-     * @psalm-assert callable $callable
+     * @psalm-param callable $callable
      *
      * @param string|callable():string $message
      *
