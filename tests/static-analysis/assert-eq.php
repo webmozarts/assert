@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
  * 
  * @param mixed $expect
  */
-function eq($value, $expect): mixed
+function eq(mixed $value, mixed $expect): mixed
 {
     return Assert::eq($value, $expect);
 }
@@ -19,7 +19,7 @@ function eq($value, $expect): mixed
  * 
  * @param mixed $expect
  */
-function nullOrEq($value, $expect): mixed
+function nullOrEq(mixed $value, mixed $expect): mixed
 {
     return Assert::nullOrEq($value, $expect);
 }
@@ -28,7 +28,7 @@ function nullOrEq($value, $expect): mixed
  * 
  * @param mixed $expect
  */
-function allEq($value, $expect): mixed
+function allEq(mixed $value, mixed $expect): mixed
 {
     return Assert::allEq($value, $expect);
 }
@@ -37,7 +37,7 @@ function allEq($value, $expect): mixed
  * 
  * @param mixed $expect
  */
-function allNullOrEq($value, $expect): mixed
+function allNullOrEq(mixed $value, mixed $expect): mixed
 {
     return Assert::allNullOrEq($value, $expect);
 }

@@ -10,7 +10,7 @@ use Webmozart\Assert\Assert;
  * @psalm-pure
  * @param mixed $limit
  */
-function greaterThan($value, $limit): mixed
+function greaterThan(mixed $value, $limit): mixed
 {
     return Assert::greaterThan($value, $limit);
 }
@@ -19,7 +19,7 @@ function greaterThan($value, $limit): mixed
  * @psalm-pure
  * @param mixed $limit
  */
-function nullOrGreaterThan($value, $limit): mixed
+function nullOrGreaterThan(mixed $value, mixed $limit): mixed
 {
     return Assert::nullOrGreaterThan($value, $limit);
 }
@@ -28,7 +28,7 @@ function nullOrGreaterThan($value, $limit): mixed
  * @psalm-pure
  * @param mixed $limit
  */
-function allGreaterThan($value, $limit): mixed
+function allGreaterThan(mixed $value, mixed $limit): mixed
 {
     return Assert::allGreaterThan($value, $limit);
 }
@@ -37,7 +37,7 @@ function allGreaterThan($value, $limit): mixed
  * @psalm-pure
  * @param mixed $limit
  */
-function allNullOrGreaterThan($value, $limit): mixed
+function allNullOrGreaterThan(mixed $value, mixed $limit): mixed
 {
     return Assert::allNullOrGreaterThan($value, $limit);
 }

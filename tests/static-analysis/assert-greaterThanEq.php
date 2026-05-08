@@ -8,9 +8,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- * @param mixed $limit
  */
-function greaterThanEq($value, $limit): mixed
+function greaterThanEq(mixed $value, mixed $limit): mixed
 {
     return Assert::greaterThanEq($value, $limit);
 }
@@ -19,7 +18,7 @@ function greaterThanEq($value, $limit): mixed
  * @psalm-pure
  * @param mixed $limit
  */
-function nullOrGreaterThanEq($value, $limit): mixed
+function nullOrGreaterThanEq(mixed $value, mixed $limit): mixed
 {
     return Assert::nullOrGreaterThanEq($value, $limit);
 }
@@ -28,7 +27,7 @@ function nullOrGreaterThanEq($value, $limit): mixed
  * @psalm-pure
  * @param mixed $limit
  */
-function allGreaterThanEq($value, $limit): mixed
+function allGreaterThanEq(mixed $value, mixed $limit): mixed
 {
     return Assert::allGreaterThanEq($value, $limit);
 }
@@ -37,7 +36,7 @@ function allGreaterThanEq($value, $limit): mixed
  * @psalm-pure
  * @param mixed $limit
  */
-function allNullOrGreaterThanEq($value, $limit): mixed
+function allNullOrGreaterThanEq(mixed $value, mixed $limit): mixed
 {
     return Assert::allNullOrGreaterThanEq($value, $limit);
 }
