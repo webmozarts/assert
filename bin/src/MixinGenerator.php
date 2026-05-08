@@ -277,14 +277,24 @@ BODY;
 
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
-                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && isset($parameters[0]) && $parts[1] === '$'.$parameters[0] && 'mixed' !== $parts[0]) {
+                if ('param' === $key && isset($parts[1]) && isset($parameters[0]) && $parts[1] === '$'.$parameters[0] && 'mixed' !== $parts[0]) {
                     $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate);
 
                     $values[$i] = \implode(' ', $parts);
+
+                    if ('mixed' === $phpdocReturnType) {
+                        $phpdocReturnType = $parts[0];
+                    }
                 }
             }
 
-            if ('psalm-return' === $key || 'return' === $key) {
+            if ('return' === $key) {
+                foreach ($values as $value) {
+                    $parts = $this->splitDocLine($value);
+                    if ('mixed' !== $parts[0]) {
+                        $phpdocReturnType = $this->applyTypeTemplate($parts[0], $typeTemplate);
+                    }
+                }
                 continue;
             }
 
@@ -322,6 +332,20 @@ BODY;
             if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'see' === $key) {
                 $phpdocLines[] = '';
             }
+        }
+
+        if ('mixed' === $phpdocReturnType) {
+            $returnType = $method->getReturnType();
+            if ($returnType !== null) {
+                $returnTypeStr = $this->reduceParameterType($returnType);
+                if ('mixed' !== $returnTypeStr) {
+                    $phpdocReturnType = $this->applyTypeTemplate($returnTypeStr, $typeTemplate);
+                }
+            }
+        }
+
+        if ('mixed' === $phpdocReturnType && 'mixed' !== $nativeReturnType) {
+            $phpdocReturnType = $nativeReturnType;
         }
 
         $phpdocLines[] = '@return '.$phpdocReturnType;
@@ -398,7 +422,7 @@ BODY;
             return false;
         }
 
-        return 'psalm-assert' === $key || 'psalm-return' === $key;
+        return 'psalm-assert' === $key;
     }
 
     /**
