@@ -4,7 +4,7 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-function isStatic(mixed $closure): callable
+function isStatic(callable $closure): callable
 {
     return Assert::isStatic($closure);
 }
