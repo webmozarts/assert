@@ -1398,8 +1398,9 @@ trait Mixin
      * @template T of object
      * @psalm-assert T|null $value
      *
-     * @param T|null                   $value
-     * @param string|callable():string $message
+     * @param mixed                     $value
+     * @param iterable<class-string<T>> $classes
+     * @param string|callable():string  $message
      *
      * @return T|null
      *
@@ -1416,8 +1417,9 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T> $value
      *
-     * @param iterable<T>              $value
-     * @param string|callable():string $message
+     * @param mixed                     $value
+     * @param iterable<class-string<T>> $classes
+     * @param string|callable():string  $message
      *
      * @return iterable<T>
      *
@@ -1438,8 +1440,9 @@ trait Mixin
      * @template T of object
      * @psalm-assert iterable<T|null> $value
      *
-     * @param iterable<T|null>         $value
-     * @param string|callable():string $message
+     * @param mixed                     $value
+     * @param iterable<class-string<T>> $classes
+     * @param string|callable():string  $message
      *
      * @return iterable<T|null>
      *

@@ -592,7 +592,8 @@ class Assert
      *
      * @psalm-assert T $value
      *
-     * @param T $value
+     * @param mixed $value
+     * @param iterable<class-string<T>> $classes
      * @param string|callable():string $message
      *
      * @return T
