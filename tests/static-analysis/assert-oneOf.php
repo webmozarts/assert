@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function oneOf($value, array $values): mixed
+function oneOf(mixed $value, array $values): mixed
 {
-    Assert::oneOf($value, $values);
-
-    return $value;
+    return Assert::oneOf($value, $values);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function nullOrOneOf($value, array $values): mixed
+function nullOrOneOf(mixed $value, array $values): mixed
 {
-    Assert::nullOrOneOf($value, $values);
-
-    return $value;
+    return Assert::nullOrOneOf($value, $values);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function allOneOf($value, array $values): mixed
+function allOneOf(mixed $value, array $values): mixed
 {
-    Assert::allOneOf($value, $values);
-
-    return $value;
+    return Assert::allOneOf($value, $values);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function allNullOrOneOf($value, array $values): mixed
+function allNullOrOneOf(mixed $value, array $values): mixed
 {
-    Assert::allNullOrOneOf($value, $values);
-
-    return $value;
+    return Assert::allNullOrOneOf($value, $values);
 }

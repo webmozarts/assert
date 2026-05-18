@@ -12,11 +12,9 @@ use Webmozart\Assert\Assert;
  * @param class-string|object $classOrObject
  * @param mixed $method
  */
-function methodNotExists($classOrObject, $method): string|object
+function methodNotExists(mixed $classOrObject, $method): string|object
 {
-    Assert::methodNotExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::methodNotExists($classOrObject, $method);
 }
 
 /**
@@ -25,11 +23,9 @@ function methodNotExists($classOrObject, $method): string|object
  * @param null|class-string|object $classOrObject
  * @param mixed $method
  */
-function nullOrMethodNotExists($classOrObject, $method): string|object|null
+function nullOrMethodNotExists(mixed $classOrObject, $method): string|object|null
 {
-    Assert::nullOrMethodNotExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::nullOrMethodNotExists($classOrObject, $method);
 }
 
 /**
@@ -40,9 +36,7 @@ function nullOrMethodNotExists($classOrObject, $method): string|object|null
  */
 function allMethodNotExists(iterable $classOrObject, $method): iterable
 {
-    Assert::allMethodNotExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::allMethodNotExists($classOrObject, $method);
 }
 
 /**
@@ -53,7 +47,5 @@ function allMethodNotExists(iterable $classOrObject, $method): iterable
  */
 function allNullOrMethodNotExists(iterable $classOrObject, $method): iterable
 {
-    Assert::allNullOrMethodNotExists($classOrObject, $method);
-
-    return $classOrObject;
+    return Assert::allNullOrMethodNotExists($classOrObject, $method);
 }

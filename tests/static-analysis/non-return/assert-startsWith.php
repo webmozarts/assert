@@ -1,0 +1,51 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Webmozart\Assert\Tests\StaticAnalysis\NonReturn;
+
+use Webmozart\Assert\Assert;
+
+/**
+ * @psalm-pure
+ */
+function startsWith(string $value, string $prefix): string
+{
+    Assert::startsWith($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ */
+function nullOrStartsWith(?string $value, string $prefix): ?string
+{
+    Assert::nullOrStartsWith($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string> $value
+ */
+function allStartsWith(iterable $value, string $prefix): iterable
+{
+    Assert::allStartsWith($value, $prefix);
+
+    return $value;
+}
+
+/**
+ * @psalm-pure
+ *
+ * @param iterable<string|null> $value
+ */
+function allNullOrStartsWith(iterable $value, string $prefix): iterable
+{
+    Assert::allNullOrStartsWith($value, $prefix);
+
+    return $value;
+}

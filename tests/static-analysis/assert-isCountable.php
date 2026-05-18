@@ -4,57 +4,41 @@ declare(strict_types=1);
 
 namespace Webmozart\Assert\Tests\StaticAnalysis;
 
-use countable;
+use Countable;
 use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function isCountable(mixed $value): Countable
 {
-    Assert::isCountable($value);
-
-    return $value;
+    return Assert::isCountable($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrIsCountable(mixed $value): ?Countable
 {
-    Assert::nullOrIsCountable($value);
-
-    return $value;
+    return Assert::nullOrIsCountable($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
- * @return iterable<countable>
+ * @return iterable<Countable>
  */
 function allIsCountable(mixed $value)
 {
-    Assert::allIsCountable($value);
-
-    return $value;
+    return Assert::allIsCountable($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
- * @return iterable<countable|null>
+ * @return iterable<Countable|null>
  */
 function allNullOrIsCountable(mixed $value)
 {
-    Assert::allNullOrIsCountable($value);
-
-    return $value;
+    return Assert::allNullOrIsCountable($value);
 }

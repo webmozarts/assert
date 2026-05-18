@@ -10,15 +10,11 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @return list<mixed>
  */
 function isList(mixed $value): array
 {
-    Assert::isList($value);
-
-    return $value;
+    return Assert::isList($value);
 }
 
 /**
@@ -30,45 +26,31 @@ function isList(mixed $value): array
  */
 function isListWithKnownType(array $value): array
 {
-    Assert::isList($value);
-
-    return $value;
+    return Assert::isList($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  *
  * @return null|list<mixed>
  */
 function nullOrIsList(mixed $value): ?array
 {
-    Assert::nullOrIsList($value);
-
-    return $value;
+    return Assert::nullOrIsList($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allIsList(mixed $value): iterable
 {
-    Assert::allIsList($value);
-
-    return $value;
+    return Assert::allIsList($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrIsList(mixed $value): iterable
 {
-    Assert::allNullOrIsList($value);
-
-    return $value;
+    return Assert::allNullOrIsList($value);
 }

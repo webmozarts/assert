@@ -8,16 +8,12 @@ use Webmozart\Assert\Assert;
 
 function writable(string $value): string
 {
-    Assert::writable($value);
-
-    return $value;
+    return Assert::writable($value);
 }
 
 function nullOrWritable(?string $value): ?string
 {
-    Assert::nullOrWritable($value);
-
-    return $value;
+    return Assert::nullOrWritable($value);
 }
 
 /**
@@ -25,9 +21,7 @@ function nullOrWritable(?string $value): ?string
  */
 function allWritable(iterable $value): iterable
 {
-    Assert::allWritable($value);
-
-    return $value;
+    return Assert::allWritable($value);
 }
 
 /**
@@ -35,7 +29,5 @@ function allWritable(iterable $value): iterable
  */
 function allNullOrWritable(iterable $value): iterable
 {
-    Assert::allNullOrWritable($value);
-
-    return $value;
+    return Assert::allNullOrWritable($value);
 }

@@ -8,9 +8,15 @@ declare(strict_types=1);
  */
 
 use Webmozart\Assert\Bin\MixinGenerator;
+use Webmozart\Assert\Bin\StaticAnalysisNonReturnGenerator;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-file_put_contents(__DIR__.'/../src/Mixin.php', (new MixinGenerator())->generate());
+$generator = new MixinGenerator();
+file_put_contents(__DIR__.'/../src/Mixin.php', $generator->generate());
+
+file_put_contents(__DIR__.'/../src/HasAssert.php', $generator->generateHasAssert());
+
+(new StaticAnalysisNonReturnGenerator(__DIR__.'/../tests/static-analysis'))->generate();
 
 echo "Done.";

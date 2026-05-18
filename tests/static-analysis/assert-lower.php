@@ -13,9 +13,7 @@ use Webmozart\Assert\Assert;
  */
 function lower(string $value): string
 {
-    Assert::lower($value);
-
-    return $value;
+    return Assert::lower($value);
 }
 
 /**
@@ -25,9 +23,7 @@ function lower(string $value): string
  */
 function nullOrLower(?string $value): ?string
 {
-    Assert::nullOrLower($value);
-
-    return $value;
+    return Assert::nullOrLower($value);
 }
 
 /**
@@ -37,9 +33,7 @@ function nullOrLower(?string $value): ?string
  */
 function allLower(iterable $value): iterable
 {
-    Assert::allLower($value);
-
-    return $value;
+    return Assert::allLower($value);
 }
 
 /**
@@ -49,7 +43,5 @@ function allLower(iterable $value): iterable
  */
 function allNullOrLower(iterable $value): iterable
 {
-    Assert::allNullOrLower($value);
-
-    return $value;
+    return Assert::allNullOrLower($value);
 }

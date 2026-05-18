@@ -6,24 +6,36 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
+final class a extends Assert
+{
+}
+
 /**
  * @psalm-pure
  */
 function notNull(?object $value): object
 {
-    Assert::notNull($value);
-
-    return $value;
+    return Assert::notNull($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param iterable<mixed|null> $value
  */
-function allNotNull(mixed $value): mixed
+function allNotNull(iterable $value): iterable
 {
-    Assert::allNotNull($value);
+    return Assert::allNotNull($value);
+}
 
-    return $value;
+/**
+ * @psalm-pure
+ *
+ * @param list<mixed> $value
+ *
+ * @return list<string>
+ */
+function allNotNullSpecialTest(iterable $value): iterable
+{
+    return a::allNotNull($value);
 }

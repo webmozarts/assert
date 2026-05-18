@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function objectish(mixed $value): object|string
 {
-    Assert::objectish($value);
-
-    return $value;
+    return Assert::objectish($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrObjectish(mixed $value): object|string|null
 {
-    Assert::nullOrObjectish($value);
-
-    return $value;
+    return Assert::nullOrObjectish($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allObjectish(mixed $value): iterable
 {
-    Assert::allObjectish($value);
-
-    return $value;
+    return Assert::allObjectish($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrObjectish(mixed $value): iterable
 {
-    Assert::allNullOrObjectish($value);
-
-    return $value;
+    return Assert::allNullOrObjectish($value);
 }

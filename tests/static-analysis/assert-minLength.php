@@ -13,9 +13,7 @@ use Webmozart\Assert\Assert;
  */
 function minLength(string $value, $min): string
 {
-    Assert::minLength($value, $min);
-
-    return $value;
+    return Assert::minLength($value, $min);
 }
 
 /**
@@ -25,9 +23,7 @@ function minLength(string $value, $min): string
  */
 function nullOrMinLength(?string $value, $min): ?string
 {
-    Assert::nullOrMinLength($value, $min);
-
-    return $value;
+    return Assert::nullOrMinLength($value, $min);
 }
 
 /**
@@ -38,9 +34,7 @@ function nullOrMinLength(?string $value, $min): ?string
  */
 function allMinLength(iterable $value, $min): iterable
 {
-    Assert::allMinLength($value, $min);
-
-    return $value;
+    return Assert::allMinLength($value, $min);
 }
 
 /**
@@ -51,7 +45,5 @@ function allMinLength(iterable $value, $min): iterable
  */
 function allNullOrMinLength(iterable $value, $min): iterable
 {
-    Assert::allNullOrMinLength($value, $min);
-
-    return $value;
+    return Assert::allNullOrMinLength($value, $min);
 }

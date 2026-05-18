@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function integer(mixed $value): int
 {
-    Assert::integer($value);
-
-    return $value;
+    return Assert::integer($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrInteger(mixed $value): ?int
 {
-    Assert::nullOrInteger($value);
-
-    return $value;
+    return Assert::nullOrInteger($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allInteger(mixed $value): iterable
 {
-    Assert::allInteger($value);
-
-    return $value;
+    return Assert::allInteger($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrInteger(mixed $value): iterable
 {
-    Assert::allNullOrInteger($value);
-
-    return $value;
+    return Assert::allNullOrInteger($value);
 }

@@ -8,16 +8,12 @@ use Webmozart\Assert\Assert;
 
 function readable(string $value): string
 {
-    Assert::readable($value);
-
-    return $value;
+    return Assert::readable($value);
 }
 
 function nullOrReadable(?string $value): ?string
 {
-    Assert::nullOrReadable($value);
-
-    return $value;
+    return Assert::nullOrReadable($value);
 }
 
 /**
@@ -25,9 +21,7 @@ function nullOrReadable(?string $value): ?string
  */
 function allReadable(iterable $value): iterable
 {
-    Assert::allReadable($value);
-
-    return $value;
+    return Assert::allReadable($value);
 }
 
 /**
@@ -35,7 +29,5 @@ function allReadable(iterable $value): iterable
  */
 function allNullOrReadable(iterable $value): iterable
 {
-    Assert::allNullOrReadable($value);
-
-    return $value;
+    return Assert::allNullOrReadable($value);
 }

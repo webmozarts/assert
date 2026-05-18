@@ -9,9 +9,7 @@ use Webmozart\Assert\Assert;
  */
 function notOneOf(mixed $value, array $values): mixed
 {
-    Assert::notOneOf($value, $values);
-
-    return $value;
+    return Assert::notOneOf($value, $values);
 }
 
 /**
@@ -19,9 +17,7 @@ function notOneOf(mixed $value, array $values): mixed
  */
 function nullOrNotOneOf(mixed $value, array $values): mixed
 {
-    Assert::nullOrNotOneOf($value, $values);
-
-    return $value;
+    return Assert::nullOrNotOneOf($value, $values);
 }
 
 /**
@@ -29,7 +25,5 @@ function nullOrNotOneOf(mixed $value, array $values): mixed
  */
 function allNotOneOf(mixed $value, array $values): mixed
 {
-    Assert::allNotOneOf($value, $values);
-
-    return $value;
+    return Assert::allNotOneOf($value, $values);
 }

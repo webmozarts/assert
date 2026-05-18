@@ -12,9 +12,7 @@ use Webmozart\Assert\Assert;
  */
 function count(Countable|array $value, int $number): Countable|array
 {
-    Assert::count($value, $number);
-
-    return $value;
+    return Assert::count($value, $number);
 }
 
 /**
@@ -22,9 +20,7 @@ function count(Countable|array $value, int $number): Countable|array
  */
 function nullOrCount(Countable|array|null $value, int $number): Countable|array|null
 {
-    Assert::nullOrCount($value, $number);
-
-    return $value;
+    return Assert::nullOrCount($value, $number);
 }
 
 /**
@@ -32,9 +28,7 @@ function nullOrCount(Countable|array|null $value, int $number): Countable|array|
  */
 function allCount(iterable $value, int $number): iterable
 {
-    Assert::allCount($value, $number);
-
-    return $value;
+    return Assert::allCount($value, $number);
 }
 
 /**
@@ -42,7 +36,5 @@ function allCount(iterable $value, int $number): iterable
  */
 function allNullOrCount(iterable $value, int $number): iterable
 {
-    Assert::allCount($value, $number);
-
-    return $value;
+    return Assert::allCount($value, $number);
 }

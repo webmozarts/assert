@@ -10,15 +10,11 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @return array<string, mixed>
  */
 function isMap(mixed $value): array
 {
-    Assert::isMap($value);
-
-    return $value;
+    return Assert::isMap($value);
 }
 
 /**
@@ -32,38 +28,29 @@ function isMap(mixed $value): array
  */
 function isMapWithKnownType(array $value): array
 {
-    Assert::isMap($value);
-
-    return $value;
+    return Assert::isMap($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param array<int|string, mixed> $value
  *
  * @return array<empty, empty>
  */
-function isMapWithEmptyArray(array $value): array
+function isMapWithEmptyArray(): array
 {
-    Assert::isMap($value);
-    Assert::isEmpty($value);
+    $value = [];
 
-    return $value;
+    return Assert::isMap($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  *
  * @return null|array<string, mixed>
  */
 function nullOrIsMap(mixed $value): ?array
 {
-    Assert::nullOrIsMap($value);
-
-    return $value;
+    return Assert::nullOrIsMap($value);
 }
 
 /**
@@ -73,9 +60,7 @@ function nullOrIsMap(mixed $value): ?array
  */
 function allIsMap(iterable $value): iterable
 {
-    Assert::allIsMap($value);
-
-    return $value;
+    return Assert::allIsMap($value);
 }
 
 /**
@@ -85,7 +70,5 @@ function allIsMap(iterable $value): iterable
  */
 function allNullOrIsMap(iterable $value): iterable
 {
-    Assert::allNullOrIsMap($value);
-
-    return $value;
+    return Assert::allNullOrIsMap($value);
 }

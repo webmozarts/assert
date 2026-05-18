@@ -8,56 +8,40 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $min
  * @param mixed $max
  */
-function range($value, $min, $max): mixed
+function range(mixed $value, $min, $max): mixed
 {
-    Assert::range($value, $min, $max);
-
-    return $value;
+    return Assert::range($value, $min, $max);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $min
  * @param mixed $max
  */
-function nullOrRange($value, $min, $max): mixed
+function nullOrRange(mixed $value, $min, $max): mixed
 {
-    Assert::nullOrRange($value, $min, $max);
-
-    return $value;
+    return Assert::nullOrRange($value, $min, $max);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $min
  * @param mixed $max
  */
-function allRange($value, $min, $max): mixed
+function allRange(mixed $value, $min, $max): mixed
 {
-    Assert::allRange($value, $min, $max);
-
-    return $value;
+    return Assert::allRange($value, $min, $max);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  * @param mixed $min
  * @param mixed $max
  */
-function allNullOrRange($value, $min, $max): mixed
+function allNullOrRange(mixed $value, $min, $max): mixed
 {
-    Assert::allNullOrRange($value, $min, $max);
-
-    return $value;
+    return Assert::allNullOrRange($value, $min, $max);
 }

@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function uuid(string $value): string
 {
-    Assert::uuid($value);
-
-    return $value;
+    return Assert::uuid($value);
 }
 
 /**
@@ -21,9 +19,7 @@ function uuid(string $value): string
  */
 function nullOrUuid(?string $value): ?string
 {
-    Assert::nullOrUuid($value);
-
-    return $value;
+    return Assert::nullOrUuid($value);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrUuid(?string $value): ?string
  */
 function allUuid(iterable $value): iterable
 {
-    Assert::allUuid($value);
-
-    return $value;
+    return Assert::allUuid($value);
 }
 
 /**
@@ -45,7 +39,5 @@ function allUuid(iterable $value): iterable
  */
 function allNullOrUuid(iterable $value): iterable
 {
-    Assert::allNullOrUuid($value);
-
-    return $value;
+    return Assert::allNullOrUuid($value);
 }

@@ -11,22 +11,18 @@ use Webmozart\Assert\Assert;
  * @param Countable|array $array
  * @param int|float $min
  */
-function minCount($array, $min): Countable|array
+function minCount(mixed $array, $min): Countable|array
 {
-    Assert::minCount($array, $min);
-
-    return $array;
+    return Assert::minCount($array, $min);
 }
 
 /**
  * @param null|Countable|array $array
  * @param int|float $min
  */
-function nullOrMinCount($array, $min): Countable|array|null
+function nullOrMinCount(mixed $array, $min): Countable|array|null
 {
-    Assert::nullOrMinCount($array, $min);
-
-    return $array;
+    return Assert::nullOrMinCount($array, $min);
 }
 
 /**
@@ -35,11 +31,9 @@ function nullOrMinCount($array, $min): Countable|array|null
  *
  * @return iterable<Countable|array>
  */
-function allMinCount($array, $min)
+function allMinCount(mixed $array, $min)
 {
-    Assert::allMinCount($array, $min);
-
-    return $array;
+    return Assert::allMinCount($array, $min);
 }
 
 /**
@@ -48,9 +42,7 @@ function allMinCount($array, $min)
  *
  * @return iterable<Countable|array|null>
  */
-function allNullOrMinCount($array, $min)
+function allNullOrMinCount(mixed $array, $min)
 {
-    Assert::allNullOrMinCount($array, $min);
-
-    return $array;
+    return Assert::allNullOrMinCount($array, $min);
 }

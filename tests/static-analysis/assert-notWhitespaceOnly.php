@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function notWhitespaceOnly(string $value): string
 {
-    Assert::notWhitespaceOnly($value);
-
-    return $value;
+    return Assert::notWhitespaceOnly($value);
 }
 
 /**
@@ -21,9 +19,7 @@ function notWhitespaceOnly(string $value): string
  */
 function nullOrNotWhitespaceOnly(?string $value): ?string
 {
-    Assert::nullOrNotWhitespaceOnly($value);
-
-    return $value;
+    return Assert::nullOrNotWhitespaceOnly($value);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrNotWhitespaceOnly(?string $value): ?string
  */
 function allNotWhitespaceOnly(iterable $value): iterable
 {
-    Assert::allNotWhitespaceOnly($value);
-
-    return $value;
+    return Assert::allNotWhitespaceOnly($value);
 }
 
 /**
@@ -45,7 +39,5 @@ function allNotWhitespaceOnly(iterable $value): iterable
  */
 function allNullOrNotWhitespaceOnly(iterable $value): iterable
 {
-    Assert::allNullOrNotWhitespaceOnly($value);
-
-    return $value;
+    return Assert::allNullOrNotWhitespaceOnly($value);
 }

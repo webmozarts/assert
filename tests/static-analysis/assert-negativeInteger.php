@@ -9,55 +9,39 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @psalm-return negative-int
  */
 function negativeInteger(mixed $value): int
 {
-    Assert::negativeInteger($value);
-
-    return $value;
+    return Assert::negativeInteger($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  *
  * @psalm-return negative-int|null
  */
 function nullOrNegativeInteger(mixed $value): ?int
 {
-    Assert::nullOrNegativeInteger($value);
-
-    return $value;
+    return Assert::nullOrNegativeInteger($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  *
  * @return iterable<negative-int>
  */
 function allNegativeInteger(mixed $value): iterable
 {
-    Assert::allNegativeInteger($value);
-
-    return $value;
+    return Assert::allNegativeInteger($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
- *
  * @return iterable<negative-int|null>
  */
 function allNullOrNegativeInteger(mixed $value): iterable
 {
-    Assert::allNullOrNegativeInteger($value);
-
-    return $value;
+    return Assert::allNullOrNegativeInteger($value);
 }

@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function isEmptyNullableObject(?object $value): null
 {
-    Assert::isEmpty($value);
-
-    return $value;
+    return Assert::isEmpty($value);
 }
 
 /**
@@ -23,9 +21,7 @@ function isEmptyNullableObject(?object $value): null
  */
 function isEmptyString(string $value)
 {
-    Assert::isEmpty($value);
-
-    return $value;
+    return Assert::isEmpty($value);
 }
 
 /**
@@ -35,9 +31,7 @@ function isEmptyString(string $value)
  */
 function isEmptyInt(int $value)
 {
-    Assert::isEmpty($value);
-
-    return $value;
+    return Assert::isEmpty($value);
 }
 
 /**
@@ -47,9 +41,7 @@ function isEmptyInt(int $value)
  */
 function isEmptyBool(bool $value)
 {
-    Assert::isEmpty($value);
-
-    return $value;
+    return Assert::isEmpty($value);
 }
 
 /**
@@ -59,43 +51,31 @@ function isEmptyBool(bool $value)
  */
 function isEmptyArray(array $value)
 {
-    Assert::isEmpty($value);
-
-    return $value;
+    return Assert::isEmpty($value);
 }
 
 /**
  * @psalm-pure
  *
- * @return null|empty
+ * @return null
  */
-function nullOrIsEmpty(?object $value)
+function nullOrIsEmpty(?object $value): null
 {
-    Assert::nullOrIsEmpty($value);
-
-    return $value;
+    return Assert::nullOrIsEmpty($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allIsEmpty(mixed $value): iterable
 {
-    Assert::allIsEmpty($value);
-
-    return $value;
+    return Assert::allIsEmpty($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrIsEmpty(mixed $value): iterable
 {
-    Assert::allNullOrIsEmpty($value);
-
-    return $value;
+    return Assert::allNullOrIsEmpty($value);
 }

@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function inArray($value, array $values): mixed
+function inArray(mixed $value, array $values): mixed
 {
-    Assert::inArray($value, $values);
-
-    return $value;
+    return Assert::inArray($value, $values);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function nullOrInArray($value, array $values): mixed
+function nullOrInArray(mixed $value, array $values): mixed
 {
-    Assert::nullOrInArray($value, $values);
-
-    return $value;
+    return Assert::nullOrInArray($value, $values);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function allInArray($value, array $values): mixed
+function allInArray(mixed $value, array $values): mixed
 {
-    Assert::allInArray($value, $values);
-
-    return $value;
+    return Assert::allInArray($value, $values);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
-function allNullOrInArray($value, array $values): mixed
+function allNullOrInArray(mixed $value, array $values): mixed
 {
-    Assert::allNullOrInArray($value, $values);
-
-    return $value;
+    return Assert::allNullOrInArray($value, $values);
 }

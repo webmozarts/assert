@@ -13,9 +13,7 @@ use Webmozart\Assert\Assert;
  */
 function throws(Closure $value, $class): Closure
 {
-    Assert::throws($value, $class);
-
-    return $value;
+    return Assert::throws($value, $class);
 }
 
 /**
@@ -23,9 +21,7 @@ function throws(Closure $value, $class): Closure
  */
 function nullOrThrows(?Closure $value, $class): ?Closure
 {
-    Assert::nullOrThrows($value, $class);
-
-    return $value;
+    return Assert::nullOrThrows($value, $class);
 }
 
 /**
@@ -34,9 +30,7 @@ function nullOrThrows(?Closure $value, $class): ?Closure
  */
 function allThrows(iterable $value, $class): iterable
 {
-    Assert::allThrows($value, $class);
-
-    return $value;
+    return Assert::allThrows($value, $class);
 }
 /**
  * @param iterable<Closure|null> $value
@@ -44,7 +38,5 @@ function allThrows(iterable $value, $class): iterable
  */
 function allNullOrThrows(iterable $value, $class): iterable
 {
-    Assert::allNullOrThrows($value, $class);
-
-    return $value;
+    return Assert::allNullOrThrows($value, $class);
 }

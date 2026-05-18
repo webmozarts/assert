@@ -10,15 +10,13 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param array<string, mixed> $value
  *
  * @return non-empty-array<string, mixed>
  */
-function isNonEmptyMap(mixed $value): array
+function isNonEmptyMap(array $value): array
 {
-    Assert::isNonEmptyMap($value);
-
-    return $value;
+    return Assert::isNonEmptyMap($value);
 }
 
 /**
@@ -26,49 +24,41 @@ function isNonEmptyMap(mixed $value): array
  *
  * @psalm-pure
  *
- * @param array<int|string, stdClass> $value
+ * @param array<string, stdClass> $value
  *
- * @return array<string, stdClass>
+ * @return non-empty-array<string, stdClass>
  */
 function isNonEmptyMapWithKnownType(array $value): array
 {
-    Assert::isNonEmptyMap($value);
-
-    return $value;
+    return Assert::isNonEmptyMap($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param mixed $value
+ * @param array<string, mixed>|null $value
  */
-function nullOrIsNonEmptyMap(mixed $value): mixed
+function nullOrIsNonEmptyMap(?array $value): ?array
 {
-    Assert::nullOrIsNonEmptyMap($value);
-
-    return $value;
+    return Assert::nullOrIsNonEmptyMap($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param iterable<mixed|array<mixed>> $value
+ * @param iterable<array<string, mixed>> $value
  */
 function allIsNonEmptyMap(iterable $value): iterable
 {
-    Assert::allIsNonEmptyMap($value);
-
-    return $value;
+    return Assert::allIsNonEmptyMap($value);
 }
 
 /**
  * @psalm-pure
  *
- * @param iterable<mixed|array<mixed>> $value
+ * @param iterable<array<string, mixed>|null> $value
  */
 function allNullOrIsNonEmptyMap(iterable $value): iterable
 {
-    Assert::allNullOrIsNonEmptyMap($value);
-
-    return $value;
+    return Assert::allNullOrIsNonEmptyMap($value);
 }
