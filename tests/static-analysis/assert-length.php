@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function length(string $value, int $length): string
 {
-    Assert::length($value, $length);
-
-    return $value;
+    return Assert::length($value, $length);
 }
 
 /**
@@ -21,9 +19,7 @@ function length(string $value, int $length): string
  */
 function nullOrLength(?string $value, int $length): ?string
 {
-    Assert::nullOrLength($value, $length);
-
-    return $value;
+    return Assert::nullOrLength($value, $length);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrLength(?string $value, int $length): ?string
  */
 function allLength(iterable $value, int $length): iterable
 {
-    Assert::allLength($value, $length);
-
-    return $value;
+    return Assert::allLength($value, $length);
 }
 
 /**
@@ -45,7 +39,5 @@ function allLength(iterable $value, int $length): iterable
  */
 function allNullOrLength(iterable $value, int $length): iterable
 {
-    Assert::allNullOrLength($value, $length);
-
-    return $value;
+    return Assert::allNullOrLength($value, $length);
 }

@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function startsWith(string $value, string $prefix): string
 {
-    Assert::startsWith($value, $prefix);
-
-    return $value;
+    return Assert::startsWith($value, $prefix);
 }
 
 /**
@@ -21,9 +19,7 @@ function startsWith(string $value, string $prefix): string
  */
 function nullOrStartsWith(?string $value, string $prefix): ?string
 {
-    Assert::nullOrStartsWith($value, $prefix);
-
-    return $value;
+    return Assert::nullOrStartsWith($value, $prefix);
 }
 
 /**
@@ -33,9 +29,7 @@ function nullOrStartsWith(?string $value, string $prefix): ?string
  */
 function allStartsWith(iterable $value, string $prefix): iterable
 {
-    Assert::allStartsWith($value, $prefix);
-
-    return $value;
+    return Assert::allStartsWith($value, $prefix);
 }
 
 /**
@@ -45,7 +39,5 @@ function allStartsWith(iterable $value, string $prefix): iterable
  */
 function allNullOrStartsWith(iterable $value, string $prefix): iterable
 {
-    Assert::allNullOrStartsWith($value, $prefix);
-
-    return $value;
+    return Assert::allNullOrStartsWith($value, $prefix);
 }

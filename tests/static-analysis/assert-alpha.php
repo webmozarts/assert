@@ -8,48 +8,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function alpha(mixed $value): mixed
 {
-    Assert::alpha($value);
-
-    return $value;
+    return Assert::alpha($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrAlpha(mixed $value): mixed
 {
-    Assert::nullOrAlpha($value);
-
-    return $value;
+    return Assert::nullOrAlpha($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allAlpha(mixed $value): mixed
 {
-    Assert::allAlpha($value);
-
-    return $value;
+    return Assert::allAlpha($value);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrAlpha(mixed $value): mixed
 {
-    Assert::allNullOrAlpha($value);
-
-    return $value;
+    return Assert::allNullOrAlpha($value);
 }

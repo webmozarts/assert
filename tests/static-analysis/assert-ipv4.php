@@ -6,42 +6,28 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-/**
- * @param mixed $value
- */
-function ipv4($value): mixed
+function ipv4(string $value): string
 {
-    Assert::ipv4($value);
+    return Assert::ipv4($value);
+}
 
-    return $value;
+function nullOrIpv4(?string $value): ?string
+{
+    return Assert::nullOrIpv4($value);
 }
 
 /**
- * @param mixed $value
+ * @param iterable<string> $value
  */
-function nullOrIpv4($value): mixed
+function allIpv4(iterable $value): iterable
 {
-    Assert::nullOrIpv4($value);
-
-    return $value;
+    return Assert::allIpv4($value);
 }
 
 /**
- * @param mixed $value
+ * @param iterable<string|null> $value
  */
-function allIpv4($value): mixed
+function allNullOrIpv4(iterable $value): iterable
 {
-    Assert::allIpv4($value);
-
-    return $value;
-}
-
-/**
- * @param mixed $value
- */
-function allNullOrIpv4($value): mixed
-{
-    Assert::allNullOrIpv4($value);
-
-    return $value;
+    return Assert::allNullOrIpv4($value);
 }

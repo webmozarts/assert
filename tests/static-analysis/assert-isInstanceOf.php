@@ -9,48 +9,32 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function isInstanceOf(mixed $value): Serializable
 {
-    Assert::isInstanceOf($value, Serializable::class);
-
-    return $value;
+    return Assert::isInstanceOf($value, Serializable::class);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function nullOrIsInstanceOf(mixed $value): ?Serializable
 {
-    Assert::nullOrIsInstanceOf($value, Serializable::class);
-
-    return $value;
+    return Assert::nullOrIsInstanceOf($value, Serializable::class);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allIsInstanceOf(mixed $value): iterable
 {
-    Assert::allIsInstanceOf($value, Serializable::class);
-
-    return $value;
+    return Assert::allIsInstanceOf($value, Serializable::class);
 }
 
 /**
  * @psalm-pure
- *
- * @param mixed $value
  */
 function allNullOrIsInstanceOf(mixed $value): iterable
 {
-    Assert::allNullOrIsInstanceOf($value, Serializable::class);
-
-    return $value;
+    return Assert::allNullOrIsInstanceOf($value, Serializable::class);
 }

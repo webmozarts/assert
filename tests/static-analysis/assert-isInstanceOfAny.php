@@ -7,45 +7,37 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 use Webmozart\Assert\Assert;
 
 /**
- * @param mixed $value
+ * @param object $value
  * @param array<class-string> $classes
  */
-function isInstanceOfAny($value, array $classes): mixed
+function isInstanceOfAny(object $value, array $classes): object
 {
-    Assert::isInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::isInstanceOfAny($value, $classes);
 }
 
 /**
- * @param mixed $value
+ * @param object|null $value
  * @param array<class-string> $classes
  */
-function nullOrIsInstanceOfAny($value, array $classes): mixed
+function nullOrIsInstanceOfAny(?object $value, array $classes): ?object
 {
-    Assert::nullOrIsInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::nullOrIsInstanceOfAny($value, $classes);
 }
 
 /**
- * @param mixed $value
+ * @param iterable<object> $value
  * @param array<class-string> $classes
  */
-function allIsInstanceOfAny($value, array $classes): mixed
+function allIsInstanceOfAny(iterable $value, array $classes): iterable
 {
-    Assert::allIsInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::allIsInstanceOfAny($value, $classes);
 }
 
 /**
- * @param mixed $value
+ * @param iterable<object|null> $value
  * @param array<class-string> $classes
  */
-function allNullOrIsInstanceOfAny($value, array $classes): mixed
+function allNullOrIsInstanceOfAny(iterable $value, array $classes): iterable
 {
-    Assert::allNullOrIsInstanceOfAny($value, $classes);
-
-    return $value;
+    return Assert::allNullOrIsInstanceOfAny($value, $classes);
 }

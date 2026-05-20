@@ -6,46 +6,22 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-/**
- * @param mixed $value
- * @param mixed $expect
- */
-function notEq($value, $expect): mixed
+function notEq(mixed $value, mixed $expect): mixed
 {
-    Assert::notEq($value, $expect);
-
-    return $value;
+    return Assert::notEq($value, $expect);
 }
 
-/**
- * @param mixed $value
- * @param mixed $expect
- */
-function nullOrNotEq($value, $expect): mixed
+function nullOrNotEq(mixed $value, mixed $expect): mixed
 {
-    Assert::nullOrNotEq($value, $expect);
-
-    return $value;
+    return Assert::nullOrNotEq($value, $expect);
 }
 
-/**
- * @param mixed $value
- * @param mixed $expect
- */
-function allNotEq($value, $expect): mixed
+function allNotEq(mixed $value, mixed $expect): mixed
 {
-    Assert::allNotEq($value, $expect);
-
-    return $value;
+    return Assert::allNotEq($value, $expect);
 }
 
-/**
- * @param mixed $value
- * @param mixed $expect
- */
-function allNullOrNotEq($value, $expect): mixed
+function allNullOrNotEq(mixed $value, mixed $expect): mixed
 {
-    Assert::allNullOrNotEq($value, $expect);
-
-    return $value;
+    return Assert::allNullOrNotEq($value, $expect);
 }

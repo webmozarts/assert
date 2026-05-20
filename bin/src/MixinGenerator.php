@@ -56,6 +56,35 @@ final class MixinGenerator
         'allNullOrNotNull',     // meaningless
     ];
 
+    /**
+     * @var array<string, bool>
+     */
+    private array $haveAssert = [];
+
+    public function generateHasAssert(): string {
+        $res = <<<'PHP'
+<?php
+
+declare(strict_types=1);
+
+namespace Webmozart\Assert;
+
+/** @internal Used by the Psalm plugin */
+final class HasAssert
+{
+    public const HAS_ASSERT = [
+
+PHP;
+        foreach ($this->haveAssert as $name => $has) {
+            if ($has) {
+                $name = strtolower($name);
+                $res .= "        '$name' => true,\n";
+            }
+        }
+        $res .= "    ];\n}\n";
+        return $res;
+    }
+
     public function generate(): string
     {
         return \sprintf(
@@ -77,6 +106,7 @@ PHP
 
         $namespace = sprintf("namespace %s;\n\n", $assert->getNamespaceName());
         $namespace .= sprintf("use %s;\n", ArrayAccess::class);
+        $namespace .= sprintf("use %s;\n", \Closure::class);
         $namespace .= sprintf("use %s;\n", Countable::class);
         $namespace .= sprintf("use %s;\n", Throwable::class);
         $namespace .= "\n";
@@ -93,18 +123,23 @@ PHP
         $declaredMethods = [];
 
         foreach ($staticMethods as $method) {
+            $this->haveAssert[$method->getName()] = str_contains($method->getDocComment(), '@psalm-assert');
+
             $nullOr = $this->nullOr($method, 4);
             if (null !== $nullOr) {
+                $this->haveAssert["nullOr".$method->getName()] = str_contains($nullOr, '@psalm-assert');
                 $declaredMethods[] = $nullOr;
             }
 
             $all = $this->all($method, 4);
             if (null !== $all) {
+                $this->haveAssert["all".$method->getName()] = str_contains($all, '@psalm-assert');
                 $declaredMethods[] = $all;
             }
 
             $allNullOr = $this->allNullOr($method, 4);
             if (null !== $allNullOr) {
+                $this->haveAssert["allNullOr".$method->getName()] = str_contains($allNullOr, '@psalm-assert');
                 $declaredMethods[] = $allNullOr;
             }
         }
@@ -231,11 +266,11 @@ BODY;
             }
 
             if ($parameterReflection->hasType()) {
-                if ($parameterReflection->name === 'value') {
+                if (count($parameters) === 1) {
                     $parameterTypes[$parameterReflection->name] = 'mixed';
 
                     $nativeReturnType = match ($typeTemplate) {
-                        '%s|null' => $this->reduceParameterType($parameterReflection->getType()),
+                        '%s|null' => $this->nullableReturnType($method->getReturnType()),
                         'iterable<%s>' => 'iterable',
                         'iterable<%s|null>' => 'iterable',
                     };
@@ -245,6 +280,12 @@ BODY;
             }
         }
 
+        // Ensure @template comes before @param, and @param values match function signature order
+        $parsedComment = $this->reorderAnnotations($parsedComment);
+        if (isset($parsedComment['param'])) {
+            $parsedComment['param'] = $this->reorderParamsBySignature($parsedComment['param'], $parameters);
+        }
+
         if (in_array($newMethodName, $this->skipMethods, true)) {
             return null;
         }
@@ -252,6 +293,13 @@ BODY;
         $paramsAdded = false;
 
         $phpdocReturnType = 'mixed';
+
+        $templateTypeNames = [];
+        if (isset($parsedComment['template'])) {
+            foreach ($parsedComment['template'] as $template) {
+                $templateTypeNames[] = explode(' ', $template)[0];
+            }
+        }
 
         $phpdocLines = [];
         foreach ($parsedComment as $key => $values) {
@@ -275,14 +323,24 @@ BODY;
 
             foreach ($values as $i => $value) {
                 $parts = $this->splitDocLine($value);
-                if (('param' === $key || 'psalm-param' === $key) && isset($parts[1]) && isset($parameters[0]) && $parts[1] === '$'.$parameters[0] && 'mixed' !== $parts[0]) {
-                    $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate);
+                if ('param' === $key && isset($parts[1]) && isset($parameters[0]) && $parts[1] === '$'.$parameters[0] && 'mixed' !== $parts[0]) {
+                    $parts[0] = $this->applyTypeTemplate($parts[0], $typeTemplate, $templateTypeNames);
 
                     $values[$i] = \implode(' ', $parts);
+
+                    if ('mixed' === $phpdocReturnType) {
+                        $phpdocReturnType = $parts[0];
+                    }
                 }
             }
 
-            if ('psalm-return' === $key || 'return' === $key) {
+            if ('return' === $key) {
+                foreach ($values as $value) {
+                    $parts = $this->splitDocLine($value);
+                    if ('mixed' !== $parts[0]) {
+                        $phpdocReturnType = $this->applyTypeTemplate($parts[0], $typeTemplate, $templateTypeNames);
+                    }
+                }
                 continue;
             }
 
@@ -294,8 +352,12 @@ BODY;
                 $parts = $this->splitDocLine($value);
                 $type = $parts[0];
 
+                if ('template' === $key && 'iterable<%s|null>' === $typeTemplate) {
+                    $type = preg_replace('/^(\S+\s+(?:of|as)\s+)(.+)$/', '$1$2|null', $type) ?? $type;
+                }
+
                 if ('psalm-assert' === $key) {
-                    $type = $this->applyTypeTemplate($type, $typeTemplate);
+                    $type = $this->applyTypeTemplate($type, $typeTemplate, $templateTypeNames);
 
                     $phpdocReturnType = $type;
                 }
@@ -320,6 +382,20 @@ BODY;
             if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'see' === $key) {
                 $phpdocLines[] = '';
             }
+        }
+
+        if ('mixed' === $phpdocReturnType) {
+            $returnType = $method->getReturnType();
+            if ($returnType !== null) {
+                $returnTypeStr = $this->reduceParameterType($returnType);
+                if ('mixed' !== $returnTypeStr) {
+                    $phpdocReturnType = $this->applyTypeTemplate($returnTypeStr, $typeTemplate, $templateTypeNames);
+                }
+            }
+        }
+
+        if ('mixed' === $phpdocReturnType && 'mixed' !== $nativeReturnType) {
+            $phpdocReturnType = $nativeReturnType;
         }
 
         $phpdocLines[] = '@return '.$phpdocReturnType;
@@ -360,8 +436,28 @@ BODY;
         return ($type->allowsNull() ? '?' : '') . $type->getName();
     }
 
-    private function applyTypeTemplate(string $type, string $typeTemplate): string
+    private function nullableReturnType(?ReflectionType $type): string
     {
+        if ($type === null) {
+            return 'mixed';
+        }
+        $typeStr = $this->reduceParameterType($type);
+        if ($typeStr === 'mixed') {
+            return 'mixed';
+        }
+        if ($type instanceof ReflectionUnionType || $type instanceof ReflectionIntersectionType) {
+            return $typeStr.'|null';
+        }
+
+        return '?'.$typeStr;
+    }
+
+    private function applyTypeTemplate(string $type, string $typeTemplate, array $templateTypeNames = []): string
+    {
+        if (in_array($type, $templateTypeNames, true) && str_contains($typeTemplate, 'iterable') && str_contains($typeTemplate, '|null')) {
+            $typeTemplate = str_replace('|null', '', $typeTemplate);
+        }
+
         $combinedType = sprintf($typeTemplate, $type);
 
         if ('empty|null' === $combinedType) {
@@ -377,7 +473,7 @@ BODY;
             return false;
         }
 
-        return 'psalm-assert' === $key || 'psalm-return' === $key;
+        return 'psalm-assert' === $key;
     }
 
     /**
@@ -555,6 +651,70 @@ BODY;
         }
 
         return [trim($matches[1]), $matches[2], $matches[3] ?? null];
+    }
+
+    /**
+     * Ensures @template annotations appear before @param annotations.
+     *
+     * @param array<string, list<string>> $annotations
+     *
+     * @return array<string, list<string>>
+     */
+    private function reorderAnnotations(array $annotations): array
+    {
+        $keys = array_keys($annotations);
+        $templatePos = array_search('template', $keys, true);
+        $paramPos = array_search('param', $keys, true);
+
+        if ($templatePos === false || $paramPos === false || $templatePos < $paramPos) {
+            return $annotations;
+        }
+
+        $result = [];
+        foreach ($annotations as $key => $values) {
+            if ($key === 'param') {
+                $result['template'] = $annotations['template'];
+            }
+            if ($key !== 'template') {
+                $result[$key] = $values;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Reorders @param doc entries to match the function signature parameter order.
+     *
+     * @param list<string> $paramDocs
+     * @param list<string> $parameterNames
+     *
+     * @return list<string>
+     */
+    private function reorderParamsBySignature(array $paramDocs, array $parameterNames): array
+    {
+        $byVarName = [];
+        $withoutVarName = [];
+
+        foreach ($paramDocs as $doc) {
+            $parts = $this->splitDocLine($doc);
+            if (isset($parts[1])) {
+                $byVarName[$parts[1]] = $doc;
+            } else {
+                $withoutVarName[] = $doc;
+            }
+        }
+
+        $ordered = [];
+        foreach ($parameterNames as $name) {
+            $key = '$'.$name;
+            if (isset($byVarName[$key])) {
+                $ordered[] = $byVarName[$key];
+                unset($byVarName[$key]);
+            }
+        }
+
+        return array_merge($ordered, array_values($byVarName), $withoutVarName);
     }
 
     /**

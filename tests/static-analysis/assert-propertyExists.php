@@ -12,11 +12,9 @@ use Webmozart\Assert\Assert;
  * @param class-string|object $classOrObject
  * @param mixed $property
  */
-function propertyExists($classOrObject, $property): string|object
+function propertyExists(mixed $classOrObject, $property): string|object
 {
-    Assert::propertyExists($classOrObject, $property);
-
-    return $classOrObject;
+    return Assert::propertyExists($classOrObject, $property);
 }
 
 /**
@@ -25,11 +23,9 @@ function propertyExists($classOrObject, $property): string|object
  * @param null|class-string|object $classOrObject
  * @param mixed $property
  */
-function nullOrPropertyExists($classOrObject, $property): string|object|null
+function nullOrPropertyExists(mixed $classOrObject, $property): string|object|null
 {
-    Assert::nullOrPropertyExists($classOrObject, $property);
-
-    return $classOrObject;
+    return Assert::nullOrPropertyExists($classOrObject, $property);
 }
 
 /**
@@ -40,9 +36,7 @@ function nullOrPropertyExists($classOrObject, $property): string|object|null
  */
 function allPropertyExists(iterable $classOrObject, $property): iterable
 {
-    Assert::allPropertyExists($classOrObject, $property);
-
-    return $classOrObject;
+    return Assert::allPropertyExists($classOrObject, $property);
 }
 
 /**
@@ -53,7 +47,5 @@ function allPropertyExists(iterable $classOrObject, $property): iterable
  */
 function allNullOrPropertyExists(iterable $classOrObject, $property): iterable
 {
-    Assert::allPropertyExists($classOrObject, $property);
-
-    return $classOrObject;
+    return Assert::allNullOrPropertyExists($classOrObject, $property);
 }

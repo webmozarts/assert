@@ -11,9 +11,7 @@ use Webmozart\Assert\Assert;
  */
 function lengthBetween(string $value, int $min, int $max): string
 {
-    Assert::lengthBetween($value, $min, $max);
-
-    return $value;
+    return Assert::lengthBetween($value, $min, $max);
 }
 
 /**
@@ -21,9 +19,7 @@ function lengthBetween(string $value, int $min, int $max): string
  */
 function nullOrLengthBetween(?string $value, int $min, int $max): ?string
 {
-    Assert::nullOrLengthBetween($value, $min, $max);
-
-    return $value;
+    return Assert::nullOrLengthBetween($value, $min, $max);
 }
 
 /**
@@ -35,9 +31,7 @@ function nullOrLengthBetween(?string $value, int $min, int $max): ?string
  */
 function allLengthBetween(iterable $value, int $min, int $max): iterable
 {
-    Assert::allLengthBetween($value, $min, $max);
-
-    return $value;
+    return Assert::allLengthBetween($value, $min, $max);
 }
 
 /**
@@ -49,7 +43,5 @@ function allLengthBetween(iterable $value, int $min, int $max): iterable
  */
 function allNullOrLengthBetween(iterable $value, int $min, int $max): iterable
 {
-    Assert::allNullOrLengthBetween($value, $min, $max);
-
-    return $value;
+    return Assert::allNullOrLengthBetween($value, $min, $max);
 }

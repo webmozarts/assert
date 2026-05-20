@@ -6,42 +6,22 @@ namespace Webmozart\Assert\Tests\StaticAnalysis;
 
 use Webmozart\Assert\Assert;
 
-/**
- * @param mixed $value
- */
 function file(mixed $value): mixed
 {
-    Assert::file($value);
-
-    return $value;
+    return Assert::file($value);
 }
 
-/**
- * @param mixed $value
- */
 function nullOrFile(mixed $value): mixed
 {
-    Assert::nullOrFile($value);
-
-    return $value;
+    return Assert::nullOrFile($value);
 }
 
-/**
- * @param mixed $value
- */
 function allFile(mixed $value): mixed
 {
-    Assert::allFile($value);
-
-    return $value;
+    return Assert::allFile($value);
 }
 
-/**
- * @param mixed $value
- */
 function allNullOrFile(mixed $value): mixed
 {
-    Assert::allNullOrFile($value);
-
-    return $value;
+    return Assert::allNullOrFile($value);
 }

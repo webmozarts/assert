@@ -15,7 +15,5 @@ use Webmozart\Assert\Assert;
  */
 function lowerPreservesTypes(string $value): string
 {
-    Assert::lower($value);
-
-    return $value;
+    return Assert::lower($value);
 }

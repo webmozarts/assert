@@ -8,12 +8,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
- *
- * @param object $value
  */
 function isInitialized(mixed $value, string $property): object
 {
-    Assert::isInitialized($value, $property);
-
-    return $value;
+    return Assert::isInitialized($value, $property);
 }
