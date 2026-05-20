@@ -5143,6 +5143,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return Countable|array|null
@@ -5157,6 +5159,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array>
@@ -5175,6 +5179,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array|null>
@@ -5193,6 +5199,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return Countable|array|null
@@ -5207,6 +5215,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array>
@@ -5225,6 +5235,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array|null>
@@ -5243,6 +5255,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return Countable|array|null
@@ -5257,6 +5271,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array>
@@ -5275,6 +5291,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array|null>
@@ -5293,6 +5311,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return Countable|array|null
@@ -5307,6 +5327,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array>
@@ -5325,6 +5347,8 @@ trait Mixin
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @return iterable<Countable|array|null>

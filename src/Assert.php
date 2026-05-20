@@ -2194,6 +2194,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @throws InvalidArgumentException
@@ -2217,6 +2219,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @throws InvalidArgumentException
@@ -2239,6 +2243,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @throws InvalidArgumentException
@@ -2261,6 +2267,8 @@ class Assert
     }
 
     /**
+     * @psalm-pure
+     *
      * @param string|callable():string $message
      *
      * @throws InvalidArgumentException
