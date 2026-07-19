@@ -5469,6 +5469,142 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @template T of object
+     * @psalm-assert list<T>|null $array
+     *
+     * @param class-string<T>          $class
+     * @param string|callable():string $message
+     *
+     * @return list<T>|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrIsListOf(mixed $array, mixed $class, callable|string $message = ''): ?array
+    {
+        null === $array || static::isListOf($array, $class, $message);
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T of object
+     * @psalm-assert iterable<list<T>> $array
+     *
+     * @param class-string<T>          $class
+     * @param string|callable():string $message
+     *
+     * @return iterable<list<T>>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allIsListOf(mixed $array, mixed $class, callable|string $message = ''): iterable
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::isListOf($entry, $class, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T of object|null
+     * @psalm-assert iterable<list<T>|null> $array
+     *
+     * @param class-string<T>          $class
+     * @param string|callable():string $message
+     *
+     * @return iterable<list<T>|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrIsListOf(mixed $array, mixed $class, callable|string $message = ''): iterable
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            null === $entry || static::isListOf($entry, $class, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T of object
+     * @psalm-assert non-empty-list<T>|null $array
+     *
+     * @param class-string<T>          $class
+     * @param string|callable():string $message
+     *
+     * @return non-empty-list<T>|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrIsNonEmptyListOf(mixed $array, mixed $class, callable|string $message = ''): ?array
+    {
+        null === $array || static::isNonEmptyListOf($array, $class, $message);
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T of object
+     * @psalm-assert iterable<non-empty-list<T>> $array
+     *
+     * @param class-string<T>          $class
+     * @param string|callable():string $message
+     *
+     * @return iterable<non-empty-list<T>>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allIsNonEmptyListOf(mixed $array, mixed $class, callable|string $message = ''): iterable
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::isNonEmptyListOf($entry, $class, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T of object|null
+     * @psalm-assert iterable<non-empty-list<T>|null> $array
+     *
+     * @param class-string<T>          $class
+     * @param string|callable():string $message
+     *
+     * @return iterable<non-empty-list<T>|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrIsNonEmptyListOf(mixed $array, mixed $class, callable|string $message = ''): iterable
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            null === $entry || static::isNonEmptyListOf($entry, $class, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @template T
      * @psalm-assert array<string, T>|null $array
      *

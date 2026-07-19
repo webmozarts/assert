@@ -2331,6 +2331,53 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @template T of object
+     *
+     * @psalm-assert list<T> $array
+     *
+     * @param class-string<T> $class
+     * @param string|callable():string $message
+     *
+     * @return list<T>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isListOf(mixed $array, mixed $class, string|callable $message = ''): array
+    {
+        static::isList($array, $message);
+
+        foreach ($array as $entry) {
+            static::isInstanceOf($entry, $class, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @template T of object
+     *
+     * @psalm-assert non-empty-list<T> $array
+     *
+     * @param class-string<T> $class
+     * @param string|callable():string $message
+     *
+     * @return non-empty-list<T>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function isNonEmptyListOf(mixed $array, mixed $class, string|callable $message = ''): array
+    {
+        static::isListOf($array, $class, $message);
+        static::notEmpty($array, $message);
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @template T
      *
      * @psalm-assert array<string, T> $array

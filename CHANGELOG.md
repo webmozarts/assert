@@ -1,6 +1,13 @@
 Changelog
 =========
 
+## Unreleased
+
+### Added
+
+- Added `isListOf` assertion.
+- Added `isNonEmptyListOf` assertion.
+
 ## 2.4.1
 
 ### Fixed
