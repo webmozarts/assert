@@ -2151,6 +2151,40 @@ class Assert
     /**
      * @psalm-pure
      *
+     * @param iterable<string|int> $keys
+     * @param string|callable():string $message
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function keysExist(mixed $array, mixed $keys, string|callable $message = ''): array
+    {
+        static::isArray($array, $message);
+        static::isIterable($keys);
+
+        $missing = [];
+
+        foreach ($keys as $key) {
+            static::validArrayKey($key, 'Expected an array key. Got: %s');
+
+            if (!(isset($array[$key]) || \array_key_exists($key, $array))) {
+                $missing[] = $key;
+            }
+        }
+
+        if ([] !== $missing) {
+            $message = self::resolveMessage($message);
+            static::reportInvalidArgument(\sprintf(
+                $message ?: 'Expected the keys %s to exist.',
+                \implode(', ', \array_map(static::valueToString(...), $missing))
+            ));
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|int $key
      * @param string|callable():string $message
      *

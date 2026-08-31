@@ -5030,6 +5030,65 @@ trait Mixin
     /**
      * @psalm-pure
      *
+     * @param iterable<string|int>     $keys
+     * @param string|callable():string $message
+     *
+     * @return array|null
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function nullOrKeysExist(mixed $array, mixed $keys, callable|string $message = ''): ?array
+    {
+        null === $array || static::keysExist($array, $keys, $message);
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|int>     $keys
+     * @param string|callable():string $message
+     *
+     * @return iterable<array>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allKeysExist(mixed $array, mixed $keys, callable|string $message = ''): iterable
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            static::keysExist($entry, $keys, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
+     * @param iterable<string|int>     $keys
+     * @param string|callable():string $message
+     *
+     * @return iterable<array|null>
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function allNullOrKeysExist(mixed $array, mixed $keys, callable|string $message = ''): iterable
+    {
+        static::isIterable($array);
+
+        foreach ($array as $entry) {
+            null === $entry || static::keysExist($entry, $keys, $message);
+        }
+
+        return $array;
+    }
+
+    /**
+     * @psalm-pure
+     *
      * @param string|int               $key
      * @param string|callable():string $message
      *
