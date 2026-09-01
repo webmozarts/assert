@@ -1114,7 +1114,7 @@ class Assert
      */
     public static function greaterThan(mixed $value, mixed $limit, string|callable $message = ''): mixed
     {
-        if ($value <= $limit) {
+        if (!static::comparable($value, $limit) || $value <= $limit) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value greater than %2$s. Got: %s',
@@ -1135,7 +1135,7 @@ class Assert
      */
     public static function greaterThanEq(mixed $value, mixed $limit, string|callable $message = ''): mixed
     {
-        if ($value < $limit) {
+        if (!static::comparable($value, $limit) || $value < $limit) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value greater than or equal to %2$s. Got: %s',
@@ -1156,7 +1156,7 @@ class Assert
      */
     public static function lessThan(mixed $value, mixed $limit, string|callable $message = ''): mixed
     {
-        if ($value >= $limit) {
+        if (!static::comparable($value, $limit) || $value >= $limit) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value less than %2$s. Got: %s',
@@ -1177,7 +1177,7 @@ class Assert
      */
     public static function lessThanEq(mixed $value, mixed $limit, string|callable $message = ''): mixed
     {
-        if ($value > $limit) {
+        if (!static::comparable($value, $limit) || $value > $limit) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value less than or equal to %2$s. Got: %s',
@@ -1200,7 +1200,7 @@ class Assert
      */
     public static function range(mixed $value, mixed $min, mixed $max, string|callable $message = ''): mixed
     {
-        if ($value < $min || $value > $max) {
+        if (!static::comparable($value, $min) || !static::comparable($value, $max) || $value < $min || $value > $max) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value between %2$s and %3$s. Got: %s',
@@ -2612,6 +2612,24 @@ class Assert
     protected static function resolveMessage(string|callable $message): string
     {
         return \is_callable($message) ? $message() : $message;
+    }
+
+    /**
+     * Whether two operands can be ordered against one another without coercion.
+     *
+     * PHP's relational operators answer for every pair: an object compares as 1, an array
+     * outranks any scalar, null and bool are compared as bool. The ordering assertions ask
+     * this first, so such a pair is reported as a failed assertion instead of a passed one.
+     *
+     * @psalm-pure
+     */
+    protected static function comparable(mixed $value, mixed $other): bool
+    {
+        return (\is_numeric($value) && \is_numeric($other))
+            || (\is_string($value) && \is_string($other))
+            || (\is_bool($value) && \is_bool($other))
+            || (\is_array($value) && \is_array($other))
+            || (\is_object($value) && \is_object($other));
     }
 
     private function __construct()
