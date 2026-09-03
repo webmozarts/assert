@@ -1507,7 +1507,15 @@ class Assert
         static::string($value);
         static::string($pattern);
 
-        if (!\preg_match($pattern, $value)) {
+        if (false === $result = @\preg_match($pattern, $value)) {
+            static::reportInvalidArgument(\sprintf(
+                'The pattern %s could not be evaluated: %s.',
+                static::valueToString($pattern),
+                \preg_last_error_msg()
+            ));
+        }
+
+        if (0 === $result) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'The value %s does not match the expected pattern.',

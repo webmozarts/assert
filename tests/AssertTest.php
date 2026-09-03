@@ -19,6 +19,7 @@ use DateTime;
 use DateTimeImmutable;
 use Error;
 use Exception;
+use InvalidArgumentException;
 use LogicException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -989,6 +990,66 @@ class AssertTest extends TestCase
         $this->expectExceptionMessage('Expected null. Got: Webmozart\Assert\Tests\DummyEnum::CaseName');
 
         Assert::null(DummyEnum::CaseName, 'Expected null. Got: %s');
+    }
+
+    public function testRegexRejectsAnUncompilablePattern(): void
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('The pattern "/(/" could not be evaluated: Internal error.');
+
+        Assert::regex('abc', '/(/');
+    }
+
+    public function testRegexSuppressesTheWarningForAnUncompilablePattern(): void
+    {
+        $reported = [];
+        // PHPUnit masks E_WARNING out of error_reporting(); restore it here.
+        $errorReporting = error_reporting(E_ALL);
+        set_error_handler(static function (int $errno, string $message) use (&$reported): bool {
+            // This is what a well behaved error handler does with a suppressed diagnostic.
+            if (0 !== (error_reporting() & $errno)) {
+                $reported[] = $message;
+            }
+
+            return true;
+        });
+
+        try {
+            Assert::regex('abc', '/(/');
+        } catch (InvalidArgumentException) {
+            // The assertion is expected to fail; this test only inspects the reported errors.
+        } finally {
+            restore_error_handler();
+            error_reporting($errorReporting);
+        }
+
+        $this->assertSame([], $reported);
+    }
+
+    public function testRegexDoesNotUseTheCustomMessageForAnUncompilablePattern(): void
+    {
+        $this->expectException('\InvalidArgumentException');
+        $this->expectExceptionMessage('The pattern "/(/" could not be evaluated: Internal error.');
+
+        Assert::regex('abc', '/(/', 'The value %s is not a valid slug.');
+    }
+
+    public function testRegexRejectsAPatternExceedingTheBacktrackLimit(): void
+    {
+        $backtrackLimit = ini_get('pcre.backtrack_limit');
+        ini_set('pcre.backtrack_limit', '100');
+
+        try {
+            Assert::regex(str_repeat('a', 30).'c', '/^(a+)+$/');
+            $this->fail('Expected an InvalidArgumentException to be thrown.');
+        } catch (InvalidArgumentException $e) {
+            $this->assertSame(
+                'The pattern "/^(a+)+$/" could not be evaluated: Backtrack limit exhausted.',
+                $e->getMessage()
+            );
+        } finally {
+            ini_set('pcre.backtrack_limit', $backtrackLimit);
+        }
     }
 
     #[DataProvider('getMethodsThatUseOtherMethods')]
