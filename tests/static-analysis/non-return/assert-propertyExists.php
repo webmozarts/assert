@@ -11,6 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param class-string|object $classOrObject
  * @param mixed $property
+ * @return class-string|object
  */
 function propertyExists(mixed $classOrObject, $property): string|object
 {
@@ -24,6 +25,7 @@ function propertyExists(mixed $classOrObject, $property): string|object
  *
  * @param null|class-string|object $classOrObject
  * @param mixed $property
+ * @return null|class-string|object
  */
 function nullOrPropertyExists(mixed $classOrObject, $property): string|object|null
 {
@@ -37,6 +39,7 @@ function nullOrPropertyExists(mixed $classOrObject, $property): string|object|nu
  *
  * @param iterable<class-string|object> $classOrObject
  * @param mixed $property
+ * @return iterable<class-string|object>
  */
 function allPropertyExists(iterable $classOrObject, $property): iterable
 {
@@ -50,6 +53,7 @@ function allPropertyExists(iterable $classOrObject, $property): iterable
  *
  * @param iterable<class-string|object|null> $classOrObject
  * @param mixed $property
+ * @return iterable<class-string|object|null>
  */
 function allNullOrPropertyExists(iterable $classOrObject, $property): iterable
 {

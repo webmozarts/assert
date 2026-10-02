@@ -9,6 +9,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @return array|ArrayAccess
  */
 function isArrayAccessible(mixed $value): array|ArrayAccess
 {
@@ -17,6 +19,8 @@ function isArrayAccessible(mixed $value): array|ArrayAccess
 
 /**
  * @psalm-pure
+ *
+ * @return null|array|ArrayAccess
  */
 function nullOrIsArrayAccessible(mixed $value): array|ArrayAccess|null
 {
@@ -25,6 +29,8 @@ function nullOrIsArrayAccessible(mixed $value): array|ArrayAccess|null
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<array|ArrayAccess>
  */
 function allIsArrayAccessible(mixed $value): iterable
 {
@@ -33,6 +39,8 @@ function allIsArrayAccessible(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<array|ArrayAccess|null>
  */
 function allNullOrIsArrayAccessible(mixed $value): iterable
 {

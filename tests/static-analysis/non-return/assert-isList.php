@@ -47,6 +47,8 @@ function nullOrIsList(mixed $value): ?array
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<list<mixed>>
  */
 function allIsList(mixed $value): iterable
 {
@@ -57,6 +59,8 @@ function allIsList(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<list<mixed>|null>
  */
 function allNullOrIsList(mixed $value): iterable
 {

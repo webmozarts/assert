@@ -30,6 +30,7 @@ function nullOrStartsWith(?string $value, string $prefix): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allStartsWith(iterable $value, string $prefix): iterable
 {
@@ -42,6 +43,7 @@ function allStartsWith(iterable $value, string $prefix): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrStartsWith(iterable $value, string $prefix): iterable
 {

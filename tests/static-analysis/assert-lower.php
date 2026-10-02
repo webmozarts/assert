@@ -30,6 +30,7 @@ function nullOrLower(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<lowercase-string>
  */
 function allLower(iterable $value): iterable
 {
@@ -40,6 +41,7 @@ function allLower(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<lowercase-string|null>
  */
 function allNullOrLower(iterable $value): iterable
 {

@@ -30,6 +30,7 @@ function nullOrUuid(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allUuid(iterable $value): iterable
 {
@@ -42,6 +43,7 @@ function allUuid(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrUuid(iterable $value): iterable
 {

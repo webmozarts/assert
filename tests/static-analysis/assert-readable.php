@@ -18,6 +18,7 @@ function nullOrReadable(?string $value): ?string
 
 /**
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allReadable(iterable $value): iterable
 {
@@ -26,6 +27,7 @@ function allReadable(iterable $value): iterable
 
 /**
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrReadable(iterable $value): iterable
 {

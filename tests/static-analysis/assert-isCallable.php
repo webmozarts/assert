@@ -24,6 +24,8 @@ function nullOrIsCallable(mixed $value): ?callable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<callable>
  */
 function allIsCallable(mixed $value): iterable
 {
@@ -32,6 +34,8 @@ function allIsCallable(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<callable|null>
  */
 function allNullOrIsCallable(mixed $value): iterable
 {

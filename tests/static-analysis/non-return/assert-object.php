@@ -28,6 +28,8 @@ function nullOrObject(mixed $value): ?object
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<object>
  */
 function allObject(mixed $value): iterable
 {
@@ -38,6 +40,8 @@ function allObject(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<object|null>
  */
 function allNullOrObject(mixed $value): iterable
 {

@@ -28,6 +28,8 @@ function nullOrNumeric(mixed $value)
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<numeric>
  */
 function allNumeric(mixed $value): iterable
 {
@@ -36,6 +38,8 @@ function allNumeric(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<numeric|null>
  */
 function allNullOrNumeric(mixed $value): iterable
 {

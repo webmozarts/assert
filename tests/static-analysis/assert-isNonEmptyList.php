@@ -38,6 +38,8 @@ function nullOrIsNonEmptyList(mixed $value): ?array
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<non-empty-list<mixed>>
  */
 function allIsNonEmptyList(mixed $value): iterable
 {
@@ -46,6 +48,8 @@ function allIsNonEmptyList(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<non-empty-list<mixed>|null>
  */
 function allNullOrIsNonEmptyList(mixed $value): iterable
 {

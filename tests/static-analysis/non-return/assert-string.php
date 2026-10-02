@@ -28,6 +28,8 @@ function nullOrString(mixed $value): ?string
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<string>
  */
 function allString(mixed $value): iterable
 {
@@ -38,6 +40,8 @@ function allString(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<string|null>
  */
 function allNullOrString(mixed $value): iterable
 {

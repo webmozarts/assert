@@ -10,6 +10,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param Countable|array $array
  * @param int|float $min
+ * @return Countable|array
  */
 function minCount(mixed $array, $min): Countable|array
 {
@@ -21,6 +22,7 @@ function minCount(mixed $array, $min): Countable|array
 /**
  * @param null|Countable|array $array
  * @param int|float $min
+ * @return null|Countable|array
  */
 function nullOrMinCount(mixed $array, $min): Countable|array|null
 {

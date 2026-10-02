@@ -8,6 +8,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @return null
  */
 function isEmptyNullableObject(?object $value): null
 {
@@ -78,6 +80,8 @@ function nullOrIsEmpty(?object $value): null
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<empty>
  */
 function allIsEmpty(mixed $value): iterable
 {
@@ -88,6 +92,8 @@ function allIsEmpty(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<empty|null>
  */
 function allNullOrIsEmpty(mixed $value): iterable
 {

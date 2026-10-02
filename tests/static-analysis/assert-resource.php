@@ -9,6 +9,7 @@ use Webmozart\Assert\Assert;
 /**
  * @psalm-pure
  * @param null|string $type
+ * @return resource
  */
 function resource(mixed $value, ?string $type): mixed
 {
@@ -18,6 +19,7 @@ function resource(mixed $value, ?string $type): mixed
 /**
  * @psalm-pure
  * @param null|string $type
+ * @return null|resource
  */
 function nullOrResource(mixed $value, ?string $type): mixed
 {
@@ -27,6 +29,7 @@ function nullOrResource(mixed $value, ?string $type): mixed
 /**
  * @psalm-pure
  * @param null|string $type
+ * @return iterable<resource>
  */
 function allResource(mixed $value, $type): iterable
 {
@@ -36,6 +39,7 @@ function allResource(mixed $value, $type): iterable
 /**
  * @psalm-pure
  * @param null|string $type
+ * @return iterable<resource|null>
  */
 function allNullOrResource(mixed $value, $type): iterable
 {

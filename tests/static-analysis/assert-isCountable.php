@@ -9,6 +9,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @return countable
  */
 function isCountable(mixed $value): Countable
 {
@@ -17,6 +19,8 @@ function isCountable(mixed $value): Countable
 
 /**
  * @psalm-pure
+ *
+ * @return null|countable
  */
 function nullOrIsCountable(mixed $value): ?Countable
 {

@@ -28,6 +28,8 @@ function nullOrIntegerish(mixed $value)
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<numeric>
  */
 function allIntegerish(mixed $value): iterable
 {
@@ -36,6 +38,8 @@ function allIntegerish(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<numeric|null>
  */
 function allNullOrIntegerish(mixed $value): iterable
 {

@@ -8,6 +8,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @return scalar
  */
 function scalar(mixed $value): int|float|string|bool
 {
@@ -18,6 +20,8 @@ function scalar(mixed $value): int|float|string|bool
 
 /**
  * @psalm-pure
+ *
+ * @return null|scalar
  */
 function nullOrScalar(mixed $value): int|float|string|bool|null
 {
@@ -28,6 +32,8 @@ function nullOrScalar(mixed $value): int|float|string|bool|null
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<scalar>
  */
 function allScalar(mixed $value): iterable
 {
@@ -38,6 +44,8 @@ function allScalar(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<scalar|null>
  */
 function allNullOrScalar(mixed $value): iterable
 {

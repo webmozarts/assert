@@ -28,6 +28,8 @@ function nullOrInteger(mixed $value): ?int
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<int>
  */
 function allInteger(mixed $value): iterable
 {
@@ -38,6 +40,8 @@ function allInteger(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<int|null>
  */
 function allNullOrInteger(mixed $value): iterable
 {
