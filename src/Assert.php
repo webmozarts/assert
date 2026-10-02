@@ -2030,9 +2030,11 @@ class Assert
     /**
      * @psalm-pure
      *
-     * @param string|object $classOrObject
+     * @template T as class-string|object
+     * @param T $classOrObject
      * @param string|callable():string $message
      *
+     * @return T
      * @throws InvalidArgumentException
      */
     public static function propertyExists(mixed $classOrObject, mixed $property, string|callable $message = ''): object|string
