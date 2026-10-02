@@ -26,6 +26,7 @@ function nullOrNotWhitespaceOnly(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allNotWhitespaceOnly(iterable $value): iterable
 {
@@ -36,6 +37,7 @@ function allNotWhitespaceOnly(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrNotWhitespaceOnly(iterable $value): iterable
 {

@@ -32,6 +32,8 @@ function nullOrTrue(mixed $value): ?bool
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<true>
  */
 function allTrue(mixed $value): iterable
 {
@@ -42,6 +44,8 @@ function allTrue(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<true|null>
  */
 function allNullOrTrue(mixed $value): iterable
 {

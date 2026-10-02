@@ -10,6 +10,7 @@ use Webmozart\Assert\Assert;
 /**
  * @param Countable|array $array
  * @param int|float $max
+ * @return Countable|array
  */
 function maxCount(mixed $array, $max): Countable|array
 {
@@ -21,6 +22,7 @@ function maxCount(mixed $array, $max): Countable|array
 /**
  * @param null|Countable|array $array
  * @param int|float $max
+ * @return null|Countable|array
  */
 function nullOrMaxCount(mixed $array, $max): Countable|array|null
 {
@@ -32,6 +34,7 @@ function nullOrMaxCount(mixed $array, $max): Countable|array|null
 /**
  * @param iterable<Countable|array> $array
  * @param int|float $max
+ * @return iterable<Countable|array>
  */
 function allMaxCount(iterable $array, $max): iterable
 {
@@ -43,6 +46,7 @@ function allMaxCount(iterable $array, $max): iterable
 /**
  * @param iterable<Countable|array|null> $array
  * @param int|float $max
+ * @return iterable<Countable|array|null>
  */
 function allNullOrMaxCount(iterable $array, $max): iterable
 {

@@ -8,6 +8,8 @@ use Webmozart\Assert\Assert;
 
 /**
  * @psalm-pure
+ *
+ * @return null
  */
 function null(mixed $value): null
 {
@@ -16,6 +18,8 @@ function null(mixed $value): null
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<null>
  */
 function allNull(mixed $value): iterable
 {

@@ -30,6 +30,7 @@ function nullOrLength(?string $value, int $length): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allLength(iterable $value, int $length): iterable
 {
@@ -42,6 +43,7 @@ function allLength(iterable $value, int $length): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrLength(iterable $value, int $length): iterable
 {

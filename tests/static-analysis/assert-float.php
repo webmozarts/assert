@@ -24,6 +24,8 @@ function nullOrFloat(mixed $value): ?float
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<float>
  */
 function allFloat(mixed $value): iterable
 {
@@ -32,6 +34,8 @@ function allFloat(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<float|null>
  */
 function allNullOrFloat(mixed $value): iterable
 {

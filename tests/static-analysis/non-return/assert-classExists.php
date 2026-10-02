@@ -26,6 +26,9 @@ function nullOrClassExists(mixed $value): ?string
     return $value;
 }
 
+/**
+ * @return iterable<class-string>
+ */
 function allClassExists(mixed $value): iterable
 {
     Assert::allClassExists($value);
@@ -33,6 +36,9 @@ function allClassExists(mixed $value): iterable
     return $value;
 }
 
+/**
+ * @return iterable<class-string|null>
+ */
 function allNullOrClassExists(mixed $value): iterable
 {
     Assert::allNullOrClassExists($value);

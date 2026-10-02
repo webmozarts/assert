@@ -53,6 +53,7 @@ function nullOrIsNonEmptyMap(?array $value): ?array
  * @psalm-pure
  *
  * @param iterable<array<string, mixed>> $value
+ * @return iterable<mixed|array<mixed>>
  */
 function allIsNonEmptyMap(iterable $value): iterable
 {
@@ -65,6 +66,7 @@ function allIsNonEmptyMap(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<array<string, mixed>|null> $value
+ * @return iterable<mixed|array<mixed>>
  */
 function allNullOrIsNonEmptyMap(iterable $value): iterable
 {

@@ -11,6 +11,7 @@ use Webmozart\Assert\Assert;
  *
  * @param class-string|object $classOrObject
  * @param mixed $method
+ * @return class-string|object
  */
 function methodExists(mixed $classOrObject, $method): string|object
 {
@@ -22,6 +23,7 @@ function methodExists(mixed $classOrObject, $method): string|object
  *
  * @param null|class-string|object $classOrObject
  * @param mixed $method
+ * @return null|class-string|object
  */
 function nullOrMethodExists(mixed $classOrObject, $method): string|object|null
 {
@@ -33,6 +35,7 @@ function nullOrMethodExists(mixed $classOrObject, $method): string|object|null
  *
  * @param iterable<class-string|object> $classOrObject
  * @param mixed $method
+ * @return iterable<class-string|object>
  */
 function allMethodExists(iterable $classOrObject, $method): iterable
 {
@@ -44,6 +47,7 @@ function allMethodExists(iterable $classOrObject, $method): iterable
  *
  * @param iterable<class-string|object|null> $classOrObject
  * @param mixed $method
+ * @return iterable<class-string|object|null>
  */
 function allNullOrMethodExists(iterable $classOrObject, $method): iterable
 {

@@ -25,6 +25,8 @@ function nullOrIsInstanceOf(mixed $value): ?Serializable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<Serializable>
  */
 function allIsInstanceOf(mixed $value): iterable
 {
@@ -33,6 +35,8 @@ function allIsInstanceOf(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<Serializable|null>
  */
 function allNullOrIsInstanceOf(mixed $value): iterable
 {

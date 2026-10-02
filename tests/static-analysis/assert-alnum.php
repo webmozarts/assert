@@ -26,6 +26,7 @@ function nullOrAlnum(?string $value): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allAlnum(iterable $value): iterable
 {
@@ -36,6 +37,7 @@ function allAlnum(iterable $value): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrAlnum(iterable $value): iterable
 {

@@ -29,6 +29,8 @@ function nullOrSubclassOf(mixed $value)
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<class-string<stdClass>|stdClass>
  */
 function allSubclassOf(mixed $value): iterable
 {
@@ -37,6 +39,8 @@ function allSubclassOf(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<class-string<stdClass>|stdClass|null>
  */
 function allNullOrSubclassOf(mixed $value): iterable
 {

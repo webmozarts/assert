@@ -26,6 +26,9 @@ function nullOrInterfaceExists(mixed $value): ?string
     return $value;
 }
 
+/**
+ * @return iterable<class-string>
+ */
 function allInterfaceExists(mixed $value): iterable
 {
     Assert::allInterfaceExists($value);
@@ -33,6 +36,9 @@ function allInterfaceExists(mixed $value): iterable
     return $value;
 }
 
+/**
+ * @return iterable<class-string|null>
+ */
 function allNullOrInterfaceExists(mixed $value): iterable
 {
     Assert::allNullOrInterfaceExists($value);

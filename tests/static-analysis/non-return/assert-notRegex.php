@@ -30,6 +30,7 @@ function nullOrNotRegex(?string $value, string $pattern): ?string
  * @psalm-pure
  *
  * @param iterable<string> $value
+ * @return iterable<string>
  */
 function allNotRegex(iterable $value, string $pattern): iterable
 {
@@ -42,6 +43,7 @@ function allNotRegex(iterable $value, string $pattern): iterable
  * @psalm-pure
  *
  * @param iterable<string|null> $value
+ * @return iterable<string|null>
  */
 function allNullOrNotRegex(iterable $value, string $pattern): iterable
 {

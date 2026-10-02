@@ -28,6 +28,8 @@ function nullOrIsArray(mixed $value): ?array
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<array>
  */
 function allIsArray(mixed $value): iterable
 {
@@ -38,6 +40,8 @@ function allIsArray(mixed $value): iterable
 
 /**
  * @psalm-pure
+ *
+ * @return iterable<array|null>
  */
 function allNullOrIsArray(mixed $value): iterable
 {
