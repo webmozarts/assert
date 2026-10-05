@@ -406,9 +406,8 @@ class Assert
     {
         Assert::object($value);
 
-        $reflectionProperty = new ReflectionProperty($value, $property);
-
-        if (!$reflectionProperty->isInitialized($value)) {
+        if (!\property_exists($value, $property)
+            || !(new ReflectionProperty($value, $property))->isInitialized($value)) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected property %s to be initialized.',

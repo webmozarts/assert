@@ -165,6 +165,10 @@ class AssertTest extends TestCase
                 public mixed $a;
                 public mixed $b = true;
             }, 'b'], true],
+            ['isInitialized', [new class {
+                public mixed $b = true;
+            }, 'a'], false],
+            ['isInitialized', [new ArrayObject(), 'storage'], false],
             ['isCallable', ['strlen'], true],
             ['isCallable', [[self::class, 'getTests']], true],
             ['isCallable', [function () {}], true],
