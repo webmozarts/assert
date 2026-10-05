@@ -522,6 +522,7 @@ class AssertTest extends TestCase
             ['propertyExists', [(object) ['property' => null], 'foo'], false],
             ['propertyNotExists', [(object) ['property' => 0], 'property'], false],
             ['propertyNotExists', [(object) ['property' => null], 'property'], false],
+            ['propertyNotExists', [(object) ['property' => null], 'foo'], true],
             ['methodExists', ['RuntimeException', 'getMessage'], true],
             ['methodExists', [new RuntimeException(), 'getMessage'], true],
             ['methodExists', ['stdClass', 'getMessage'], false],
