@@ -537,6 +537,11 @@ class AssertTest extends TestCase
             ['keyNotExists', [['key' => 0], 'key'], false],
             ['keyNotExists', [['key' => null], 'key'], false],
             ['keyNotExists', [['key' => null], 'foo'], true],
+            ['keysExist', [['a' => 0, 'b' => null], ['a', 'b']], true],
+            ['keysExist', [['a' => 0, 'b' => null], []], true],
+            ['keysExist', [['a' => 0], ['a', 'b']], false],
+            ['keysExist', [['a' => 0], ['b', 'c']], false],
+            ['keysExist', [['key' => null], new ArrayIterator(['key'])], true],
             ['validArrayKey', ['abcd'], true],
             ['validArrayKey', [1], true],
             ['validArrayKey', [false], false],
@@ -1078,6 +1083,11 @@ class AssertTest extends TestCase
                 'method' => 'keyNotExists',
                 'args' => [111, 'test', 'Value must be an array without key test. Got: %s'],
                 'exceptionMessage' => 'Value must be an array without key test. Got: integer',
+            ],
+            [
+                'method' => 'keysExist',
+                'args' => [111, ['test'], 'Value must be an array with keys test. Got: %s'],
+                'exceptionMessage' => 'Value must be an array with keys test. Got: integer',
             ],
             [
                 'method' => 'isInstanceOf',
