@@ -1554,7 +1554,7 @@ class Assert
     {
         static::string($value, $message);
 
-        if (!\preg_match('/^\p{L}+$/u', $value)) {
+        if (!\preg_match('/^\p{L}+$/uD', $value)) {
             $message = self::resolveMessage($message);
             static::reportInvalidArgument(\sprintf(
                 $message ?: 'Expected a value to contain only Unicode letters. Got: %s',
