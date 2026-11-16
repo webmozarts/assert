@@ -390,7 +390,7 @@ BODY;
                 $phpdocLines[] = trim($comment);
             }
 
-            if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'see' === $key) {
+            if ('deprecated' === $key || 'psalm-pure' === $key || 'psalm-assert' === $key || 'psalm-flow' === $key || 'see' === $key) {
                 $phpdocLines[] = '';
             }
         }
