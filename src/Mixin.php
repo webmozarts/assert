@@ -3177,11 +3177,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
+     * @template TAllowed
+     *
+     * @param array<array-key, TAllowed> $values
+     * @param string|callable():string   $message
      *
      * @psalm-flow ($value) -> return
      *
-     * @return mixed
+     * @return TAllowed|null
      *
      * @throws InvalidArgumentException
      */
@@ -3195,11 +3198,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
+     * @template TAllowed
+     *
+     * @param array<array-key, TAllowed> $values
+     * @param string|callable():string   $message
      *
      * @psalm-flow ($value) -> return
      *
-     * @return iterable
+     * @return iterable<TAllowed>
      *
      * @throws InvalidArgumentException
      */
@@ -3217,11 +3223,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
+     * @template TAllowed
+     *
+     * @param array<array-key, TAllowed> $values
+     * @param string|callable():string   $message
      *
      * @psalm-flow ($value) -> return
      *
-     * @return iterable
+     * @return iterable<TAllowed|null>
      *
      * @throws InvalidArgumentException
      */
@@ -3239,11 +3248,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
+     * @template TAllowed
+     *
+     * @param array<array-key, TAllowed> $values
+     * @param string|callable():string   $message
      *
      * @psalm-flow ($value) -> return
      *
-     * @return mixed
+     * @return TAllowed|null
      *
      * @throws InvalidArgumentException
      */
@@ -3257,11 +3269,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
+     * @template TAllowed
+     *
+     * @param array<array-key, TAllowed> $values
+     * @param string|callable():string   $message
      *
      * @psalm-flow ($value) -> return
      *
-     * @return iterable
+     * @return iterable<TAllowed>
      *
      * @throws InvalidArgumentException
      */
@@ -3279,11 +3294,14 @@ trait Mixin
     /**
      * @psalm-pure
      *
-     * @param string|callable():string $message
+     * @template TAllowed
+     *
+     * @param array<array-key, TAllowed> $values
+     * @param string|callable():string   $message
      *
      * @psalm-flow ($value) -> return
      *
-     * @return iterable
+     * @return iterable<TAllowed|null>
      *
      * @throws InvalidArgumentException
      */

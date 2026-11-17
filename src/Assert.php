@@ -1322,7 +1322,10 @@ class Assert
      *
      * @psalm-pure
      *
+     * @template TAllowed
+     * @param array<array-key, TAllowed> $values
      * @param string|callable():string $message
+     * @return TAllowed
      *
      * @psalm-flow ($value) -> return
      *
@@ -1340,7 +1343,10 @@ class Assert
      *
      * @psalm-pure
      *
+     * @template TAllowed
+     * @param array<array-key, TAllowed> $values
      * @param string|callable():string $message
+     * @return TAllowed
      *
      * @psalm-flow ($value) -> return
      *
